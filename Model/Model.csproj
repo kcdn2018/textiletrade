@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07A170DD-90C5-46C7-BCEE-C7A6363CAD5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SqlSugar, Version=5.0.4.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.4.3\lib\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessTable.cs" />
+    <Compile Include="ChangliangTable.cs" />
+    <Compile Include="CheckTable.cs" />
+    <Compile Include="ChiDianTable.cs" />
+    <Compile Include="CiDianNameTable.cs" />
+    <Compile Include="ClothChukuDetail.cs" />
+    <Compile Include="ClothFuliao.cs" />
+    <Compile Include="ClothInfo.cs" />
+    <Compile Include="ClothPlane.cs" />
+    <Compile Include="ClothPlaneDetail.cs" />
+    <Compile Include="ClothPlaneFuliao.cs" />
+    <Compile Include="ClothStock.cs" />
+    <Compile Include="Code.cs" />
+    <Compile Include="ColorTable.cs" />
+    <Compile Include="ColumnSetting.cs" />
+    <Compile Include="ColumnTable.cs" />
+    <Compile Include="DanjuLeiXing.cs" />
+    <Compile Include="danjumingxitable.cs" />
+    <Compile Include="DanjuTable.cs" />
+    <Compile Include="db.cs" />
+    <Compile Include="DeleteLog.cs" />
+    <Compile Include="DengJiNameTable.cs" />
+    <Compile Include="FahuoDan.cs" />
+    <Compile Include="FatherMenuTable.cs" />
+    <Compile Include="FirstLetter.cs" />
+    <Compile Include="FormUseful.cs" />
+    <Compile Include="FuliaoRukuDetail.cs" />
+    <Compile Include="GongYiYaoqiu.cs" />
+    <Compile Include="GonhuoshangLeixing.cs" />
+    <Compile Include="info.cs" />
+    <Compile Include="IsHanshuiModel.cs" />
+    <Compile Include="JiaziTable.cs" />
+    <Compile Include="JingZhouInfoTable.cs" />
+    <Compile Include="JiYangBaoJia.cs" />
+    <Compile Include="JuanHaoTable.cs" />
+    <Compile Include="KaijianTable.cs" />
+    <Compile Include="LaiYangTable.cs" />
+    <Compile Include="LeibieTable.cs" />
+    <Compile Include="LetterTable.cs" />
+    <Compile Include="LinkTable.cs" />
+    <Compile Include="liuzhuancard.cs" />
+    <Compile Include="liuzhuanlog.cs" />
+    <Compile Include="liuzhuanmingxi.cs" />
+    <Compile Include="LwDetail.cs" />
+    <Compile Include="LXR.cs" />
+    <Compile Include="MachineTable.cs" />
+    <Compile Include="MadanPicture.cs" />
+    <Compile Include="Maitou.cs" />
+    <Compile Include="MenuTable.cs" />
+    <Compile Include="OrderDetailTable.cs" />
+    <Compile Include="OrderTable.cs" />
+    <Compile Include="PriceTable.cs" />
+    <Compile Include="PrintModel.cs" />
+    <Compile Include="PrintSetting.cs" />
+    <Compile Include="ProcessTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryTime.cs" />
+    <Compile Include="RangChangStockTable.cs" />
+    <Compile Include="RangsetoupiTable.cs" />
+    <Compile Include="RangShequpiTable.cs" />
+    <Compile Include="RemainMoneyTable.cs" />
+    <Compile Include="ReportTable.cs" />
+    <Compile Include="RukuTable.cs" />
+    <Compile Include="Setting.cs" />
+    <Compile Include="ShengchanBaozhuang.cs" />
+    <Compile Include="ShengchanBuliaoInfo.cs" />
+    <Compile Include="ShengchanChanshangTable.cs" />
+    <Compile Include="ShengchandanGongyi.cs" />
+    <Compile Include="ShengchandanHouzhengli.cs" />
+    <Compile Include="ShengChanDanHouZhengLiYaoQiu.cs" />
+    <Compile Include="ShengchandanHuanbao.cs" />
+    <Compile Include="shengchandanqitayaoqiu.cs" />
+    <Compile Include="ShengchandanSeLaodu.cs" />
+    <Compile Include="ShengChanDanTable.cs" />
+    <Compile Include="ShengChanFuHeMingxi.cs" />
+    <Compile Include="ShengchanHouzhengli.cs" />
+    <Compile Include="ShengChengGongYi.cs" />
+    <Compile Include="ShouzhiStyle.cs" />
+    <Compile Include="SKFS.cs" />
+    <Compile Include="skmx.cs" />
+    <Compile Include="StockInfoTable.cs" />
+    <Compile Include="StockTable.cs" />
+    <Compile Include="TechnologyTable.cs" />
+    <Compile Include="version.cs" />
+    <Compile Include="WuliuTable.cs" />
+    <Compile Include="YangbuRukumingxi.cs" />
+    <Compile Include="YangBuStock.cs" />
+    <Compile Include="Yhb.cs" />
+    <Compile Include="YuanGongTable.cs" />
+    <Compile Include="YuanliaoDanjuDetail.cs" />
+    <Compile Include="YuanliaoLeiBieTable.cs" />
+    <Compile Include="YuanliaoStock.cs" />
+    <Compile Include="YuanliaoTable.cs" />
+    <Compile Include="ZhanhuiDetail.cs" />
+    <Compile Include="ZhijiaMingxiTable.cs" />
+    <Compile Include="ZhijiaTable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

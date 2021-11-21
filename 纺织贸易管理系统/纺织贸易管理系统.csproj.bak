@@ -1,0 +1,1088 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{300450D3-B7E2-439D-B62D-3B622AE4B641}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>纺织贸易管理系统</RootNamespace>
+    <AssemblyName>纺织贸易管理系统</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>纺织贸易管理系统.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon %283%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSkin">
+      <HintPath>..\..\纺织贸易管理\纺织贸易管理系统\Scmanager\bin\x86\Debug\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Schedule, Version=14.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=14.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=14.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files (x86)\DotNetBar for Windows Forms\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FastReport, Version=2018.3.13.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\baidu\FastReport .NET2018 3.6完美破解版带demo绿色免安装\FastReport.Net Trial\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
+    <Compile Include="MainForm.cs" />
+    <Compile Include="PrintPath.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="其他窗体\CopyRow.cs" />
+    <Compile Include="其他窗体\对账单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\对账单.Designer.cs">
+      <DependentUpon>对账单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他窗体\寻找样布.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\寻找样布.Designer.cs">
+      <DependentUpon>寻找样布.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他窗体\唛头关联.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\唛头关联.Designer.cs">
+      <DependentUpon>唛头关联.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他窗体\录入可发卷.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\录入可发卷.Designer.cs">
+      <DependentUpon>录入可发卷.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他窗体\码单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\码单.Designer.cs">
+      <DependentUpon>码单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\色号资料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\色号资料.Designer.cs">
+      <DependentUpon>色号资料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\支架信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\支架信息.Designer.cs">
+      <DependentUpon>支架信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\仓库信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\仓库信息.Designer.cs">
+      <DependentUpon>仓库信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\物流管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\物流管理.Designer.cs">
+      <DependentUpon>物流管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\员工管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\员工管理.Designer.cs">
+      <DependentUpon>员工管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\供货商资料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\供货商资料.Designer.cs">
+      <DependentUpon>供货商资料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\客户资料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\客户资料.Designer.cs">
+      <DependentUpon>客户资料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\品种资料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\品种资料.Designer.cs">
+      <DependentUpon>品种资料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\发票签收查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\发票签收查询.Designer.cs">
+      <DependentUpon>发票签收查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\坯布日产量统计.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\坯布日产量统计.Designer.cs">
+      <DependentUpon>坯布日产量统计.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\打样工艺单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\打样工艺单查询.Designer.cs">
+      <DependentUpon>打样工艺单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\订单进度.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\订单进度.Designer.cs">
+      <DependentUpon>订单进度.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\门市采样统计.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\门市采样统计.Designer.cs">
+      <DependentUpon>门市采样统计.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\来样报价查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\来样报价查询.Designer.cs">
+      <DependentUpon>来样报价查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\退货申请单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\退货申请单查询.Designer.cs">
+      <DependentUpon>退货申请单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\应付款查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\应付款查询.Designer.cs">
+      <DependentUpon>应付款查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\应收款查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\应收款查询.Designer.cs">
+      <DependentUpon>应收款查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\寄样统计.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\寄样统计.Designer.cs">
+      <DependentUpon>寄样统计.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\打卷报表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\打卷报表.Designer.cs">
+      <DependentUpon>打卷报表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\付款记录.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\付款记录.Designer.cs">
+      <DependentUpon>付款记录.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\收款记录.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\收款记录.Designer.cs">
+      <DependentUpon>收款记录.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\期初入库查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\期初入库查询.Designer.cs">
+      <DependentUpon>期初入库查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\生产计划单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\生产计划单查询.Designer.cs">
+      <DependentUpon>生产计划单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="基本资料\疵点信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="基本资料\疵点信息.Designer.cs">
+      <DependentUpon>疵点信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\盘亏出库查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\盘亏出库查询.Designer.cs">
+      <DependentUpon>盘亏出库查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\盘盈入库查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\盘盈入库查询.Designer.cs">
+      <DependentUpon>盘盈入库查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\发票开具查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\发票开具查询.Designer.cs">
+      <DependentUpon>发票开具查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\发货通知单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\发货通知单查询.Designer.cs">
+      <DependentUpon>发货通知单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\采购通知单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\采购通知单查询.Designer.cs">
+      <DependentUpon>采购通知单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\采购退货查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\采购退货查询.Designer.cs">
+      <DependentUpon>采购退货查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\销售计划单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\销售计划单查询.Designer.cs">
+      <DependentUpon>销售计划单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\寄样单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\寄样单查询.Designer.cs">
+      <DependentUpon>寄样单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\销售发货单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\销售发货单查询.Designer.cs">
+      <DependentUpon>销售发货单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\销售退货查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\销售退货查询.Designer.cs">
+      <DependentUpon>销售退货查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\委外取货查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\委外取货查询.Designer.cs">
+      <DependentUpon>委外取货查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\库存报表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\库存报表.Designer.cs">
+      <DependentUpon>库存报表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\委外加工查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\委外加工查询.Designer.cs">
+      <DependentUpon>委外加工查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\采购查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\采购查询.Designer.cs">
+      <DependentUpon>采购查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\发票开具单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\发票开具单.Designer.cs">
+      <DependentUpon>发票开具单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\打样工艺单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\打样工艺单.Designer.cs">
+      <DependentUpon>打样工艺单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增支架.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增支架.Designer.cs">
+      <DependentUpon>新增支架.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增用户.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增用户.Designer.cs">
+      <DependentUpon>新增用户.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\白坯日产量单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\白坯日产量单.Designer.cs">
+      <DependentUpon>白坯日产量单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\门市采样单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\门市采样单.Designer.cs">
+      <DependentUpon>门市采样单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\来样报价单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\来样报价单.Designer.cs">
+      <DependentUpon>来样报价单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\退货申请单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\退货申请单.Designer.cs">
+      <DependentUpon>退货申请单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\委外取货单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\委外取货单.Designer.cs">
+      <DependentUpon>委外取货单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\付款单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\付款单.Designer.cs">
+      <DependentUpon>付款单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\收款单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\收款单.Designer.cs">
+      <DependentUpon>收款单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增疵点.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增疵点.Designer.cs">
+      <DependentUpon>新增疵点.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增员工.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增员工.Designer.cs">
+      <DependentUpon>新增员工.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增物流.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增物流.Designer.cs">
+      <DependentUpon>新增物流.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增供货商.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增供货商.Designer.cs">
+      <DependentUpon>新增供货商.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增仓库.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增仓库.Designer.cs">
+      <DependentUpon>新增仓库.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增客户.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增客户.Designer.cs">
+      <DependentUpon>新增客户.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\生成指示单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\生成指示单.Designer.cs">
+      <DependentUpon>生成指示单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\盘亏出库单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\盘亏出库单.Designer.cs">
+      <DependentUpon>盘亏出库单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\期初入库单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\期初入库单.Designer.cs">
+      <DependentUpon>期初入库单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\盘盈入库单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\盘盈入库单.Designer.cs">
+      <DependentUpon>盘盈入库单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\费用申请单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\费用申请单.Designer.cs">
+      <DependentUpon>费用申请单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\发票签收单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\发票签收单.Designer.cs">
+      <DependentUpon>发票签收单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\发货通知单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\发货通知单.Designer.cs">
+      <DependentUpon>发货通知单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\采购通知单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\采购通知单.Designer.cs">
+      <DependentUpon>采购通知单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\销售退货单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\销售退货单.Designer.cs">
+      <DependentUpon>销售退货单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\采购退货单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\采购退货单.Designer.cs">
+      <DependentUpon>采购退货单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\销售发货单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\销售发货单.Designer.cs">
+      <DependentUpon>销售发货单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\寄样单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\寄样单.Designer.cs">
+      <DependentUpon>寄样单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\新增品种.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\新增品种.Designer.cs">
+      <DependentUpon>新增品种.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\委外加工单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\委外加工单.Designer.cs">
+      <DependentUpon>委外加工单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\采购入库单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\采购入库单.Designer.cs">
+      <DependentUpon>采购入库单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\销售计划单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\销售计划单.Designer.cs">
+      <DependentUpon>销售计划单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="登录窗体.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="登录窗体.Designer.cs">
+      <DependentUpon>登录窗体.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\CreateGrid.cs" />
+    <Compile Include="设置窗体\ExportFile.cs" />
+    <Compile Include="设置窗体\InpuBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\InpuBox.Designer.cs">
+      <DependentUpon>InpuBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\公司信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\公司信息.Designer.cs">
+      <DependentUpon>公司信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\打印设置窗体.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\打印设置窗体.Designer.cs">
+      <DependentUpon>打印设置窗体.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\权限管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\权限管理.Designer.cs">
+      <DependentUpon>权限管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\用户管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\用户管理.Designer.cs">
+      <DependentUpon>用户管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\菜单管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\菜单管理.Designer.cs">
+      <DependentUpon>菜单管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\输入密码.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\输入密码.Designer.cs">
+      <DependentUpon>输入密码.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设置窗体\配置列.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设置窗体\配置列.Designer.cs">
+      <DependentUpon>配置列.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\仓库选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\仓库选择.Designer.cs">
+      <DependentUpon>仓库选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\供货商选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\供货商选择.Designer.cs">
+      <DependentUpon>供货商选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\订单明细选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\订单明细选择.Designer.cs">
+      <DependentUpon>订单明细选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\收款方式.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\收款方式.Designer.cs">
+      <DependentUpon>收款方式.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\员工选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\员工选择.Designer.cs">
+      <DependentUpon>员工选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\库存选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\库存选择.Designer.cs">
+      <DependentUpon>库存选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\品种选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\品种选择.Designer.cs">
+      <DependentUpon>品种选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\客户选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\客户选择.Designer.cs">
+      <DependentUpon>客户选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\打印机选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\打印机选择.Designer.cs">
+      <DependentUpon>打印机选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\物流选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\物流选择.Designer.cs">
+      <DependentUpon>物流选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="选择窗体\订单号选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\订单号选择.Designer.cs">
+      <DependentUpon>订单号选择.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="其他窗体\唛头关联.resx">
+      <DependentUpon>唛头关联.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\对账单.resx">
+      <DependentUpon>对账单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\寻找样布.resx">
+      <DependentUpon>寻找样布.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\录入可发卷.resx">
+      <DependentUpon>录入可发卷.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\码单.resx">
+      <DependentUpon>码单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\疵点信息.resx">
+      <DependentUpon>疵点信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\色号资料.resx">
+      <DependentUpon>色号资料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\支架信息.resx">
+      <DependentUpon>支架信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\仓库信息.resx">
+      <DependentUpon>仓库信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\物流管理.resx">
+      <DependentUpon>物流管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\员工管理.resx">
+      <DependentUpon>员工管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\供货商资料.resx">
+      <DependentUpon>供货商资料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\客户资料.resx">
+      <DependentUpon>客户资料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="基本资料\品种资料.resx">
+      <DependentUpon>品种资料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\发票签收查询.resx">
+      <DependentUpon>发票签收查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\坯布日产量统计.resx">
+      <DependentUpon>坯布日产量统计.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\打样工艺单查询.resx">
+      <DependentUpon>打样工艺单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\订单进度.resx">
+      <DependentUpon>订单进度.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\门市采样统计.resx">
+      <DependentUpon>门市采样统计.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\来样报价查询.resx">
+      <DependentUpon>来样报价查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\退货申请单查询.resx">
+      <DependentUpon>退货申请单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\应付款查询.resx">
+      <DependentUpon>应付款查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\应收款查询.resx">
+      <DependentUpon>应收款查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\寄样统计.resx">
+      <DependentUpon>寄样统计.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\打卷报表.resx">
+      <DependentUpon>打卷报表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\付款记录.resx">
+      <DependentUpon>付款记录.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\收款记录.resx">
+      <DependentUpon>收款记录.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\期初入库查询.resx">
+      <DependentUpon>期初入库查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\生产计划单查询.resx">
+      <DependentUpon>生产计划单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\盘亏出库查询.resx">
+      <DependentUpon>盘亏出库查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\盘盈入库查询.resx">
+      <DependentUpon>盘盈入库查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\发票开具查询.resx">
+      <DependentUpon>发票开具查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\发货通知单查询.resx">
+      <DependentUpon>发货通知单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\采购通知单查询.resx">
+      <DependentUpon>采购通知单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\采购退货查询.resx">
+      <DependentUpon>采购退货查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\销售计划单查询.resx">
+      <DependentUpon>销售计划单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\寄样单查询.resx">
+      <DependentUpon>寄样单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\销售发货单查询.resx">
+      <DependentUpon>销售发货单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\销售退货查询.resx">
+      <DependentUpon>销售退货查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\委外取货查询.resx">
+      <DependentUpon>委外取货查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\库存报表.resx">
+      <DependentUpon>库存报表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\委外加工查询.resx">
+      <DependentUpon>委外加工查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\采购查询.resx">
+      <DependentUpon>采购查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\发票开具单.resx">
+      <DependentUpon>发票开具单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\打样工艺单.resx">
+      <DependentUpon>打样工艺单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增支架.resx">
+      <DependentUpon>新增支架.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增用户.resx">
+      <DependentUpon>新增用户.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\白坯日产量单.resx">
+      <DependentUpon>白坯日产量单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\门市采样单.resx">
+      <DependentUpon>门市采样单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\来样报价单.resx">
+      <DependentUpon>来样报价单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\退货申请单.resx">
+      <DependentUpon>退货申请单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\委外取货单.resx">
+      <DependentUpon>委外取货单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\付款单.resx">
+      <DependentUpon>付款单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\收款单.resx">
+      <DependentUpon>收款单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增疵点.resx">
+      <DependentUpon>新增疵点.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增员工.resx">
+      <DependentUpon>新增员工.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增物流.resx">
+      <DependentUpon>新增物流.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增供货商.resx">
+      <DependentUpon>新增供货商.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增仓库.resx">
+      <DependentUpon>新增仓库.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增客户.resx">
+      <DependentUpon>新增客户.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\生成指示单.resx">
+      <DependentUpon>生成指示单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\盘亏出库单.resx">
+      <DependentUpon>盘亏出库单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\期初入库单.resx">
+      <DependentUpon>期初入库单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\盘盈入库单.resx">
+      <DependentUpon>盘盈入库单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\发票签收单.resx">
+      <DependentUpon>发票签收单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\发货通知单.resx">
+      <DependentUpon>发货通知单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\采购通知单.resx">
+      <DependentUpon>采购通知单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\销售退货单.resx">
+      <DependentUpon>销售退货单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\采购退货单.resx">
+      <DependentUpon>采购退货单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\销售发货单.resx">
+      <DependentUpon>销售发货单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\寄样单.resx">
+      <DependentUpon>寄样单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\新增品种.resx">
+      <DependentUpon>新增品种.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\委外加工单.resx">
+      <DependentUpon>委外加工单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\采购入库单.resx">
+      <DependentUpon>采购入库单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\销售计划单.resx">
+      <DependentUpon>销售计划单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="登录窗体.resx">
+      <DependentUpon>登录窗体.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\InpuBox.resx">
+      <DependentUpon>InpuBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\公司信息.resx">
+      <DependentUpon>公司信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\打印设置窗体.resx">
+      <DependentUpon>打印设置窗体.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\权限管理.resx">
+      <DependentUpon>权限管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\用户管理.resx">
+      <DependentUpon>用户管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\菜单管理.resx">
+      <DependentUpon>菜单管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\输入密码.resx">
+      <DependentUpon>输入密码.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设置窗体\配置列.resx">
+      <DependentUpon>配置列.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\仓库选择.resx">
+      <DependentUpon>仓库选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\供货商选择.resx">
+      <DependentUpon>供货商选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\订单明细选择.resx">
+      <DependentUpon>订单明细选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\收款方式.resx">
+      <DependentUpon>收款方式.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\员工选择.resx">
+      <DependentUpon>员工选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\库存选择.resx">
+      <DependentUpon>库存选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\品种选择.resx">
+      <DependentUpon>品种选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\客户选择.resx">
+      <DependentUpon>客户选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\打印机选择.resx">
+      <DependentUpon>打印机选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\物流选择.resx">
+      <DependentUpon>物流选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\订单号选择.resx">
+      <DependentUpon>订单号选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\多福纺织软件\多福纺织\SQLHelper\SQLHelper.csproj">
+      <Project>{2a851f7b-8772-408d-bfaa-fdaf5d25eaf0}</Project>
+      <Name>SQLHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{59f481bf-0de3-4fec-9512-9fcbeb96f364}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{c6fea1fd-75bf-488d-acab-30d77525700f}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{07a170dd-90c5-46c7-bcee-c7a6363cad5d}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{2f2d638d-363b-4bf6-bb44-c206fdfc6e3c}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apply_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clear_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteList_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectAll_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reading_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reading_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notes_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportToXLS_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintPreview_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon %283%29.ico" />
+    <None Include="Resources\Find_32x32.png" />
+    <None Include="Resources\Paste_32x32.png" />
+    <None Include="Resources\Copy_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAll_32x32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
