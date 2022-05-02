@@ -56,6 +56,8 @@
             this.配置列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txthouzhengli = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -142,6 +144,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txthouzhengli);
+            this.groupPanel1.Controls.Add(this.labelX7);
             this.groupPanel1.Controls.Add(this.txtGuige);
             this.groupPanel1.Controls.Add(this.labelX9);
             this.groupPanel1.Controls.Add(this.txtyingwenming);
@@ -198,7 +202,7 @@
             // 
             this.txtGuige.Border.Class = "TextBoxBorder";
             this.txtGuige.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuige.Location = new System.Drawing.Point(70, 94);
+            this.txtGuige.Location = new System.Drawing.Point(70, 93);
             this.txtGuige.Name = "txtGuige";
             this.txtGuige.PreventEnterBeep = true;
             this.txtGuige.Size = new System.Drawing.Size(121, 21);
@@ -211,7 +215,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(7, 93);
+            this.labelX9.Location = new System.Drawing.Point(7, 92);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(57, 23);
             this.labelX9.TabIndex = 31;
@@ -420,6 +424,32 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
+            // txthouzhengli
+            // 
+            // 
+            // 
+            // 
+            this.txthouzhengli.Border.Class = "TextBoxBorder";
+            this.txthouzhengli.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthouzhengli.Location = new System.Drawing.Point(259, 93);
+            this.txthouzhengli.Name = "txthouzhengli";
+            this.txthouzhengli.PreventEnterBeep = true;
+            this.txthouzhengli.Size = new System.Drawing.Size(121, 21);
+            this.txthouzhengli.TabIndex = 34;
+            this.txthouzhengli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpingming_KeyDown);
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(198, 92);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(55, 23);
+            this.labelX7.TabIndex = 33;
+            this.labelX7.Text = "后整理";
+            // 
             // 来样报价查询
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -476,5 +506,7 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.Controls.TextBoxX txtGuige;
         private DevComponents.DotNetBar.LabelX labelX9;
+        private DevComponents.DotNetBar.Controls.TextBoxX txthouzhengli;
+        private DevComponents.DotNetBar.LabelX labelX7;
     }
 }

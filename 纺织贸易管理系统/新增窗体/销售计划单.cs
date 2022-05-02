@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Microsoft.VisualBasic.ApplicationServices;
 using Model;
 using System;
@@ -28,6 +29,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             InitializeComponent();
             CreateGrid.Create(this.Name, gridView1);
+            checkBoxX1.Checked = Convert.ToBoolean(SettingService.GetSetting(new Setting() { formname = this.Name, settingname = "自动订单号编号", settingValue = "True" }).settingValue);
             try
             {
                 gridView1.Columns["sampleNum"].ColumnEdit = ButtonEdit1;
@@ -50,7 +52,6 @@ namespace 纺织贸易管理系统.新增窗体
             }
           
         }
-
         private void txtkehu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var fm = new 客户选择() { linkman=new LXR() { ZJC="",MC=""  } };
@@ -89,6 +90,7 @@ namespace 纺织贸易管理系统.新增窗体
                 orderDetailTables[i].color  = pingzhong.ys ;
                 orderDetailTables[i].Total  = 0;
                 orderDetailTables[i].Unit  = "米";
+                orderDetailTables[i].danwei = "米";
                 orderDetailTables[i].price  = pingzhong.jg .TryToDecmial(0);
                 i++;
             }
@@ -129,9 +131,13 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void Init()
         {
-            dateEdit1.DateTime = DateTime.Now.Date;
+            dateEdit1.DateTime = DateTime.Now;
+            comhanshui.Text = QueryTime.IsTax;
             txtbeizhu.Text = order.Remakers;
-            txtdanhao.Text = BianhaoBLL.CreatOrderNum(FirstLetter.销售计划单, dateEdit1.DateTime.Date );
+            if (checkBoxX1.Checked)
+            {
+                txtdanhao.Text = BianhaoBLL.CreatOrderNum(FirstLetter.销售计划单, dateEdit1.DateTime.Date);
+            }
             txtdingjing.Value = 0;
             txthetonghao.Text = "";
             txtkehu.Text = "";
@@ -156,7 +162,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             order.ContractNum = txthetonghao.Text;
             order.CustomerName = txtkehu.Text;
-            order.Orderdate = Convert.ToDateTime(dateEdit1.Text);
+            order.Orderdate =dateEdit1.DateTime ;
             order.TotalNum = orderDetailTables.Sum(x => x.Num);
             order.SumMoney = orderDetailTables.Sum(x => x.Total);
             order.ShengHe = "已审核";
@@ -241,7 +247,7 @@ namespace 纺织贸易管理系统.新增窗体
                         Hetonghao = txthetonghao.Text,
                         hejiyutoumishu = orderDetailTables.Sum(x => x.YutouMishu),
                         OrderNum = txtdanhao.Text,
-                        riqi = DateTime.Now.Date,
+                        riqi = DateTime.Now,
                         own = User.user.YHBH,
                         Xiadanyuan = txtyewuyuan.Text
                     },
@@ -258,7 +264,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<OrderDetailTable >(orderDetailTables , rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<OrderDetailTable >(orderDetailTables , rowindex, gridView1, gridView1.FocusedRowHandle,this);
         }
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -281,7 +287,7 @@ namespace 纺织贸易管理系统.新增窗体
                 //if (useful == FormUseful.新增)
                 //{
                 //    txtdanhao.Text = BianhaoBLL.CreatOrderNum("S", User.user.YHBH);
-                //    dateEdit1.Text = DateTime.Now.ToShortDateString();
+                //   dateEdit1.DateTime= DateTime.Now.ToShortDateString();
                 //    dateEdit2.Text = DateTime.Now.AddDays(30).ToShortDateString();
                 //}
                 Init();
@@ -315,7 +321,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             txtbeizhu.Text = order .Remakers ;
             txtdanhao.Text = order.OrderNum;
-            dateEdit1.Text = order.Orderdate.ToShortDateString();
+            dateEdit1.DateTime= order.Orderdate;
             txtdingjing.Text = order.Deposit.ToString ();
             txthetonghao.Text = order.ContractNum;
             txtkehu.Text = order.CustomerName;
@@ -394,6 +400,11 @@ namespace 纺织贸易管理系统.新增窗体
         private void checkBoxX1_CheckedChanged(object sender, EventArgs e)
         {
             txtdanhao.ReadOnly = checkBoxX1.Checked;
+            if(checkBoxX1.Checked )
+            {
+                txtdanhao.Text= BianhaoBLL.CreatOrderNum("S", dateEdit1.DateTime);
+            }
+            SettingService.Update(new Setting() { formname = this.Name, settingname = "自动订单号编号", settingValue = checkBoxX1.Checked.ToString() });
         }
 
         private void 保存样式ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -414,7 +425,39 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     dateEdit1.DateTime = DateTime.Now;
                 }
-                txtdanhao.Text = BianhaoBLL.CreatOrderNum ("S", dateEdit1.DateTime);
+                if (checkBoxX1.Checked)
+                {
+                    txtdanhao.Text = BianhaoBLL.CreatOrderNum("S", dateEdit1.DateTime);
+                }
+            }
+        }
+
+        private void colorbtn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridView1.CloseEditor();
+                var colorlist = ColorTableService.GetColorTablelst(x => x.ColorNum.Contains(orderDetailTables [gridView1.FocusedRowHandle].color ));
+                ColorTable color = new ColorTable();
+                if (colorlist.Count > 1)
+                {
+                    var fm = new 色号选择() { colorInfo = new ColorTable() { ColorNum = orderDetailTables[gridView1.FocusedRowHandle].color } };
+                    fm.ShowDialog();
+                    color = fm.colorInfo;
+                }
+                else
+                {
+                    if (colorlist.Count == 1)
+                    {
+                        color = colorlist[0];
+                    }
+                }
+                if (!string.IsNullOrEmpty(color.ColorNum))
+                {
+                    orderDetailTables [gridView1.FocusedRowHandle].ColorNum = color.ColorNum;
+                    orderDetailTables[gridView1.FocusedRowHandle].color = color.ColorName;
+                }
+                gridControl1.RefreshDataSource();
             }
         }
     }

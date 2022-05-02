@@ -61,5 +61,9 @@ namespace 纺织贸易管理系统
         /// 坯布价格
         /// </summary>
         public Decimal PibuPrice { get; set; }
+        /// <summary>
+        /// 供货商布料编号
+        /// </summary>
+        public string SupplierNum { get; set; }
     }
 }

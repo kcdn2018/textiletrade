@@ -36,6 +36,11 @@
             this.码单编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.码单预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.直接打印ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印库存单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.直接打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成质检报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbmaitou = new System.Windows.Forms.ToolStripComboBox();
             this.转98码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,6 +99,7 @@
             this.txtgangjuan = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtchangdu = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.ColDengji = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbdanwei = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txthejijuanshu = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -101,6 +107,14 @@
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -111,6 +125,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbdanwei)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -118,13 +137,15 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.确定ToolStripMenuItem,
             this.打印码单ToolStripMenuItem,
+            this.打印库存单ToolStripMenuItem,
+            this.生成质检报告ToolStripMenuItem,
             this.toolStripMenuItem1,
             this.cmbmaitou,
             this.转98码ToolStripMenuItem,
             this.txtMalv});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(702, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(818, 40);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -173,6 +194,48 @@
             this.直接打印ToolStripMenuItem1.Text = "直接打印";
             this.直接打印ToolStripMenuItem1.Click += new System.EventHandler(this.直接打印ToolStripMenuItem1_Click);
             // 
+            // 打印库存单ToolStripMenuItem
+            // 
+            this.打印库存单ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.打印编辑ToolStripMenuItem,
+            this.打印预览ToolStripMenuItem,
+            this.直接打印ToolStripMenuItem});
+            this.打印库存单ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
+            this.打印库存单ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.打印库存单ToolStripMenuItem.Name = "打印库存单ToolStripMenuItem";
+            this.打印库存单ToolStripMenuItem.Size = new System.Drawing.Size(112, 36);
+            this.打印库存单ToolStripMenuItem.Text = "打印库存单";
+            // 
+            // 打印编辑ToolStripMenuItem
+            // 
+            this.打印编辑ToolStripMenuItem.Name = "打印编辑ToolStripMenuItem";
+            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印编辑ToolStripMenuItem.Text = "打印编辑";
+            this.打印编辑ToolStripMenuItem.Click += new System.EventHandler(this.打印编辑ToolStripMenuItem_Click);
+            // 
+            // 打印预览ToolStripMenuItem
+            // 
+            this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印预览ToolStripMenuItem.Text = "打印预览";
+            this.打印预览ToolStripMenuItem.Click += new System.EventHandler(this.打印预览ToolStripMenuItem_Click);
+            // 
+            // 直接打印ToolStripMenuItem
+            // 
+            this.直接打印ToolStripMenuItem.Name = "直接打印ToolStripMenuItem";
+            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.直接打印ToolStripMenuItem.Text = "直接打印";
+            this.直接打印ToolStripMenuItem.Click += new System.EventHandler(this.直接打印ToolStripMenuItem_Click);
+            // 
+            // 生成质检报告ToolStripMenuItem
+            // 
+            this.生成质检报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ReportLayoutPivotTable_32x32;
+            this.生成质检报告ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.生成质检报告ToolStripMenuItem.Name = "生成质检报告ToolStripMenuItem";
+            this.生成质检报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.生成质检报告ToolStripMenuItem.Text = "生成质检报告";
+            this.生成质检报告ToolStripMenuItem.Click += new System.EventHandler(this.生成质检报告ToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Enabled = false;
@@ -206,6 +269,7 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.gridControl2);
             this.groupPanel1.Controls.Add(this.txtsehao);
             this.groupPanel1.Controls.Add(this.labelX24);
             this.groupPanel1.Controls.Add(this.txtkehusehao);
@@ -250,7 +314,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPanel1.Location = new System.Drawing.Point(0, 40);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(702, 167);
+            this.groupPanel1.Size = new System.Drawing.Size(818, 167);
             // 
             // 
             // 
@@ -935,7 +999,7 @@
             this.txtgangjuan,
             this.txtchangdu,
             this.cmbdanwei});
-            this.gridControl1.Size = new System.Drawing.Size(702, 301);
+            this.gridControl1.Size = new System.Drawing.Size(818, 301);
             this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -959,7 +1023,8 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.ColDengji});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsNavigation.AutoFocusNewRow = true;
@@ -1004,15 +1069,25 @@
             this.txtchangdu.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtchangdu.Name = "txtchangdu";
             // 
+            // ColDengji
+            // 
+            this.ColDengji.Caption = "等级";
+            this.ColDengji.ColumnEdit = this.cmbdanwei;
+            this.ColDengji.FieldName = "DengJI";
+            this.ColDengji.Name = "ColDengji";
+            this.ColDengji.Visible = true;
+            this.ColDengji.VisibleIndex = 3;
+            // 
             // cmbdanwei
             // 
             this.cmbdanwei.AutoHeight = false;
             this.cmbdanwei.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbdanwei.Items.AddRange(new object[] {
-            "米",
-            "码",
-            "公斤"});
+            "A",
+            "B",
+            "C",
+            "D"});
             this.cmbdanwei.Name = "cmbdanwei";
             // 
             // panel1
@@ -1027,7 +1102,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 508);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(702, 41);
+            this.panel1.Size = new System.Drawing.Size(818, 41);
             this.panel1.TabIndex = 7;
             // 
             // txthejijuanshu
@@ -1094,14 +1169,97 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 207);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(702, 301);
+            this.panel2.Size = new System.Drawing.Size(818, 301);
             this.panel2.TabIndex = 8;
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl2.Location = new System.Drawing.Point(707, 45);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1,
+            this.repositoryItemTextEdit2,
+            this.repositoryItemComboBox1});
+            this.gridControl2.Size = new System.Drawing.Size(119, 301);
+            this.gridControl2.TabIndex = 7;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            this.gridControl2.Visible = false;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5});
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridView2.OptionsNavigation.EnterMoveNextColumn = true;
+            this.gridView2.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "缸卷号";
+            this.gridColumn3.ColumnEdit = this.repositoryItemTextEdit1;
+            this.gridColumn3.FieldName = "PiHao";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsEditForm.StartNewRow = true;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "长度";
+            this.gridColumn4.ColumnEdit = this.repositoryItemTextEdit2;
+            this.gridColumn4.FieldName = "biaoqianmishu";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "等级";
+            this.gridColumn5.ColumnEdit = this.repositoryItemComboBox1;
+            this.gridColumn5.FieldName = "DengJI";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
             // 录入可发卷
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 549);
+            this.ClientSize = new System.Drawing.Size(818, 549);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupPanel1);
@@ -1124,6 +1282,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbdanwei)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1202,5 +1365,19 @@
         private System.Windows.Forms.ToolStripComboBox cmbmaitou;
         private System.Windows.Forms.ToolStripMenuItem 转98码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox txtMalv;
+        private System.Windows.Forms.ToolStripMenuItem 打印库存单ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打印编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打印预览ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 直接打印ToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn ColDengji;
+        private System.Windows.Forms.ToolStripMenuItem 生成质检报告ToolStripMenuItem;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
     }
 }

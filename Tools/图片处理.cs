@@ -75,6 +75,27 @@ namespace Tools
                 return image;
             }
         }
+        public static Bitmap  BytesToBitmap(byte[] buffer)
+        {
+            MemoryStream stream = null;
+            try
+            {
+                stream = new MemoryStream(buffer );
+                return new Bitmap((Image)new Bitmap(stream));
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            catch (ArgumentException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                stream.Close();
+            }
+        }
     }
 
 }

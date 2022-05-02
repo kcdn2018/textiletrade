@@ -103,6 +103,26 @@ namespace 纺织贸易管理系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap BO_Document {
+            get {
+                object obj = ResourceManager.GetObject("BO_Document", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BO_Document_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("BO_Document_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap BOFolder_16x16 {
             get {
                 object obj = ResourceManager.GetObject("BOFolder_16x16", resourceCulture);
@@ -373,6 +393,16 @@ namespace 纺织贸易管理系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap ReportLayoutPivotTable_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("ReportLayoutPivotTable_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap SaveAll_32x32 {
             get {
                 object obj = ResourceManager.GetObject("SaveAll_32x32", resourceCulture);
@@ -403,9 +433,129 @@ namespace 纺织贸易管理系统.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap UpdateTableOfContents_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UpdateTableOfContents_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Zoom_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Zoom_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 基本资料 {
+            get {
+                object obj = ResourceManager.GetObject("基本资料", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 基本资料1 {
+            get {
+                object obj = ResourceManager.GetObject("基本资料1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 展会管理 {
+            get {
+                object obj = ResourceManager.GetObject("展会管理", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 库存管理 {
+            get {
+                object obj = ResourceManager.GetObject("库存管理", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 样品管理 {
+            get {
+                object obj = ResourceManager.GetObject("样品管理", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 生产管理 {
+            get {
+                object obj = ResourceManager.GetObject("生产管理", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 系统信息 {
+            get {
+                object obj = ResourceManager.GetObject("系统信息", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 菜单 {
+            get {
+                object obj = ResourceManager.GetObject("菜单", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 财务管理 {
+            get {
+                object obj = ResourceManager.GetObject("财务管理", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 采购管理 {
+            get {
+                object obj = ResourceManager.GetObject("采购管理", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 销售管理 {
+            get {
+                object obj = ResourceManager.GetObject("销售管理", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

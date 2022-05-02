@@ -54,7 +54,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.确定ToolStripMenuItem,
             this.查询ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 35);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 40);
             this.menuStrip1.TabIndex = 0;
@@ -83,20 +83,23 @@
             this.groupControl1.Controls.Add(this.txtzhujici);
             this.groupControl1.Controls.Add(this.labelX1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 40);
+            this.groupControl1.Location = new System.Drawing.Point(0, 75);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(800, 89);
+            this.groupControl1.Size = new System.Drawing.Size(800, 72);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "查询条件";
             // 
             // txtzhujici
             // 
+            this.txtzhujici.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtzhujici.Border.Class = "TextBoxBorder";
             this.txtzhujici.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtzhujici.Location = new System.Drawing.Point(69, 44);
+            this.txtzhujici.DisabledBackColor = System.Drawing.Color.White;
+            this.txtzhujici.ForeColor = System.Drawing.Color.Black;
+            this.txtzhujici.Location = new System.Drawing.Point(70, 37);
             this.txtzhujici.Name = "txtzhujici";
             this.txtzhujici.PreventEnterBeep = true;
             this.txtzhujici.Size = new System.Drawing.Size(166, 22);
@@ -109,7 +112,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(12, 44);
+            this.labelX1.Location = new System.Drawing.Point(13, 37);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(60, 23);
             this.labelX1.TabIndex = 0;
@@ -119,10 +122,10 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 129);
+            this.gridControl1.Location = new System.Drawing.Point(0, 147);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(800, 321);
+            this.gridControl1.Size = new System.Drawing.Size(800, 303);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -171,7 +174,7 @@
             // 
             // 员工选择
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gridControl1);
@@ -182,8 +185,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "员工选择";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "员工选择";
+            this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.客户选择_FormClosed);
             this.Load += new System.EventHandler(this.客户选择_Load);
             this.menuStrip1.ResumeLayout(false);

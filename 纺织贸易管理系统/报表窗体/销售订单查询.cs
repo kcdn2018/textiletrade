@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Tools;
 using 纺织贸易管理系统.其他窗体;
 using 纺织贸易管理系统.新增窗体;
+using 纺织贸易管理系统.汇总窗体;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -48,20 +49,23 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (AccessBLL.CheckAccess("删除销售计划单"))
+            if (gridView1.FocusedRowHandle >= 0)
             {
-                if ((int)(MessageBox.Show("您确定要删除改销售计划单吗？确定按YES.取消按NO", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == 6)
+                if (AccessBLL.CheckAccess("删除销售计划单"))
                 {
-                    if (订单BLL.删除(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString()) == false)
+                    if ((int)(MessageBox.Show("您确定要删除改销售计划单吗？确定按YES.取消按NO", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) == 6)
                     {
-                        MessageBox.Show("删除计划单失败,有过采购记录的不能退删除", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (订单BLL.删除(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString()) == false)
+                        {
+                            MessageBox.Show("删除计划单失败,有过采购记录的不能退删除", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        }
+                        CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= dateEdit1.DateTime && x.Orderdate <=dateEdit2.DateTime.Date.AddDays(1) && x.CustomerName.Contains(txtksmc.Text)));
                     }
-                    CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= Convert.ToDateTime(dateEdit1.Text) && x.Orderdate <= Convert.ToDateTime(dateEdit2.Text) && x.CustomerName.Contains(txtksmc.Text)));
                 }
-            }
-            else
-            {
-                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "您没有权限删除该单据！请让管理员为你开通");
+                else
+                {
+                    Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "您没有权限删除该单据！请让管理员为你开通");
+                }
             }
         }
 
@@ -76,13 +80,15 @@ namespace 纺织贸易管理系统.报表窗体
         }
         private  void Query()
         {
-            string querystring = $"select orderTable.*,orderDetailTable.* from orderTable,orderdetailTable where OrderTable.orderdate between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.Text)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
+            string querystring = $"select * from orderTable,orderdetailTable where OrderTable.orderdate between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
                 $"and OrderTable.OrderNum like '%{txtOrdernum.Text }%'" +
                 $"and OrderDetailTable.sampleNum like '%{txtbianhao.Text }%' " +
                 $"and OrderDetailTable.sampleName like '%{txtpingming.Text }%' " +
                 $"and OrderDetailTable.Specifications like '%{txtGuige.Text }%' " +
                 $"and OrderDetailTable.ColorNum like '%{txtyanse.Text }%' " +
                 $"and OrderTable.ContractNum like '%{txthetonghao.Text }%' " +
+                $"and OrderDetailTable.CustomerPingMing like '%{txtCustomerPingming .Text }%' " +
+                $"and OrderDetailTable.CustomerColorNum like '%{txtCustomerColorNum .Text }%' " +
                 $"and OrderTable.OrderNum=Orderdetailtable.Ordernum";
             if(rdweiwancheng .Checked==true  )
             {
@@ -133,7 +139,10 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 查看进度ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainForm.mainform.AddMidForm(new 订单进度() { OrderNum = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString() });
+            if (AccessBLL.CheckAccess("查看进度") == true)
+            {
+                MainForm.mainform.AddMidForm(new 订单进度() { OrderNum = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString() });
+            }
         }
 
         private void txtbianhao_KeyDown(object sender, KeyEventArgs e)
@@ -203,6 +212,7 @@ namespace 纺织贸易管理系统.报表窗体
         {
             if(gridView1.FocusedRowHandle >=0)
             {
+                OrderTable order = OrderTableService.GetOneOrderTable(x => x.OrderNum == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString());
                 订单BLL.结束订单(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString());             
                 Query();
             }            
@@ -224,7 +234,10 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 汇总报表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainForm.mainform.AddMidForm(new 订单汇总 () );
+            if (AccessBLL.CheckAccess("订单汇总") == true)
+            {
+                MainForm.mainform.AddMidForm(new 订单汇总());
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -250,6 +263,11 @@ namespace 纺织贸易管理系统.报表窗体
             {
                 MainForm.mainform.AddMidForm(new 销售计划单() { useful = FormUseful.复制, order = OrderTableService.GetOneOrderTable(x => x.OrderNum == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString()) });
             }
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

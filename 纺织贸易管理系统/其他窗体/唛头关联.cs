@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tools;
 using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.其他窗体
@@ -23,8 +24,11 @@ namespace 纺织贸易管理系统.其他窗体
         private void 加载唛头()
         {
             Maitoulist = Tools.获取模板.获取所有模板(PrintPath.唛头模板);
+            commaitou.Items.Clear();
             commaitou .Items.AddRange(Maitoulist.ToArray());
             commaitou .SelectedIndex = 0;
+            cmbmaitou.Items.Clear();
+            cmbmaitou.Items.AddRange(Maitoulist);
             gridControl2.DataSource = MaitouService.GetMaitoulst();
         }
         private void 唛头关联_Load(object sender, EventArgs e)
@@ -84,6 +88,30 @@ namespace 纺织贸易管理系统.其他窗体
             else
             {
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "您没有删除唛头的权限！请让管理员给你开通");
+            }
+        }
+
+        private void 重命名ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string newname = string.Empty;
+                Sunny.UI.UIInputDialog.InputStringDialog(ref newname, true, "请输入新的模板名称");
+                string oldname = commaitou .Text;
+                ReportService.ReName(new ReportTable()
+                {
+                    ReportFile = ReportTableService.GetOneReportTable(x => x.reportName == oldname && x.reportStyle == Tools.ReportService.唛头 ).ReportFile
+                    ,
+                    reportName = newname + ".frx",
+                    reportStyle = Tools.ReportService.唛头
+                }, Application.StartupPath, oldname);
+                加载唛头();
+                MaitouService.UpdateMaitou(x=>x.path ==newname,x=>x.path==oldname );
+                gridControl2.DataSource = MaitouService.GetMaitoulst();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

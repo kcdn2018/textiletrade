@@ -9,13 +9,14 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Data.SqlClient;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Config
 {
     public partial class 设置数据库 : Form
     {
         private string Environmen = string.Empty;
-        private SqlConnection sqlConnection = null; 
+        private SqlConnection sqlConnection = new SqlConnection (); 
         public 设置数据库()
         {
             InitializeComponent();
@@ -26,13 +27,17 @@ namespace Config
         private void button1_Click(object sender, EventArgs e)
         {
            string Connectstring= $"server={txtIP.Text},{TXTPORT.Text };uid={TXTUSER.Text };pwd={TXTPASSWORD.Text };database={TXTDBNAME.Text }";
-            sqlConnection = new SqlConnection(Connectstring);
             progressBar1.Maximum = sqlConnection.ConnectionTimeout-1;
             label7.Text = "正在连接";
             timer1.Start();
             try
-            {  
-               this.Invoke (new MethodInvoker (()=> { sqlConnection.Open(); }) );
+            {
+                //this.Invoke (new MethodInvoker (()=> { sqlConnection.Open(); }) );
+                Task.Factory.StartNew(new Action(() =>
+                {
+                    sqlConnection = new SqlConnection(Connectstring);
+                    sqlConnection.Open();
+                }));
             }
             catch
             {
@@ -74,7 +79,7 @@ namespace Config
         }
 
         private void 设置数据库_Load(object sender, EventArgs e)
-        {
+        {    
             Environmen = comboBox1.Text;
             var dt = GetSqlite();
             //return $"server={dt.Rows[0]["server"]},{};uid={};pwd={};database={}";

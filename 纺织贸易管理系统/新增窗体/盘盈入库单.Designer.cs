@@ -416,6 +416,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.colorbtn.Name = "colorbtn";
             this.colorbtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colorbtn_ButtonClick);
+            this.colorbtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.colorbtn_KeyDown);
             // 
             // btnRangchang
             // 

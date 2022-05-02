@@ -25,6 +25,10 @@ namespace BLL
             }
             else
             {
+                if (!acc.Access)
+                {
+                    MessageBox.Show($"您没有{formname }的权限，请联系管理员开通", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return acc.Access;
             }
         }

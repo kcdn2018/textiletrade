@@ -159,6 +159,7 @@
             this.MinimizeBox = false;
             this.Name = "用户选择";
             this.Text = "用户管理";
+            this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.用户选择_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

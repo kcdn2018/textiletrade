@@ -120,10 +120,27 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="美金结转ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAApZJREFUWEft
+        Vstx2zAQVQemVEFKSAdOCe7A7iC55mQffXMOJnV0Okg6sDuQz4Bm5A6sApKx9y0ewIUCkBQn8SHjN7Mj
+        YrHc/y61eMdcNOvdh6bzp0ryTPa/Q3Oza5pue77s/I9V518Oadn6Z9xBhq/8PaxafwUDmcHO74UeSPvs
+        TmSb1n3m6/MhSj4uW7cxRh+Ed4FsUCRBSyJ3kOkdcRvooMhxCMZD1PL71Kz9J16NArLLzj3yXWTjOCcQ
+        TZ9y970U8RjwDt5NTphGHdVnvP9J1mz0TrgNztExvSwBDUfjT3MiPwR0QBd0ntz6r9pT7fYbr3NQWFNf
+        q7nM/RcZtTMeE8CTWmedDx26J4TPoH6pbtFBkRwieKGC0slkZYBC3KsS01h4TnzjuG1GS7XgFqi5Cogj
+        ZGXQDKX+kBGTc8haGFXc4UzxhFjWSHUHuFCGVquNFrVUiooHxg0l6vVXHMAlGobHKlDDaDSRRMnrKuAg
+        nKg6AIHB6LUE+dq1hAYulcBCbZQyVb04ALxXMlnQySCfYkVwXZdt4GWNYMQJLBHJwn1svBC524C3at0d
+        xYpAeSHPYw44EJSJE4U5j6AD8gXsxwvP4A1tOEQfZP2erBzRgURrf8mrIqz8WOoByWzYMbX1/ocDKiyz
+        XlGOUkW5Kb0TMqSyxR2TRkuM/hbhSY2lMkI8VhGDQ/qrU4KForW89ddB2O3GRmoKwui6HXQO7go0UDSY
+        Gmykq6cANWdAj2SVYaNFxyJd0Yk5mQiRhz+wmvqBBVcEGis6MdSMJUA2pl2NT2jSIoITdt79Pf52l6JB
+        xLiDTC8vX8e5xi3Q6TEblmBMiX9iDH8/5eN0NDDDaKqSM2pY7iAzp2eOhn5YuCfexOB/isXiFXdpzuQn
+        SMyoAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>137, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIAAoIAQAFgAAACgAAAAAAQAAAAIAAAEAIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA

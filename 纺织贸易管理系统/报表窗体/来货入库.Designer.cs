@@ -62,14 +62,14 @@ namespace 纺织贸易管理系统.报表窗体
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.danjumingxiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+
             this.menuStrip1.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.danjumingxiBindingSource)).BeginInit();
+ 
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -450,7 +450,6 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             // danjumingxiBindingSource
             // 
-            this.danjumingxiBindingSource.DataSource = typeof(纺织贸易管理系统.danjumingxitable);
             // 
             // 来货入库
             // 
@@ -471,7 +470,6 @@ namespace 纺织贸易管理系统.报表窗体
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.danjumingxiBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,13 +512,7 @@ namespace 纺织贸易管理系统.报表窗体
 #pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIGroupBox”(是否缺少程序集引用?)
         private Sunny.UI.UIGroupBox uiGroupBox2;
 #pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIGroupBox”(是否缺少程序集引用?)
-        private System.Windows.Forms.BindingSource danjumingxiBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn juanshuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalMoneyDataGridViewTextBoxColumn;
+
         private System.Windows.Forms.ToolStripMenuItem 导出到EXCELToolStripMenuItem;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

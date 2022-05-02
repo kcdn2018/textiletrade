@@ -35,7 +35,7 @@ namespace 纺织贸易管理系统.报表窗体
         }
         private void Query()
         {
-            string querystring = $"select distinct orderTable.* from orderTable,orderdetailTable where OrderTable.orderdate between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.Text)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
+            string querystring = $"select distinct orderTable.* from orderTable,orderdetailTable where OrderTable.orderdate between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
                $"and OrderTable.OrderNum like '%{txtOrdernum.Text }%'" +
                $"and OrderDetailTable.sampleNum like '%{txtbianhao.Text }%' " +
                $"and OrderDetailTable.sampleName like '%{txtpingming.Text }%' " +
@@ -102,7 +102,7 @@ namespace 纺织贸易管理系统.报表窗体
                     {
                         MessageBox.Show("删除计划单失败,有过采购记录的不能退删除", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     }
-                    CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= Convert.ToDateTime(dateEdit1.Text) && x.Orderdate <= Convert.ToDateTime(dateEdit2.Text) && x.CustomerName.Contains(txtksmc.Text)));
+                    CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= dateEdit1.DateTime && x.Orderdate <=dateEdit2.DateTime.Date.AddDays(1) && x.CustomerName.Contains(txtksmc.Text)));
                 }
             }
             else
@@ -134,7 +134,7 @@ namespace 纺织贸易管理系统.报表窗体
             {
                 订单BLL.审核订单(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString());
                 AlterDlg.Show("审核成功！");
-                CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= Convert.ToDateTime(dateEdit1.Text) && x.Orderdate <= Convert.ToDateTime(dateEdit2.Text) && x.CustomerName.Contains(txtksmc.Text)));
+                CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= dateEdit1.DateTime && x.Orderdate <=dateEdit2.DateTime.Date.AddDays(1) && x.CustomerName.Contains(txtksmc.Text)));
             }
             catch
             {
@@ -148,7 +148,7 @@ namespace 纺织贸易管理系统.报表窗体
             {
                 订单BLL.反审核订单(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OrderNum").ToString());
                 AlterDlg.Show("反审核成功！");
-                CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= Convert.ToDateTime(dateEdit1.Text) && x.Orderdate <= Convert.ToDateTime(dateEdit2.Text) && x.CustomerName.Contains(txtksmc.Text)));
+                CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= dateEdit1.DateTime && x.Orderdate <=dateEdit2.DateTime.Date.AddDays(1) && x.CustomerName.Contains(txtksmc.Text)));
             }
             catch
             {
@@ -161,7 +161,7 @@ namespace 纺织贸易管理系统.报表窗体
             var fm = new 客户选择() { linkman = new LXR() { MC = txtksmc.Text,ZJC="" } };
             fm.ShowDialog();
             txtksmc.Text = fm.linkman.MC;
-            CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= Convert.ToDateTime(dateEdit1.Text) && x.Orderdate <= Convert.ToDateTime(dateEdit2.Text) && x.CustomerName.Contains(txtksmc.Text)));
+            CreateGrid.Query<OrderTable>(gridControl1, OrderTableService.GetOrderTablelst(x => x.Orderdate >= dateEdit1.DateTime && x.Orderdate <=dateEdit2.DateTime.Date.AddDays(1) && x.CustomerName.Contains(txtksmc.Text)));
         }
 
         private void txtksmc_KeyDown(object sender, KeyEventArgs e)

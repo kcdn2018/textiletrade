@@ -132,7 +132,8 @@ namespace BLL
             {
                 lw.FapiaoJine = 0;
             }
-            lw.QichuJine = LXRService.GetOneLXR(x=>x.BH ==danju.ksbh).JE ;
+            var lxr = LXRService.GetOneLXR(x => x.BH == danju.ksbh);
+            lw.QichuJine = lxr.JE +lxr.USD  ;
             lw.QiMojine = lw.QichuJine + danju.je;
             lw.own = danju.own;
             lw.Hanshui = danju.Hanshui;
@@ -168,7 +169,8 @@ namespace BLL
             {
                 lw.FapiaoJine = 0;
             }
-            lw.QichuJine = LXRService.GetOneLXR(x => x.BH == danju.ksbh).JE;
+            var lxr = LXRService.GetOneLXR(x => x.BH == danju.ksbh);
+            lw.QichuJine = lxr.JE + lxr.USD;
             lw.QiMojine = lw.QichuJine + mingxi.hanshuiheji;
             lw.own = danju.own;
             lw.Hanshui = mingxi.IsHanshui ;
@@ -279,7 +281,8 @@ namespace BLL
             {
                 lw.FapiaoJine = 0;
             }
-            lw.QichuJine = LXRService.GetOneLXR(x => x.BH == danju.ksbh).JE;
+            var lxr = LXRService.GetOneLXR(x => x.BH == danju.ksbh);
+            lw.QichuJine = lxr.JE + lxr.USD;
             lw.QiMojine = lw.QichuJine+ danju.je;
             lw.own = danju.own;
             lw.Hanshui = danju.Hanshui;
@@ -341,7 +344,8 @@ namespace BLL
             {
                 lw.FapiaoJine = 0;
             }
-            lw.QichuJine = LXRService.GetOneLXR(x => x.BH == danju.ksbh).JE;
+            var lxr = LXRService.GetOneLXR(x => x.BH == danju.ksbh);
+            lw.QichuJine = lxr.JE + lxr.USD;
             lw.QiMojine = lw.QichuJine - danju.je;
             lw.own = danju.own;
             lw.Hanshui = danju.Hanshui;        
@@ -405,76 +409,135 @@ namespace BLL
         #endregion 
         public static void 删除来往记录(DanjuTable danju)
         {
-            刷新(danju);
+            var lwlist = Connect.DbHelper().Queryable<LwDetail>().Where(x => x.rq >= danju.rq && x.KHBH == danju.ksbh).OrderBy(x => x.rq).OrderBy(x => x.ID).ToList();
+            if (lwlist.Count > 1)
+            {
+                var qichu = lwlist[0].QichuJine;
+                foreach (var lw in lwlist.Where(x=>x.rq >danju.rq))
+                {
+                    if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收)
+                    {
+                        lw.QichuJine = qichu;
+                        lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;
+                        qichu = lw.QiMojine;
+                    }
+                    else
+                    {
+                        lw.QichuJine = qichu;
+                        lw.QiMojine = qichu;
+                    }
+                }
+                Connect.DbHelper().Updateable<LwDetail>(lwlist).ExecuteCommand(); 
+            }
             LwDetailService.DeleteLwDetail(x => x.DH == danju.dh);
         }
         private static void 刷新(DanjuTable Olddanju )
         {
-                DanjuTable danju = SQLHelper.SQLHelper.CreatNewInstance(Olddanju);         
-                var dt = SQLHelper.SQLHelper.Chaxun($"select * from lwdetail where dh='{danju.dh}' ");
-                int id = 0;
-                if (dt.Rows.Count > 0)
-                {
-                    id = (int)dt.Rows[0]["ID"];
-                }
-                var lwlist = Connect.CreatConnect().Query<LwDetail>($"select * from lwdetail where rq>='{danju.rq }' and khbh='{danju.ksbh  }'  order by rq asc , id asc");
-                if (lwlist.Count > 1)
-                {
-                    decimal qichu, qimo;
-                    qichu = lwlist[0].QichuJine;
-                    qimo = lwlist[0].QiMojine;
-                    foreach (var lw in lwlist)
-                    {
-                        if (lw.DH != danju.dh)
-                        {
-                            if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收&&lw.LX!=DanjuLeiXing.退卷单 &&lw.LX!=DanjuLeiXing.入库单)
-                            {
-                                lw.QichuJine = qichu;
-                                lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;                             
-                                qichu = lw.QiMojine;
-                            }
-                        }
-                    }
-                LwDetailService.UpdateLwDetailLst(lwlist );
-                }
-        }
-        private static void 新增刷新(DanjuTable Olddanju)
-        {
-            DanjuTable danju = SQLHelper.SQLHelper.CreatNewInstance(Olddanju);
-            var dt = SQLHelper.SQLHelper.Chaxun($"select * from lwdetail where dh='{danju.dh}' ");
-            int id = 0;
-            if (dt.Rows.Count > 0)
-            {
-                id = (int)dt.Rows[0]["ID"];
-            }
-            var lwlist = Connect.CreatConnect().Query<LwDetail>($"select * from lwdetail where rq>='{danju.rq }' and khbh='{danju.ksbh  }'  order by rq asc , id asc");
+            var lwlist = Connect.DbHelper().Queryable<LwDetail>().Where(x => x.rq >= Olddanju.rq && x.KHBH == Olddanju.ksbh).OrderBy(x => x.rq).OrderBy(x => x.ID).ToList();
             if (lwlist.Count > 1)
             {
-                decimal qichu, qimo;             
-                    if (lwlist[0].rq < lwlist[1].rq)
+                var qichu = lwlist[0].QichuJine;
+                foreach (var lw in lwlist)
+                {
+                    if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收)
                     {
-                        qichu = lwlist[1].QichuJine;
+                        lw.QichuJine = qichu;
+                        lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;
+                        qichu = lw.QiMojine;
                     }
                     else
                     {
-                        qichu = lwlist[0].QichuJine;
+                        lw.QichuJine = qichu;
+                        lw.QiMojine = qichu;
                     }
-            
-                qimo = lwlist[0].QiMojine;
-                foreach (var lw in lwlist)
-                {                   
-                        if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收 && lw.LX != DanjuLeiXing.退卷单 && lw.LX != DanjuLeiXing.入库单)
-                        {
-                            lw.QichuJine = qichu;
-                            lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;
-                        qichu = lw.QiMojine;
-                        }
                 }
-                LwDetailService.UpdateLwDetailLst(lwlist);
+                Connect.DbHelper().Updateable<LwDetail>(lwlist).ExecuteCommand();
+                //DanjuTable danju = SQLHelper.SQLHelper.CreatNewInstance(Olddanju);         
+                //var dt = SQLHelper.SQLHelper.Chaxun($"select * from lwdetail where dh='{danju.dh}' ");
+                //int id = 0;
+                //if (dt.Rows.Count > 0)
+                //{
+                //    id = (int)dt.Rows[0]["ID"];
+                //}
+                //var lwlist = Connect.CreatConnect().Query<LwDetail>($"select * from lwdetail where rq>='{danju.rq }' and khbh='{danju.ksbh  }'  order by rq asc , id asc");
+                //if (lwlist.Count > 1)
+                //{
+                //    decimal qichu, qimo;
+                //    qichu = lwlist[0].QichuJine;
+                //    qimo = lwlist[0].QiMojine;
+                //    foreach (var lw in lwlist)
+                //    {
+                //        if (lw.DH != danju.dh)
+                //        {
+                //            if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收&&lw.LX!=DanjuLeiXing.退卷单 &&lw.LX!=DanjuLeiXing.入库单)
+                //            {
+                //                lw.QichuJine = qichu;
+                //                lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;                             
+                //                qichu = lw.QiMojine;
+                //            }
+                //        }
+                //    }
+                //LwDetailService.UpdateLwDetailLst(lwlist );
             }
+        }
+        private static void 新增刷新(DanjuTable Olddanju)
+        {
+            var lwlist = Connect.DbHelper().Queryable<LwDetail>().Where(x => x.rq >= Olddanju.rq && x.KHBH == Olddanju.ksbh).OrderBy(x => x.rq).OrderBy(x => x.ID).ToList();
+            if(lwlist.Count >1)
+            {
+                var qichu = lwlist[1].QichuJine;
+                foreach (var lw in lwlist)
+                {
+                    if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收 )
+                    {
+                        lw.QichuJine = qichu;
+                        lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;
+                        qichu = lw.QiMojine;
+                    }
+                    else
+                    {
+                        lw.QichuJine = qichu;
+                        lw.QiMojine = qichu;
+                    }
+                }
+                Connect.DbHelper().Updateable<LwDetail>(lwlist).ExecuteCommand();
+            }
+            //DanjuTable danju = SQLHelper.SQLHelper.CreatNewInstance(Olddanju);
+            //var dt = SQLHelper.SQLHelper.Chaxun($"select * from lwdetail where dh='{danju.dh}' ");
+            //int id = 0;
+            //if (dt.Rows.Count > 0)
+            //{
+            //    id = (int)dt.Rows[0]["ID"];
+            //}
+            //var lwlist = Connect.CreatConnect().Query<LwDetail>($"select * from lwdetail where rq>='{danju.rq }' and khbh='{danju.ksbh  }'  order by rq asc , id asc");
+            //if (lwlist.Count > 1)
+            //{
+            //    decimal qichu, qimo;             
+            //        if (lwlist[0].rq < lwlist[1].rq)
+            //        {
+            //            qichu = lwlist[1].QichuJine;
+            //        }
+            //        else
+            //        {
+            //            qichu = lwlist[0].QichuJine;
+            //        }
+
+            //    qimo = lwlist[0].QiMojine;
+            //    foreach (var lw in lwlist)
+            //    {                   
+            //            if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收 && lw.LX != DanjuLeiXing.退卷单 && lw.LX != DanjuLeiXing.入库单)
+            //            {
+            //                lw.QichuJine = qichu;
+            //                lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;
+            //            qichu = lw.QiMojine;
+            //            }
+            //    }
+            //    LwDetailService.UpdateLwDetailLst(lwlist);
+            //}
         }
         public static void 修改(DanjuTable danju )
         {
+            var l = LwDetailService.GetOneLwDetail(x => x.DH == danju.dh);
             LwDetail lwDetail = new LwDetail();
             switch (danju.djlx)
             {
@@ -515,8 +578,9 @@ namespace BLL
                     lwDetail = 销售单(danju);
                     break;
             }
+            lwDetail.QichuJine = l.QichuJine;
             LwDetailService.UpdateLwDetail(lwDetail, x => x.DH == danju.dh);
-            刷新(danju );
+            刷新(danju);
         }
     }
 }

@@ -42,6 +42,8 @@
             this.结束生产单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重启生产单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txtjiagongchang = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.txtksmc = new DevExpress.XtraEditors.ButtonEdit();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.txtGuige = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -106,6 +108,7 @@
             this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtjiagongchang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtordernum.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
@@ -271,6 +274,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txtjiagongchang);
+            this.groupPanel1.Controls.Add(this.labelX10);
             this.groupPanel1.Controls.Add(this.txtksmc);
             this.groupPanel1.Controls.Add(this.labelX6);
             this.groupPanel1.Controls.Add(this.txtGuige);
@@ -323,6 +328,30 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 4;
             this.groupPanel1.Text = "查询条件";
+            this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
+            // 
+            // txtjiagongchang
+            // 
+            this.txtjiagongchang.Location = new System.Drawing.Point(629, 62);
+            this.txtjiagongchang.Name = "txtjiagongchang";
+            this.txtjiagongchang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtjiagongchang.Size = new System.Drawing.Size(121, 20);
+            this.txtjiagongchang.TabIndex = 64;
+            this.txtjiagongchang.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtjiagongchang_ButtonClick);
+            this.txtjiagongchang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(571, 61);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(55, 23);
+            this.labelX10.TabIndex = 63;
+            this.labelX10.Text = "加工厂";
             // 
             // txtksmc
             // 
@@ -358,7 +387,7 @@
             this.txtGuige.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtGuige.DisabledBackColor = System.Drawing.Color.White;
             this.txtGuige.ForeColor = System.Drawing.Color.Black;
-            this.txtGuige.Location = new System.Drawing.Point(442, 32);
+            this.txtGuige.Location = new System.Drawing.Point(442, 34);
             this.txtGuige.Name = "txtGuige";
             this.txtGuige.PreventEnterBeep = true;
             this.txtGuige.Size = new System.Drawing.Size(121, 21);
@@ -371,7 +400,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(380, 31);
+            this.labelX9.Location = new System.Drawing.Point(380, 33);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(55, 23);
             this.labelX9.TabIndex = 59;
@@ -448,7 +477,7 @@
             this.txtpingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtpingming.DisabledBackColor = System.Drawing.Color.White;
             this.txtpingming.ForeColor = System.Drawing.Color.Black;
-            this.txtpingming.Location = new System.Drawing.Point(253, 32);
+            this.txtpingming.Location = new System.Drawing.Point(253, 34);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.PreventEnterBeep = true;
             this.txtpingming.Size = new System.Drawing.Size(121, 21);
@@ -461,7 +490,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(192, 31);
+            this.labelX5.Location = new System.Drawing.Point(192, 33);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(55, 23);
             this.labelX5.TabIndex = 53;
@@ -478,7 +507,7 @@
             this.txtbianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtbianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtbianhao.Location = new System.Drawing.Point(64, 32);
+            this.txtbianhao.Location = new System.Drawing.Point(64, 34);
             this.txtbianhao.Name = "txtbianhao";
             this.txtbianhao.PreventEnterBeep = true;
             this.txtbianhao.Size = new System.Drawing.Size(121, 21);
@@ -491,7 +520,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(3, 31);
+            this.labelX4.Location = new System.Drawing.Point(3, 33);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(55, 23);
             this.labelX4.TabIndex = 51;
@@ -653,6 +682,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.AllowCellMerge = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -676,6 +706,7 @@
             this.uiTabControl1.Size = new System.Drawing.Size(1254, 151);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabIndex = 1;
+            this.uiTabControl1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // tabPage2
             // 
@@ -1040,6 +1071,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtjiagongchang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtordernum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
@@ -1169,5 +1201,7 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private System.Windows.Forms.ToolStripMenuItem 结束生产单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重启生产单ToolStripMenuItem;
+        private DevExpress.XtraEditors.ButtonEdit txtjiagongchang;
+        private DevComponents.DotNetBar.LabelX labelX10;
     }
 }

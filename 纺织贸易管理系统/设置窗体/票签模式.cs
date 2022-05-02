@@ -10,19 +10,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tools;
 
 namespace 纺织贸易管理系统.设置窗体
 {
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     public partial class 票签模式 : Sunny.UI.UIForm 
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     {
+        public List<JiYangBaoJia > JiYangBaoJiaList { get; set; }
         public 票签模式()
         {
             InitializeComponent();
             cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
             cmbMoban.Text = Connect.GetDefault()[0].LabelName;
             GetAllPrinter();
+            JiYangBaoJiaList = new List<JiYangBaoJia>();
             this.TopMost = true;
         }
         private void GetAllPrinter()
@@ -80,6 +81,7 @@ namespace 纺织贸易管理系统.设置窗体
                     PrintService print = new PrintService(Tools.打印标签.打印);
                         print (0, pingzhong, printset, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == pingzhong.bh), new JiYangBaoJia());
                 }
+                AddJiyangbaojia(pingzhong);
                 txtBianhao.Text = "";
                 this.Activate();
             }           
@@ -103,8 +105,33 @@ namespace 纺织贸易管理系统.设置窗体
                 PrintService print = new PrintService(Tools.打印标签.打印);
                 print(0, pingzhong, printset, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == pingzhong.bh), new JiYangBaoJia());
             }
+            AddJiyangbaojia(pingzhong);
             txtBianhao.Text = "";
+
             this.Activate();
+        }
+        /// <summary>
+        /// 添加一个品种信息
+        /// </summary>
+        /// <param name="pingzhong"></param>
+        private void AddJiyangbaojia(db pingzhong)
+        {
+            JiYangBaoJiaList.Add(new JiYangBaoJia()
+            {
+                bizhong = "人民币￥",
+                SPBH = pingzhong.bh,
+                gg = pingzhong.gg,
+                cf = pingzhong.cf,
+                SPMC = pingzhong.pm,
+                kz = pingzhong.kz,
+                md = pingzhong.md,
+                mf = pingzhong.mf,
+                zb = pingzhong.zb,
+                EnglishName = pingzhong.EnglishName,
+                ys = pingzhong.ys,
+                JG = pingzhong.jg.TryToDecmial(),
+                sl = 1,
+            });
         }
     }
 }

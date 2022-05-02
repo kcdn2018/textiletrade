@@ -70,6 +70,7 @@
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -87,6 +88,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新增ToolStripMenuItem,
+            this.复制ToolStripMenuItem,
             this.修改ToolStripMenuItem,
             this.删除ToolStripMenuItem,
             this.导出ToolStripMenuItem,
@@ -626,8 +628,19 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Copy_32x32;
+            this.复制ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
+            this.复制ToolStripMenuItem.Text = "复制";
+            this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
             // 
             // 采购通知单列表
             // 
@@ -699,5 +712,6 @@
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.TextBoxX txtordernum;
         private DevComponents.DotNetBar.LabelX labelX6;
+        private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
     }
 }

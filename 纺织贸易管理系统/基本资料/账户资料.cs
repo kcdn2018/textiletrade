@@ -116,5 +116,11 @@ namespace 纺织贸易管理系统.选择窗体
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "您没有权限使用该功能！请让管理员给您开通");
             }
         }
+
+        private void 美金结转ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fm = new 账户转账();
+            fm.ShowDialog();
+        }
     }
 }

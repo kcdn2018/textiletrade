@@ -141,7 +141,7 @@ namespace 纺织贸易管理系统.新增窗体
                     if (i == listjiyang.Count - 1)
                         for (int j = 0; j < 30; j++)
                         {
-                            listjiyang.Add(new JiYangBaoJia() { Danhao = txtdanhao.Text, RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+                            listjiyang.Add(new JiYangBaoJia() { Danhao = txtdanhao.Text, RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
                         }
                 }
                 fm.Dispose();
@@ -197,7 +197,7 @@ namespace 纺织贸易管理系统.新增窗体
                 if (i == listjiyang.Count - 1)
                     for (int j = 0; j < 30; j++)
                     {
-                        listjiyang.Add(new JiYangBaoJia() { Danhao = txtdanhao.Text, RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+                        listjiyang.Add(new JiYangBaoJia() { Danhao = txtdanhao.Text, RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
                     }
             }
             fm.Dispose();
@@ -216,7 +216,6 @@ namespace 纺织贸易管理系统.新增窗体
                 j.kdgs = txtwuliu.Text;
                 j.ydh = txtyundanhao.Text;
                 j.yf = (decimal)txtyunfei.Value;
-                j.bz += txtbeizhu.Text;
                 j.RQ = Convert.ToDateTime(dateEdit1.DateTime.Date.ToString ());
                 j.DH = txtdanhao.Text;
                 j.KHMC = txtkehu.Text;
@@ -277,7 +276,7 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void Init()
         { 
-            dateEdit1.DateTime  = DateTime.Now.Date ;
+            dateEdit1.DateTime  = DateTime.Now ;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.寄样单 , dateEdit1.DateTime, DanjuLeiXing.寄样单 );
             txtkehu.Text = "";
             txtwuliu.Text = "";          
@@ -287,7 +286,7 @@ namespace 纺织贸易管理系统.新增窗体
             listjiyang.Clear();
             for (int i = 0; i < 30 ; i++)
             {
-                listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+                listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
             }
             gridControl1.DataSource=listjiyang ;
             gridControl1.RefreshDataSource();
@@ -441,7 +440,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+            listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
             gridControl1.RefreshDataSource();
         }
 
@@ -452,7 +451,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<JiYangBaoJia >(listjiyang, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<JiYangBaoJia >(listjiyang, rowindex, gridView1, gridView1.FocusedRowHandle,this);
         }
 
         private void 寄样单_Load(object sender, EventArgs e)
@@ -468,11 +467,10 @@ namespace 纺织贸易管理系统.新增窗体
                     Edit();
                     dateEdit1.DateTime = DateTime.Now;
                     txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.寄样单, dateEdit1.DateTime, DanjuLeiXing.寄样单);
-                    dateEdit1.Text = DateTime.Now.ToShortDateString();
                     foreach (var j in listjiyang )
                     {
                         j.DH = txtdanhao.Text;
-                        j.RQ = dateEdit1.DateTime;
+                        j.RQ = danju.rq;
                     }
                 }
                 else
@@ -487,17 +485,17 @@ namespace 纺织贸易管理系统.新增窗体
             txtdanhao.Text = jiYangBaoJia.DH  ;     
             txtkehu.Text = jiYangBaoJia .KHMC  ;
             txtwuliu.Text = jiYangBaoJia.kdgs ;
-            dateEdit1.Text = jiYangBaoJia .RQ.ToShortDateString();
+            dateEdit1.DateTime= jiYangBaoJia .RQ;
             txtyundanhao.Text = jiYangBaoJia .ydh  ;
-            txtyunfei.Value =(double) jiYangBaoJia.yf  ;
-            txtbeizhu.Text = jiYangBaoJia.bz ;
+            txtyunfei.Value =(double) jiYangBaoJia.yf  ;        
             danju = DanjuTableService.GetOneDanjuTable(x => x.dh == jiYangBaoJia.DH);
             cmbCangkumingcheng.Text = danju.ckmc;
+            txtbeizhu.Text = danju.bz ;
             listjiyang=JiYangBaoJiaService.GetJiYangBaoJialst (x=>x.DH ==jiYangBaoJia .DH  );
             var len = listjiyang.Count;
             for (int i = 0; i <30-len ; i++)
             {
-                listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+                listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
             }
             gridControl1.DataSource = listjiyang;
             加载联系人();
@@ -568,6 +566,35 @@ namespace 纺织贸易管理系统.新增窗体
         private void 打印寄样单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void colorbtn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                gridView1.CloseEditor();
+                var colorlist = ColorTableService.GetColorTablelst(x => x.ColorNum.Contains(listjiyang [gridView1.FocusedRowHandle].ys ));
+                ColorTable color = new ColorTable();
+                if (colorlist.Count > 1)
+                {
+                    var fm = new 色号选择() { colorInfo = new ColorTable() { ColorNum = listjiyang [gridView1.FocusedRowHandle].ys } };
+                    fm.ShowDialog();
+                    color = fm.colorInfo;
+                }
+                else
+                {
+                    if (colorlist.Count == 1)
+                    {
+                        color = colorlist[0];
+                    }
+                }
+                if (!string.IsNullOrEmpty(color.ColorNum))
+                {
+                    //listjiyang [gridView1.FocusedRowHandle]. = color.ColorNum;
+                    listjiyang [gridView1.FocusedRowHandle].ys  = color.ColorName;
+                }
+                gridControl1.RefreshDataSource();
+            }
         }
     }
 }

@@ -102,7 +102,7 @@ namespace 纺织贸易管理系统.基本资料
         {
             if (gridView1.FocusedRowHandle >= 0)
             {
-                var fm = new 对账单() { Useful = FormUseful.供货商, LinkMan = dblist[gridView1.FocusedRowHandle] };
+                var fm = new 供货商对账单() { Useful = FormUseful.供货商, LinkMan = dblist[gridView1.FocusedRowHandle] };
                 MainForm.mainform.AddMidForm(fm);
                 Query();
             }

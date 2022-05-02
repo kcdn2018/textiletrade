@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -67,6 +68,12 @@ namespace Tools
             ReportTableService.DeleteReportTable(x => x.reportName == report.reportName  && x.reportStyle == report.reportStyle );
             path += "\\" + report.reportStyle + "\\" + report.reportName;
             File.Delete(path);
+        }
+        public static void ReName(ReportTable report, string path,string oldname)
+        {
+            ReportTableService.UpdateReportTable (report , x => x.reportName ==oldname  && x.reportStyle == report.reportStyle);
+            path += "\\" + report.reportStyle + "\\" + oldname ;
+            new Computer().FileSystem.RenameFile(path, report.reportName);
         }
     }
 }

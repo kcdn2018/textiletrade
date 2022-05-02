@@ -417,7 +417,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxis, rowindex, gridView2, gridView2.FocusedRowHandle);
+            CopyRow.Copy<danjumingxitable>(danjumingxis, rowindex, gridView2, gridView2.FocusedRowHandle,this);
         }
 
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)

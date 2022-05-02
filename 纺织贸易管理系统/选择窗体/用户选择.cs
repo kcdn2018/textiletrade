@@ -51,7 +51,10 @@ namespace 纺织贸易管理系统.设置窗体
 
         private void 用户选择_FormClosed(object sender, FormClosedEventArgs e)
         {
-            yonghu = YhbService.GetYhblst().First(x => x.YHBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "YHBH").ToString());
+            if (gridView1.FocusedRowHandle >= 0)
+            {
+                yonghu = YhbService.GetYhblst().First(x => x.YHBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "YHBH").ToString());
+            }
         }
     }
 }

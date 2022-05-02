@@ -53,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 32);
+            this.label1.Location = new System.Drawing.Point(33, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -62,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 80);
+            this.label2.Location = new System.Drawing.Point(33, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 1;
@@ -71,7 +71,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 130);
+            this.label3.Location = new System.Drawing.Point(33, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 2;
@@ -80,7 +80,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 178);
+            this.label4.Location = new System.Drawing.Point(33, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 3;
@@ -89,7 +89,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 223);
+            this.label5.Location = new System.Drawing.Point(33, 219);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 4;
@@ -98,7 +98,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 267);
+            this.label6.Location = new System.Drawing.Point(33, 263);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 5;
@@ -110,7 +110,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "公司",
             "云端"});
-            this.comboBox1.Location = new System.Drawing.Point(109, 29);
+            this.comboBox1.Location = new System.Drawing.Point(115, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(146, 20);
             this.comboBox1.TabIndex = 6;
@@ -120,35 +120,35 @@
             // 
             // txtIP
             // 
-            this.txtIP.Location = new System.Drawing.Point(109, 75);
+            this.txtIP.Location = new System.Drawing.Point(115, 71);
             this.txtIP.Name = "txtIP";
             this.txtIP.Size = new System.Drawing.Size(146, 21);
             this.txtIP.TabIndex = 7;
             // 
             // TXTPORT
             // 
-            this.TXTPORT.Location = new System.Drawing.Point(109, 122);
+            this.TXTPORT.Location = new System.Drawing.Point(115, 118);
             this.TXTPORT.Name = "TXTPORT";
             this.TXTPORT.Size = new System.Drawing.Size(146, 21);
             this.TXTPORT.TabIndex = 8;
             // 
             // TXTDBNAME
             // 
-            this.TXTDBNAME.Location = new System.Drawing.Point(109, 169);
+            this.TXTDBNAME.Location = new System.Drawing.Point(115, 165);
             this.TXTDBNAME.Name = "TXTDBNAME";
             this.TXTDBNAME.Size = new System.Drawing.Size(146, 21);
             this.TXTDBNAME.TabIndex = 9;
             // 
             // TXTUSER
             // 
-            this.TXTUSER.Location = new System.Drawing.Point(109, 216);
+            this.TXTUSER.Location = new System.Drawing.Point(115, 212);
             this.TXTUSER.Name = "TXTUSER";
             this.TXTUSER.Size = new System.Drawing.Size(146, 21);
             this.TXTUSER.TabIndex = 10;
             // 
             // TXTPASSWORD
             // 
-            this.TXTPASSWORD.Location = new System.Drawing.Point(109, 263);
+            this.TXTPASSWORD.Location = new System.Drawing.Point(115, 259);
             this.TXTPASSWORD.Name = "TXTPASSWORD";
             this.TXTPASSWORD.PasswordChar = '*';
             this.TXTPASSWORD.Size = new System.Drawing.Size(146, 21);
@@ -156,7 +156,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(164, 311);
+            this.button1.Location = new System.Drawing.Point(170, 307);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -169,7 +169,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 368);
+            this.groupBox1.Location = new System.Drawing.Point(0, 343);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(302, 43);
             this.groupBox1.TabIndex = 13;
@@ -201,7 +201,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(63, 311);
+            this.button2.Location = new System.Drawing.Point(69, 307);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 14;
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 411);
+            this.ClientSize = new System.Drawing.Size(302, 386);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);

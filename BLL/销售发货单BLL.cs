@@ -22,12 +22,14 @@ namespace BLL
             {
                 danju.zhuangtai = "未审核";
             }
+            danju.Profit = danjumingxitables.Sum(x => x.Profit);
             danju.dh = 单据BLL.检查单号(danju.dh);
             DanjuTableService.InsertDanjuTable(danju);
             ///保存到单据明细      
             foreach (var d in danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao) ).ToList())
             {
-                d.danhao = danju.dh;             
+                d.danhao = danju.dh;
+                d.bizhong = danju.Bizhong;
             }
           danjumingxitableService.Insertdanjumingxitablelst ( danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());
             ///保存卷号
@@ -49,10 +51,7 @@ namespace BLL
                     rq = danju.rq,
                 });
                 j.Danhao = danju.dh;
-                if(j.state==0)
-                {
                     j.state = 1;
-                }
             }
             FahuoDanService.InsertFahuoDanlst(fahuoDans);
             Connect.DbHelper().Updateable( juanHaoTables).ExecuteCommand();
@@ -80,7 +79,9 @@ namespace BLL
             ///删除信息
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
             FahuoDanService.DeleteFahuoDan(x => x.dh == danju.dh);
+            danju.Profit = danjumingxitables.Sum(x => x.Profit);
             DanjuTableService.UpdateDanjuTable(danju, x => x.dh == danju.dh);
+            danjumingxitables.ForEach(x => x.bizhong = danju.Bizhong);
             ///  
             danjumingxitableService.Insertdanjumingxitablelst (danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());         
             List<FahuoDan> fahuoDans = new List<FahuoDan>();
@@ -101,10 +102,7 @@ namespace BLL
                     rq = danju.rq,
                 });
                 j.Danhao = danju.dh;
-                if (j.state == 0)
-                {
                     j.state = 1;
-                }
             }
             Connect.DbHelper().Updateable(juanHaoTables).ExecuteCommand();
             /////         
@@ -162,13 +160,13 @@ namespace BLL
                 //return "审核成功";
             });
         }
-        public static async  void 单据反审核(string danhao)
+        public static   void 单据反审核(string danhao)
         {
-            await Task.Run(() => { 
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
                 var juanhaos = JuanHaoTableService.GetJuanHaoTablelst(x => x.Danhao == danhao);
                 DanjuTableService.UpdateDanjuTable("zhuangtai='未审核'", x => x.dh == danhao);
+                可发卷BLL.卷入库(danhao);
                 来往明细BLL.删除来往记录(danju);
                 财务BLL.减少应收款(danju);
                 财务BLL.减少应开发票(danju, danjumingxitables);
@@ -176,13 +174,11 @@ namespace BLL
                 库存BLL.增加库存(danjumingxitables, danju);
                 单据BLL.未审核(danhao);
                 订单进度BLL.删除进度(danju.dh);
-                可发卷BLL.卷入库(danhao);
                 订单BLL.减少已发货数量(danjumingxitables);
                 订单BLL.减少发货金额(danjumingxitables);
                 订单BLL.减少剩余金额(danjumingxitables);
                 财务BLL.增加剩余额度(danju.ksbh, danju.je);
                 库存BLL.减少发货数量(danju, danjumingxitables);
-            });
         }
         /// <summary>
         /// 检查销售出库单是否已经填写过该订单的其他费用

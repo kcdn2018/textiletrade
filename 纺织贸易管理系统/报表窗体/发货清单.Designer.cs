@@ -50,6 +50,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -300,15 +301,16 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
-            this.保存样式ToolStripMenuItem});
+            this.保存样式ToolStripMenuItem,
+            this.复制ToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 70);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 114);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Image = global::纺织贸易管理系统.Properties.Resources.ExportToXLS_32x32;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "导出到EXCEL";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
             // 
@@ -316,7 +318,7 @@
             // 
             this.toolStripMenuItem2.Image = global::纺织贸易管理系统.Properties.Resources.reading_32x32;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "配置列";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -324,7 +326,7 @@
             // 
             this.保存样式ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
             this.保存样式ToolStripMenuItem.Name = "保存样式ToolStripMenuItem";
-            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.保存样式ToolStripMenuItem.Text = "保存样式";
             this.保存样式ToolStripMenuItem.Click += new System.EventHandler(this.保存样式ToolStripMenuItem_Click);
             // 
@@ -341,9 +343,18 @@
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsSelection.MultiSelect = true;
             this.gridView2.OptionsView.ColumnAutoWidth = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.DoubleClick += new System.EventHandler(this.gridView2_DoubleClick);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Copy_32x32;
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
             // 
             // 发货清单
             // 
@@ -396,5 +407,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
     }
 }

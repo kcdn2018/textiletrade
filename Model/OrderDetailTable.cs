@@ -1,3 +1,4 @@
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,7 +6,8 @@ using System.Text;
 namespace 纺织贸易管理系统
 {
     public class OrderDetailTable
-     {
+     {   
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         /// <summary>
         /// ID编号  自动增加列
         /// </summary>

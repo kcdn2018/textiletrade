@@ -123,7 +123,7 @@ namespace 纺织贸易管理系统.新增窗体
                     if (Useful == FormUseful.复制)
                     {
                         Edit();
-                        dateEdit1.DateTime = DateTime.Now.Date;
+                        dateEdit1.DateTime = DateTime.Now;
                         txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.成品登记, dateEdit1.DateTime, DanjuLeiXing.成品登记单);
                         Useful = FormUseful.新增;
                     }
@@ -180,7 +180,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.StockName = "仓库";
             danju.dh = txtdanhao.Text;
             danju.djlx = DanjuLeiXing.成品登记单 ;
-            danju.rq = dateEdit1.DateTime.Date ;
+            danju.rq = dateEdit1.DateTime ;
             danju.shouhuodizhi = txtckmc.Text;
             danju.own = User.user.YHBH;
             danju.zhuangtai = "未审核";

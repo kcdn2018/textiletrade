@@ -217,7 +217,7 @@
             // 
             this.txtlianxiren.ButtonSymbol = 61761;
             this.txtlianxiren.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtlianxiren.FillColor = System.Drawing.Color.White;
+            this.txtlianxiren.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtlianxiren.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtlianxiren.Location = new System.Drawing.Point(260, 135);
             this.txtlianxiren.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -226,6 +226,7 @@
             this.txtlianxiren.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtlianxiren.Name = "txtlianxiren";
             this.txtlianxiren.Padding = new System.Windows.Forms.Padding(5);
+            this.txtlianxiren.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtlianxiren.Size = new System.Drawing.Size(120, 23);
             this.txtlianxiren.TabIndex = 40;
             this.txtlianxiren.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,7 +247,7 @@
             // 
             this.txtKuanhao.ButtonSymbol = 61761;
             this.txtKuanhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtKuanhao.FillColor = System.Drawing.Color.White;
+            this.txtKuanhao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtKuanhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtKuanhao.Location = new System.Drawing.Point(71, 135);
             this.txtKuanhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -255,6 +256,7 @@
             this.txtKuanhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtKuanhao.Name = "txtKuanhao";
             this.txtKuanhao.Padding = new System.Windows.Forms.Padding(5);
+            this.txtKuanhao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtKuanhao.Size = new System.Drawing.Size(120, 23);
             this.txtKuanhao.TabIndex = 38;
             this.txtKuanhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -276,7 +278,7 @@
             // 
             this.txtyanse.ButtonSymbol = 61761;
             this.txtyanse.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtyanse.FillColor = System.Drawing.Color.White;
+            this.txtyanse.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtyanse.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtyanse.Location = new System.Drawing.Point(260, 96);
             this.txtyanse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -285,6 +287,7 @@
             this.txtyanse.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtyanse.Name = "txtyanse";
             this.txtyanse.Padding = new System.Windows.Forms.Padding(5);
+            this.txtyanse.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtyanse.Size = new System.Drawing.Size(120, 23);
             this.txtyanse.TabIndex = 36;
             this.txtyanse.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -294,7 +297,7 @@
             // 
             this.txtGuige.ButtonSymbol = 61761;
             this.txtGuige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGuige.FillColor = System.Drawing.Color.White;
+            this.txtGuige.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtGuige.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtGuige.Location = new System.Drawing.Point(448, 96);
             this.txtGuige.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -303,6 +306,7 @@
             this.txtGuige.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtGuige.Name = "txtGuige";
             this.txtGuige.Padding = new System.Windows.Forms.Padding(5);
+            this.txtGuige.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtGuige.Size = new System.Drawing.Size(120, 23);
             this.txtGuige.TabIndex = 35;
             this.txtGuige.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -312,7 +316,7 @@
             // 
             this.txthetonghao.ButtonSymbol = 61761;
             this.txthetonghao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txthetonghao.FillColor = System.Drawing.Color.White;
+            this.txthetonghao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txthetonghao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txthetonghao.Location = new System.Drawing.Point(70, 96);
             this.txthetonghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -321,6 +325,7 @@
             this.txthetonghao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txthetonghao.Name = "txthetonghao";
             this.txthetonghao.Padding = new System.Windows.Forms.Padding(5);
+            this.txthetonghao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txthetonghao.Size = new System.Drawing.Size(120, 23);
             this.txthetonghao.TabIndex = 34;
             this.txthetonghao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -330,7 +335,7 @@
             // 
             this.txtyingwenming.ButtonSymbol = 61761;
             this.txtyingwenming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtyingwenming.FillColor = System.Drawing.Color.White;
+            this.txtyingwenming.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtyingwenming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtyingwenming.Location = new System.Drawing.Point(447, 56);
             this.txtyingwenming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -339,6 +344,7 @@
             this.txtyingwenming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtyingwenming.Name = "txtyingwenming";
             this.txtyingwenming.Padding = new System.Windows.Forms.Padding(5);
+            this.txtyingwenming.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtyingwenming.Size = new System.Drawing.Size(120, 23);
             this.txtyingwenming.TabIndex = 33;
             this.txtyingwenming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -348,7 +354,7 @@
             // 
             this.txtpingming.ButtonSymbol = 61761;
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpingming.FillColor = System.Drawing.Color.White;
+            this.txtpingming.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtpingming.Location = new System.Drawing.Point(260, 56);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -357,6 +363,7 @@
             this.txtpingming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.Padding = new System.Windows.Forms.Padding(5);
+            this.txtpingming.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtpingming.Size = new System.Drawing.Size(120, 23);
             this.txtpingming.TabIndex = 32;
             this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -366,7 +373,7 @@
             // 
             this.txtbianhao.ButtonSymbol = 61761;
             this.txtbianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbianhao.FillColor = System.Drawing.Color.White;
+            this.txtbianhao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtbianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbianhao.Location = new System.Drawing.Point(71, 56);
             this.txtbianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -375,6 +382,7 @@
             this.txtbianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbianhao.Name = "txtbianhao";
             this.txtbianhao.Padding = new System.Windows.Forms.Padding(5);
+            this.txtbianhao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtbianhao.Size = new System.Drawing.Size(120, 23);
             this.txtbianhao.TabIndex = 31;
             this.txtbianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -627,6 +635,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -642,7 +651,6 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "寄样统计";
             this.Text = "寄样统计";
-            this.Load += new System.EventHandler(this.寄样统计_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);

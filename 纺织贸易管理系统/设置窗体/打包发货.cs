@@ -43,9 +43,9 @@ namespace 纺织贸易管理系统.设置窗体
             txtyunfei.Text = danju.yunfei.ToString();
             cmbqiankuan.Text = danju.Qiankuan;
             comhanshui.Text = danju.Hanshui;
-            dateEdit1.Text = danju.rq.ToShortDateString();
-            Kefajuanlist = juanhaolist.Where(x => x.state == 0).ToList();
-            Yidabaolist = juanhaolist.Where (x=>x.state!=0).ToList ();
+           dateEdit1.DateTime=danju.rq;
+            Kefajuanlist = juanhaolist.Where(x => x.LogID== 0).ToList();
+            Yidabaolist = juanhaolist.Where (x=>x.LogID !=0).ToList ();
             gridControl1.DataSource = Yidabaolist;
             gridControl2.DataSource = Kefajuanlist ;
         }
@@ -55,7 +55,7 @@ namespace 纺织贸易管理系统.设置窗体
             foreach (var j in gridView2.GetSelectedRows())
             {
                 var juan = Kefajuanlist.Where(x => x.JuanHao == gridView2.GetRowCellValue(j, "JuanHao").ToString()).ToList()[0];
-                juan.state = (int)txtbaohao.Value;
+                juan.LogID  = (int)txtbaohao.Value;
                 Yidabaolist.Add(juan);
             }
             gridView2.DeleteSelectedRows();
@@ -74,7 +74,7 @@ namespace 纺织贸易管理系统.设置窗体
             foreach (var j in gridView1.GetSelectedRows())
             {
                 var juan = Yidabaolist .Where(x => x.JuanHao == gridView1.GetRowCellValue(j, "JuanHao").ToString()).ToList()[0];
-                juan.state = 1;
+                juan.LogID  = 0;
                 Kefajuanlist .Add(juan);
             }
             gridView1.DeleteSelectedRows();

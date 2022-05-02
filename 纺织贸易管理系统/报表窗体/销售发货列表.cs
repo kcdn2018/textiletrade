@@ -35,13 +35,14 @@ namespace 纺织贸易管理系统.报表窗体
         public virtual void Query()
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            var querystring = $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date }' and danjutable.ksmc like '%{txtksmc.Text}%' " +
+            var querystring = $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1) }' and danjutable.ksmc like '%{txtksmc.Text}%' " +
                       $"and danjumingxitable.bianhao like '%{txtbianhao.Text }%' " +
                       $"and danjumingxitable.pingming like '%{txtpingming.Text }%' " +
                       $"and danjumingxitable.guige like '%{txtGuige.Text }%' " +
                       $"and danjumingxitable.ColorNum like '%{txtyanse.Text }%' " +
                       $"and danjumingxitable.ContractNum like '%{txthetonghao.Text }%' " +
                       $"and danjumingxitable.OrderNum like '%{txtordernum.Text }%' " +
+                      $"and danjumingxitable.ganghao like '%{txtganghao.Text }%' " +
                       $"and danjutable.djlx='{DanjuLeiXing.销售出库单}' " +
                       $"and danjutable.dh=danjumingxitable.danhao ";
             if (User.user.access == "自己")
@@ -212,6 +213,14 @@ namespace 纺织贸易管理系统.报表窗体
         private void 单据审核ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void 销售汇总ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AccessBLL.CheckAccess(this.Name) == true)
+            {
+                MainForm.mainform.AddMidForm(new 销售汇总 () );
+            }
         }
     }
 }

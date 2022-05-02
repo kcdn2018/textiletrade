@@ -18,6 +18,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tools;
 using 纺织贸易管理系统.其他窗体;
 using 纺织贸易管理系统.基本资料;
 using 纺织贸易管理系统.报表窗体;
@@ -32,20 +33,32 @@ namespace 纺织贸易管理系统
         private List<MenuTable> menuTables;
         private string res = string.Empty;
         public Main()
+
         {
             MainForm.mainform = this;
             //Connect.Environmen = "公司";
             //Connect.GetColumntable();
             StyleManager.MetroColorGeneratorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(ColorScheme.GetColor("0E6D38"), ColorScheme.GetColor("0E6D38"));
             InitializeComponent();
-            Task.Run(new Action(() => { Tools.ReportService.DownLoad(Application.StartupPath ); }));
+            toolStripStatusLabel2.Text = "版本号:" + User.version.ToString();
+            Task.Run(new Action(() => { Tools.ReportService.DownLoad(Application.StartupPath); }));
             //创建菜单
-            CreatFatherMenu(); 
-            Task.Run(new Action(() => { GetAccess.GetUserAccess(User.user.YHBH );}));
-            uiTitlePanel1.Text  = "欢迎" + User.user.YHMC ;
-            QueryTime.间隔 = Convert.ToInt32 ( SettingService.GetSetting (new Model.Setting() { formname = "", settingname = "时间间隔", settingValue ="" }).settingValue) ;
-            string settingvalue = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "数量小数位", settingValue = "" }).settingValue;
-            QueryTime.Digit = Convert.ToInt32(settingvalue ==string.Empty ?"1":settingvalue );
+            CreatFatherMenu();
+            Task.Run(new Action(() => { GetAccess.GetUserAccess(User.user.YHBH); }));
+            uiTitlePanel1.Text = "欢迎" + User.user.YHMC;
+            Task.Run(new Action(() =>
+            {
+                QueryTime.间隔 = Convert.ToInt32(SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "时间间隔", settingValue = "" }).settingValue);
+                string settingvalue = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "数量小数位", settingValue = "" }).settingValue;
+                QueryTime.DanjubianhaoRule = string.IsNullOrWhiteSpace(SettingService.GetSetting(x => x.settingname == "单据编号规则").settingValue) ? "类型+年份+月份+日+累计编号" : SettingService.GetSetting(x => x.settingname == "单据编号规则").settingValue;
+                QueryTime.Digit = Convert.ToInt32(settingvalue == string.Empty ? "1" : settingvalue);
+                QueryTime.IsTax = SettingService.GetSetting(x => x.settingname == "默认含税").settingValue;
+                QueryTime.IsTax = string.IsNullOrWhiteSpace(QueryTime.IsTax) ? "含税" : QueryTime.IsTax;
+                QueryTime.IsBuyStyle = SettingService.GetSetting(x => x.settingname == "采购类型").settingValue;
+                QueryTime.IsBuyStyle = string.IsNullOrWhiteSpace(QueryTime.IsBuyStyle) ? "成品采购" : QueryTime.IsBuyStyle;
+                QueryTime.IsFabricStyle = SettingService.GetSetting(x => x.settingname == "产品类型").settingValue;
+                QueryTime.Suolv = string.IsNullOrWhiteSpace(SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue) ? 100 : SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue.TryToInt(0);
+            }));
         }
         /// <summary>
         /// 创建菜单
@@ -61,10 +74,40 @@ namespace 纺织贸易管理系统
                 {
                     Name = f.FatherMenuName,
                     Caption = f.FatherMenuName,
-                    SmallImage = global::纺织贸易管理系统.Properties.Resources.BOFolder_16x16 
+                    //SmallImage = global::纺织贸易管理系统.Properties.Resources.BOFolder_16x16
                 };
+                switch (group.Name)
+                {
+                    case "基本资料":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.基本资料;
+                        break;
+                    case "样品管理":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.样品管理 ;
+                        break;
+                    case "展会管理":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.展会管理 ;
+                        break;
+                    case "销售管理":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.销售管理;
+                        break;
+                    case "采购管理":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.采购管理;
+                        break;
+                    case "生产管理":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.生产管理 ;
+                        break;
+                    case "库存管理":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.库存管理;
+                        break;
+                    case "财务管理":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.财务管理;
+                        break;
+                    case "系统信息":
+                        group.SmallImage = global::纺织贸易管理系统.Properties.Resources.系统信息 ;
+                        break;
+                }
                 this.navBarControl1.Groups.Add(group);
-                group.Expanded = true;
+                //group.Expanded = true;
                 CreatMenu(f.FatherMenuName ,group );
             }
         }
@@ -74,7 +117,7 @@ namespace 纺织贸易管理系统
             foreach (MenuTable m in menuTables.Where<MenuTable >(x=>x.FatherMenu==fathermenu&&x.Visitable==true &&x.UserID==User.user.YHBH  ) )
             {
                 var item = new NavBarItem() { Caption = m.MenuName, Name = m.FormName };
-                item.ImageOptions.SmallImage = global::纺织贸易管理系统.Properties.Resources.notes_16x16;
+                item.ImageOptions.SmallImage = global::纺织贸易管理系统.Properties.Resources.菜单;
                 group.ItemLinks.Add(new NavBarItemLink(item));
             }
         }
@@ -251,12 +294,6 @@ namespace 纺织贸易管理系统
                     case "疵点管理":
                         CheckTab(new 疵点信息());
                         break;
-                    case "产量报表":
-                        CheckTab(new 产量报表 ());
-                        break;
-                    case "产量统计":
-                        CheckTab(new 产量统计报表());
-                        break;
                     case "应收款管理":
                         CheckTab(new 应收款查询());
                         break;
@@ -301,6 +338,9 @@ namespace 纺织贸易管理系统
                         break;
                     case "流转卡管理":
                         CheckTab(new 流程卡查询());
+                        break;
+                    case "唛头关联":
+                        CheckTab(new 唛头关联 ());
                         break;
                     case "生产入库单":
                         CheckTab(new 来货入库 () { Text = menu.MenuName + "列表" });
@@ -368,6 +408,15 @@ namespace 纺织贸易管理系统
                             CheckTab(new 成品登记列表 ());
                         }
                         break;
+                    case "点色通知列表":     
+                            CheckTab(new 点色通知列表 ());
+                        break;
+                    case "配桶登记列表":                       
+                            CheckTab(new 配桶登记列表 ());               
+                        break;
+                    case "进出记录":
+                        CheckTab(new 进出记录 ());
+                        break;
                 }
             }
         }
@@ -432,7 +481,8 @@ namespace 纺织贸易管理系统
                var r = new Rate.ExRate();
                try
                {
-                   res = "    当前人民币对美元的汇率是" + String.Format("{0:N}", r.GetUsdRate()) + "    日期是" + DateTime.Now.ToString();
+                   RateModel.CurrentRate = (decimal)r.GetUsdRate();
+                   res = "    当前人民币对美元的汇率是" + String.Format("{0:N}", RateModel.CurrentRate ) + "    日期是" + DateTime.Now.ToString();
                }
                catch
                {
@@ -441,7 +491,8 @@ namespace 纺织贸易管理系统
            }));
             if (res == "获取不到汇率")
             {
-               timer1.Stop();
+                toolStripStatusLabel3.Text = res;
+                timer1.Stop();
             }
             else
             {

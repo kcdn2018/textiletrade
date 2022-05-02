@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -11,9 +12,9 @@ namespace 纺织贸易管理系统
         {
             return  Connect.CreatConnect().Query<Maitou>(func);
          }
-        public static List<Maitou> GetMaitoulst()
+        public static DataTable GetMaitoulst()
         {
-            return Connect.CreatConnect().Query<Maitou>();
+            return Connect.CreatConnect().Query("select maitou.*,lxr.mc as khmc from maitou,lxr where maitou.khbh=lxr.bh");
         }
         public static Maitou GetOneMaitou(Expression<Func<Maitou,bool >> func )
          {
@@ -34,6 +35,10 @@ namespace 纺织贸易管理系统
         {
               Connect.CreatConnect().Update<Maitou>(MaitouObj,func);
          }
+        public static void UpdateMaitou(Expression<Func<Maitou, bool>> Updatefunc, Expression<Func<Maitou, bool>> func)
+        {
+            Connect.CreatConnect().Update<Maitou>(Updatefunc , func);
+        }
         public static void DeleteMaitou(Expression<Func<Maitou, bool>> func)
         {
               Connect.CreatConnect().Delete<Maitou>(func);

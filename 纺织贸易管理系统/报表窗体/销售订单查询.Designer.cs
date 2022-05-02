@@ -44,6 +44,11 @@
             this.重启订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.汇总报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txtCustomerColorNum = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
+            this.txtCustomerPingming = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.uiLabel1 = new Sunny.UI.UILabel();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.rbyiwancheng = new System.Windows.Forms.RadioButton();
@@ -83,7 +88,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.uiLabel1 = new Sunny.UI.UILabel();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -228,7 +232,6 @@
             // 
             // 汇总报表ToolStripMenuItem
             // 
-            this.汇总报表ToolStripMenuItem.Enabled = false;
             this.汇总报表ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.EditTask_32x32;
             this.汇总报表ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.汇总报表ToolStripMenuItem.Name = "汇总报表ToolStripMenuItem";
@@ -241,6 +244,10 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txtCustomerColorNum);
+            this.groupPanel1.Controls.Add(this.labelX11);
+            this.groupPanel1.Controls.Add(this.txtCustomerPingming);
+            this.groupPanel1.Controls.Add(this.labelX10);
             this.groupPanel1.Controls.Add(this.uiLabel1);
             this.groupPanel1.Controls.Add(this.checkBox2);
             this.groupPanel1.Controls.Add(this.checkBox1);
@@ -300,10 +307,78 @@
             this.groupPanel1.TabIndex = 4;
             this.groupPanel1.Text = "查询条件";
             // 
+            // txtCustomerColorNum
+            // 
+            this.txtCustomerColorNum.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtCustomerColorNum.Border.Class = "TextBoxBorder";
+            this.txtCustomerColorNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCustomerColorNum.DisabledBackColor = System.Drawing.Color.White;
+            this.txtCustomerColorNum.ForeColor = System.Drawing.Color.Black;
+            this.txtCustomerColorNum.Location = new System.Drawing.Point(631, 93);
+            this.txtCustomerColorNum.Name = "txtCustomerColorNum";
+            this.txtCustomerColorNum.PreventEnterBeep = true;
+            this.txtCustomerColorNum.Size = new System.Drawing.Size(121, 21);
+            this.txtCustomerColorNum.TabIndex = 60;
+            this.txtCustomerColorNum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX11
+            // 
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Location = new System.Drawing.Point(568, 92);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(55, 23);
+            this.labelX11.TabIndex = 59;
+            this.labelX11.Text = "客户色号";
+            // 
+            // txtCustomerPingming
+            // 
+            this.txtCustomerPingming.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtCustomerPingming.Border.Class = "TextBoxBorder";
+            this.txtCustomerPingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCustomerPingming.DisabledBackColor = System.Drawing.Color.White;
+            this.txtCustomerPingming.ForeColor = System.Drawing.Color.Black;
+            this.txtCustomerPingming.Location = new System.Drawing.Point(631, 55);
+            this.txtCustomerPingming.Name = "txtCustomerPingming";
+            this.txtCustomerPingming.PreventEnterBeep = true;
+            this.txtCustomerPingming.Size = new System.Drawing.Size(121, 21);
+            this.txtCustomerPingming.TabIndex = 58;
+            this.txtCustomerPingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(568, 54);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(55, 23);
+            this.labelX10.TabIndex = 57;
+            this.labelX10.Text = "客户品名";
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel1.Location = new System.Drawing.Point(879, 94);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(146, 23);
+            this.uiLabel1.TabIndex = 56;
+            this.uiLabel1.Text = "共计订单数：";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(700, 60);
+            this.checkBox2.Location = new System.Drawing.Point(882, 57);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(84, 16);
             this.checkBox2.TabIndex = 55;
@@ -314,7 +389,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(700, 19);
+            this.checkBox1.Location = new System.Drawing.Point(882, 20);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 54;
@@ -325,7 +400,7 @@
             // rbyiwancheng
             // 
             this.rbyiwancheng.AutoSize = true;
-            this.rbyiwancheng.Location = new System.Drawing.Point(587, 60);
+            this.rbyiwancheng.Location = new System.Drawing.Point(769, 57);
             this.rbyiwancheng.Name = "rbyiwancheng";
             this.rbyiwancheng.Size = new System.Drawing.Size(95, 16);
             this.rbyiwancheng.TabIndex = 53;
@@ -338,7 +413,7 @@
             // 
             this.rdweiwancheng.AutoSize = true;
             this.rdweiwancheng.Checked = true;
-            this.rdweiwancheng.Location = new System.Drawing.Point(587, 19);
+            this.rdweiwancheng.Location = new System.Drawing.Point(769, 20);
             this.rdweiwancheng.Name = "rdweiwancheng";
             this.rdweiwancheng.Size = new System.Drawing.Size(95, 16);
             this.rdweiwancheng.TabIndex = 52;
@@ -351,7 +426,7 @@
             // rbsuoyou
             // 
             this.rbsuoyou.AutoSize = true;
-            this.rbsuoyou.Location = new System.Drawing.Point(587, 96);
+            this.rbsuoyou.Location = new System.Drawing.Point(769, 97);
             this.rbsuoyou.Name = "rbsuoyou";
             this.rbsuoyou.Size = new System.Drawing.Size(95, 16);
             this.rbsuoyou.TabIndex = 51;
@@ -375,6 +450,7 @@
             this.txtOrdernum.PreventEnterBeep = true;
             this.txtOrdernum.Size = new System.Drawing.Size(121, 21);
             this.txtOrdernum.TabIndex = 50;
+            this.txtOrdernum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX6
             // 
@@ -398,7 +474,7 @@
             this.txtGuige.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtGuige.DisabledBackColor = System.Drawing.Color.White;
             this.txtGuige.ForeColor = System.Drawing.Color.Black;
-            this.txtGuige.Location = new System.Drawing.Point(444, 58);
+            this.txtGuige.Location = new System.Drawing.Point(444, 54);
             this.txtGuige.Name = "txtGuige";
             this.txtGuige.PreventEnterBeep = true;
             this.txtGuige.Size = new System.Drawing.Size(121, 21);
@@ -411,9 +487,9 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(381, 57);
+            this.labelX9.Location = new System.Drawing.Point(381, 53);
             this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(61, 23);
+            this.labelX9.Size = new System.Drawing.Size(55, 23);
             this.labelX9.TabIndex = 47;
             this.labelX9.Text = "规格";
             // 
@@ -485,7 +561,7 @@
             this.txtpingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtpingming.DisabledBackColor = System.Drawing.Color.White;
             this.txtpingming.ForeColor = System.Drawing.Color.Black;
-            this.txtpingming.Location = new System.Drawing.Point(256, 58);
+            this.txtpingming.Location = new System.Drawing.Point(256, 54);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.PreventEnterBeep = true;
             this.txtpingming.Size = new System.Drawing.Size(121, 21);
@@ -498,7 +574,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(195, 57);
+            this.labelX5.Location = new System.Drawing.Point(195, 53);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(55, 23);
             this.labelX5.TabIndex = 39;
@@ -514,7 +590,7 @@
             this.txtbianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtbianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtbianhao.Location = new System.Drawing.Point(67, 58);
+            this.txtbianhao.Location = new System.Drawing.Point(67, 54);
             this.txtbianhao.Name = "txtbianhao";
             this.txtbianhao.PreventEnterBeep = true;
             this.txtbianhao.Size = new System.Drawing.Size(121, 21);
@@ -527,7 +603,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(6, 57);
+            this.labelX4.Location = new System.Drawing.Point(6, 53);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(55, 23);
             this.labelX4.TabIndex = 37;
@@ -552,7 +628,7 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(383, 16);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(59, 23);
+            this.labelX3.Size = new System.Drawing.Size(55, 23);
             this.labelX3.TabIndex = 35;
             this.labelX3.Text = "客户名称";
             // 
@@ -578,7 +654,7 @@
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(55, 23);
             this.labelX2.TabIndex = 33;
-            this.labelX2.Text = "日期到：";
+            this.labelX2.Text = "日期到";
             // 
             // dateEdit1
             // 
@@ -602,7 +678,7 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(55, 23);
             this.labelX1.TabIndex = 31;
-            this.labelX1.Text = "日期从：";
+            this.labelX1.Text = "日期从";
             // 
             // contextMenuStrip1
             // 
@@ -722,6 +798,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.查看ToolStripMenuItem_Click);
@@ -738,6 +815,7 @@
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
             this.gridView3});
+            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
             // 
             // gridView3
             // 
@@ -785,16 +863,6 @@
             this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel2.TabIndex = 5;
             this.groupPanel2.Text = "订单清单";
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel1.Location = new System.Drawing.Point(697, 93);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(146, 23);
-            this.uiLabel1.TabIndex = 56;
-            this.uiLabel1.Text = "共计订单数：";
-            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // 销售订单查询
             // 
@@ -882,5 +950,9 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ToolStripMenuItem 复制新增ToolStripMenuItem;
         private Sunny.UI.UILabel uiLabel1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCustomerColorNum;
+        private DevComponents.DotNetBar.LabelX labelX11;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtCustomerPingming;
+        private DevComponents.DotNetBar.LabelX labelX10;
     }
 }

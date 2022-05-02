@@ -92,7 +92,7 @@ namespace 纺织贸易管理系统.新增窗体
                         if (i == danjumingxitables.Count - 1)
                             for (int j = 0; j < 30; j++)
                             {
-                                danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+                                danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
                             }
                     }
                     fm.Dispose();
@@ -124,7 +124,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
             gridControl1.RefreshDataSource();
         }
 
@@ -135,7 +135,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle,this);
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -166,7 +166,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.StockName = "色卡仓库";
             danju.dh = txtdanhao.Text;
             danju.djlx = DanjuLeiXing.色卡采购单;
-            danju.rq = dateEdit1.DateTime.Date ;
+            danju.rq = dateEdit1.DateTime ;
             danju.shouhuodizhi = "色卡仓库";
             danju.lianxiren = txtlianxiren.Text;
             danju.Qiankuan = cmbqiankuan.Text;
@@ -253,7 +253,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtyunfei.Text = danju.yunfei.ToString ();
             cmbqiankuan.Text = danju.Qiankuan;
             comhanshui.Text = danju.Hanshui;
-            dateEdit1.Text = danju.rq.ToShortDateString();
+           dateEdit1.DateTime=danju.rq;
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == txtdanhao.Text);
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)

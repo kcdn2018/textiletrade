@@ -118,7 +118,7 @@ namespace BLL
                     if (!string.IsNullOrEmpty(danju.ksbh))
                     {
                         var lxr = LXRService.GetOneLXR(x => x.BH == danju.ksbh);
-                        lxr.YingKaifapiao += danjumingxi.hanshuiheji;
+                        lxr.YingKaifapiao += danjumingxi.hanshuiheji+danjumingxi.weishuiheji ;
                         LXRService.UpdateLXR($"YingKaifapiao='{lxr.YingKaifapiao }'", x => x.BH == danju.ksbh);
                     }
                 }
@@ -144,8 +144,8 @@ namespace BLL
                 {
                     if (!string.IsNullOrEmpty(danju.ksbh ))
                     {
-                        var lxr = LXRService.GetOneLXR(x => x.MC  == danju.ksbh);
-                        lxr.YingKaifapiao -= danjumingxi.hanshuiheji;
+                        var lxr = LXRService.GetOneLXR(x => x.BH   == danju.ksbh);
+                        lxr.YingKaifapiao -= (danjumingxi.hanshuiheji+danjumingxi.weishuiheji );
                         LXRService.UpdateLXR($"YingKaifapiao='{lxr.YingKaifapiao }'", x => x.BH == danju.ksbh);
                     }
                 }

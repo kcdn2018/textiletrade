@@ -19,9 +19,7 @@ using System.Windows.Forms;
 
 namespace 纺织贸易管理系统.其他窗体
 {
-#pragma warning disable CS0246 // 未能找到类型或命名空间名“UIForm”(是否缺少 using 指令或程序集引用?)
     public partial class 登陆窗体 : UIForm 
-#pragma warning restore CS0246 // 未能找到类型或命名空间名“UIForm”(是否缺少 using 指令或程序集引用?)
     {
         public 登陆窗体()
         {
@@ -97,45 +95,7 @@ namespace 纺织贸易管理系统.其他窗体
 
         private void 登陆窗体_Load(object sender, EventArgs e)
         {
-            Thread td = new Thread(CheckUpdate);
-            td.Start();
-        }
-        private void CheckUpdate()
-        {
-            var check = new Update().CheckUpdate();
-            if (check == true)
-            {              
-                if (MessageBox.Show("有新的更新！启用更新将会关闭程序。请做好保存", this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    Process.Start(Application.StartupPath + "\\Updater.exe");
-                    Process cur = Process.GetCurrentProcess();
-                    KillProcess(cur.ProcessName);
-                    Process.GetCurrentProcess().Kill();
-                    Application.ExitThread();
-                }
-            }
-        }
-        public static void KillProcess(string strProcessesByName)//关闭线程
-        {
-            foreach (Process p in Process.GetProcesses())//GetProcessesByName(strProcessesByName))
-            {
-                if (p.ProcessName.ToUpper().Contains(strProcessesByName))
-                {
-                    try
-                    {
-                        p.Kill();
-                        p.WaitForExit(); // possibly with a timeout
-                    }
-                    catch (Win32Exception e)
-                    {
-                        MessageBox.Show(e.Message.ToString());   // process was terminating or can't be terminated - deal with it
-                    }
-                    catch (InvalidOperationException e)
-                    {
-                        MessageBox.Show(e.Message.ToString()); // process has already exited - might be able to let this one go
-                    }
-                }
-            }
+            Task.Run(new Action(() => { UpdateService.IsNeedUpdate (); }));
         }
             private void 登陆窗体_FormClosed(object sender, FormClosedEventArgs e)
         {

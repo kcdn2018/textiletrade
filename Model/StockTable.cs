@@ -38,6 +38,9 @@ namespace 纺织贸易管理系统
         public string orderNum { get; set; }
         public decimal  AvgPrice { get; set; }
         public decimal  TotalMoney { get; set; }
+        /// <summary>
+        /// 库位
+        /// </summary>
         public string Kuwei { get; set; }
         public string CustomName { get; set; }
         public string ContractNum { get; set; }
@@ -80,5 +83,9 @@ namespace 纺织贸易管理系统
         /// 备注
         /// </summary>
         public System.String Remarkers { get; set; }
+        /// <summary>
+        /// 坯布门幅
+        /// </summary>
+        public string FrabicWidth { get; set; }
     }
 }

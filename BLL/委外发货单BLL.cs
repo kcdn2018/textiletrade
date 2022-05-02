@@ -68,7 +68,6 @@ namespace BLL
                     反审核(danju.dh);
                 }
             }
-            Thread.Sleep(200);
             DanjuTableService.UpdateDanjuTable(danju, x => x.dh == danju.dh);
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
            danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());
@@ -119,9 +118,8 @@ namespace BLL
             DanjuTableService.DeleteDanjuTable(x => x.dh == danhao);
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danhao);
         }
-        public static async void 审核(string danhao)
+        public static  void 审核(string danhao)
         {
-            await Task.Run(() => {
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxis = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
                 DanjuTableService.UpdateDanjuTable("zhuangtai='已审核'", x => x.dh == danhao);
@@ -130,11 +128,9 @@ namespace BLL
                 库存BLL.减少库存(danjumingxis, danju);
                 danju.ckmc = danju.ksmc;
                 库存BLL.增加库存(danjumingxis, danju); 
-            });
         }
-        public static async void 反审核(string danhao)
+        public static  void 反审核(string danhao)
         {
-            await Task.Run(() => { 
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxis = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
                 DanjuTableService.UpdateDanjuTable("zhuangtai='未审核'", x => x.dh == danhao);
@@ -144,7 +140,6 @@ namespace BLL
                 danju.ckmc = danju.ksmc;
                 库存BLL.减少库存(danjumingxis, danju);
                 可发卷BLL.卷入库(danhao);
-            });
         }
     }
 }

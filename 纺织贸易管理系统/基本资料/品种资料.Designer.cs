@@ -98,6 +98,7 @@
             this.txtguige = new Sunny.UI.UITextBox();
             this.txthuohao = new Sunny.UI.UITextBox();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
+            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.uiRadioButtonGroup1.SuspendLayout();
@@ -199,7 +200,8 @@
             this.打印预览ToolStripMenuItem,
             this.直接打印ToolStripMenuItem,
             this.新增模板ToolStripMenuItem,
-            this.删除模板ToolStripMenuItem});
+            this.删除模板ToolStripMenuItem,
+            this.重命名ToolStripMenuItem});
             this.打印标签ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.打印标签ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.打印标签ToolStripMenuItem.Name = "打印标签ToolStripMenuItem";
@@ -210,7 +212,7 @@
             // 
             this.打印编辑ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
             this.打印编辑ToolStripMenuItem.Name = "打印编辑ToolStripMenuItem";
-            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印编辑ToolStripMenuItem.Text = "打印编辑";
             this.打印编辑ToolStripMenuItem.Click += new System.EventHandler(this.打印编辑ToolStripMenuItem_Click);
             // 
@@ -218,7 +220,7 @@
             // 
             this.打印预览ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
-            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印预览ToolStripMenuItem.Text = "打印预览";
             this.打印预览ToolStripMenuItem.Click += new System.EventHandler(this.打印预览ToolStripMenuItem_Click);
             // 
@@ -226,7 +228,7 @@
             // 
             this.直接打印ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.直接打印ToolStripMenuItem.Name = "直接打印ToolStripMenuItem";
-            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.直接打印ToolStripMenuItem.Text = "直接打印";
             this.直接打印ToolStripMenuItem.Click += new System.EventHandler(this.直接打印ToolStripMenuItem_Click);
             // 
@@ -234,7 +236,7 @@
             // 
             this.新增模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
             this.新增模板ToolStripMenuItem.Name = "新增模板ToolStripMenuItem";
-            this.新增模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.新增模板ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新增模板ToolStripMenuItem.Text = "新增模板";
             this.新增模板ToolStripMenuItem.Click += new System.EventHandler(this.buttonX1_Click);
             // 
@@ -242,7 +244,7 @@
             // 
             this.删除模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
             this.删除模板ToolStripMenuItem.Name = "删除模板ToolStripMenuItem";
-            this.删除模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除模板ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除模板ToolStripMenuItem.Text = "删除模板";
             this.删除模板ToolStripMenuItem.Click += new System.EventHandler(this.删除模板ToolStripMenuItem_Click);
             // 
@@ -334,6 +336,8 @@
             this.uiRadioButtonGroup1.Size = new System.Drawing.Size(218, 47);
             this.uiRadioButtonGroup1.TabIndex = 18;
             this.uiRadioButtonGroup1.Text = "排序规则";
+            this.uiRadioButtonGroup1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiRadioButtonGroup1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiRadioButton2
             // 
@@ -346,6 +350,7 @@
             this.uiRadioButton2.Size = new System.Drawing.Size(89, 23);
             this.uiRadioButton2.TabIndex = 1;
             this.uiRadioButton2.Text = "编号";
+            this.uiRadioButton2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiRadioButton2.ValueChanged += new Sunny.UI.UIRadioButton.OnValueChanged(this.uiRadioButton1_ValueChanged);
             // 
             // uiRadioButton1
@@ -360,6 +365,7 @@
             this.uiRadioButton1.Size = new System.Drawing.Size(101, 21);
             this.uiRadioButton1.TabIndex = 0;
             this.uiRadioButton1.Text = "创建时间";
+            this.uiRadioButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiRadioButton1.ValueChanged += new Sunny.UI.UIRadioButton.OnValueChanged(this.uiRadioButton1_ValueChanged);
             // 
             // labelX9
@@ -763,146 +769,155 @@
             // 
             // txtbianhao
             // 
+            this.txtbianhao.ButtonSymbol = 61761;
             this.txtbianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbianhao.FillColor = System.Drawing.Color.White;
             this.txtbianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbianhao.Location = new System.Drawing.Point(67, 25);
             this.txtbianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtbianhao.Maximum = 2147483647D;
-            this.txtbianhao.Minimum = -2147483648D;
             this.txtbianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbianhao.Name = "txtbianhao";
             this.txtbianhao.Padding = new System.Windows.Forms.Padding(5);
+            this.txtbianhao.ShowText = false;
             this.txtbianhao.Size = new System.Drawing.Size(96, 23);
             this.txtbianhao.TabIndex = 32;
+            this.txtbianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbianhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtbianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtGHSBH
             // 
+            this.txtGHSBH.ButtonSymbol = 61761;
             this.txtGHSBH.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGHSBH.FillColor = System.Drawing.Color.White;
             this.txtGHSBH.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtGHSBH.Location = new System.Drawing.Point(776, 70);
             this.txtGHSBH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGHSBH.Maximum = 2147483647D;
-            this.txtGHSBH.Minimum = -2147483648D;
             this.txtGHSBH.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtGHSBH.Name = "txtGHSBH";
             this.txtGHSBH.Padding = new System.Windows.Forms.Padding(5);
+            this.txtGHSBH.ShowText = false;
             this.txtGHSBH.Size = new System.Drawing.Size(96, 23);
             this.txtGHSBH.TabIndex = 33;
+            this.txtGHSBH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtGHSBH.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtGHSBH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtFengge
             // 
+            this.txtFengge.ButtonSymbol = 61761;
             this.txtFengge.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFengge.FillColor = System.Drawing.Color.White;
             this.txtFengge.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtFengge.Location = new System.Drawing.Point(385, 70);
             this.txtFengge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtFengge.Maximum = 2147483647D;
-            this.txtFengge.Minimum = -2147483648D;
             this.txtFengge.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtFengge.Name = "txtFengge";
             this.txtFengge.Padding = new System.Windows.Forms.Padding(5);
+            this.txtFengge.ShowText = false;
             this.txtFengge.Size = new System.Drawing.Size(96, 23);
             this.txtFengge.TabIndex = 34;
+            this.txtFengge.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtFengge.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtFengge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtpingming
             // 
+            this.txtpingming.ButtonSymbol = 61761;
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpingming.FillColor = System.Drawing.Color.White;
             this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtpingming.Location = new System.Drawing.Point(227, 25);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtpingming.Maximum = 2147483647D;
-            this.txtpingming.Minimum = -2147483648D;
             this.txtpingming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.Padding = new System.Windows.Forms.Padding(5);
+            this.txtpingming.ShowText = false;
             this.txtpingming.Size = new System.Drawing.Size(96, 23);
             this.txtpingming.TabIndex = 34;
+            this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtpingming.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtGonghuoshang
             // 
+            this.txtGonghuoshang.ButtonSymbol = 61761;
             this.txtGonghuoshang.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGonghuoshang.FillColor = System.Drawing.Color.White;
             this.txtGonghuoshang.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtGonghuoshang.Location = new System.Drawing.Point(555, 70);
             this.txtGonghuoshang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGonghuoshang.Maximum = 2147483647D;
-            this.txtGonghuoshang.Minimum = -2147483648D;
             this.txtGonghuoshang.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtGonghuoshang.Name = "txtGonghuoshang";
             this.txtGonghuoshang.Padding = new System.Windows.Forms.Padding(5);
+            this.txtGonghuoshang.ShowText = false;
             this.txtGonghuoshang.Size = new System.Drawing.Size(96, 23);
             this.txtGonghuoshang.TabIndex = 34;
+            this.txtGonghuoshang.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtGonghuoshang.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtGonghuoshang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtyingwenming
             // 
+            this.txtyingwenming.ButtonSymbol = 61761;
             this.txtyingwenming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtyingwenming.FillColor = System.Drawing.Color.White;
             this.txtyingwenming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtyingwenming.Location = new System.Drawing.Point(554, 25);
             this.txtyingwenming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtyingwenming.Maximum = 2147483647D;
-            this.txtyingwenming.Minimum = -2147483648D;
             this.txtyingwenming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtyingwenming.Name = "txtyingwenming";
             this.txtyingwenming.Padding = new System.Windows.Forms.Padding(5);
+            this.txtyingwenming.ShowText = false;
             this.txtyingwenming.Size = new System.Drawing.Size(96, 23);
             this.txtyingwenming.TabIndex = 34;
+            this.txtyingwenming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtyingwenming.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtyingwenming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtYongtu
             // 
+            this.txtYongtu.ButtonSymbol = 61761;
             this.txtYongtu.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtYongtu.FillColor = System.Drawing.Color.White;
             this.txtYongtu.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtYongtu.Location = new System.Drawing.Point(228, 70);
             this.txtYongtu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtYongtu.Maximum = 2147483647D;
-            this.txtYongtu.Minimum = -2147483648D;
             this.txtYongtu.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtYongtu.Name = "txtYongtu";
             this.txtYongtu.Padding = new System.Windows.Forms.Padding(5);
+            this.txtYongtu.ShowText = false;
             this.txtYongtu.Size = new System.Drawing.Size(96, 23);
             this.txtYongtu.TabIndex = 34;
+            this.txtYongtu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtYongtu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtYongtu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtguige
             // 
+            this.txtguige.ButtonSymbol = 61761;
             this.txtguige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtguige.FillColor = System.Drawing.Color.White;
             this.txtguige.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtguige.Location = new System.Drawing.Point(385, 25);
             this.txtguige.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtguige.Maximum = 2147483647D;
-            this.txtguige.Minimum = -2147483648D;
             this.txtguige.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtguige.Name = "txtguige";
             this.txtguige.Padding = new System.Windows.Forms.Padding(5);
+            this.txtguige.ShowText = false;
             this.txtguige.Size = new System.Drawing.Size(96, 23);
             this.txtguige.TabIndex = 34;
+            this.txtguige.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtguige.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtguige.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txthuohao
             // 
+            this.txthuohao.ButtonSymbol = 61761;
             this.txthuohao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txthuohao.FillColor = System.Drawing.Color.White;
             this.txthuohao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txthuohao.Location = new System.Drawing.Point(67, 68);
             this.txthuohao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txthuohao.Maximum = 2147483647D;
-            this.txthuohao.Minimum = -2147483648D;
             this.txthuohao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txthuohao.Name = "txthuohao";
             this.txthuohao.Padding = new System.Windows.Forms.Padding(5);
+            this.txthuohao.ShowText = false;
             this.txthuohao.Size = new System.Drawing.Size(96, 23);
             this.txthuohao.TabIndex = 34;
+            this.txthuohao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txthuohao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txthuohao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // uiGroupBox1
@@ -936,6 +951,16 @@
             this.uiGroupBox1.Size = new System.Drawing.Size(1351, 105);
             this.uiGroupBox1.TabIndex = 35;
             this.uiGroupBox1.Text = "查询条件";
+            this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // 重命名ToolStripMenuItem
+            // 
+            this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
+            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
+            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.重命名ToolStripMenuItem.Text = "重命名";
+            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
             // 
             // 品种资料
             // 
@@ -1068,5 +1093,6 @@
         private DevComponents.DotNetBar.ExpandableSplitter expandableSplitter1;
         private System.Windows.Forms.ToolStripMenuItem 导出当前页ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导出所有记录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 重命名ToolStripMenuItem;
     }
 }

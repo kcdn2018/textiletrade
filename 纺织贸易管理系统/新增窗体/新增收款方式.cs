@@ -14,9 +14,7 @@ using System.Windows.Forms;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     public partial class 新增收款方式 : Sunny.UI.UIForm
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     {
         public SKFS  shoukuanfangshi { get; set; }
         public int useful { get; set; }
@@ -29,12 +27,12 @@ namespace 纺织贸易管理系统.新增窗体
         {
             if(useful==FormUseful.新增 )
             {
-                Init();
+                CreatNew();
             }
             else
             {
                 txtBianhao.Text = shoukuanfangshi.BH;
-                txtBianhao.ReadOnly = true;
+                //txtBianhao.ReadOnly = true;
                 txtkaihuren.Text = shoukuanfangshi.Kaihuren;
                 txtkaihuyinghang.Text = shoukuanfangshi.Kaihuyinghang;
                 txtpingming.Text = shoukuanfangshi.Skfs;
@@ -91,14 +89,19 @@ namespace 纺织贸易管理系统.新增窗体
                     Zhanghuyue = txtzhanghuyue.Text.ToDecimal(0),
                     ZJC = txtzjc.Text,
                     own = User.user.YHBH
-                },x=>x.BH==txtBianhao.Text );
+                },x=>x.BH==shoukuanfangshi.BH );
             }
-            Init();
+            CreatNew();
         }
 
         private void txtpingming_TextChanged(object sender, EventArgs e)
         {
             txtzjc.Text = Tools.GetPy.GetPingYingFirstLetter(txtpingming.Text);
+        }
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

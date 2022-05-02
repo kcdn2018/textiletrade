@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -83,6 +83,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=14.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2, Version=14.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -96,10 +99,10 @@
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FastReport, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -113,35 +116,43 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\BaiduNetdiskDownload\FastReport.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.2.10, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.3.2\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.5\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.5\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.5\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.5\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="Rate">
       <HintPath>..\..\纺织贸易管理\纺织贸易管理系统\Scmanager\bin\x86\Debug\Rate.dll</HintPath>
     </Reference>
-    <Reference Include="SqlSugar, Version=5.0.4.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SqlSugar.5.0.4.3\lib\SqlSugar.dll</HintPath>
+    <Reference Include="SqlSugar, Version=5.0.5.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.5.4\lib\SqlSugar.dll</HintPath>
     </Reference>
-    <Reference Include="SunnyUI, Version=3.0.7.0, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
-      <HintPath>..\packages\SunnyUI.3.0.7\lib\net40\SunnyUI.dll</HintPath>
+    <Reference Include="SunnyUI, Version=3.1.5.0, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\SunnyUI.3.1.5\lib\net40\SunnyUI.dll</HintPath>
     </Reference>
-    <Reference Include="SunnyUI.Common, Version=3.0.7.0, Culture=neutral, PublicKeyToken=5a271fb7ba597231, processorArchitecture=MSIL">
-      <HintPath>..\packages\SunnyUI.Common.3.0.7\lib\net40\SunnyUI.Common.dll</HintPath>
+    <Reference Include="SunnyUI.Common, Version=3.1.2.0, Culture=neutral, PublicKeyToken=5a271fb7ba597231, processorArchitecture=MSIL">
+      <HintPath>..\packages\SunnyUI.Common.3.1.2\lib\net40\SunnyUI.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net451\System.Data.SQLite.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    <Reference Include="System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Design" />
     <Reference Include="System.Security" />
@@ -157,7 +168,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcelService.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,7 +182,7 @@
     <Compile Include="其他窗体\AlterDlg.cs" />
     <Compile Include="其他窗体\CopyRow.cs" />
     <Compile Include="其他窗体\PictureBoxEx.cs" />
-    <Compile Include="其他窗体\Update.cs" />
+    <Compile Include="其他窗体\UpdateService.cs" />
     <Compile Include="其他窗体\关于窗体.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +219,12 @@
     <Compile Include="其他窗体\唛头关联.Designer.cs">
       <DependentUpon>唛头关联.cs</DependentUpon>
     </Compile>
+    <Compile Include="其他窗体\库位登记.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\库位登记.Designer.cs">
+      <DependentUpon>库位登记.cs</DependentUpon>
+    </Compile>
     <Compile Include="其他窗体\录入可发卷.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +250,12 @@
     <Compile Include="其他窗体\码单.Designer.cs">
       <DependentUpon>码单.cs</DependentUpon>
     </Compile>
+    <Compile Include="其他窗体\码单导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\码单导入.Designer.cs">
+      <DependentUpon>码单导入.cs</DependentUpon>
+    </Compile>
     <Compile Include="其他窗体\订单转换.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +273,18 @@
     </Compile>
     <Compile Include="其他窗体\账户流水单.Designer.cs">
       <DependentUpon>账户流水单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他窗体\账户转账.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\账户转账.Designer.cs">
+      <DependentUpon>账户转账.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他窗体\销售汇总.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\销售汇总.Designer.cs">
+      <DependentUpon>销售汇总.cs</DependentUpon>
     </Compile>
     <Compile Include="基本资料\岗位信息.cs">
       <SubType>Form</SubType>
@@ -330,18 +364,6 @@
     <Compile Include="基本资料\品种资料.Designer.cs">
       <DependentUpon>品种资料.cs</DependentUpon>
     </Compile>
-    <Compile Include="报表窗体\产量报表.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="报表窗体\产量报表.designer.cs">
-      <DependentUpon>产量报表.cs</DependentUpon>
-    </Compile>
-    <Compile Include="报表窗体\产量统计报表.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="报表窗体\产量统计报表.designer.cs">
-      <DependentUpon>产量统计报表.cs</DependentUpon>
-    </Compile>
     <Compile Include="报表窗体\出展记录.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -402,6 +424,12 @@
     <Compile Include="报表窗体\打样管理.Designer.cs">
       <DependentUpon>打样管理.cs</DependentUpon>
     </Compile>
+    <Compile Include="报表窗体\点色通知列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\点色通知列表.Designer.cs">
+      <DependentUpon>点色通知列表.cs</DependentUpon>
+    </Compile>
     <Compile Include="报表窗体\生产退卷查询.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -444,12 +472,6 @@
     <Compile Include="报表窗体\色卡销售列表.Designer.cs">
       <DependentUpon>色卡销售列表.cs</DependentUpon>
     </Compile>
-    <Compile Include="报表窗体\订单汇总.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="报表窗体\订单汇总.Designer.cs">
-      <DependentUpon>订单汇总.cs</DependentUpon>
-    </Compile>
     <Compile Include="报表窗体\费用报销列表.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -467,6 +489,18 @@
     </Compile>
     <Compile Include="报表窗体\成品登记列表.Designer.cs">
       <DependentUpon>成品登记列表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\进出记录.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\进出记录.Designer.cs">
+      <DependentUpon>进出记录.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\配桶登记列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\配桶登记列表.Designer.cs">
+      <DependentUpon>配桶登记列表.cs</DependentUpon>
     </Compile>
     <Compile Include="报表窗体\采购通知单列表.cs">
       <SubType>Form</SubType>
@@ -828,6 +862,12 @@
     <Compile Include="新增窗体\流转登记.Designer.cs">
       <DependentUpon>流转登记.cs</DependentUpon>
     </Compile>
+    <Compile Include="新增窗体\点色通知单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\点色通知单.Designer.cs">
+      <DependentUpon>点色通知单.cs</DependentUpon>
+    </Compile>
     <Compile Include="新增窗体\白坯日产量单.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -857,6 +897,12 @@
     </Compile>
     <Compile Include="新增窗体\色卡销售单.Designer.cs">
       <DependentUpon>色卡销售单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\配桶登记单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\配桶登记单.Designer.cs">
+      <DependentUpon>配桶登记单.cs</DependentUpon>
     </Compile>
     <Compile Include="新增窗体\门市采样单.cs">
       <SubType>Form</SubType>
@@ -1026,6 +1072,13 @@
     <Compile Include="新增窗体\销售计划单.Designer.cs">
       <DependentUpon>销售计划单.cs</DependentUpon>
     </Compile>
+    <Compile Include="汇总窗体\订单汇总.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="汇总窗体\订单汇总.Designer.cs">
+      <DependentUpon>订单汇总.cs</DependentUpon>
+    </Compile>
+    <Compile Include="自定义类\ExcelService.cs" />
     <Compile Include="自定义类\Menu.cs" />
     <Compile Include="设置窗体\CreateGrid.cs" />
     <Compile Include="设置窗体\ExportFile.cs" />
@@ -1103,6 +1156,12 @@
     <Compile Include="选择窗体\供货商选择.Designer.cs">
       <DependentUpon>供货商选择.cs</DependentUpon>
     </Compile>
+    <Compile Include="选择窗体\染厂库存选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\染厂库存选择.Designer.cs">
+      <DependentUpon>染厂库存选择.cs</DependentUpon>
+    </Compile>
     <Compile Include="选择窗体\采购通知单选择.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1175,6 +1234,12 @@
     <Compile Include="选择窗体\订单号选择.Designer.cs">
       <DependentUpon>订单号选择.cs</DependentUpon>
     </Compile>
+    <Compile Include="选择窗体\销售单明细选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\销售单明细选择.Designer.cs">
+      <DependentUpon>销售单明细选择.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -1207,6 +1272,9 @@
     <EmbeddedResource Include="其他窗体\寻找样布.resx">
       <DependentUpon>寻找样布.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\库位登记.resx">
+      <DependentUpon>库位登记.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="其他窗体\录入可发卷.resx">
       <DependentUpon>录入可发卷.cs</DependentUpon>
     </EmbeddedResource>
@@ -1219,6 +1287,9 @@
     <EmbeddedResource Include="其他窗体\码单.resx">
       <DependentUpon>码单.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\码单导入.resx">
+      <DependentUpon>码单导入.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="其他窗体\订单转换.resx">
       <DependentUpon>订单转换.cs</DependentUpon>
     </EmbeddedResource>
@@ -1227,6 +1298,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="其他窗体\账户流水单.resx">
       <DependentUpon>账户流水单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\账户转账.resx">
+      <DependentUpon>账户转账.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\销售汇总.resx">
+      <DependentUpon>销售汇总.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="基本资料\岗位信息.resx">
       <DependentUpon>岗位信息.cs</DependentUpon>
@@ -1270,12 +1347,6 @@
     <EmbeddedResource Include="基本资料\品种资料.resx">
       <DependentUpon>品种资料.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="报表窗体\产量报表.resx">
-      <DependentUpon>产量报表.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="报表窗体\产量统计报表.resx">
-      <DependentUpon>产量统计报表.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="报表窗体\出展记录.resx">
       <DependentUpon>出展记录.cs</DependentUpon>
     </EmbeddedResource>
@@ -1306,6 +1377,9 @@
     <EmbeddedResource Include="报表窗体\打样管理.resx">
       <DependentUpon>打样管理.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\点色通知列表.resx">
+      <DependentUpon>点色通知列表.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="报表窗体\生产退卷查询.resx">
       <DependentUpon>生产退卷查询.cs</DependentUpon>
     </EmbeddedResource>
@@ -1327,9 +1401,6 @@
     <EmbeddedResource Include="报表窗体\色卡销售列表.resx">
       <DependentUpon>色卡销售列表.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="报表窗体\订单汇总.resx">
-      <DependentUpon>订单汇总.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="报表窗体\费用报销列表.resx">
       <DependentUpon>费用报销列表.cs</DependentUpon>
     </EmbeddedResource>
@@ -1338,6 +1409,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="报表窗体\成品登记列表.resx">
       <DependentUpon>成品登记列表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\进出记录.resx">
+      <DependentUpon>进出记录.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\配桶登记列表.resx">
+      <DependentUpon>配桶登记列表.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="报表窗体\采购通知单列表.resx">
       <DependentUpon>采购通知单列表.cs</DependentUpon>
@@ -1516,6 +1593,9 @@
     <EmbeddedResource Include="新增窗体\流转登记.resx">
       <DependentUpon>流转登记.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\点色通知单.resx">
+      <DependentUpon>点色通知单.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="新增窗体\白坯日产量单.resx">
       <DependentUpon>白坯日产量单.cs</DependentUpon>
     </EmbeddedResource>
@@ -1533,6 +1613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="新增窗体\色卡销售单.resx">
       <DependentUpon>色卡销售单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\配桶登记单.resx">
+      <DependentUpon>配桶登记单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="新增窗体\门市采样单.resx">
       <DependentUpon>门市采样单.cs</DependentUpon>
@@ -1615,6 +1698,9 @@
     <EmbeddedResource Include="新增窗体\销售计划单.resx">
       <DependentUpon>销售计划单.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="汇总窗体\订单汇总.resx">
+      <DependentUpon>订单汇总.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="设置窗体\票签模式.resx">
       <DependentUpon>票签模式.cs</DependentUpon>
     </EmbeddedResource>
@@ -1651,6 +1737,9 @@
     <EmbeddedResource Include="选择窗体\供货商选择.resx">
       <DependentUpon>供货商选择.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\染厂库存选择.resx">
+      <DependentUpon>染厂库存选择.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="选择窗体\采购通知单选择.resx">
       <DependentUpon>采购通知单选择.cs</DependentUpon>
     </EmbeddedResource>
@@ -1686,6 +1775,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="选择窗体\订单号选择.resx">
       <DependentUpon>订单号选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\销售单明细选择.resx">
+      <DependentUpon>销售单明细选择.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\danjumingxitable.datasource" />
@@ -1795,6 +1887,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon %283%29.ico" />
+    <None Include="Resources\菜单.png" />
+    <None Include="Resources\系统信息.png" />
+    <None Include="Resources\财务管理.png" />
+    <None Include="Resources\生产管理.png" />
+    <None Include="Resources\采购管理.png" />
+    <None Include="Resources\销售管理.png" />
+    <None Include="Resources\展会管理.png" />
+    <None Include="Resources\库存管理.png" />
+    <Content Include="Resources\样品管理.png" />
+    <None Include="Resources\基本资料.png" />
+    <None Include="Resources\BO_Document.png" />
+    <None Include="Resources\UpdateTableOfContents_32x32.png" />
+    <None Include="Resources\ReportLayoutPivotTable_32x32.png" />
     <None Include="Resources\Next_32x32.png" />
     <None Include="Resources\Prev_32x32.png" />
     <None Include="Resources\BOFolder_16x16.png" />
@@ -1832,10 +1937,10 @@
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>

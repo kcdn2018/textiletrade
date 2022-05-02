@@ -36,7 +36,7 @@ namespace BLL
             //foreach (var juan in juanhaos)
             //{ 
             //    juan.Danhao =string.Empty ;
-                JuanHaoTableService.UpdateJuanHaoTable($"Danhao='',state='0'", x => x.Danhao == Danhao  );
+                JuanHaoTableService.UpdateJuanHaoTable($"Danhao='',state='0',LogID='0'", x => x.Danhao == Danhao  );
             //}
         }
         public static void 卷新增(BindingList<JuanHaoTable > juanHaoTables )
@@ -65,6 +65,12 @@ namespace BLL
                 StockTableService.UpdateStockTable(stock, x => x.CKMC == stock.CKMC && x.ColorNum == stock.ColorNum && x.YS == stock.YS && x.orderNum == stock.orderNum && x.BH == stock.BH && x.kuanhao == stock.kuanhao
                && x.houzhengli == stock.houzhengli && x.kuanhao == stock.kuanhao && x.Huahao == stock.Huahao && x.GH == stock.GH);
                 JuanHaoTableService.DeleteJuanHaoTable(x => x.JuanHao == j);
+                DeleteLogService.InsertDeleteLog(new DeleteLog()
+                {
+                    date = DateTime.Now,
+                    useID = string.Empty,
+                    Log = "删除卷" + juan.JuanHao + " 缸号为" + juan.GangHao + " 颜色为" + juan.yanse + " 长度为 " + juan.biaoqianmishu
+                }) ;
                 return "删除成功";
             }
             else

@@ -75,34 +75,32 @@ namespace BLL
                 SKFSService.UpdateSKFS($"Zhanghuyue='{sk.Zhanghuyue }'", x => x.BH == sk.BH);
             }
         }
-        public static   void 修改(DanjuTable newdanju, List<ProcessTable> orderTables, List<skmx> skmxes)
+        public static   void 修改(DanjuTable danju, List<ProcessTable> orderTables, List<skmx> skmxes)
         {
-           
-                 var old = DanjuTableService.GetOneDanjuTable(x => x.dh == newdanju.dh);
-                //var olddanju = DanjuTableService.GetOneDanjuTable(x => x.dh == newdanju.dh);
-
-                DanjuTableService.UpdateDanjuTable(newdanju, x => x.dh == newdanju.dh);
-                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == newdanju.dh);
-                 danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
-                 danjumingxitableService.Insertdanjumingxitable(new danjumingxitable { danhao = danju.dh, hanshuiheji = danju.je });
-                 var skmxlist = skmxService.Getskmxlst(x => x.dh == danju.dh);
-                 SaveToSkmx(skmxes);
-                 增加剩余金额(skmxlist);
-                 删除收款单明细(danju.dh);
-                 订单BLL.增加剩余金额(ProcessTableService.GetProcessTablelst(x => x.receiptnum == danju.dh));
-                 减少账号余额(old);
-                 财务BLL.减少剩余额度(old.ksbh, old.je);
-                 财务BLL.增加应收款(old);
-                 来往明细BLL.修改(danju);
-                 财务BLL.减少应收款(danju);
-                 订单BLL.减少剩余金额(orderTables);
-                 订单进度BLL.删除进度(danju.dh);
-                 订单进度BLL.新增进度(orderTables);
-                 财务BLL.增加剩余额度(danju.ksbh, danju.je);
-                 增加账号余额(danju);
-                ///保存到收款明细表
-                减少剩余金额(skmxService.Getskmxlst(x => x.dh == danju.dh));
-                 账户BLL.修改刷新(danju);
+            var old = DanjuTableService.GetOneDanjuTable(x => x.dh == danju.dh);
+            //var olddanju = DanjuTableService.GetOneDanjuTable(x => x.dh == newdanju.dh);
+            danju.RemainMoney -=( old.je - danju.je);
+            DanjuTableService.UpdateDanjuTable(danju, x => x.dh == danju.dh);
+            danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
+            danjumingxitableService.Insertdanjumingxitable(new danjumingxitable { danhao = danju.dh, hanshuiheji = danju.je });
+            var skmxlist = skmxService.Getskmxlst(x => x.dh == danju.dh);
+            SaveToSkmx(skmxes);
+            增加剩余金额(skmxlist);
+            删除收款单明细(danju.dh);
+            订单BLL.增加剩余金额(ProcessTableService.GetProcessTablelst(x => x.receiptnum == danju.dh));
+            减少账号余额(old);
+            财务BLL.减少剩余额度(old.ksbh, old.je);
+            财务BLL.增加应收款(old);
+            来往明细BLL.修改(danju);
+            财务BLL.减少应收款(danju);
+            订单BLL.减少剩余金额(orderTables);
+            订单进度BLL.删除进度(danju.dh);
+            订单进度BLL.新增进度(orderTables);
+            财务BLL.增加剩余额度(danju.ksbh, danju.je);
+            增加账号余额(danju);
+            ///保存到收款明细表
+            减少剩余金额(skmxService.Getskmxlst(x => x.dh == danju.dh));
+            账户BLL.修改刷新(danju);
 
         }
         private static void 删除收款单明细(string danhao)

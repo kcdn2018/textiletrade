@@ -34,7 +34,7 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.cmbMoban = new Sunny.UI.UIComboboxEx();
+            this.cmbMoban = new Sunny.UI.UIComboBox();
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.SuspendLayout();
             // 
@@ -100,8 +100,6 @@
             // cmbMoban
             // 
             this.cmbMoban.BackColor = System.Drawing.Color.White;
-            this.cmbMoban.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbMoban.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMoban.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.cmbMoban.FormattingEnabled = true;
             this.cmbMoban.Location = new System.Drawing.Point(85, 141);
@@ -149,7 +147,7 @@
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private Sunny.UI.UILabel uiLabel1;
-        private Sunny.UI.UIComboboxEx cmbMoban;
+        private Sunny.UI.UIComboBox cmbMoban;
         private Sunny.UI.UILabel uiLabel2;
     }
 }

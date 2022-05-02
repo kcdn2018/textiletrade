@@ -72,7 +72,10 @@ namespace BLL
             }
             财务BLL.增加应收发票(danjuTable);
             财务BLL.增加应付款(danjuTable);
-            来往明细BLL.增加来往记录(danjuTable);
+            if (danjuTable.je > 0)
+            {
+                来往明细BLL.增加来往记录(danjuTable);
+            }
             //danjuTable.ksbh = danjuTable.wuliuBianhao;
             //danjuTable.ksmc = danjuTable.SaleMan;
             //来往明细BLL.增加来往记录(danjuTable);

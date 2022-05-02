@@ -6,6 +6,7 @@ namespace 纺织贸易管理系统
 {
     public class ShengChanDanTable
      {
+        public int ID { get; set; }
         public string shengchandanhao { get; set; }
         public DateTime riqi { get; set; }
         public DateTime jiaohuoriqi { get; set; }

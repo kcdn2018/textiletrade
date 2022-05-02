@@ -22,7 +22,6 @@ namespace 纺织贸易管理系统.新增窗体
         private List<MenuTable> menuTables = new List<MenuTable>();
         private List<AccessTable> accessTables = new List<AccessTable>();
         private string status = string.Empty;
-        private bool isdone = false;
         public 新增用户()
         {
             InitializeComponent();
@@ -46,6 +45,7 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 txtBianhao.Text = BianhaoBLL.CreatYonghuBianhao();
                 initMenu();
+                txtyhmc.Text = string.IsNullOrWhiteSpace(Yonghu.YHMC) ? string.Empty : Yonghu.YHMC;
             }
             else
             {
@@ -87,11 +87,20 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txtBianhao.Text == "10001")
+            if (string.IsNullOrWhiteSpace ( txtmm.Text) )
             {
-                MessageBox.Show("10001账号是管理员账号不能添加", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("密码不能为空！密码必须设置", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (useful == FormUseful.新增)
+            {
+                if (txtBianhao.Text == "10001")
+                {
+                    MessageBox.Show("10001账号是管理员账号不能添加", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             var yh = YhbService.GetOneYhb(x => x.YHBH == txtBianhao.Text);
             if (useful == FormUseful.新增)
             {
@@ -121,7 +130,6 @@ namespace 纺织贸易管理系统.新增窗体
                 Sunny.UI.UIMessageDialog.ShowInfoDialog(this, "系统将要创建一个新的账户！期间会需要一点时间，为了不妨碍您的其他操作，创建新账户的过程会在后台运行。创建好后会有提示。在没提示创建成功之前请不要关闭程序。否则有可能会出现字段混乱的问题。请耐心等待");
                 if (txtBianhao.Text != "10001")
                 {
-                    isdone = false;
                     status = "正在创建菜单";
                     SaveMenu();
                     status = "正在创建权限";

@@ -95,6 +95,11 @@ namespace 纺织贸易管理系统.新增窗体
             infoTable  = new CiDianNameTable ();
             Useful = FormUseful.新增;
             InitText();
-        } 
+        }
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

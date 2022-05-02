@@ -175,7 +175,6 @@ namespace 纺织贸易管理系统.基本资料
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colID;

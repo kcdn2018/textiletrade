@@ -20,6 +20,7 @@ namespace 纺织贸易管理系统.报表窗体
         public 生产计划单查询()
         {
             InitializeComponent();
+            gridView1.OptionsView.AllowCellMerge = true;
             CreateGrid.Create(this.Name, gridView1);
             CreateGrid.Create(this.Name, gridView4);
             CreateGrid.Create(this.Name, gridView2);
@@ -27,7 +28,7 @@ namespace 纺织贸易管理系统.报表窗体
             CreateGrid.Create(this.Name, gridView5);
             dateEdit2.DateTime = DateTime.Now;
             dateEdit1.DateTime = dateEdit2.DateTime.AddDays(-QueryTime.间隔);
-            gridView1.OptionsView.AllowCellMerge = true;
+ 
         }
 
         private void 生产计划单查询_Load(object sender, EventArgs e)
@@ -37,7 +38,8 @@ namespace 纺织贸易管理系统.报表窗体
         private void Query()
         {
             string querystring = $"select *  from ShengchanBuliaoInfo,ShengChanDanTable  where  shengchandantable.shengchandanhao=ShengchanBuliaoInfo.shengchandanhao " +
-                   $"and ShengChanDanTable.riqi between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.Text)}' and ShengchanBuliaoInfo.SampleNum like '%{txtbianhao.Text }%' " +
+                   $"and ShengChanDanTable.Jiagongchang like '%{txtjiagongchang.Text }%' " +
+                   $"and ShengChanDanTable.riqi between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and ShengchanBuliaoInfo.SampleNum like '%{txtbianhao.Text }%' " +
                    $"and ShengchanBuliaoInfo.BuliaoPingming like '%{txtpingming.Text }%' " +
                    $"and ShengchanBuliaoInfo.ColorNum like '%{txtyanse.Text }%' " +
                    $"and ShengChanDanTable.Hetonghao like '%{txthetonghao.Text }%' " +
@@ -194,6 +196,19 @@ namespace 纺织贸易管理系统.报表窗体
         private void 重启生产单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             生产计划单BLL.重启生产单(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "shengchandanhao1").ToString());
+            Query();
+        }
+
+        private void groupPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtjiagongchang_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var fm = new 供货商选择() { linkman = new LXR() { MC = txtksmc.Text, ZJC = "" } };
+            fm.ShowDialog();
+            txtjiagongchang.Text = fm.linkman.MC;
             Query();
         }
     }

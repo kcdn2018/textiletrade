@@ -295,7 +295,7 @@
             // 
             this.txtgongyimingcheng.ButtonSymbol = 61761;
             this.txtgongyimingcheng.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtgongyimingcheng.FillColor = System.Drawing.Color.White;
+            this.txtgongyimingcheng.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtgongyimingcheng.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtgongyimingcheng.Location = new System.Drawing.Point(918, 60);
             this.txtgongyimingcheng.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -304,7 +304,9 @@
             this.txtgongyimingcheng.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtgongyimingcheng.Name = "txtgongyimingcheng";
             this.txtgongyimingcheng.Padding = new System.Windows.Forms.Padding(5);
+            this.txtgongyimingcheng.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtgongyimingcheng.Size = new System.Drawing.Size(120, 23);
+            this.txtgongyimingcheng.StyleCustomMode = true;
             this.txtgongyimingcheng.TabIndex = 31;
             this.txtgongyimingcheng.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtgongyimingcheng.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
@@ -325,7 +327,7 @@
             // 
             this.txthetonghao.ButtonSymbol = 61761;
             this.txthetonghao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txthetonghao.FillColor = System.Drawing.Color.White;
+            this.txthetonghao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txthetonghao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txthetonghao.Location = new System.Drawing.Point(712, 60);
             this.txthetonghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -334,7 +336,9 @@
             this.txthetonghao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txthetonghao.Name = "txthetonghao";
             this.txthetonghao.Padding = new System.Windows.Forms.Padding(5);
+            this.txthetonghao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txthetonghao.Size = new System.Drawing.Size(120, 23);
+            this.txthetonghao.StyleCustomMode = true;
             this.txthetonghao.TabIndex = 29;
             this.txthetonghao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txthetonghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
@@ -355,7 +359,7 @@
             // 
             this.txtOrdernum.ButtonSymbol = 61761;
             this.txtOrdernum.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtOrdernum.FillColor = System.Drawing.Color.White;
+            this.txtOrdernum.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtOrdernum.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtOrdernum.Location = new System.Drawing.Point(467, 60);
             this.txtOrdernum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -364,7 +368,9 @@
             this.txtOrdernum.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtOrdernum.Name = "txtOrdernum";
             this.txtOrdernum.Padding = new System.Windows.Forms.Padding(5);
+            this.txtOrdernum.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtOrdernum.Size = new System.Drawing.Size(183, 23);
+            this.txtOrdernum.StyleCustomMode = true;
             this.txtOrdernum.TabIndex = 27;
             this.txtOrdernum.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtOrdernum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
@@ -385,7 +391,7 @@
             // 
             this.txtpingming.ButtonSymbol = 61761;
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpingming.FillColor = System.Drawing.Color.White;
+            this.txtpingming.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtpingming.Location = new System.Drawing.Point(259, 60);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -394,7 +400,9 @@
             this.txtpingming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.Padding = new System.Windows.Forms.Padding(5);
+            this.txtpingming.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtpingming.Size = new System.Drawing.Size(120, 23);
+            this.txtpingming.StyleCustomMode = true;
             this.txtpingming.TabIndex = 25;
             this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
@@ -415,7 +423,7 @@
             // 
             this.txtbuliaobianhao.ButtonSymbol = 61761;
             this.txtbuliaobianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbuliaobianhao.FillColor = System.Drawing.Color.White;
+            this.txtbuliaobianhao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtbuliaobianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbuliaobianhao.Location = new System.Drawing.Point(71, 60);
             this.txtbuliaobianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -424,7 +432,9 @@
             this.txtbuliaobianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbuliaobianhao.Name = "txtbuliaobianhao";
             this.txtbuliaobianhao.Padding = new System.Windows.Forms.Padding(5);
+            this.txtbuliaobianhao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtbuliaobianhao.Size = new System.Drawing.Size(120, 23);
+            this.txtbuliaobianhao.StyleCustomMode = true;
             this.txtbuliaobianhao.TabIndex = 23;
             this.txtbuliaobianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtbuliaobianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
@@ -728,6 +738,7 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);

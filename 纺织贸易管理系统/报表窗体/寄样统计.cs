@@ -134,11 +134,6 @@ namespace 纺织贸易管理系统.报表窗体
             }
         }
 
-        private void 寄样统计_Load(object sender, EventArgs e)
-        {
-            Chaxun();
-        }
-
         private void 保存样式ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateGrid.SaveGridview(this.Name, gridView1);

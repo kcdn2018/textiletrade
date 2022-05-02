@@ -48,8 +48,11 @@ namespace 纺织贸易管理系统.选择窗体
         }
 
         private void 客户选择_FormClosed(object sender, FormClosedEventArgs e)
-        {           
-            skfs =SKFSService.GetOneSKFS   (x=>x.BH ==gridView1 .GetRowCellValue ( gridView1.FocusedRowHandle, "BH").ToString ());
+        {
+            if (gridView1.FocusedRowHandle >= 0)
+            {
+                skfs = SKFSService.GetOneSKFS(x => x.BH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "BH").ToString());
+            }
         }
 
         private void gridControl1_DoubleClick(object sender, EventArgs e)

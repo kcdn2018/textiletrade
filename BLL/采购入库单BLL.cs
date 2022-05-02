@@ -87,6 +87,7 @@ namespace BLL
                     单据反审核(danhao);
                 }
             }
+            Thread.Sleep(200);
             DanjuTableService.DeleteDanjuTable(x => x.dh == danhao);
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danhao);
         }

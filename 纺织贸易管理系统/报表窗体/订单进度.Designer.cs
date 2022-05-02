@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(订单进度));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,6 +138,7 @@
             // 
             // groupPanel1
             // 
+            this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
             this.groupPanel1.Controls.Add(this.combizhong);
@@ -206,6 +208,7 @@
             // 
             this.combizhong.DisplayMember = "Text";
             this.combizhong.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combizhong.ForeColor = System.Drawing.Color.Black;
             this.combizhong.FormattingEnabled = true;
             this.combizhong.ItemHeight = 17;
             this.combizhong.Items.AddRange(new object[] {
@@ -266,6 +269,7 @@
             // 
             this.comhanshui.DisplayMember = "Text";
             this.comhanshui.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comhanshui.ForeColor = System.Drawing.Color.Black;
             this.comhanshui.FormattingEnabled = true;
             this.comhanshui.ItemHeight = 17;
             this.comhanshui.Items.AddRange(new object[] {
@@ -327,11 +331,14 @@
             // 
             // txtyaoqiu
             // 
+            this.txtyaoqiu.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtyaoqiu.Border.Class = "TextBoxBorder";
             this.txtyaoqiu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtyaoqiu.DisabledBackColor = System.Drawing.Color.White;
+            this.txtyaoqiu.ForeColor = System.Drawing.Color.Black;
             this.txtyaoqiu.Location = new System.Drawing.Point(80, 86);
             this.txtyaoqiu.Name = "txtyaoqiu";
             this.txtyaoqiu.PreventEnterBeep = true;
@@ -430,11 +437,14 @@
             // 
             // txthetonghao
             // 
+            this.txthetonghao.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txthetonghao.Border.Class = "TextBoxBorder";
             this.txthetonghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthetonghao.DisabledBackColor = System.Drawing.Color.White;
+            this.txthetonghao.ForeColor = System.Drawing.Color.Black;
             this.txthetonghao.Location = new System.Drawing.Point(316, 3);
             this.txthetonghao.Name = "txthetonghao";
             this.txthetonghao.PreventEnterBeep = true;
@@ -455,11 +465,14 @@
             // 
             // txtbeizhu
             // 
+            this.txtbeizhu.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtbeizhu.Border.Class = "TextBoxBorder";
             this.txtbeizhu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtbeizhu.DisabledBackColor = System.Drawing.Color.White;
+            this.txtbeizhu.ForeColor = System.Drawing.Color.Black;
             this.txtbeizhu.Location = new System.Drawing.Point(80, 113);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.PreventEnterBeep = true;
@@ -549,11 +562,14 @@
             // 
             // txtdanhao
             // 
+            this.txtdanhao.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtdanhao.Border.Class = "TextBoxBorder";
             this.txtdanhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtdanhao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtdanhao.ForeColor = System.Drawing.Color.Black;
             this.txtdanhao.Location = new System.Drawing.Point(80, 3);
             this.txtdanhao.Name = "txtdanhao";
             this.txtdanhao.PreventEnterBeep = true;
@@ -587,12 +603,13 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupPanel3);
-            this.splitContainer1.Size = new System.Drawing.Size(1030, 357);
-            this.splitContainer1.SplitterDistance = 114;
+            this.splitContainer1.Size = new System.Drawing.Size(1030, 621);
+            this.splitContainer1.SplitterDistance = 198;
             this.splitContainer1.TabIndex = 4;
             // 
             // groupPanel2
             // 
+            this.groupPanel2.BackColor = System.Drawing.Color.White;
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.gridControl1);
@@ -600,7 +617,7 @@
             this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel2.Location = new System.Drawing.Point(0, 0);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(1030, 114);
+            this.groupPanel2.Size = new System.Drawing.Size(1030, 198);
             // 
             // 
             // 
@@ -638,7 +655,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1024, 90);
+            this.gridControl1.Size = new System.Drawing.Size(1024, 174);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -693,6 +710,7 @@
             // 
             // groupPanel3
             // 
+            this.groupPanel3.BackColor = System.Drawing.Color.White;
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel3.Controls.Add(this.gridControl2);
@@ -700,7 +718,7 @@
             this.groupPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel3.Location = new System.Drawing.Point(0, 0);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(1030, 239);
+            this.groupPanel3.Size = new System.Drawing.Size(1030, 419);
             // 
             // 
             // 
@@ -738,7 +756,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1024, 215);
+            this.gridControl2.Size = new System.Drawing.Size(1024, 395);
             this.gridControl2.TabIndex = 8;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -788,6 +806,7 @@
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsSelection.MultiSelect = true;
             this.gridView2.OptionsView.ColumnAutoWidth = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
@@ -795,11 +814,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 561);
+            this.ClientSize = new System.Drawing.Size(1030, 825);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "订单进度";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "订单进度";
             this.Load += new System.EventHandler(this.采购查询_Load);
             this.menuStrip1.ResumeLayout(false);

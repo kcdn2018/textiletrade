@@ -142,7 +142,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle,this );
         }
 
         private void 删除行ToolStripMenuItem_Click(object sender, EventArgs e)

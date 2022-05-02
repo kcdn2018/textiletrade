@@ -592,9 +592,6 @@ namespace 纺织贸易管理系统.报表窗体
 #pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIGroupBox”(是否缺少程序集引用?)
         private DevComponents.DotNetBar.Controls.TextBoxX txtdanhao;
         private DevComponents.DotNetBar.Controls.TextBoxX txtkehu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalMoneyDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource danjumingxiBindingSource;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

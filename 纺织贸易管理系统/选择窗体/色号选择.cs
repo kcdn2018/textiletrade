@@ -14,11 +14,11 @@ namespace 纺织贸易管理系统.选择窗体
     public partial class 色号选择 : Form
     {
         private List<ColorTable> dblist = null;
-        public ColorTable colorInfo { get; set; }
+        public ColorTable colorInfo { get; set; } = new ColorTable() { ColorNum = string.Empty, ColorName = string.Empty };
         public 色号选择()
         {
             InitializeComponent();
-            Query();
+
         }
         private void Query()
         {
@@ -53,6 +53,13 @@ namespace 纺织贸易管理系统.选择窗体
 
         private void 查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Query();
+        }
+
+        private void 色号选择_Load(object sender, EventArgs e)
+        {
+            txtzhujici.Text = colorInfo.ColorNum;
+            txtmingcheng.Text = colorInfo.ColorName;
             Query();
         }
     }

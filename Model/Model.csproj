@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,8 +58,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SqlSugar, Version=5.0.4.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SqlSugar.5.0.4.3\lib\SqlSugar.dll</HintPath>
+    <Reference Include="SqlSugar, Version=5.0.5.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.5.4\lib\SqlSugar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -128,6 +130,7 @@
     <Compile Include="RangChangStockTable.cs" />
     <Compile Include="RangsetoupiTable.cs" />
     <Compile Include="RangShequpiTable.cs" />
+    <Compile Include="RateModel.cs" />
     <Compile Include="RemainMoneyTable.cs" />
     <Compile Include="ReportTable.cs" />
     <Compile Include="RukuTable.cs" />

@@ -39,6 +39,7 @@
             this.单据反审ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打包发货ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.销售汇总ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.txtordernum = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
@@ -71,6 +72,8 @@
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtganghao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -93,7 +96,8 @@
             this.导出ToolStripMenuItem,
             this.单据审核ToolStripMenuItem,
             this.刷新ToolStripMenuItem,
-            this.打包发货ToolStripMenuItem});
+            this.打包发货ToolStripMenuItem,
+            this.销售汇总ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 40);
@@ -182,11 +186,22 @@
             this.打包发货ToolStripMenuItem.Text = "打包发货";
             this.打包发货ToolStripMenuItem.Click += new System.EventHandler(this.打包发货ToolStripMenuItem_Click);
             // 
+            // 销售汇总ToolStripMenuItem
+            // 
+            this.销售汇总ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ReportLayoutPivotTable_32x32;
+            this.销售汇总ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.销售汇总ToolStripMenuItem.Name = "销售汇总ToolStripMenuItem";
+            this.销售汇总ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.销售汇总ToolStripMenuItem.Text = "销售汇总";
+            this.销售汇总ToolStripMenuItem.Click += new System.EventHandler(this.销售汇总ToolStripMenuItem_Click);
+            // 
             // groupPanel1
             // 
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txtganghao);
+            this.groupPanel1.Controls.Add(this.labelX10);
             this.groupPanel1.Controls.Add(this.txtordernum);
             this.groupPanel1.Controls.Add(this.labelX6);
             this.groupPanel1.Controls.Add(this.txtGuige);
@@ -250,7 +265,7 @@
             this.txtordernum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtordernum.DisabledBackColor = System.Drawing.Color.White;
             this.txtordernum.ForeColor = System.Drawing.Color.Black;
-            this.txtordernum.Location = new System.Drawing.Point(444, 98);
+            this.txtordernum.Location = new System.Drawing.Point(444, 97);
             this.txtordernum.Name = "txtordernum";
             this.txtordernum.PreventEnterBeep = true;
             this.txtordernum.Size = new System.Drawing.Size(121, 21);
@@ -265,7 +280,7 @@
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.Location = new System.Drawing.Point(383, 97);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(55, 23);
+            this.labelX6.Size = new System.Drawing.Size(59, 23);
             this.labelX6.TabIndex = 49;
             this.labelX6.Text = "订单号";
             // 
@@ -279,7 +294,7 @@
             this.txtGuige.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtGuige.DisabledBackColor = System.Drawing.Color.White;
             this.txtGuige.ForeColor = System.Drawing.Color.Black;
-            this.txtGuige.Location = new System.Drawing.Point(444, 56);
+            this.txtGuige.Location = new System.Drawing.Point(444, 57);
             this.txtGuige.Name = "txtGuige";
             this.txtGuige.PreventEnterBeep = true;
             this.txtGuige.Size = new System.Drawing.Size(121, 21);
@@ -292,9 +307,9 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(381, 55);
+            this.labelX9.Location = new System.Drawing.Point(383, 56);
             this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(61, 23);
+            this.labelX9.Size = new System.Drawing.Size(59, 21);
             this.labelX9.TabIndex = 47;
             this.labelX9.Text = "规格";
             // 
@@ -308,7 +323,7 @@
             this.txthetonghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txthetonghao.DisabledBackColor = System.Drawing.Color.White;
             this.txthetonghao.ForeColor = System.Drawing.Color.Black;
-            this.txthetonghao.Location = new System.Drawing.Point(67, 98);
+            this.txthetonghao.Location = new System.Drawing.Point(67, 97);
             this.txthetonghao.Name = "txthetonghao";
             this.txthetonghao.PreventEnterBeep = true;
             this.txthetonghao.Size = new System.Drawing.Size(121, 21);
@@ -337,7 +352,7 @@
             this.txtyanse.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtyanse.DisabledBackColor = System.Drawing.Color.White;
             this.txtyanse.ForeColor = System.Drawing.Color.Black;
-            this.txtyanse.Location = new System.Drawing.Point(256, 98);
+            this.txtyanse.Location = new System.Drawing.Point(256, 97);
             this.txtyanse.Name = "txtyanse";
             this.txtyanse.PreventEnterBeep = true;
             this.txtyanse.Size = new System.Drawing.Size(121, 21);
@@ -366,7 +381,7 @@
             this.txtpingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtpingming.DisabledBackColor = System.Drawing.Color.White;
             this.txtpingming.ForeColor = System.Drawing.Color.Black;
-            this.txtpingming.Location = new System.Drawing.Point(256, 56);
+            this.txtpingming.Location = new System.Drawing.Point(256, 57);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.PreventEnterBeep = true;
             this.txtpingming.Size = new System.Drawing.Size(121, 21);
@@ -379,9 +394,9 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(195, 55);
+            this.labelX5.Location = new System.Drawing.Point(195, 56);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(55, 23);
+            this.labelX5.Size = new System.Drawing.Size(55, 21);
             this.labelX5.TabIndex = 39;
             this.labelX5.Text = "品名";
             // 
@@ -395,7 +410,7 @@
             this.txtbianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtbianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtbianhao.Location = new System.Drawing.Point(67, 56);
+            this.txtbianhao.Location = new System.Drawing.Point(67, 57);
             this.txtbianhao.Name = "txtbianhao";
             this.txtbianhao.PreventEnterBeep = true;
             this.txtbianhao.Size = new System.Drawing.Size(121, 21);
@@ -408,9 +423,9 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(6, 55);
+            this.labelX4.Location = new System.Drawing.Point(6, 56);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(55, 23);
+            this.labelX4.Size = new System.Drawing.Size(55, 21);
             this.labelX4.TabIndex = 37;
             this.labelX4.Text = "布料编号";
             // 
@@ -458,7 +473,7 @@
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(55, 23);
             this.labelX2.TabIndex = 33;
-            this.labelX2.Text = "日期到：";
+            this.labelX2.Text = "日期到";
             // 
             // dateEdit1
             // 
@@ -482,7 +497,7 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(55, 23);
             this.labelX1.TabIndex = 31;
-            this.labelX1.Text = "日期从：";
+            this.labelX1.Text = "日期从";
             // 
             // groupPanel2
             // 
@@ -638,9 +653,39 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            // 
+            // txtganghao
+            // 
+            this.txtganghao.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtganghao.Border.Class = "TextBoxBorder";
+            this.txtganghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtganghao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtganghao.ForeColor = System.Drawing.Color.Black;
+            this.txtganghao.Location = new System.Drawing.Point(634, 57);
+            this.txtganghao.Name = "txtganghao";
+            this.txtganghao.PreventEnterBeep = true;
+            this.txtganghao.Size = new System.Drawing.Size(121, 21);
+            this.txtganghao.TabIndex = 52;
+            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(573, 56);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(59, 21);
+            this.labelX10.TabIndex = 51;
+            this.labelX10.Text = "缸号";
             // 
             // 销售发货列表
             // 
@@ -713,5 +758,8 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtordernum;
         private DevComponents.DotNetBar.LabelX labelX6;
         private System.Windows.Forms.ToolStripMenuItem 打包发货ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 销售汇总ToolStripMenuItem;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtganghao;
+        private DevComponents.DotNetBar.LabelX labelX10;
     }
 }

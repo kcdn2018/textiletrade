@@ -60,9 +60,11 @@ namespace 纺织贸易管理系统.设置窗体
             // 
             // txtBianhao
             // 
+            this.txtBianhao.ButtonSymbol = 61761;
             this.txtBianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBianhao.FillColor = System.Drawing.Color.White;
             this.txtBianhao.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.txtBianhao.ImeMode = System.Windows.Forms.ImeMode.Close;
             this.txtBianhao.Location = new System.Drawing.Point(148, 79);
             this.txtBianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBianhao.Maximum = 2147483647D;
@@ -70,22 +72,23 @@ namespace 纺织贸易管理系统.设置窗体
             this.txtBianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtBianhao.Name = "txtBianhao";
             this.txtBianhao.Padding = new System.Windows.Forms.Padding(5);
-            this.txtBianhao.Size = new System.Drawing.Size(150, 29);
+            this.txtBianhao.Size = new System.Drawing.Size(336, 29);
             this.txtBianhao.TabIndex = 2;
             this.txtBianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtBianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBianhao_KeyDown);
             // 
             // cmbMoban
             // 
+            this.cmbMoban.DataSource = null;
             this.cmbMoban.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.cmbMoban.FillColor = System.Drawing.Color.White;
-            this.cmbMoban.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.cmbMoban.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.cmbMoban.Location = new System.Drawing.Point(148, 155);
             this.cmbMoban.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbMoban.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbMoban.Name = "cmbMoban";
             this.cmbMoban.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cmbMoban.Size = new System.Drawing.Size(150, 29);
+            this.cmbMoban.Size = new System.Drawing.Size(336, 29);
             this.cmbMoban.TabIndex = 3;
             this.cmbMoban.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmbMoban.SelectedIndexChanged += new System.EventHandler(this.cmbMoban_SelectedIndexChanged);
@@ -94,7 +97,7 @@ namespace 纺织贸易管理系统.设置窗体
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(148, 292);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(230, 292);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Size = new System.Drawing.Size(100, 35);
@@ -104,15 +107,16 @@ namespace 纺织贸易管理系统.设置窗体
             // 
             // cmbprinters
             // 
+            this.cmbprinters.DataSource = null;
             this.cmbprinters.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.cmbprinters.FillColor = System.Drawing.Color.White;
-            this.cmbprinters.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.cmbprinters.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.cmbprinters.Location = new System.Drawing.Point(148, 225);
             this.cmbprinters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbprinters.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbprinters.Name = "cmbprinters";
             this.cmbprinters.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cmbprinters.Size = new System.Drawing.Size(150, 29);
+            this.cmbprinters.Size = new System.Drawing.Size(336, 29);
             this.cmbprinters.TabIndex = 6;
             this.cmbprinters.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmbprinters.SelectedIndexChanged += new System.EventHandler(this.cmbprinters_SelectedIndexChanged);
@@ -130,7 +134,7 @@ namespace 纺织贸易管理系统.设置窗体
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 364);
+            this.ClientSize = new System.Drawing.Size(561, 364);
             this.Controls.Add(this.cmbprinters);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.uiSymbolButton1);

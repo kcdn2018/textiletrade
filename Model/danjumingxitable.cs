@@ -96,6 +96,21 @@ namespace 纺织贸易管理系统
         /// 批号
         /// </summary>
         public string Pihao { get; set; }
-       
+        /// <summary>
+        /// 成本
+        /// </summary>
+        public decimal Cost { get; set; }
+        /// <summary>
+        /// 利润
+        /// </summary>
+        public decimal Profit { get; set; }
+        /// <summary>
+        /// 坯布门幅
+        /// </summary>
+        public string  FrabicWidth { get; set; }
+        /// <summary>
+        /// 汇率
+        /// </summary>
+        public decimal Rate { get; set; }
     }
 }

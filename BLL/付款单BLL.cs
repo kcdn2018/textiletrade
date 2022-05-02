@@ -9,10 +9,8 @@ namespace BLL
 {
   public static   class 付款单BLL
     {
-        public static async  void 保存(DanjuTable Olddanju)
+        public static   void 保存(DanjuTable Olddanju)
         {
-            await Task.Run(() =>
-            {
                 Olddanju.dh = 单据BLL.检查单号(Olddanju.dh);
                 danjumingxitableService.Insertdanjumingxitable(new danjumingxitable { danhao = Olddanju.dh, weishuiheji = Olddanju.totalmoney, hanshuiheji = 0 - Olddanju.je });
                 DanjuTableService.InsertDanjuTable(Olddanju);
@@ -21,30 +19,24 @@ namespace BLL
                 财务BLL.减少应付款(danju);
                 收款单BLL.减少账号余额(danju);
                 账户BLL.刷新剩余金额(danju);
-            });
         }
-        public static async  void 修改(DanjuTable Olddanju)
+        public static   void 修改(DanjuTable danju)
         {
-            await Task.Run(() =>
-            {
-                收款单BLL.增加账号余额(Olddanju);
-                var old = DanjuTableService.GetOneDanjuTable(x => x.dh == Olddanju.dh);
-                danjumingxitableService.Deletedanjumingxitable(x => x.danhao == Olddanju.dh);
+                收款单BLL.增加账号余额(danju);
+                var old = DanjuTableService.GetOneDanjuTable(x => x.dh == danju.dh);
+                danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
                 财务BLL.增加应付款(old);
-                来往明细BLL.修改(Olddanju);
-                财务BLL.减少应付款(Olddanju);
+                来往明细BLL.修改(danju);
+                财务BLL.减少应付款(danju);
                 收款单BLL.减少账号余额(old);
-                var zhanghu = SKFSService.GetOneSKFS(x => x.Skfs == Olddanju.ShoukuanFangshi);
-                Olddanju.RemainMoney = zhanghu.Zhanghuyue;
-                DanjuTableService.UpdateDanjuTable(Olddanju, x => x.dh == Olddanju.dh);
-                danjumingxitableService.Insertdanjumingxitable(new danjumingxitable { danhao = Olddanju.dh, weishuiheji = Olddanju.totalmoney, hanshuiheji = 0 - Olddanju.je });
-                账户BLL.修改刷新(Olddanju);
-            });
+                var zhanghu = SKFSService.GetOneSKFS(x => x.Skfs == danju.ShoukuanFangshi);
+                danju .RemainMoney +=( old.je - danju.je);
+                DanjuTableService.UpdateDanjuTable(danju, x => x.dh == danju.dh);
+                danjumingxitableService.Insertdanjumingxitable(new danjumingxitable { danhao = danju.dh, weishuiheji = danju.totalmoney, hanshuiheji = 0 - danju.je });
+                账户BLL.修改刷新(danju);
         }
-        public static async void 删除(string danhao)
+        public static  void 删除(string danhao)
         {
-            await Task.Run(() =>
-            {
                 var old = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 财务BLL.增加应付款(old);
                 来往明细BLL.删除来往记录(old);
@@ -52,7 +44,6 @@ namespace BLL
                 danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danhao);
                 DanjuTableService.DeleteDanjuTable(x => x.dh == danhao);
                 账户BLL.删除刷新(old);
-            });
         }
     }
 }

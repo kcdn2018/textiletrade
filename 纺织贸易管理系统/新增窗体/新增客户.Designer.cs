@@ -72,13 +72,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtweixing = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cmbMaitou = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtzhangqi = new DevComponents.Editors.IntegerInput();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtusd = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label18 = new System.Windows.Forms.Label();
             this.txtedu = new Sunny.UI.UITextBox();
+            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtzhangqi)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +94,7 @@
             this.cmbOwn});
             this.menuStrip1.Location = new System.Drawing.Point(0, 35);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(502, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(774, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -111,7 +112,8 @@
             this.新增唛头ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新增ToolStripMenuItem,
             this.修改ToolStripMenuItem,
-            this.删除ToolStripMenuItem});
+            this.删除ToolStripMenuItem,
+            this.重命名ToolStripMenuItem});
             this.新增唛头ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
             this.新增唛头ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.新增唛头ToolStripMenuItem.Name = "新增唛头ToolStripMenuItem";
@@ -122,7 +124,7 @@
             // 
             this.新增ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
             this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
-            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新增ToolStripMenuItem.Text = "新增";
             this.新增ToolStripMenuItem.Click += new System.EventHandler(this.新增ToolStripMenuItem_Click);
             // 
@@ -130,7 +132,7 @@
             // 
             this.修改ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
@@ -138,7 +140,7 @@
             // 
             this.删除ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
@@ -158,7 +160,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(19, 88);
+            this.label1.Location = new System.Drawing.Point(18, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 9;
@@ -168,7 +170,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(247, 88);
+            this.label2.Location = new System.Drawing.Point(253, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 10;
@@ -178,7 +180,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label22.Location = new System.Drawing.Point(19, 580);
+            this.label22.Location = new System.Drawing.Point(18, 473);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(29, 12);
             this.label22.TabIndex = 30;
@@ -188,7 +190,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label29.Location = new System.Drawing.Point(247, 138);
+            this.label29.Location = new System.Drawing.Point(253, 138);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(53, 12);
             this.label29.TabIndex = 37;
@@ -198,7 +200,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(19, 138);
+            this.label30.Location = new System.Drawing.Point(18, 138);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(41, 12);
             this.label30.TabIndex = 36;
@@ -215,7 +217,7 @@
             this.txtBianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtBianhao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtBianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtBianhao.Location = new System.Drawing.Point(85, 84);
+            this.txtBianhao.Location = new System.Drawing.Point(87, 84);
             this.txtBianhao.Name = "txtBianhao";
             this.txtBianhao.PreventEnterBeep = true;
             this.txtBianhao.ReadOnly = true;
@@ -270,7 +272,7 @@
             this.txtlianxiren.DisabledBackColor = System.Drawing.Color.White;
             this.txtlianxiren.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtlianxiren.ForeColor = System.Drawing.Color.Black;
-            this.txtlianxiren.Location = new System.Drawing.Point(83, 134);
+            this.txtlianxiren.Location = new System.Drawing.Point(87, 134);
             this.txtlianxiren.Name = "txtlianxiren";
             this.txtlianxiren.PreventEnterBeep = true;
             this.txtlianxiren.Size = new System.Drawing.Size(145, 21);
@@ -287,7 +289,7 @@
             this.txtbeizhu.DisabledBackColor = System.Drawing.Color.White;
             this.txtbeizhu.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtbeizhu.ForeColor = System.Drawing.Color.Black;
-            this.txtbeizhu.Location = new System.Drawing.Point(83, 578);
+            this.txtbeizhu.Location = new System.Drawing.Point(87, 471);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.PreventEnterBeep = true;
             this.txtbeizhu.Size = new System.Drawing.Size(385, 21);
@@ -304,7 +306,7 @@
             this.txtqq.DisabledBackColor = System.Drawing.Color.White;
             this.txtqq.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtqq.ForeColor = System.Drawing.Color.Black;
-            this.txtqq.Location = new System.Drawing.Point(83, 184);
+            this.txtqq.Location = new System.Drawing.Point(584, 134);
             this.txtqq.Name = "txtqq";
             this.txtqq.PreventEnterBeep = true;
             this.txtqq.Size = new System.Drawing.Size(145, 21);
@@ -314,7 +316,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(247, 188);
+            this.label3.Location = new System.Drawing.Point(253, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 74;
@@ -324,7 +326,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(19, 188);
+            this.label4.Location = new System.Drawing.Point(508, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 73;
@@ -341,7 +343,7 @@
             this.txtkaihuyinghang.DisabledBackColor = System.Drawing.Color.White;
             this.txtkaihuyinghang.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtkaihuyinghang.ForeColor = System.Drawing.Color.Black;
-            this.txtkaihuyinghang.Location = new System.Drawing.Point(83, 334);
+            this.txtkaihuyinghang.Location = new System.Drawing.Point(323, 239);
             this.txtkaihuyinghang.Name = "txtkaihuyinghang";
             this.txtkaihuyinghang.PreventEnterBeep = true;
             this.txtkaihuyinghang.Size = new System.Drawing.Size(145, 21);
@@ -358,7 +360,7 @@
             this.txtyouxiang.DisabledBackColor = System.Drawing.Color.White;
             this.txtyouxiang.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtyouxiang.ForeColor = System.Drawing.Color.Black;
-            this.txtyouxiang.Location = new System.Drawing.Point(83, 237);
+            this.txtyouxiang.Location = new System.Drawing.Point(87, 185);
             this.txtyouxiang.Name = "txtyouxiang";
             this.txtyouxiang.PreventEnterBeep = true;
             this.txtyouxiang.Size = new System.Drawing.Size(145, 21);
@@ -368,7 +370,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(19, 336);
+            this.label5.Location = new System.Drawing.Point(253, 243);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 78;
@@ -378,7 +380,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(19, 241);
+            this.label6.Location = new System.Drawing.Point(18, 189);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 77;
@@ -388,7 +390,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(247, 241);
+            this.label7.Location = new System.Drawing.Point(508, 189);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 81;
@@ -398,7 +400,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(19, 286);
+            this.label8.Location = new System.Drawing.Point(18, 243);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 83;
@@ -415,7 +417,7 @@
             this.txtyinghangzhanghao.DisabledBackColor = System.Drawing.Color.White;
             this.txtyinghangzhanghao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtyinghangzhanghao.ForeColor = System.Drawing.Color.Black;
-            this.txtyinghangzhanghao.Location = new System.Drawing.Point(323, 334);
+            this.txtyinghangzhanghao.Location = new System.Drawing.Point(584, 239);
             this.txtyinghangzhanghao.Name = "txtyinghangzhanghao";
             this.txtyinghangzhanghao.PreventEnterBeep = true;
             this.txtyinghangzhanghao.Size = new System.Drawing.Size(145, 21);
@@ -425,7 +427,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(247, 336);
+            this.label9.Location = new System.Drawing.Point(508, 243);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 85;
@@ -442,7 +444,7 @@
             this.txtdizhi.DisabledBackColor = System.Drawing.Color.White;
             this.txtdizhi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtdizhi.ForeColor = System.Drawing.Color.Black;
-            this.txtdizhi.Location = new System.Drawing.Point(85, 384);
+            this.txtdizhi.Location = new System.Drawing.Point(87, 293);
             this.txtdizhi.Name = "txtdizhi";
             this.txtdizhi.PreventEnterBeep = true;
             this.txtdizhi.Size = new System.Drawing.Size(383, 21);
@@ -452,7 +454,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(19, 386);
+            this.label10.Location = new System.Drawing.Point(18, 297);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 87;
@@ -469,7 +471,7 @@
             this.txtpingyingma.DisabledBackColor = System.Drawing.Color.White;
             this.txtpingyingma.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtpingyingma.ForeColor = System.Drawing.Color.Black;
-            this.txtpingyingma.Location = new System.Drawing.Point(323, 284);
+            this.txtpingyingma.Location = new System.Drawing.Point(584, 84);
             this.txtpingyingma.Name = "txtpingyingma";
             this.txtpingyingma.PreventEnterBeep = true;
             this.txtpingyingma.Size = new System.Drawing.Size(145, 21);
@@ -479,7 +481,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(247, 286);
+            this.label11.Location = new System.Drawing.Point(508, 86);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 12);
             this.label11.TabIndex = 89;
@@ -496,7 +498,7 @@
             this.txtshuihao.DisabledBackColor = System.Drawing.Color.White;
             this.txtshuihao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtshuihao.ForeColor = System.Drawing.Color.Black;
-            this.txtshuihao.Location = new System.Drawing.Point(83, 434);
+            this.txtshuihao.Location = new System.Drawing.Point(584, 293);
             this.txtshuihao.Name = "txtshuihao";
             this.txtshuihao.PreventEnterBeep = true;
             this.txtshuihao.Size = new System.Drawing.Size(145, 21);
@@ -506,7 +508,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(19, 436);
+            this.label12.Location = new System.Drawing.Point(508, 297);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 12);
             this.label12.TabIndex = 91;
@@ -523,7 +525,7 @@
             this.txtqichu.DisabledBackColor = System.Drawing.Color.White;
             this.txtqichu.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtqichu.ForeColor = System.Drawing.Color.Black;
-            this.txtqichu.Location = new System.Drawing.Point(323, 434);
+            this.txtqichu.Location = new System.Drawing.Point(87, 347);
             this.txtqichu.Name = "txtqichu";
             this.txtqichu.PreventEnterBeep = true;
             this.txtqichu.Size = new System.Drawing.Size(101, 21);
@@ -534,7 +536,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(247, 436);
+            this.label13.Location = new System.Drawing.Point(18, 351);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 12);
             this.label13.TabIndex = 93;
@@ -551,7 +553,7 @@
             this.txtyingkaifapiao.DisabledBackColor = System.Drawing.Color.White;
             this.txtyingkaifapiao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtyingkaifapiao.ForeColor = System.Drawing.Color.Black;
-            this.txtyingkaifapiao.Location = new System.Drawing.Point(83, 484);
+            this.txtyingkaifapiao.Location = new System.Drawing.Point(323, 347);
             this.txtyingkaifapiao.Name = "txtyingkaifapiao";
             this.txtyingkaifapiao.PreventEnterBeep = true;
             this.txtyingkaifapiao.Size = new System.Drawing.Size(145, 21);
@@ -562,7 +564,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(19, 486);
+            this.label14.Location = new System.Drawing.Point(253, 351);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 12);
             this.label14.TabIndex = 95;
@@ -579,7 +581,7 @@
             this.txtweixing.DisabledBackColor = System.Drawing.Color.White;
             this.txtweixing.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtweixing.ForeColor = System.Drawing.Color.Black;
-            this.txtweixing.Location = new System.Drawing.Point(323, 184);
+            this.txtweixing.Location = new System.Drawing.Point(323, 185);
             this.txtweixing.Name = "txtweixing";
             this.txtweixing.PreventEnterBeep = true;
             this.txtweixing.Size = new System.Drawing.Size(145, 21);
@@ -589,25 +591,25 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(19, 532);
+            this.label15.Location = new System.Drawing.Point(18, 413);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 98;
             this.label15.Text = "唛头模板";
             // 
-            // comboBoxEx1
+            // cmbMaitou
             // 
-            this.comboBoxEx1.DisplayMember = "Text";
-            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBoxEx1.ForeColor = System.Drawing.Color.Black;
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 16;
-            this.comboBoxEx1.Location = new System.Drawing.Point(83, 529);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(385, 22);
-            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx1.TabIndex = 99;
+            this.cmbMaitou.DisplayMember = "Text";
+            this.cmbMaitou.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbMaitou.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbMaitou.ForeColor = System.Drawing.Color.Black;
+            this.cmbMaitou.FormattingEnabled = true;
+            this.cmbMaitou.ItemHeight = 16;
+            this.cmbMaitou.Location = new System.Drawing.Point(87, 410);
+            this.cmbMaitou.Name = "cmbMaitou";
+            this.cmbMaitou.Size = new System.Drawing.Size(385, 22);
+            this.cmbMaitou.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmbMaitou.TabIndex = 99;
             // 
             // txtzhangqi
             // 
@@ -618,7 +620,7 @@
             this.txtzhangqi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtzhangqi.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.txtzhangqi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtzhangqi.Location = new System.Drawing.Point(85, 284);
+            this.txtzhangqi.Location = new System.Drawing.Point(87, 239);
             this.txtzhangqi.Name = "txtzhangqi";
             this.txtzhangqi.ShowUpDown = true;
             this.txtzhangqi.Size = new System.Drawing.Size(143, 21);
@@ -629,7 +631,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label16.Location = new System.Drawing.Point(427, 436);
+            this.label16.Location = new System.Drawing.Point(191, 349);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 17);
             this.label16.TabIndex = 101;
@@ -639,7 +641,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label17.Location = new System.Drawing.Point(427, 486);
+            this.label17.Location = new System.Drawing.Point(688, 349);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(32, 17);
             this.label17.TabIndex = 104;
@@ -657,7 +659,7 @@
             this.txtusd.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtusd.ForeColor = System.Drawing.Color.Black;
             this.txtusd.IsEnterInputKey = true;
-            this.txtusd.Location = new System.Drawing.Point(323, 484);
+            this.txtusd.Location = new System.Drawing.Point(584, 347);
             this.txtusd.Name = "txtusd";
             this.txtusd.PreventEnterBeep = true;
             this.txtusd.Size = new System.Drawing.Size(101, 21);
@@ -668,7 +670,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(247, 486);
+            this.label18.Location = new System.Drawing.Point(508, 351);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(65, 12);
             this.label18.TabIndex = 102;
@@ -679,34 +681,38 @@
             this.txtedu.ButtonSymbol = 61761;
             this.txtedu.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtedu.DoubleValue = 100000D;
-            this.txtedu.FillColor = System.Drawing.Color.White;
             this.txtedu.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtedu.IntValue = 100000;
-            this.txtedu.Location = new System.Drawing.Point(323, 236);
+            this.txtedu.Location = new System.Drawing.Point(584, 184);
             this.txtedu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtedu.Maximum = 2147483647D;
-            this.txtedu.Minimum = -2147483648D;
             this.txtedu.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtedu.Name = "txtedu";
-            this.txtedu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(227)))));
+            this.txtedu.ShowText = false;
             this.txtedu.Size = new System.Drawing.Size(145, 23);
-            this.txtedu.Style = Sunny.UI.UIStyle.White;
             this.txtedu.TabIndex = 105;
             this.txtedu.Text = "100000";
             this.txtedu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtedu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // 重命名ToolStripMenuItem
+            // 
+            this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.BO_Document;
+            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
+            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.重命名ToolStripMenuItem.Text = "重命名";
+            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
             // 
             // 新增客户
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 664);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(774, 556);
             this.Controls.Add(this.txtedu);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtusd);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtzhangqi);
-            this.Controls.Add(this.comboBoxEx1);
+            this.Controls.Add(this.cmbMaitou);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtweixing);
             this.Controls.Add(this.txtyingkaifapiao);
@@ -748,6 +754,7 @@
             this.Name = "新增客户";
             this.Text = "新增客户";
             this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 774, 556);
             this.Load += new System.EventHandler(this.新增品种_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -794,7 +801,7 @@
         private System.Windows.Forms.Label label14;
         private DevComponents.DotNetBar.Controls.TextBoxX txtweixing;
         private System.Windows.Forms.Label label15;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbMaitou;
         private System.Windows.Forms.ToolStripMenuItem 新增唛头ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 新增ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
@@ -807,5 +814,6 @@
         private System.Windows.Forms.ToolStripMenuItem 建档者ToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox cmbOwn;
         private Sunny.UI.UITextBox txtedu;
+        private System.Windows.Forms.ToolStripMenuItem 重命名ToolStripMenuItem;
     }
 }

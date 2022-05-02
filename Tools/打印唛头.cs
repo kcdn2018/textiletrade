@@ -46,9 +46,10 @@ namespace Tools
             dt.Columns.Add("色号");
             dt.Columns.Add("条码信息");
             dt.Columns.Add("疵点"); 
-            dt.Columns.Add("英文名称");
+            dt.Columns.Add("客户名称");
             dt.Columns.Add("花号");
             dt.Columns.Add("布料编号");
+            dt.Columns.Add("检验员");
             return dt;
         }
         private DataTable 赋值(DataTable dt)
@@ -63,7 +64,7 @@ namespace Tools
             dt.Rows[0]["缸号"]=juan.GangHao ;
             dt.Rows[0]["卷号"]=juan.JuanHao  ;
             dt.Rows[0]["合同号"]=juan.Hetonghao ;
-            dt.Rows[0]["毛米数"]=juan.MiShu ;
+            dt.Rows[0]["毛米数"]=juan.MiShu.ToString("N1") ;
             dt.Rows[0]["品名"]=juan.SampleName ;
             dt.Rows[0]["规格"]=juan.guige ;
             dt.Rows[0]["门幅"]=juan.Menfu ;
@@ -75,20 +76,22 @@ namespace Tools
             dt.Rows[0]["缸卷"]=juan.PiHao ;
             dt.Rows[0]["等级"]=juan.DengJI ;
             dt.Rows[0]["备注"]=string.Empty;
-            dt.Rows[0]["码数"]=juan.biaoqianmishu /(decimal )0.9144;
-            dt.Rows[0]["净米数"]=juan.biaoqianmishu ;
-            dt.Rows[0]["净码数"]=juan.biaoqianmishu /(decimal)0.9144;
-            dt.Rows[0]["合计扣米数"]=juan.SumKouFeng ;
+            dt.Rows[0]["码数"]=(juan.biaoqianmishu /(decimal )0.9144).ToString("N1");
+            dt.Rows[0]["净米数"]=juan.biaoqianmishu.ToString("N1");
+            dt.Rows[0]["净码数"]=(juan.biaoqianmishu /(decimal)0.9144).ToString("N1");
+            dt.Rows[0]["合计扣米数"]=juan.SumKouFeng.ToString("N1");
             dt.Rows[0]["款号"]=juan.kuanhao ;
             dt.Rows[0]["后整理"]=juan.Houzhengli ;
             dt.Rows[0]["英文名"]=buliao .EnglishName ;
             dt.Rows[0]["客户品名"]=juan.CustomerPingMing ;
             dt.Rows[0]["客户色号"]=juan.CustomerColorNum ;
             dt.Rows[0]["色号"]=juan.ColorNum ;
-            dt.Rows[0]["条码信息"]=string.Empty ;
+            dt.Rows[0]["条码信息"]= juan.CustomerPingMing+juan.yanse +juan.OrderNum  +string.Format ("{0:000.00}", juan.biaoqianmishu).Replace(".", "") + juan.GangHao + string.Format("{0:000}", juan.PiHao) ;
             dt.Rows[0]["疵点"]=juan.Cidian;
             dt.Rows[0]["花号"] = juan.Huahao ;
             dt.Rows[0]["布料编号"] = juan.SampleNum ;
+            dt.Rows[0]["客户名称"] = juan.CustomerName ;
+            dt.Rows[0]["检验员"] = juan.CheckID ;
             return dt;
         }
         public  void 打印( )

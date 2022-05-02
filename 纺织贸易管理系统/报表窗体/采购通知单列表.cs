@@ -36,7 +36,7 @@ namespace 纺织贸易管理系统.报表窗体
         public virtual  void Query()
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            var querystring = $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.Text)}' and danjutable.ksmc like '%{txtksmc.Text}%' " +
+            var querystring = $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and danjutable.ksmc like '%{txtksmc.Text}%' " +
                     $"and danjumingxitable.bianhao like '%{txtbianhao.Text }%' " +
                     $"and danjumingxitable.pingming like '%{txtpingming.Text }%' " +
                     $"and danjumingxitable.guige like '%{txtGuige.Text }%' " +
@@ -73,7 +73,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (AccessBLL.CheckAccess("删除采购入库单"))
+            if (AccessBLL.CheckAccess("删除采购通知单"))
             {
                 if (Sunny.UI.UIMessageBox.ShowAsk ($"您确定要删除单号为{gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()}该采购单吗？") )
                 {
@@ -146,7 +146,15 @@ namespace 纺织贸易管理系统.报表窗体
         {
             if (gridView1.FocusedRowHandle >= 0)
             {
-                MainForm.mainform.AddMidForm(new 采购入库单() { useful = FormUseful.查看, danju = DanjuTableService.GetOneDanjuTable(x => x.dh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) });
+                MainForm.mainform.AddMidForm(new 采购通知单 () { useful = FormUseful.查看, danju = DanjuTableService.GetOneDanjuTable(x => x.dh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) });
+            }
+        }
+
+        private void 复制ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gridView1.FocusedRowHandle >= 0)
+            {
+                MainForm.mainform.AddMidForm(new 采购通知单() { useful = FormUseful.复制, danju = DanjuTableService.GetOneDanjuTable(x => x.dh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) });
             }
         }
     }

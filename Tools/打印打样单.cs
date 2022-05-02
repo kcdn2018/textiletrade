@@ -20,7 +20,10 @@ namespace Tools
         {
             var fs = new FastReport.Report();
             DataSet ds = new DataSet();
-            ds.Tables.Add(CreateDanjuDatatable.CreateTable(DanjuTable, formInfo,"单据信息",""));
+            var danjudt = CreateDanjuDatatable.CreateTable(DanjuTable, formInfo, "单据信息", "");
+            danjudt.Columns.Add("客户助记词");
+            danjudt.Rows[0]["客户助记词"] =DanjuTable.SaleMan !=null ? LXRService.GetOneLXR(x => x.MC == DanjuTable.SaleMan).ZJC:string.Empty ;
+            ds.Tables.Add(danjudt );
             ds.Tables.Add(getColorTable());
             ds.Tables.Add(GetYaoqiu());
             try

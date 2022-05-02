@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tools;
 using 纺织贸易管理系统.其他窗体;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
@@ -103,12 +104,13 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables[i].pingming  = pingzhong.pm;
                 danjumingxitables[i].kezhong  = pingzhong.kz;          
                 danjumingxitables[i].menfu  = pingzhong.mf;
+                danjumingxitables[i].FrabicWidth = pingzhong.mf ;
                 danjumingxitables[i].danwei  = "米";
                 i++;
                 if (i == danjumingxitables.Count - 1)
                     for (int j = 0; j < 30; j++)
                     {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text)});
+                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime});
                     }
             }
             fm.Dispose();
@@ -134,7 +136,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
         }
 
         private void 复制行ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle,this );
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -163,6 +165,11 @@ namespace 纺织贸易管理系统.新增窗体
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridView1.CloseEditor();
+            if (danjumingxitables.Sum(x => x.chengpingmishu) == 0)
+            {
+                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "布料数量不能为0，请填写数量！");
+                return;
+            }
             danju.bz = txtbeizhu.Text;
             danju.CarLeixing = txtQicheleixing.Text ;
             danju.CarNum = txtchepai.Text;
@@ -179,8 +186,10 @@ namespace 纺织贸易管理系统.新增窗体
             danju.totaljuanshu= danjumingxitables.Sum(x => x.chengpingjuanshu );
             danju.TotalMishu = danjumingxitables.Sum(x => x.chengpingmishu );
             danju.wuliugongsi = txtwuliu.Text;
-            danju.yunfei = (decimal )txtyunfei.Value;
+            danju.yunfei =txtyunfei.Text.TryToDecmial();
             danju.lianxidianhua = txtlianxidianhua.Text;
+            danju.ChaCheFei = txtChachefei.Text.TryToDecmial();
+            danju.ZhuangXieFei = txtzhuangxiefei.Text.TryToDecmial();
             danju.own = User.user.YHBH;
             if (useful == FormUseful.新增)
             {
@@ -217,8 +226,12 @@ namespace 纺织贸易管理系统.新增窗体
                     c.Text = "";
                 }
             }
-            dateEdit1.DateTime = DateTime.Now.Date;
+            dateEdit1.DateTime = DateTime.Now;
+            comhanshui.Text = QueryTime.IsTax;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.销售退货单 , dateEdit1.DateTime, DanjuLeiXing.销售退货单);
+            txtChachefei.Text = "0";
+            txtyunfei.Text = "0";
+            txtzhuangxiefei.Text = "0";
             danjumingxitables.Clear();
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)
@@ -262,7 +275,9 @@ namespace 纺织贸易管理系统.新增窗体
             txtyunfei.Text = danju.yunfei.ToString();
             cmbqiankuan.Text = danju.Qiankuan;
             comhanshui.Text = danju.Hanshui;
-            dateEdit1.Text = danju.rq.ToShortDateString();
+            txtzhuangxiefei.Text = danju.ZhuangXieFei.ToString();
+            txtChachefei.Text = danju.ChaCheFei.ToString();
+           dateEdit1.DateTime=danju.rq;
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == txtdanhao.Text);
             var length = danjumingxitables.Count;
            foreach(var d in danjumingxitables )

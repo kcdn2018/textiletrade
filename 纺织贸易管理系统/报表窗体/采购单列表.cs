@@ -36,7 +36,7 @@ namespace 纺织贸易管理系统.报表窗体
         public virtual  void Query()
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            var querystring = $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.Text)}' and danjutable.ksmc like '%{txtksmc.Text}%' " +
+            var querystring = $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and danjutable.ksmc like '%{txtksmc.Text}%' " +
                     $"and danjumingxitable.bianhao like '%{txtbianhao.Text }%' " +
                     $"and danjumingxitable.pingming like '%{txtpingming.Text }%' " +
                     $"and danjumingxitable.guige like '%{txtGuige.Text }%' " +
@@ -83,11 +83,6 @@ namespace 纺织贸易管理系统.报表窗体
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("对不起!您没有权限修改该单据", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,10 +101,6 @@ namespace 纺织贸易管理系统.报表窗体
                         MessageBox.Show("该单据已经审核过，不能删除！要删除需先取消审核", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-            }
-            else
-            {
-                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "您没有权限删除该单据！请让管理员为你开通");
             }
         }
 
@@ -133,10 +124,6 @@ namespace 纺织贸易管理系统.报表窗体
                     MessageBox.Show("该单据已经审核过了！无需再次审核", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
-            {
-                MessageBox.Show("您没有权限审核改单据！请让管理员为你开通", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void 单据反审ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,11 +135,7 @@ namespace 纺织贸易管理系统.报表窗体
                     采购入库单BLL.单据反审核(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
                     AlterDlg.Show("反审核成功！");
                     Query();
-                }
-                else
-                {
-                    MessageBox.Show("该单据还未审核通过！不能反审核", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                }           
             }
         }
 

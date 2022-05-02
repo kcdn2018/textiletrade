@@ -33,10 +33,11 @@ namespace 纺织贸易管理系统
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.CompanyLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroTabItem1 = new DevComponents.DotNetBar.Metro.MetroTabItem();
             this.metroAppButton1 = new DevComponents.DotNetBar.Metro.MetroAppButton();
@@ -65,10 +66,11 @@ namespace 纺织贸易管理系统
             this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.ForeColor = System.Drawing.Color.Black;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel3,
-            this.toolStripStatusLabel1,
             this.CompanyLabel,
-            this.toolStripStatusLabel4});
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 15, 0);
@@ -76,11 +78,10 @@ namespace 纺织贸易管理系统
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel3
+            // CompanyLabel
             // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(80, 17);
-            this.toolStripStatusLabel3.Text = "当前汇率是：";
+            this.CompanyLabel.Name = "CompanyLabel";
+            this.CompanyLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // toolStripStatusLabel1
             // 
@@ -88,10 +89,11 @@ namespace 纺织贸易管理系统
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(56, 17);
             this.toolStripStatusLabel1.Text = "            ";
             // 
-            // CompanyLabel
+            // toolStripStatusLabel3
             // 
-            this.CompanyLabel.Name = "CompanyLabel";
-            this.CompanyLabel.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(80, 17);
+            this.toolStripStatusLabel3.Text = "当前汇率是：";
             // 
             // toolStripStatusLabel4
             // 
@@ -99,6 +101,11 @@ namespace 纺织贸易管理系统
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
             this.toolStripStatusLabel4.Size = new System.Drawing.Size(373, 17);
             this.toolStripStatusLabel4.Text = "    版权所有： 吴江市苏宜电子有限公司    联系电话：13912709528";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 17);
             // 
             // timer1
             // 
@@ -144,11 +151,11 @@ namespace 纺织贸易管理系统
             this.navBarControl1.ForeColor = System.Drawing.Color.Black;
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 143;
-            this.navBarControl1.Size = new System.Drawing.Size(143, 440);
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 156;
+            this.navBarControl1.Size = new System.Drawing.Size(156, 440);
             this.navBarControl1.TabIndex = 6;
             this.navBarControl1.Text = "navBarControl1";
-            this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Visual Studio 2013 Dark");
+            this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Office 2019 Black");
             this.navBarControl1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarControl1_LinkClicked);
             // 
             // contextMenuStrip1
@@ -179,7 +186,7 @@ namespace 纺织贸易管理系统
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(143, 540);
+            this.uiPanel1.Size = new System.Drawing.Size(156, 540);
             this.uiPanel1.TabIndex = 11;
             this.uiPanel1.Text = "uiPanel1";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -188,12 +195,13 @@ namespace 纺织贸易管理系统
             // 
             this.uiPanel2.Controls.Add(this.navBarControl1);
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiPanel2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel2.Location = new System.Drawing.Point(0, 100);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(143, 440);
+            this.uiPanel2.Size = new System.Drawing.Size(156, 440);
             this.uiPanel2.TabIndex = 12;
             this.uiPanel2.Text = "uiPanel2";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -201,13 +209,14 @@ namespace 纺织贸易管理系统
             // uiTitlePanel1
             // 
             this.uiTitlePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiTitlePanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiTitlePanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiTitlePanel1.Location = new System.Drawing.Point(0, 65);
             this.uiTitlePanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTitlePanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTitlePanel1.Name = "uiTitlePanel1";
             this.uiTitlePanel1.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
-            this.uiTitlePanel1.Size = new System.Drawing.Size(143, 35);
+            this.uiTitlePanel1.Size = new System.Drawing.Size(156, 35);
             this.uiTitlePanel1.TabIndex = 12;
             this.uiTitlePanel1.Text = "uiTitlePanel1";
             this.uiTitlePanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,7 +229,7 @@ namespace 纺织贸易管理系统
             this.uiAvatar1.Location = new System.Drawing.Point(0, 0);
             this.uiAvatar1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiAvatar1.Name = "uiAvatar1";
-            this.uiAvatar1.Size = new System.Drawing.Size(143, 65);
+            this.uiAvatar1.Size = new System.Drawing.Size(156, 65);
             this.uiAvatar1.Symbol = 57353;
             this.uiAvatar1.TabIndex = 12;
             // 
@@ -252,7 +261,7 @@ namespace 纺织贸易管理系统
             this.expandableSplitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBorder;
             this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.expandableSplitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.MenuBackground;
-            this.expandableSplitter1.Location = new System.Drawing.Point(143, 0);
+            this.expandableSplitter1.Location = new System.Drawing.Point(156, 0);
             this.expandableSplitter1.Name = "expandableSplitter1";
             this.expandableSplitter1.Size = new System.Drawing.Size(6, 540);
             this.expandableSplitter1.Style = DevComponents.DotNetBar.eSplitterStyle.Mozilla;
@@ -281,12 +290,12 @@ namespace 纺织贸易管理系统
             this.superTabControl1.ControlBox.CloseBox});
             this.superTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.superTabControl1.ForeColor = System.Drawing.Color.Black;
-            this.superTabControl1.Location = new System.Drawing.Point(149, 0);
+            this.superTabControl1.Location = new System.Drawing.Point(162, 0);
             this.superTabControl1.Name = "superTabControl1";
             this.superTabControl1.ReorderTabsEnabled = true;
             this.superTabControl1.SelectedTabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
             this.superTabControl1.SelectedTabIndex = 0;
-            this.superTabControl1.Size = new System.Drawing.Size(799, 540);
+            this.superTabControl1.Size = new System.Drawing.Size(786, 540);
             this.superTabControl1.TabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.superTabControl1.TabIndex = 8;
             this.superTabControl1.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.OfficeMobile2014;
@@ -304,7 +313,6 @@ namespace 纺织贸易管理系统
             this.Controls.Add(this.statusStrip1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ForeColor = System.Drawing.Color.Black;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
@@ -345,6 +353,7 @@ namespace 纺织贸易管理系统
         private DevComponents.DotNetBar.SuperTabControl superTabControl1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel CompanyLabel;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 

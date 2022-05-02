@@ -32,7 +32,7 @@ namespace Tools
         {
             var dt= CreateDanjuDatatable.CreateTable(danju, formInfo, "单据信息",gsmc);
             dt.Columns.Add("包数", typeof(int));
-            dt.Rows[0]["包数"] = juanhaolist.Select(x => x.state).Distinct().ToList ().Count ;
+            dt.Rows[0]["包数"] = juanhaolist.Select(x => x.LogID ).Distinct().ToList ().Count ;
             return dt;
         }
         /// <summary>
@@ -111,7 +111,7 @@ namespace Tools
             
             DataTable mingxiti = CreatMingxi();
             //列出所有包号
-            var baohaolist = juanhaolist.OrderBy(x => x.state).ThenBy(x => x.OrderNum).ThenBy(x => x.SampleNum).ThenBy(x => x.GangHao).ToList();
+            var baohaolist = juanhaolist.OrderBy(x => x.LogID ).ThenBy(x => x.OrderNum).ThenBy(x => x.SampleNum).ThenBy(x => x.GangHao).ToList();
             int row = 0;
             JuanHaoTable prejuan = new JuanHaoTable();
             int n = 1;
@@ -128,7 +128,7 @@ namespace Tools
                     }
                     else
                     {
-                        if (juan.state != prejuan.state)
+                        if (juan.LogID  != prejuan.LogID )
                         {
                             赋值一行(mingxiti, row, juan);
                             prejuan = juan;
@@ -197,8 +197,7 @@ namespace Tools
 
                                                 }
                                             }
-                                        }
-
+                                        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
                                     }
                                 }
                             }
@@ -257,6 +256,7 @@ namespace Tools
         }
         public  void 打印(int model,string path)
         {
+            juanhaolist = juanhaolist.OrderBy(x => x.LogID).ToList();
 			DataSet ds = new DataSet();
 			ds.Tables.Add(CreatDanjuDT() );         
 			ds.Tables.Add(初始化明细 ());

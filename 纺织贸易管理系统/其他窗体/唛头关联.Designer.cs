@@ -35,6 +35,9 @@
             this.导出到EXCELToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设计唛头ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.commaitou = new System.Windows.Forms.ToolStripComboBox();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,8 +47,7 @@
             this.linkSave = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.commaitou = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
@@ -61,6 +63,7 @@
             this.新增ToolStripMenuItem,
             this.设计唛头ToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.重命名ToolStripMenuItem,
             this.toolStripMenuItem2,
             this.commaitou});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -121,6 +124,27 @@
             this.toolStripMenuItem1.Text = "删除唛头";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
+            // 重命名ToolStripMenuItem
+            // 
+            this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.BO_Document_32x32;
+            this.重命名ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
+            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(88, 36);
+            this.重命名ToolStripMenuItem.Text = "重命名";
+            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Enabled = false;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(68, 36);
+            this.toolStripMenuItem2.Text = "唛头模板";
+            // 
+            // commaitou
+            // 
+            this.commaitou.Name = "commaitou";
+            this.commaitou.Size = new System.Drawing.Size(121, 36);
+            // 
             // gridControl2
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -146,6 +170,7 @@
             this.gridView2.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridView2.Appearance.SelectedRow.Options.UseBackColor = true;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn4,
             this.gridColumn2,
             this.gridColumn1,
             this.gridColumn3});
@@ -159,13 +184,14 @@
             // gridColumn2
             // 
             this.gridColumn2.Caption = "客户名称";
-            this.gridColumn2.FieldName = "khbh";
+            this.gridColumn2.FieldName = "khmc";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "khbh", "{0:0.##}")});
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 154;
             // 
             // gridColumn1
             // 
@@ -174,7 +200,8 @@
             this.gridColumn1.FieldName = "path";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.VisibleIndex = 2;
+            this.gridColumn1.Width = 169;
             // 
             // cmbmaitou
             // 
@@ -191,7 +218,7 @@
             this.gridColumn3.FieldName = "own";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 3;
             // 
             // linkSave
             // 
@@ -214,17 +241,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             // 
-            // commaitou
+            // gridColumn4
             // 
-            this.commaitou.Name = "commaitou";
-            this.commaitou.Size = new System.Drawing.Size(121, 36);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Enabled = false;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(68, 36);
-            this.toolStripMenuItem2.Text = "唛头模板";
+            this.gridColumn4.Caption = "客户编号";
+            this.gridColumn4.FieldName = "khbh";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 0;
             // 
             // 唛头关联
             // 
@@ -269,5 +292,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripComboBox commaitou;
+        private System.Windows.Forms.ToolStripMenuItem 重命名ToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

@@ -56,7 +56,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.确定ToolStripMenuItem,
             this.查询ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 35);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 40);
             this.menuStrip1.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.groupControl1.Controls.Add(this.txtzhujici);
             this.groupControl1.Controls.Add(this.labelX1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 40);
+            this.groupControl1.Location = new System.Drawing.Point(0, 75);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(800, 89);
             this.groupControl1.TabIndex = 1;
@@ -95,11 +95,14 @@
             // 
             // txtMingcheng
             // 
+            this.txtMingcheng.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtMingcheng.Border.Class = "TextBoxBorder";
             this.txtMingcheng.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMingcheng.DisabledBackColor = System.Drawing.Color.White;
+            this.txtMingcheng.ForeColor = System.Drawing.Color.Black;
             this.txtMingcheng.Location = new System.Drawing.Point(308, 44);
             this.txtMingcheng.Name = "txtMingcheng";
             this.txtMingcheng.PreventEnterBeep = true;
@@ -121,11 +124,14 @@
             // 
             // txtzhujici
             // 
+            this.txtzhujici.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtzhujici.Border.Class = "TextBoxBorder";
             this.txtzhujici.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtzhujici.DisabledBackColor = System.Drawing.Color.White;
+            this.txtzhujici.ForeColor = System.Drawing.Color.Black;
             this.txtzhujici.Location = new System.Drawing.Point(69, 44);
             this.txtzhujici.Name = "txtzhujici";
             this.txtzhujici.PreventEnterBeep = true;
@@ -149,10 +155,10 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 129);
+            this.gridControl1.Location = new System.Drawing.Point(0, 164);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(800, 321);
+            this.gridControl1.Size = new System.Drawing.Size(800, 286);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -201,7 +207,7 @@
             // 
             // 客户选择
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gridControl1);
@@ -212,8 +218,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "客户选择";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "客户选择";
+            this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.客户选择_FormClosed);
             this.Load += new System.EventHandler(this.客户选择_Load);
             this.menuStrip1.ResumeLayout(false);

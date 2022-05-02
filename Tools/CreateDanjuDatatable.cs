@@ -134,10 +134,8 @@ namespace Tools
             T t=new T();
             var pros = t.GetType().GetProperties();
             foreach (var c in clist)
-            {
-              
-                    dt.Columns.Add(c.ColumnText);
-           
+            {           
+                    dt.Columns.Add(c.ColumnText);           
             }
             int row = 0;
             foreach (var m in mx)

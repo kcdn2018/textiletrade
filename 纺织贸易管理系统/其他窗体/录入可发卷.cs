@@ -5,12 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tools;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.其他窗体
@@ -25,6 +28,7 @@ namespace 纺织贸易管理系统.其他窗体
             InitializeComponent();
             gridView1.IndicatorWidth = 30;
             cmbmaitou .Items.AddRange  ( Tools.获取模板.获取所有模板(PrintPath.唛头模板 ).ToArray ());
+            CreateGrid.Create("打卷报表", gridView2);
             //this.juanHaoTables.AddingNew += (s, ev) => {
             //  ev.NewObject =(new JuanHaoTable() { PiHao = juanHaoTables.Count + 1 });
             //    gridControl1.RefreshDataSource();
@@ -131,8 +135,8 @@ namespace 纺织贸易管理系统.其他窗体
                         JuanHaoTableService.InsertJuanHaoTable(j);                                                                   
                     }
                     else
-                    {                      
-                        JuanHaoTableService.UpdateJuanHaoTable(j, x => x.JuanHao == j.JuanHao);       
+                    {
+                        Connect.DbHelper().Updateable<JuanHaoTable>(j).ExecuteCommandAsync();      
                     }
                 }
                 if (comdanwei.Text == "米")
@@ -184,31 +188,38 @@ namespace 纺织贸易管理系统.其他窗体
             if (gridView1.FocusedRowHandle >= 0)
             {
                 var j = new JuanHaoTable();
-                j.Danwei = comdanwei.Text;
-                j.JuanHao = BianhaoBLL.CreatJuanhao(stock.GH, j.PiHao.ToString());
-                j.MiShu = juanHaoTables[gridView1.FocusedRowHandle].biaoqianmishu;
-                j.SampleNum = stock.BH;
-                j.SampleName = stock.PM;
-                j.CustomerName = stock.CustomName;
-                j.GangHao = stock.GH;
-                j.guige = stock.GG;
-                j.Houzhengli = stock.houzhengli;
-                j.kuanhao = stock.kuanhao;
-                j.OrderNum = stock.orderNum;
-                j.MaShu = txtMalv.Text.TryToDecmial (0);
-                j.rq = DateTime.Now;
-                j.SumKouFeng = 0;
-                j.yanse = stock.YS;
-                j.Huahao = stock.Huahao;
-                j.biaoqianmishu = juanHaoTables[gridView1.FocusedRowHandle].biaoqianmishu;
-                j.PiHao = juanHaoTables[gridView1.FocusedRowHandle].PiHao;
-                j.Huahao = txthuahao.Text;
-                j.CustomerColorNum = txtkehusehao.Text;
-                j.CustomerPingMing = txtkehupingming.Text;
-                j.ColorNum = txtsehao.Text;
-                j.Menfu = txtmenfu.Text;
-                j.Kezhong = txtkezhong.Text;
-                j.Hetonghao = txthetonghao.Text;
+                if (string.IsNullOrEmpty(juanHaoTables[gridView1.FocusedRowHandle].JuanHao))
+                {
+                    j.Danwei = comdanwei.Text;
+                    j.JuanHao = BianhaoBLL.CreatJuanhao(stock.GH, j.PiHao.ToString());
+                    j.MiShu = juanHaoTables[gridView1.FocusedRowHandle].biaoqianmishu;
+                    j.SampleNum = stock.BH;
+                    j.SampleName = stock.PM;
+                    j.CustomerName = stock.CustomName;
+                    j.GangHao = stock.GH;
+                    j.guige = stock.GG;
+                    j.Houzhengli = stock.houzhengli;
+                    j.kuanhao = stock.kuanhao;
+                    j.OrderNum = stock.orderNum;
+                    j.MaShu = txtMalv.Text.TryToDecmial(0);
+                    j.rq = DateTime.Now;
+                    j.SumKouFeng = 0;
+                    j.yanse = stock.YS;
+                    j.Huahao = stock.Huahao;
+                    j.biaoqianmishu = juanHaoTables[gridView1.FocusedRowHandle].biaoqianmishu;
+                    j.PiHao = juanHaoTables[gridView1.FocusedRowHandle].PiHao;
+                    j.Huahao = txthuahao.Text;
+                    j.CustomerColorNum = txtkehusehao.Text;
+                    j.CustomerPingMing = txtkehupingming.Text;
+                    j.ColorNum = txtsehao.Text;
+                    j.Menfu = txtmenfu.Text;
+                    j.Kezhong = txtkezhong.Text;
+                    j.Hetonghao = txthetonghao.Text;
+                }
+                else
+                {
+                    j = juanHaoTables[gridView1.FocusedRowHandle];
+                }
                 return j;
             }
             else
@@ -251,6 +262,78 @@ namespace 纺织贸易管理系统.其他窗体
                 j.biaoqianmishu =Math.Round ( ( j.biaoqianmishu / (txtMalv.Text .TryToDecmial(0)/100)).TryToDecmial (0),0);
             }
             gridControl1.RefreshDataSource();
+        }
+
+        private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintStock(PrintModel.Design);
+        }
+        private void PrintStock(int printstyle)
+        {
+            var mingxis = new List<danjumingxitable>();
+            mingxis.Add(new danjumingxitable()
+            {
+                Bianhao = stock.BH,
+                CustomName = stock.CustomName,
+                CustomerPingMing = stock.CustomerPingMing,
+                CustomerColorNum = stock.CustomerColorNum,
+                chengfeng = stock.CF,
+                ColorNum = stock.ColorNum,
+                ContractNum = stock.ContractNum,
+                Chengpingyanse = stock.YS,
+                yanse = stock.YS,
+                FrabicWidth = stock.FrabicWidth,
+                ganghao = stock.GH,
+                guige = stock.GG,
+                houzhengli = stock.houzhengli,
+                Huahao = stock.Huahao,
+                kezhong = stock.KZ,
+                kuanhao = stock.kuanhao,
+                Kuwei = stock.Kuwei,
+                menfu = stock.MF,
+                OrderNum = stock.orderNum,
+                chengpingjuanshu = juanHaoTables.Count,
+                chengpingmishu = juanHaoTables.Sum(x => x.biaoqianmishu),
+                beizhu = stock.Remarkers,
+                PiBuChang = stock.PibuChang,
+                Pihao = stock.Pihao,
+                pingming = stock.PM,
+                Rangchang = stock.Rangchang,
+                rq = stock.RQ
+            });
+            var madan = new Tools.打印成品码单()
+            {
+                danjuTable = new DanjuTable(),
+                danjumingxitables =mingxis ,
+                danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
+                juanHaoTables = juanHaoTables.ToList (),
+                mingxiinfo = new Tools.FormInfo() { FormName = "销售发货单", GridviewName = gridView1.Name },
+                gsmc = stock.CustomName 
+            };
+            madan.Print(PrintPath.报表模板 + "\\库存单.frx", printstyle );
+         
+        }
+
+        private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintStock(PrintModel.Privew );
+        }
+
+        private void 直接打印ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintStock(PrintModel.Print );
+        }
+
+        private void 生成质检报告ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            juanHaoTables.ForEach(x => x.MiShu = x.biaoqianmishu + x.SumKouFeng);
+            var selectJuanhaos = new List<JuanHaoTable>();
+           foreach(var row in gridView1.GetSelectedRows())
+            {
+                selectJuanhaos .Add (juanHaoTables [row]);
+            }
+            gridControl2.DataSource = selectJuanhaos;
+            ExportFile.导出到文件(gridControl2, "质检报告");
         }
     }
 }

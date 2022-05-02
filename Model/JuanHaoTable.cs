@@ -27,7 +27,7 @@ namespace 纺织贸易管理系统
         public decimal  MiShu { get; set; }
         public decimal  MaShu { get; set; }
         public decimal  JiaJian { get; set; }
-        public string DengJI { get; set; }
+        public string DengJI { get; set; } = "A";
         public decimal  SumKouFeng { get; set; }
         public int state { get; set; }
         public DateTime rq { get; set; }
@@ -52,9 +52,9 @@ namespace 纺织贸易管理系统
         /// </summary>
         public string Ckmc { get; set; }
         /// <summary>
-        /// 流转卡号日志ID
+        /// 包号
         /// </summary>
-        public int LogID;
+        public int LogID { get; set; }
         /// <summary>
         /// 疵点
         /// </summary>

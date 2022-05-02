@@ -23,13 +23,35 @@ namespace 纺织贸易管理系统.报表窗体
         public 打卷报表()
         {
             InitializeComponent();
-            CreateGrid.Create(this.Name , gridView2);
-            gridView2.OptionsCustomization.AllowSort = true;
+            try
+            {
+                CreateGrid.Create(this.Name, gridView2);
+                gridView2.Columns["rq"].DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+                gridView2.OptionsCustomization.AllowSort = true;
+            }
+            catch
+            {
+                var fm = new 配置列(gridView2) { formname = this.Name, Obj = new JuanHaoTable() };
+                fm.ShowDialog();
+            }
+            try
+            {
+                CreateGrid.Create(this.Name, gridView1);
+                gridView1.Columns["rq"].DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+            }
+            catch
+            {
+                var fm = new 配置列(gridView1) { formname = this.Name, Obj = new KaijianTable() };
+                fm.ShowDialog();
+            }
             dateEdit2.DateTime = DateTime.Now;
-            dateEdit1.DateTime = dateEdit2.DateTime.AddDays(-QueryTime.间隔);
-            cmbmaitou.Items.AddRange ( Tools.获取模板.获取所有模板(PrintPath.唛头模板).ToArray ());
-            cmbmaitou.SelectedIndex = 0;
-            CreateGrid.Create(this.Name, gridView1);
+            dateEdit1.DateTime = dateEdit2.DateTime.Date.AddDays(-1);
+            cmbmaitou.Items.AddRange(Tools.获取模板.获取所有模板(PrintPath.唛头模板).ToArray());
+            if (cmbmaitou.Items.Count > 0)
+            {
+                cmbmaitou.SelectedIndex = 0;
+            }
+
             Query();
         }
 
@@ -45,7 +67,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
         {
-            var fm = new 配置列(gridView2) { formname = this.Name, Obj = new JuanHaoTable () };
+            var fm = new 配置列(gridView2) { formname = this.Name, Obj = new JuanHaoTable() };
             fm.ShowDialog();
         }
 
@@ -56,11 +78,12 @@ namespace 纺织贸易管理系统.报表窗体
         private void Query()
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            juanlist =JuanHaoTableService.GetJuanHaoTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime  && x.SampleName .Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text) 
-            && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum .Contains(txtOrderNum.Text));
+            juanlist = JuanHaoTableService.GetJuanHaoTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime.Date.AddDays(1) && x.SampleName.Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)
+             && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
             gridControl2.DataSource = juanlist;
-            gridControl1.DataSource = KaijianTableService.GetKaijianTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime && x.SampleName.Contains(txtpingming.Text) && x.Guige .Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text)
-            && x.Yanse .Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
+            gridControl1.DataSource = KaijianTableService.GetKaijianTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime.Date.AddDays(1) && x.SampleName.Contains(txtpingming.Text) && x.Guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text)
+            && x.Yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
+            gridControl3.DataSource = DeleteLogService.GetDeleteLoglst(x => x.date >= dateEdit1.DateTime && x.date <= dateEdit2.DateTime.Date.AddDays(1) && x.Log.Contains(txtganghao.Text));
             UIWaitFormService.HideWaitForm();
         }
         private void 删除卷ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,20 +93,20 @@ namespace 纺织贸易管理系统.报表窗体
             {
                 s += "\r\n  " + gridView2.GetRowCellValue(i, "JuanHao").ToString();
             }
-                var res = MessageBox.Show($"您确定要删除卷号是{s}\r\n这些卷吗？", this.Name, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (res == DialogResult.OK)
+            var res = MessageBox.Show($"您确定要删除卷号是{s}\r\n这些卷吗？", this.Name, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (res == DialogResult.OK)
+            {
+                foreach (var i in gridView2.GetSelectedRows())
                 {
-                    foreach (var i in gridView2.GetSelectedRows())
-                    {
-                         可发卷BLL.卷删除(gridView2.GetRowCellValue(i, "JuanHao").ToString());
-                    }
-                    Query();
+                    可发卷BLL.卷删除(gridView2.GetRowCellValue(i, "JuanHao").ToString());
                 }
+                Query();
+            }
         }
 
         private void txtpingming_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter )
+            if (e.KeyCode == Keys.Enter)
             {
                 Query();
             }
@@ -97,7 +120,7 @@ namespace 纺织贸易管理系统.报表窗体
             foreach (var s in gridView2.GetSelectedRows())
             {
                 gridView2.FocusedRowHandle = s;
-                new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Print, moban = PrintPath.唛头模板 + cmbmaitou.Text, juan =JuanHaoTableService.GetOneJuanHaoTable (x=>x.JuanHao==gridView2.GetRowCellValue (s, "JuanHao").ToString ()) }.打印();
+                new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Print, moban = PrintPath.唛头模板 + cmbmaitou.Text, juan = JuanHaoTableService.GetOneJuanHaoTable(x => x.JuanHao == gridView2.GetRowCellValue(s, "JuanHao").ToString()) }.打印();
             }
             AlterDlg.Show("所有唛头都打印完毕！");
         }
@@ -117,7 +140,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var fm = new 配置列(gridView1) { formname = this.Name, Obj = new CiDianNameTable () };
+            var fm = new 配置列(gridView1) { formname = this.Name, Obj = new CiDianNameTable() };
             fm.ShowDialog();
         }
 
@@ -143,7 +166,7 @@ namespace 纺织贸易管理系统.报表窗体
                 }
                 catch (Exception ex)
                 {
-                    Sunny.UI.UIMessageBox.ShowError("删除开剪信息时发生了错误！"+ex.Message );
+                    Sunny.UI.UIMessageBox.ShowError("删除开剪信息时发生了错误！" + ex.Message);
                 }
             }
         }

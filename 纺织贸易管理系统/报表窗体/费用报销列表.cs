@@ -33,7 +33,7 @@ namespace 纺织贸易管理系统.报表窗体
         }
         public virtual  void Query()
         {
-            string querystring = $"select * from danjutable left join danjumingxitable on danjutable.dh=danjumingxitable.danhao  where danjutable.rq between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.Text)}' and danjutable.orderNum like '%{txtordernum.Text}%' " +
+            string querystring = $"select * from danjutable left join danjumingxitable on danjutable.dh=danjumingxitable.danhao  where danjutable.rq between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and danjutable.orderNum like '%{txtordernum.Text}%' " +
                     $" and bz like '%{txtzhaiyao.Text }%' " +
                      $" and shoukuanfangshi like '%{cmbfukuanfangshi.Text }%' " +
                     $" and jiagongleixing like '%{cmbleixing.Text }%' " +

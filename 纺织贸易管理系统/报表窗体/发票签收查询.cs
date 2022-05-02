@@ -42,7 +42,7 @@ namespace 纺织贸易管理系统.报表窗体
         private void 采购查询_Load(object sender, EventArgs e)
         {
           
-            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x=>x.rq >=Convert.ToDateTime ( dateEdit1.Text)&&x.rq<= Convert.ToDateTime(dateEdit2.Text)&&x.ksbh  .Contains (linkman.BH  )&&x.zhuangtai !="已删除"&&x.djlx==DanjuLeiXing.发票签收));
+            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x=>x.rq >=dateEdit1.DateTime.Date&&x.rq<=dateEdit2.DateTime.Date.AddDays(1)&&x.ksbh  .Contains (linkman.BH  )&&x.zhuangtai !="已删除"&&x.djlx==DanjuLeiXing.发票签收));
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= Convert.ToDateTime(dateEdit1.Text) && x.rq <= Convert.ToDateTime(dateEdit2.Text) && x.ksbh.Contains(linkman.BH) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发票签收 ));
+            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <=dateEdit2.DateTime.Date.AddDays(1) && x.ksbh.Contains(linkman.BH) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发票签收 ));
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace 纺织贸易管理系统.报表窗体
                         var danhao = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString();
                         财务BLL.增加应收发票(DanjuTableService.GetOneDanjuTable(x => x.dh == danhao));
                         单据BLL.删除单据(danhao);
-                        CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= Convert.ToDateTime(dateEdit1.Text) && x.rq <= Convert.ToDateTime(dateEdit2.Text) && x.ksbh.Contains(linkman.BH) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发票签收));
+                        CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <=dateEdit2.DateTime.Date.AddDays(1) && x.ksbh.Contains(linkman.BH) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发票签收));
                     }
                 }
             }

@@ -267,6 +267,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "色号选择";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.色号选择_FormClosed);
+            this.Load += new System.EventHandler(this.色号选择_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ColorEdit1)).EndInit();

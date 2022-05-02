@@ -62,12 +62,12 @@
             this.ComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbGridName = new Sunny.UI.UIComboboxEx();
+            this.cmbGridName = new Sunny.UI.UIComboBox();
             this.uiLabel3 = new Sunny.UI.UILabel();
-            this.cmbUser = new Sunny.UI.UIComboboxEx();
+            this.cmbUser = new Sunny.UI.UIComboBox();
             this.uiCheckBox1 = new Sunny.UI.UICheckBox();
             this.uiLabel2 = new Sunny.UI.UILabel();
-            this.调用窗体ToolStripMenuItem = new Sunny.UI.UIComboboxEx();
+            this.调用窗体ToolStripMenuItem = new Sunny.UI.UIComboBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -228,6 +228,7 @@
             this.uiButton3.Size = new System.Drawing.Size(63, 23);
             this.uiButton3.TabIndex = 9;
             this.uiButton3.Text = "删除未显示";
+            this.uiButton3.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton3.Click += new System.EventHandler(this.uiButton3_Click);
             // 
             // uiButton2
@@ -240,6 +241,7 @@
             this.uiButton2.Size = new System.Drawing.Size(63, 23);
             this.uiButton2.TabIndex = 8;
             this.uiButton2.Text = "过滤重复";
+            this.uiButton2.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton2.Click += new System.EventHandler(this.过滤ToolStripMenuItem_Click);
             // 
             // uiButton1
@@ -252,6 +254,7 @@
             this.uiButton1.Size = new System.Drawing.Size(63, 23);
             this.uiButton1.TabIndex = 0;
             this.uiButton1.Text = "调用窗体";
+            this.uiButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton1.Click += new System.EventHandler(this.调用窗体ToolStripMenuItem_Click);
             // 
             // gridControl1
@@ -406,8 +409,6 @@
             // 
             this.cmbGridName.BackColor = System.Drawing.Color.White;
             this.cmbGridName.DisplayMember = "GridName";
-            this.cmbGridName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbGridName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGridName.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.cmbGridName.FormattingEnabled = true;
             this.cmbGridName.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -430,8 +431,6 @@
             // 
             this.cmbUser.BackColor = System.Drawing.Color.White;
             this.cmbUser.DisplayMember = "YHBH";
-            this.cmbUser.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUser.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.cmbUser.FormattingEnabled = true;
             this.cmbUser.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -467,7 +466,6 @@
             // 
             this.调用窗体ToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.调用窗体ToolStripMenuItem.DisplayMember = "FormName";
-            this.调用窗体ToolStripMenuItem.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.调用窗体ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.调用窗体ToolStripMenuItem.FormattingEnabled = true;
             this.调用窗体ToolStripMenuItem.Items.AddRange(new object[] {
@@ -560,9 +558,9 @@
         private System.Windows.Forms.ToolStripMenuItem 过滤ToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Sunny.UI.UIComboboxEx cmbUser;
+        private Sunny.UI.UIComboBox cmbUser;
         private Sunny.UI.UIButton uiButton1;
-        private Sunny.UI.UIComboboxEx 调用窗体ToolStripMenuItem;
+        private Sunny.UI.UIComboBox 调用窗体ToolStripMenuItem;
         private Sunny.UI.UILabel uiLabel1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -579,7 +577,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private Sunny.UI.UICheckBox uiCheckBox1;
         private Sunny.UI.UILabel uiLabel2;
-        private Sunny.UI.UIComboboxEx cmbGridName;
+        private Sunny.UI.UIComboBox cmbGridName;
         private Sunny.UI.UILabel uiLabel3;
         private Sunny.UI.UIButton uiButton2;
         private Sunny.UI.UIButton uiButton3;

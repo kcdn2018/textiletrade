@@ -1,6 +1,8 @@
 ﻿using FastReport.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -11,15 +13,16 @@ using System.Xml.Linq;
 
 namespace 纺织贸易管理系统.其他窗体
 {
-   public  class Update
+   public static class UpdateService
     {
-        public Boolean CheckUpdate()
+        public static Boolean CheckUpdate()
         {
             XDocument document = XDocument.Load(Application.StartupPath +"\\Version.xml");
             XElement root = document.Root;
             XElement updater = root.Element("Updater");
             XElement ver = updater.Element("MainVersion");
             Version localVer = Version.Parse(ver.Value);
+            User.version = localVer;
             Version ServerVer = GetServerVer(updater .Element("UpdateUrl").Value );
             if(ServerVer >localVer )
             { return true; }
@@ -28,7 +31,7 @@ namespace 纺织贸易管理系统.其他窗体
                 return false;
             }
         }
-        private Version GetServerVer(string ServerUrl)
+        private static Version GetServerVer(string ServerUrl)
         { 
             Version serverVersion=new Version ();
             try
@@ -74,5 +77,42 @@ namespace 纺织贸易管理系统.其他窗体
             { }
             return serverVersion;
             }
+        public static  void IsNeedUpdate()
+        {
+            var check = CheckUpdate();
+            if (check == true)
+            {
+                if (MessageBox.Show("有新的更新！启用更新将会关闭程序。请做好保存", "系统提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Process.Start(Application.StartupPath + "\\Updater.exe");
+                    Process cur = Process.GetCurrentProcess();
+                    KillProcess(cur.ProcessName);
+                    Process.GetCurrentProcess().Kill();
+                    Application.ExitThread();
+                }
+            }
+        }
+        public static void KillProcess(string strProcessesByName)//关闭线程
+        {
+            foreach (Process p in Process.GetProcesses())//GetProcessesByName(strProcessesByName))
+            {
+                if (p.ProcessName.ToUpper().Contains(strProcessesByName))
+                {
+                    try
+                    {
+                        p.Kill();
+                        p.WaitForExit(); // possibly with a timeout
+                    }
+                    catch (Win32Exception e)
+                    {
+                        MessageBox.Show(e.Message.ToString());   // process was terminating or can't be terminated - deal with it
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        MessageBox.Show(e.Message.ToString()); // process has already exited - might be able to let this one go
+                    }
+                }
+            }
+        }
     }
 }

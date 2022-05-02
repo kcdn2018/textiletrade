@@ -238,7 +238,7 @@
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 17;
-            this.labelX3.Text = "供货商名称";
+            this.labelX3.Text = "客户名称";
             // 
             // dateEdit2
             // 

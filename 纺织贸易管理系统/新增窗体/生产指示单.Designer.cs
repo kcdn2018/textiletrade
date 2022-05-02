@@ -118,6 +118,8 @@
             this.uiSymbolButton3 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolButton6 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolButton7 = new Sunny.UI.UISymbolButton();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -385,6 +387,7 @@
             this.cmbZhuangtai.DataSource = null;
             this.cmbZhuangtai.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.cmbZhuangtai.FillColor = System.Drawing.Color.White;
+            this.cmbZhuangtai.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.cmbZhuangtai.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbZhuangtai.Items.AddRange(new object[] {
             "已结束",
@@ -426,7 +429,7 @@
             this.txtkehu.BackColor = System.Drawing.Color.White;
             this.txtkehu.ButtonSymbol = 61761;
             this.txtkehu.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtkehu.FillColor = System.Drawing.Color.White;
+            this.txtkehu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.txtkehu.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtkehu.Location = new System.Drawing.Point(717, 68);
             this.txtkehu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -584,7 +587,7 @@
             this.txtbeizhu.BackColor = System.Drawing.Color.White;
             this.txtbeizhu.ButtonSymbol = 61761;
             this.txtbeizhu.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbeizhu.FillColor = System.Drawing.Color.White;
+            this.txtbeizhu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.txtbeizhu.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtbeizhu.Location = new System.Drawing.Point(63, 147);
             this.txtbeizhu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -601,7 +604,7 @@
             this.txtdanhao.BackColor = System.Drawing.Color.White;
             this.txtdanhao.ButtonSymbol = 61761;
             this.txtdanhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtdanhao.FillColor = System.Drawing.Color.White;
+            this.txtdanhao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.txtdanhao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtdanhao.Location = new System.Drawing.Point(63, 29);
             this.txtdanhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -630,7 +633,7 @@
             this.txthetonghao.BackColor = System.Drawing.Color.White;
             this.txthetonghao.ButtonSymbol = 61761;
             this.txthetonghao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txthetonghao.FillColor = System.Drawing.Color.White;
+            this.txthetonghao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.txthetonghao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txthetonghao.Location = new System.Drawing.Point(532, 68);
             this.txthetonghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -707,6 +710,7 @@
             this.uiTabControl1.Size = new System.Drawing.Size(1015, 746);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabIndex = 0;
+            this.uiTabControl1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // tabPage2
             // 
@@ -1082,6 +1086,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.uiSymbolButton7);
+            this.panel1.Controls.Add(this.uiSymbolButton6);
             this.panel1.Controls.Add(this.uiSymbolButton5);
             this.panel1.Controls.Add(this.uiSymbolButton4);
             this.panel1.Controls.Add(this.uiSymbolButton3);
@@ -1097,6 +1103,7 @@
             // 
             this.uiSymbolButton5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.uiSymbolButton5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.uiSymbolButton5.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(127)))), ((int)(((byte)(128)))));
             this.uiSymbolButton5.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
             this.uiSymbolButton5.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
@@ -1114,6 +1121,8 @@
             this.uiSymbolButton5.Symbol = 61453;
             this.uiSymbolButton5.TabIndex = 4;
             this.uiSymbolButton5.Text = "清除图片";
+            this.uiSymbolButton5.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton5.Click += new System.EventHandler(this.uiSymbolButton5_Click);
             // 
             // uiSymbolButton4
             // 
@@ -1126,6 +1135,7 @@
             this.uiSymbolButton4.Symbol = 61473;
             this.uiSymbolButton4.TabIndex = 3;
             this.uiSymbolButton4.Text = "旋转";
+            this.uiSymbolButton4.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolButton4.Click += new System.EventHandler(this.uiSymbolButton4_Click);
             // 
             // uiSymbolButton3
@@ -1139,6 +1149,7 @@
             this.uiSymbolButton3.Symbol = 61456;
             this.uiSymbolButton3.TabIndex = 2;
             this.uiSymbolButton3.Text = "缩小";
+            this.uiSymbolButton3.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolButton3.Click += new System.EventHandler(this.uiSymbolButton3_Click);
             // 
             // uiSymbolButton2
@@ -1152,6 +1163,7 @@
             this.uiSymbolButton2.Symbol = 61454;
             this.uiSymbolButton2.TabIndex = 1;
             this.uiSymbolButton2.Text = "放大";
+            this.uiSymbolButton2.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolButton2.Click += new System.EventHandler(this.uiSymbolButton2_Click);
             // 
             // uiSymbolButton1
@@ -1165,7 +1177,36 @@
             this.uiSymbolButton1.Symbol = 61564;
             this.uiSymbolButton1.TabIndex = 0;
             this.uiSymbolButton1.Text = "加载图片";
+            this.uiSymbolButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolButton1.Click += new System.EventHandler(this.uiSymbolButton1_Click);
+            // 
+            // uiSymbolButton6
+            // 
+            this.uiSymbolButton6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton6.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiSymbolButton6.Location = new System.Drawing.Point(536, 3);
+            this.uiSymbolButton6.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton6.Name = "uiSymbolButton6";
+            this.uiSymbolButton6.Size = new System.Drawing.Size(100, 29);
+            this.uiSymbolButton6.Symbol = 61536;
+            this.uiSymbolButton6.TabIndex = 5;
+            this.uiSymbolButton6.Text = "上一张";
+            this.uiSymbolButton6.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton6.Click += new System.EventHandler(this.uiSymbolButton6_Click);
+            // 
+            // uiSymbolButton7
+            // 
+            this.uiSymbolButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton7.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiSymbolButton7.Location = new System.Drawing.Point(642, 3);
+            this.uiSymbolButton7.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton7.Name = "uiSymbolButton7";
+            this.uiSymbolButton7.Size = new System.Drawing.Size(100, 29);
+            this.uiSymbolButton7.Symbol = 61537;
+            this.uiSymbolButton7.TabIndex = 6;
+            this.uiSymbolButton7.Text = "下一张";
+            this.uiSymbolButton7.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton7.Click += new System.EventHandler(this.uiSymbolButton7_Click);
             // 
             // 生成指示单
             // 
@@ -1332,5 +1373,7 @@
         private Sunny.UI.UITextBox txtkehu;
         private Sunny.UI.UIComboBox cmbZhuangtai;
         private Sunny.UI.UILabel uiLabel1;
+        private Sunny.UI.UISymbolButton uiSymbolButton7;
+        private Sunny.UI.UISymbolButton uiSymbolButton6;
     }
 }

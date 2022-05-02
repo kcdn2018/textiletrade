@@ -21,10 +21,7 @@ namespace 纺织贸易管理系统
          }
         public static void InsertStockTablelst(List<StockTable> StockTableObjs)
          {
-            foreach(StockTable OBJ in StockTableObjs)
-             {
-              Connect.CreatConnect().Insert<StockTable>(OBJ);
-             }
+            Connect.CreatConnect ().Insert <StockTable>(StockTableObjs);
          }
         public static void InsertStockTable(StockTable StockTableObj)
          {

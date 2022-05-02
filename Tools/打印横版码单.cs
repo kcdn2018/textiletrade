@@ -55,6 +55,7 @@ namespace Tools
             dt.Columns.Add("10", typeof(string));
             dt.Columns.Add("匹数", typeof(decimal));
             dt.Columns.Add("合计数量", typeof(decimal));
+            dt.Columns.Add("缸合计");
             return dt;
         }
         private void 赋值一行(DataTable dt, int row, JuanHaoTable juanHao)
@@ -92,10 +93,9 @@ namespace Tools
         }
         private DataTable 初始化明细()
         {
-
             DataTable mingxiti = CreatMingxi();
             //列出所有包号
-            var baohaolist = juanhaolist.OrderBy(x => x.state).ThenBy(x => x.OrderNum).ThenBy(x => x.SampleNum).ThenBy(x => x.GangHao).ToList();
+            var baohaolist = juanhaolist.OrderBy(x=>x.GangHao).ThenBy(x=>x.PiHao );
             int row = 0;
             JuanHaoTable prejuan = new JuanHaoTable();
             int n = 1;
@@ -139,7 +139,7 @@ namespace Tools
                                 }
                                 else
                                 {
-                                    if (juan.ColorNum != prejuan.ColorNum)
+                                    if (juan.yanse  != prejuan.yanse )
                                     {
                                         赋值一行(mingxiti, row, juan);
                                         prejuan = juan;
@@ -190,25 +190,7 @@ namespace Tools
                     }
                 }
 
-                //foreach (var b in baohaolist )
-                //{
-                //    //找出这个包号的所有布料
-
-                //    //找出一个订单号的
-                //    int c = 0;
-                //    foreach (var o in  juanhaolist.Where(x => x.state == b).ToList().Select(x => x.OrderNum).Distinct().ToList())
-                //    {
-                //        foreach (var j in juanhaolist.Where(x => x.OrderNum == o && x.state == b).ToList().OrderBy (x=>x.SampleNum  ).ThenBy (x=>x.GangHao ).ToList())
-                //        {
-                //            if (c == 0)
-                //            {
-                //                mingxiti.Rows.Add();
-                //                var juan =j;
-                //                赋值一行(mingxiti, row, juan);
-                //                mingxiti.Rows[row]["1"] = juan.biaoqianmishu;
-                //            }
-                //        }
-                //    }
+    
             }
             catch (Exception ex)
             {
@@ -234,6 +216,7 @@ namespace Tools
                         }
                     }
                 }
+                mingxiti.Rows[r]["缸合计"] = juanhaolist.Where(x => x.GangHao == (string)mingxiti.Rows[r]["缸号"]).ToList().Sum(x => x.biaoqianmishu);
                 mingxiti.Rows[r]["合计数量"] = num;
                 mingxiti.Rows[r]["匹数"] = pishu;
             }

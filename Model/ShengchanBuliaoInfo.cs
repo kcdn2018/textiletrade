@@ -52,5 +52,9 @@ namespace 纺织贸易管理系统
         /// 坯布单价
         /// </summary>
         public decimal  FricePrice { get; set; }
+        /// <summary>
+        /// 坯布单位
+        /// </summary>
+        public string FriceUnit { get; set; }
     }
 }

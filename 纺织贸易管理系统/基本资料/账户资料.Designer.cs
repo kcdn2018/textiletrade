@@ -31,11 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(账户资料));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.确定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.确定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.美金结转ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtzhujici = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -59,21 +60,13 @@
             this.新增ToolStripMenuItem,
             this.修改ToolStripMenuItem,
             this.删除ToolStripMenuItem,
-            this.确定ToolStripMenuItem});
+            this.确定ToolStripMenuItem,
+            this.美金结转ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 确定ToolStripMenuItem
-            // 
-            this.确定ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.reading_32x32;
-            this.确定ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.确定ToolStripMenuItem.Name = "确定ToolStripMenuItem";
-            this.确定ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
-            this.确定ToolStripMenuItem.Text = "查看流水";
-            this.确定ToolStripMenuItem.Click += new System.EventHandler(this.确定ToolStripMenuItem_Click);
             // 
             // 查询ToolStripMenuItem
             // 
@@ -110,6 +103,24 @@
             this.删除ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
+            // 确定ToolStripMenuItem
+            // 
+            this.确定ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.reading_32x32;
+            this.确定ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.确定ToolStripMenuItem.Name = "确定ToolStripMenuItem";
+            this.确定ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.确定ToolStripMenuItem.Text = "查看流水";
+            this.确定ToolStripMenuItem.Click += new System.EventHandler(this.确定ToolStripMenuItem_Click);
+            // 
+            // 美金结转ToolStripMenuItem
+            // 
+            this.美金结转ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("美金结转ToolStripMenuItem.Image")));
+            this.美金结转ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.美金结转ToolStripMenuItem.Name = "美金结转ToolStripMenuItem";
+            this.美金结转ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.美金结转ToolStripMenuItem.Text = "账户转账";
+            this.美金结转ToolStripMenuItem.Click += new System.EventHandler(this.美金结转ToolStripMenuItem_Click);
             // 
             // groupControl1
             // 
@@ -251,5 +262,6 @@
         private System.Windows.Forms.ToolStripMenuItem 新增ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 美金结转ToolStripMenuItem;
     }
 }

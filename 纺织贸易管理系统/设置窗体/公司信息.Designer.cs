@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(公司信息));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.检查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtlxdh = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -43,6 +44,7 @@
             this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.uiSymbolButton3 = new Sunny.UI.UISymbolButton();
             this.cmbgongshimingcheng = new Sunny.UI.UIComboBox();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
@@ -57,6 +59,16 @@
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.txtEmail = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cmbdanjubianhao = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.NumSuoLv = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbFabricStyle = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbBuyStyle = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbIsTax = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbzhangqi = new System.Windows.Forms.ComboBox();
@@ -76,11 +88,11 @@
             this.cmbxianshi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorPickerDropDown1 = new DevComponents.DotNetBar.ColorPickerDropDown();
-            this.uiSymbolButton3 = new Sunny.UI.UISymbolButton();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumSuoLv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +100,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.保存ToolStripMenuItem});
+            this.保存ToolStripMenuItem,
+            this.检查更新ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(570, 40);
@@ -103,6 +116,15 @@
             this.保存ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
             this.保存ToolStripMenuItem.Text = "保存";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
+            // 
+            // 检查更新ToolStripMenuItem
+            // 
+            this.检查更新ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.UpdateTableOfContents_32x32;
+            this.检查更新ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.检查更新ToolStripMenuItem.Name = "检查更新ToolStripMenuItem";
+            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.检查更新ToolStripMenuItem.Text = "检查更新";
+            this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
             // 
             // labelX1
             // 
@@ -267,6 +289,19 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "公司信息";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // uiSymbolButton3
+            // 
+            this.uiSymbolButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton3.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiSymbolButton3.Location = new System.Drawing.Point(517, 6);
+            this.uiSymbolButton3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton3.Name = "uiSymbolButton3";
+            this.uiSymbolButton3.Size = new System.Drawing.Size(62, 26);
+            this.uiSymbolButton3.Symbol = 61527;
+            this.uiSymbolButton3.TabIndex = 65;
+            this.uiSymbolButton3.Text = "删除";
+            this.uiSymbolButton3.Click += new System.EventHandler(this.uiSymbolButton3_Click);
             // 
             // cmbgongshimingcheng
             // 
@@ -452,6 +487,16 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmbdanjubianhao);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.NumSuoLv);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.cmbFabricStyle);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.cmbBuyStyle);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.cmbIsTax);
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.numericUpDown2);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.cmbzhangqi);
@@ -477,6 +522,118 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "系统设置";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cmbdanjubianhao
+            // 
+            this.cmbdanjubianhao.FormattingEnabled = true;
+            this.cmbdanjubianhao.Items.AddRange(new object[] {
+            "类型+年份+月份+日+累计编号",
+            "类型+年份+累计编号"});
+            this.cmbdanjubianhao.Location = new System.Drawing.Point(115, 417);
+            this.cmbdanjubianhao.Name = "cmbdanjubianhao";
+            this.cmbdanjubianhao.Size = new System.Drawing.Size(225, 20);
+            this.cmbdanjubianhao.TabIndex = 29;
+            this.cmbdanjubianhao.Text = "类型+年份+月份+日+累计编号";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 420);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 12);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "单据编号规则";
+            // 
+            // NumSuoLv
+            // 
+            this.NumSuoLv.Location = new System.Drawing.Point(383, 218);
+            this.NumSuoLv.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.NumSuoLv.Name = "NumSuoLv";
+            this.NumSuoLv.Size = new System.Drawing.Size(120, 21);
+            this.NumSuoLv.TabIndex = 27;
+            this.NumSuoLv.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(276, 221);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "报警缩率";
+            // 
+            // cmbFabricStyle
+            // 
+            this.cmbFabricStyle.FormattingEnabled = true;
+            this.cmbFabricStyle.Items.AddRange(new object[] {
+            "白坯",
+            "成品",
+            "色坯"});
+            this.cmbFabricStyle.Location = new System.Drawing.Point(383, 170);
+            this.cmbFabricStyle.Name = "cmbFabricStyle";
+            this.cmbFabricStyle.Size = new System.Drawing.Size(121, 20);
+            this.cmbFabricStyle.TabIndex = 25;
+            this.cmbFabricStyle.Text = "成品";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(276, 171);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "产品类型";
+            // 
+            // cmbBuyStyle
+            // 
+            this.cmbBuyStyle.FormattingEnabled = true;
+            this.cmbBuyStyle.Items.AddRange(new object[] {
+            "白坯采购",
+            "成品采购",
+            "色坯采购"});
+            this.cmbBuyStyle.Location = new System.Drawing.Point(383, 117);
+            this.cmbBuyStyle.Name = "cmbBuyStyle";
+            this.cmbBuyStyle.Size = new System.Drawing.Size(121, 20);
+            this.cmbBuyStyle.TabIndex = 23;
+            this.cmbBuyStyle.Text = "成品采购";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(275, 118);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "采购类型";
+            // 
+            // cmbIsTax
+            // 
+            this.cmbIsTax.FormattingEnabled = true;
+            this.cmbIsTax.Items.AddRange(new object[] {
+            "未税",
+            "含税"});
+            this.cmbIsTax.Location = new System.Drawing.Point(383, 68);
+            this.cmbIsTax.Name = "cmbIsTax";
+            this.cmbIsTax.Size = new System.Drawing.Size(121, 20);
+            this.cmbIsTax.TabIndex = 21;
+            this.cmbIsTax.Text = "含税";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(276, 69);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "默认含税";
             // 
             // numericUpDown2
             // 
@@ -510,7 +667,7 @@
             this.cmbzhangqi.Items.AddRange(new object[] {
             "检查账期",
             "不检查账期"});
-            this.cmbzhangqi.Location = new System.Drawing.Point(115, 419);
+            this.cmbzhangqi.Location = new System.Drawing.Point(383, 19);
             this.cmbzhangqi.Name = "cmbzhangqi";
             this.cmbzhangqi.Size = new System.Drawing.Size(121, 20);
             this.cmbzhangqi.TabIndex = 17;
@@ -519,7 +676,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 420);
+            this.label8.Location = new System.Drawing.Point(276, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 16;
@@ -678,19 +835,6 @@
             this.colorPickerDropDown1.Tooltip = "Custom color scheme is created based on currently selected color table. Try selec" +
     "ting Silver or Blue color table and then creating custom color scheme.";
             // 
-            // uiSymbolButton3
-            // 
-            this.uiSymbolButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiSymbolButton3.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiSymbolButton3.Location = new System.Drawing.Point(517, 6);
-            this.uiSymbolButton3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiSymbolButton3.Name = "uiSymbolButton3";
-            this.uiSymbolButton3.Size = new System.Drawing.Size(62, 26);
-            this.uiSymbolButton3.Symbol = 61527;
-            this.uiSymbolButton3.TabIndex = 65;
-            this.uiSymbolButton3.Text = "删除";
-            this.uiSymbolButton3.Click += new System.EventHandler(this.uiSymbolButton3_Click);
-            // 
             // 公司信息
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -705,13 +849,13 @@
             this.Name = "公司信息";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "公司信息";
-            this.Load += new System.EventHandler(this.公司信息_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumSuoLv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
@@ -775,5 +919,16 @@
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label9;
         private Sunny.UI.UISymbolButton uiSymbolButton3;
+        private System.Windows.Forms.ComboBox cmbBuyStyle;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbIsTax;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbFabricStyle;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown NumSuoLv;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ToolStripMenuItem 检查更新ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cmbdanjubianhao;
+        private System.Windows.Forms.Label label14;
     }
 }

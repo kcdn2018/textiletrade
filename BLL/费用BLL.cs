@@ -35,7 +35,7 @@ namespace BLL
                 danju.je = 0;
             }
             DanjuTableService.InsertDanjuTable(danju);
-              var newdanju = SQLHelper.SQLHelper.CreatNewInstance(danju);
+            var newdanju = DanjuTableService.GetOneDanjuTable(x => x.dh == danju.dh);
             if (SysInfo.GetInfo.own != string.Empty)
             {
                 if (SysInfo.GetInfo.own != "审核制")
@@ -61,7 +61,6 @@ namespace BLL
                     反审核单据(danju.dh);
                 }
             }
-            Thread.Sleep(1000);
             if (danju.yaoqiu == ShouzhiStyle.收入)
             {
                 danju.totalmoney = danju.je;
@@ -69,11 +68,11 @@ namespace BLL
             }
             if (olddanju.yaoqiu == ShouzhiStyle.收入)
             {
-                danju.RemainMoney -= olddanju.je + danju.je;
+                danju.RemainMoney -=( olddanju.totalmoney  - danju.totalmoney) ;
             }
             else
             {
-                danju.RemainMoney += olddanju.je - danju.je;
+                danju.RemainMoney +=( olddanju.je - danju.je);
             }
             DanjuTableService.UpdateDanjuTable(danju, x => x.dh == danju.dh);
             //保存单据明细
@@ -93,7 +92,7 @@ namespace BLL
             {
                 单据审核(danju.dh);
             }
-      账户BLL.修改刷新(danju);
+            账户BLL.修改刷新(danju);
         }
         public static void 删除(string danhao)
         {

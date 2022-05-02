@@ -18,6 +18,7 @@ namespace Tools
             dt.Columns.Add("合同号");
             dt.Columns.Add("款号");
             dt.Columns.Add("单位");
+            dt.Columns.Add("特点说明");
             var collist = Connect.GetColumntable("品种资料", "gridView1","10001");
             foreach (ColumnTable column in collist )
             {
@@ -36,6 +37,7 @@ namespace Tools
             dt.Rows[0]["合同号"] = jiYangBaoJia.Hetonghao;
             dt.Rows[0]["款号"] = jiYangBaoJia.Kuanhao;
             dt.Rows[0]["单位"] = jiYangBaoJia.Danwei;
+            dt.Rows[0]["特点说明"] = pingzhong.Characteristic;
             var gongyidt = new DataTable("后整理信息");
             gongyidt.Columns.Add("加工单位");
             gongyidt.Columns.Add("加工工艺");
@@ -55,9 +57,9 @@ namespace Tools
             ds.Tables.Add(dt);
             ds.Tables.Add(gongyidt);
             fs.RegisterData(ds);
-            fs.Load(printSetting.Path );
-            try
-            {
+          try
+            {  
+                fs.Load(printSetting.Path );        
                 switch (printSetting.Printmodel)
                 {
                     case PrintModel.Design:

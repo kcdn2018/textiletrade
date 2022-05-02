@@ -63,7 +63,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.保存ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 35);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(714, 40);
             this.menuStrip1.TabIndex = 3;
@@ -97,9 +97,9 @@
             this.groupControl1.Controls.Add(this.txtdanhao);
             this.groupControl1.Controls.Add(this.labelX1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 40);
+            this.groupControl1.Location = new System.Drawing.Point(0, 75);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(714, 516);
+            this.groupControl1.Size = new System.Drawing.Size(714, 513);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "单据信息";
             // 
@@ -302,18 +302,17 @@
             // 
             // 付款单
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 556);
+            this.ClientSize = new System.Drawing.Size(714, 588);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "付款单";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "付款单";
+            this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
             this.Load += new System.EventHandler(this.收款单_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

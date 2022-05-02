@@ -1,3 +1,4 @@
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,10 @@ namespace 纺织贸易管理系统
 {
     public class db
      {
+        /// <summary>
+        /// 行号
+        /// </summary>
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int ID { get; set; }
         public string bh { get; set; }
         public string lb { get; set; }
@@ -45,6 +50,13 @@ namespace 纺织贸易管理系统
         /// 注意事项
         /// </summary>
         public string Zhuyishixiang { get; set; }
-   
+        /// <summary>
+        /// 特点
+        /// </summary>
+        public string Characteristic { get; set; }
+            /// <summary>
+            /// 英文描述
+            /// </summary>
+        public string Descript { get; set; }
     }
 }

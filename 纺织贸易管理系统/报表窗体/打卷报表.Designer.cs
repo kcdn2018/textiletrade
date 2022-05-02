@@ -33,6 +33,7 @@
             this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除卷ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除开剪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印唛头ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.唛头模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbmaitou = new System.Windows.Forms.ToolStripComboBox();
@@ -77,7 +78,14 @@
             this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.删除开剪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemButtonEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
@@ -99,6 +107,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -114,7 +128,7 @@
             this.生成质检单ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1004, 40);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,6 +158,15 @@
             this.删除卷ToolStripMenuItem.Size = new System.Drawing.Size(88, 36);
             this.删除卷ToolStripMenuItem.Text = "删除卷";
             this.删除卷ToolStripMenuItem.Click += new System.EventHandler(this.删除卷ToolStripMenuItem_Click);
+            // 
+            // 删除开剪ToolStripMenuItem
+            // 
+            this.删除开剪ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
+            this.删除开剪ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.删除开剪ToolStripMenuItem.Name = "删除开剪ToolStripMenuItem";
+            this.删除开剪ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.删除开剪ToolStripMenuItem.Text = "删除开剪";
+            this.删除开剪ToolStripMenuItem.Click += new System.EventHandler(this.删除开剪ToolStripMenuItem_Click);
             // 
             // 打印唛头ToolStripMenuItem
             // 
@@ -203,7 +226,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPanel1.Location = new System.Drawing.Point(0, 40);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(800, 130);
+            this.groupPanel1.Size = new System.Drawing.Size(1004, 130);
             // 
             // 
             // 
@@ -525,7 +548,7 @@
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEdit2,
             this.repositoryItemComboBox1});
-            this.gridControl2.Size = new System.Drawing.Size(800, 240);
+            this.gridControl2.Size = new System.Drawing.Size(1004, 240);
             this.gridControl2.TabIndex = 12;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -602,6 +625,7 @@
             // 
             this.uiTabControl1.Controls.Add(this.tabPage1);
             this.uiTabControl1.Controls.Add(this.tabPage2);
+            this.uiTabControl1.Controls.Add(this.tabPage3);
             this.uiTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 9F);
@@ -610,7 +634,7 @@
             this.uiTabControl1.MainPage = "";
             this.uiTabControl1.Name = "uiTabControl1";
             this.uiTabControl1.SelectedIndex = 0;
-            this.uiTabControl1.Size = new System.Drawing.Size(800, 280);
+            this.uiTabControl1.Size = new System.Drawing.Size(1004, 280);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabIndex = 13;
             // 
@@ -619,7 +643,7 @@
             this.tabPage1.Controls.Add(this.gridControl2);
             this.tabPage1.Location = new System.Drawing.Point(0, 40);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(800, 240);
+            this.tabPage1.Size = new System.Drawing.Size(1004, 240);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "正品报表";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -629,7 +653,7 @@
             this.tabPage2.Controls.Add(this.gridControl1);
             this.tabPage2.Location = new System.Drawing.Point(0, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(800, 240);
+            this.tabPage2.Size = new System.Drawing.Size(1004, 240);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "开剪报表";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -645,7 +669,7 @@
             this.repositoryItemButtonEdit3,
             this.repositoryItemButtonEdit4,
             this.repositoryItemComboBox2});
-            this.gridControl1.Size = new System.Drawing.Size(800, 240);
+            this.gridControl1.Size = new System.Drawing.Size(1004, 240);
             this.gridControl1.TabIndex = 13;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -718,20 +742,102 @@
             this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
             this.repositoryItemComboBox2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
-            // 删除开剪ToolStripMenuItem
+            // tabPage3
             // 
-            this.删除开剪ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
-            this.删除开剪ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.删除开剪ToolStripMenuItem.Name = "删除开剪ToolStripMenuItem";
-            this.删除开剪ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
-            this.删除开剪ToolStripMenuItem.Text = "删除开剪";
-            this.删除开剪ToolStripMenuItem.Click += new System.EventHandler(this.删除开剪ToolStripMenuItem_Click);
+            this.tabPage3.Controls.Add(this.gridControl3);
+            this.tabPage3.Location = new System.Drawing.Point(0, 40);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1004, 240);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "删除日志";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // gridControl3
+            // 
+            this.gridControl3.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl3.Location = new System.Drawing.Point(0, 0);
+            this.gridControl3.MainView = this.gridView3;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit5,
+            this.repositoryItemButtonEdit6,
+            this.repositoryItemComboBox3});
+            this.gridControl3.Size = new System.Drawing.Size(1004, 240);
+            this.gridControl3.TabIndex = 14;
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView3});
+            // 
+            // gridView3
+            // 
+            this.gridView3.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView3.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView3.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView3.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView3.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView3.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridView3.GridControl = this.gridControl3;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsBehavior.Editable = false;
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView3.OptionsView.ColumnAutoWidth = false;
+            this.gridView3.OptionsView.ShowFooter = true;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "日期";
+            this.gridColumn1.FieldName = "date";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 230;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "日志";
+            this.gridColumn2.FieldName = "Log";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 604;
+            // 
+            // repositoryItemButtonEdit5
+            // 
+            this.repositoryItemButtonEdit5.AutoHeight = false;
+            this.repositoryItemButtonEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit5.Name = "repositoryItemButtonEdit5";
+            // 
+            // repositoryItemButtonEdit6
+            // 
+            this.repositoryItemButtonEdit6.AutoHeight = false;
+            this.repositoryItemButtonEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit6.Name = "repositoryItemButtonEdit6";
+            // 
+            // repositoryItemComboBox3
+            // 
+            this.repositoryItemComboBox3.AutoHeight = false;
+            this.repositoryItemComboBox3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox3.Items.AddRange(new object[] {
+            "米",
+            "码",
+            "公斤数"});
+            this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
+            this.repositoryItemComboBox3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
             // 打卷报表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1004, 450);
             this.Controls.Add(this.uiTabControl1);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.menuStrip1);
@@ -759,6 +865,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -817,5 +929,13 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit4;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
         private System.Windows.Forms.ToolStripMenuItem 删除开剪ToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage3;
+        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit6;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox3;
     }
 }

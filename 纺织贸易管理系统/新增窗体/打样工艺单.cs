@@ -41,6 +41,10 @@ namespace 纺织贸易管理系统.新增窗体
             txtjiagongc.Text = jiagongchang.MC;
             txtlianxidianhua.Text = jiagongchang.DH;
             txtlianxiren.Text = jiagongchang.Lxr;
+            if(jiagongchang.Leixing =="染厂")
+            {
+                comleixing.Text = "色卡";
+            }
         }
         private void txtjiagongc_KeyDown(object sender, KeyEventArgs e)
         {
@@ -74,7 +78,7 @@ namespace 纺织贸易管理系统.新增窗体
                     if (Useful == FormUseful.复制)
                     {
                         Edit();
-                        dateEdit1.DateTime = DateTime.Now.Date;
+                        dateEdit1.DateTime = DateTime.Now;
                         txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.打样指示单, dateEdit1.DateTime, DanjuLeiXing.打样工艺单);
                         foreach (var y in ColorTables)
                         {
@@ -99,7 +103,7 @@ namespace 纺织贸易管理系统.新增窗体
                     c.Text = "";
                 }
             }
-            dateEdit1.DateTime = DateTime.Now.Date;
+            dateEdit1.DateTime = DateTime.Now;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.打样指示单 , dateEdit1.DateTime, DanjuLeiXing.打样工艺单);
             checkBoxX1.Checked = true;
             checkBoxX2.Checked = true;
@@ -132,7 +136,7 @@ namespace 纺织贸易管理系统.新增窗体
             //客户编号
             Kehu.BH = danju.wuliuBianhao;
             //合同号
-            txthetonghao.Text = danju.fromDanhao;
+            txthetonghao.Text = danju.HetongHao ;
             //布料编号
             txtbianhao.Text = danju.StockName;
             //品名
@@ -143,6 +147,8 @@ namespace 纺织贸易管理系统.新增窗体
             txtchengfeng.Text = danju.ckmc;
             //备注
             txtbeizhu.Text = danju.bz;
+            txtBuliaoSource.Text = danju.fromDanhao;
+            txtkezhong.Text = danju.Weight;
             txtheji.Value = danju.je;
             comhanshui.Text = danju.Hanshui;
             cmbqiankuan.Text = danju.Qiankuan;
@@ -226,6 +232,7 @@ namespace 纺织贸易管理系统.新增窗体
                     txtpingming.Text = pingzhong.pm;
                     txtguige.Text = pingzhong.gg;
                     txtchengfeng.Text = pingzhong.cf;
+                    txtkezhong.Text = pingzhong.kz;
                 }
             }
             else
@@ -334,7 +341,7 @@ namespace 纺织贸易管理系统.新增窗体
                 //客户编号
                 wuliuBianhao = Kehu.BH,
                 //合同号
-                fromDanhao = txthetonghao.Text,
+                HetongHao = txthetonghao.Text,
                 //布料编号
                 StockName = txtbianhao.Text,
                 //品名
@@ -347,11 +354,14 @@ namespace 纺织贸易管理系统.新增窗体
                 jiagongleixing = comleixing.Text,
                 //合计费用
                 je = txtheji.Value,
-                Hanshui = comhanshui .Text ,
-                Qiankuan=cmbqiankuan.Text ,
-               zhuangtai="已审核",
-               bz=txtbeizhu.Text ,
-                yaoqiu  =cmbgongyimingcheng.Text 
+                Hanshui = comhanshui.Text,
+                Qiankuan = cmbqiankuan.Text,
+                zhuangtai = "已审核",
+                bz = txtbeizhu.Text,
+                yaoqiu = cmbgongyimingcheng.Text,
+                Weight = txtkezhong.Text,
+                //布料来源
+                fromDanhao = txtBuliaoSource.Text
             };
             var listhouzhenli = new List<ShengchandanHouzhengli>();
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "A", Value = checkBoxX1.Checked });
@@ -396,7 +406,7 @@ namespace 纺织贸易管理系统.新增窗体
                 //客户编号
                 wuliuBianhao = Kehu.BH,
                 //合同号
-                fromDanhao = txthetonghao.Text,
+                HetongHao  = txthetonghao.Text,
                 //布料编号
                 StockName = txtbianhao.Text,
                 //品名
@@ -407,7 +417,10 @@ namespace 纺织贸易管理系统.新增窗体
                 ckmc = txtchengfeng.Text,
                 yaoqiu  =cmbgongyimingcheng.Text ,
                 bz=txtbeizhu.Text ,
-                zhuangtai = "未审核"
+                zhuangtai = "未审核",
+                Weight = txtkezhong.Text,
+                  //布料来源
+                fromDanhao = txtBuliaoSource.Text
             };
             var listhouzhenli = new List<ShengchandanHouzhengli>();
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "A", Value = checkBoxX1.Checked });
@@ -460,6 +473,25 @@ namespace 纺织贸易管理系统.新增窗体
                     dateEdit1.DateTime = DateTime.Now;
                 }
                 txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.打样指示单 , dateEdit1.DateTime, DanjuLeiXing.打样工艺单);
+            }
+        }
+
+        private void buttonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var linkman = new LXR() { ZJC = txtBuliaoSource .Text };
+            var fm = new 供货商选择() { linkman = linkman };
+            fm.ShowDialog();
+            txtBuliaoSource.Text = fm.linkman.MC;
+        }
+
+        private void txtBuliaoSource_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter )
+            {
+                var linkman = new LXR() { ZJC = txtBuliaoSource.Text };
+                var fm = new 供货商选择() { linkman = linkman };
+                fm.ShowDialog();
+                txtBuliaoSource.Text = fm.linkman.MC;
             }
         }
     }

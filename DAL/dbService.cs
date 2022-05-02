@@ -29,7 +29,7 @@ namespace 纺织贸易管理系统
             }
             else
             {
-                string selectstring = "select * from db where " + wherestring + $" order by bh desc offset ({currenpage }-1)*{rownum } row fetch next {rownum } row only";
+                string selectstring = "select * from db where " + wherestring + $" order by id desc offset ({currenpage }-1)*{rownum } row fetch next {rownum } row only";
                 return Connect.CreatConnect().Query<db>(selectstring);
             }
         }

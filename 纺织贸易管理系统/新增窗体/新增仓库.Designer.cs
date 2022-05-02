@@ -31,10 +31,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(新增仓库));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.仓库类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmbleixing = new System.Windows.Forms.ToolStripComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -51,55 +47,17 @@
             this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.comboItem2 = new DevComponents.Editors.ComboItem();
             this.comboItem1 = new DevComponents.Editors.ComboItem();
-            this.menuStrip1.SuspendLayout();
+            this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbleixing = new Sunny.UI.UIComboBox();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.保存ToolStripMenuItem,
-            this.仓库类型ToolStripMenuItem,
-            this.cmbleixing});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 35);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(502, 40);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 保存ToolStripMenuItem
-            // 
-            this.保存ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
-            this.保存ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(73, 36);
-            this.保存ToolStripMenuItem.Text = "保存";
-            this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
-            // 
-            // 仓库类型ToolStripMenuItem
-            // 
-            this.仓库类型ToolStripMenuItem.Name = "仓库类型ToolStripMenuItem";
-            this.仓库类型ToolStripMenuItem.Size = new System.Drawing.Size(65, 36);
-            this.仓库类型ToolStripMenuItem.Text = "仓库类型";
-            // 
-            // cmbleixing
-            // 
-            this.cmbleixing.Items.AddRange(new object[] {
-            "成品仓库",
-            "次品仓库",
-            "半成品仓库",
-            "原料仓库",
-            "五金仓库",
-            "样布库"});
-            this.cmbleixing.Name = "cmbleixing";
-            this.cmbleixing.Size = new System.Drawing.Size(121, 36);
-            this.cmbleixing.Text = "成品仓库";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(15, 93);
+            this.label1.Location = new System.Drawing.Point(12, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 9;
@@ -109,7 +67,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(250, 93);
+            this.label2.Location = new System.Drawing.Point(250, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 10;
@@ -119,7 +77,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label29.Location = new System.Drawing.Point(250, 136);
+            this.label29.Location = new System.Drawing.Point(250, 113);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(53, 12);
             this.label29.TabIndex = 37;
@@ -129,7 +87,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(15, 136);
+            this.label30.Location = new System.Drawing.Point(12, 113);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(41, 12);
             this.label30.TabIndex = 36;
@@ -143,7 +101,7 @@
             this.txtBianhao.Border.Class = "TextBoxBorder";
             this.txtBianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBianhao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBianhao.Location = new System.Drawing.Point(88, 89);
+            this.txtBianhao.Location = new System.Drawing.Point(88, 66);
             this.txtBianhao.Name = "txtBianhao";
             this.txtBianhao.PreventEnterBeep = true;
             this.txtBianhao.ReadOnly = true;
@@ -159,7 +117,7 @@
             this.txtpingming.Border.Class = "TextBoxBorder";
             this.txtpingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtpingming.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtpingming.Location = new System.Drawing.Point(326, 89);
+            this.txtpingming.Location = new System.Drawing.Point(326, 66);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.PreventEnterBeep = true;
             this.txtpingming.Size = new System.Drawing.Size(145, 21);
@@ -174,7 +132,7 @@
             this.txtlianxidianhua.Border.Class = "TextBoxBorder";
             this.txtlianxidianhua.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtlianxidianhua.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtlianxidianhua.Location = new System.Drawing.Point(326, 132);
+            this.txtlianxidianhua.Location = new System.Drawing.Point(326, 109);
             this.txtlianxidianhua.Name = "txtlianxidianhua";
             this.txtlianxidianhua.PreventEnterBeep = true;
             this.txtlianxidianhua.Size = new System.Drawing.Size(145, 21);
@@ -188,7 +146,7 @@
             this.txtlianxiren.Border.Class = "TextBoxBorder";
             this.txtlianxiren.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtlianxiren.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtlianxiren.Location = new System.Drawing.Point(86, 132);
+            this.txtlianxiren.Location = new System.Drawing.Point(88, 109);
             this.txtlianxiren.Name = "txtlianxiren";
             this.txtlianxiren.PreventEnterBeep = true;
             this.txtlianxiren.Size = new System.Drawing.Size(145, 21);
@@ -202,7 +160,7 @@
             this.txtdizhi.Border.Class = "TextBoxBorder";
             this.txtdizhi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtdizhi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtdizhi.Location = new System.Drawing.Point(88, 178);
+            this.txtdizhi.Location = new System.Drawing.Point(88, 195);
             this.txtdizhi.Name = "txtdizhi";
             this.txtdizhi.PreventEnterBeep = true;
             this.txtdizhi.Size = new System.Drawing.Size(383, 21);
@@ -212,7 +170,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(15, 182);
+            this.label10.Location = new System.Drawing.Point(12, 199);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 87;
@@ -242,11 +200,76 @@
             // 
             this.comboItem1.Text = "成品仓库";
             // 
+            // uiSymbolButton2
+            // 
+            this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.uiSymbolButton2.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(127)))), ((int)(((byte)(128)))));
+            this.uiSymbolButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
+            this.uiSymbolButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
+            this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(256, 246);
+            this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton2.Name = "uiSymbolButton2";
+            this.uiSymbolButton2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.uiSymbolButton2.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(127)))), ((int)(((byte)(128)))));
+            this.uiSymbolButton2.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
+            this.uiSymbolButton2.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
+            this.uiSymbolButton2.Size = new System.Drawing.Size(100, 35);
+            this.uiSymbolButton2.Style = Sunny.UI.UIStyle.Red;
+            this.uiSymbolButton2.StyleCustomMode = true;
+            this.uiSymbolButton2.Symbol = 61453;
+            this.uiSymbolButton2.TabIndex = 103;
+            this.uiSymbolButton2.Text = "取消";
+            this.uiSymbolButton2.Click += new System.EventHandler(this.uiSymbolButton2_Click);
+            // 
+            // uiSymbolButton1
+            // 
+            this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(133, 246);
+            this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton1.Name = "uiSymbolButton1";
+            this.uiSymbolButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiSymbolButton1.Symbol = 61639;
+            this.uiSymbolButton1.TabIndex = 102;
+            this.uiSymbolButton1.Text = "保存";
+            this.uiSymbolButton1.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(12, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 104;
+            this.label3.Text = "仓库类型";
+            // 
+            // cmbleixing
+            // 
+            this.cmbleixing.BackColor = System.Drawing.Color.White;
+            this.cmbleixing.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.cmbleixing.FormattingEnabled = true;
+            this.cmbleixing.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(227)))));
+            this.cmbleixing.ItemSelectForeColor = System.Drawing.Color.Black;
+            this.cmbleixing.Location = new System.Drawing.Point(88, 152);
+            this.cmbleixing.Name = "cmbleixing";
+            this.cmbleixing.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(219)))), ((int)(((byte)(227)))));
+            this.cmbleixing.Size = new System.Drawing.Size(145, 24);
+            this.cmbleixing.Style = Sunny.UI.UIStyle.Custom;
+            this.cmbleixing.StyleCustomMode = true;
+            this.cmbleixing.TabIndex = 106;
+            // 
             // 新增仓库
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 214);
+            this.ClientSize = new System.Drawing.Size(492, 313);
+            this.Controls.Add(this.cmbleixing);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.uiSymbolButton2);
+            this.Controls.Add(this.uiSymbolButton1);
             this.Controls.Add(this.txtdizhi);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtlianxidianhua);
@@ -257,25 +280,18 @@
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "新增仓库";
             this.Text = "新增仓库";
             this.Load += new System.EventHandler(this.新增品种_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label29;
@@ -286,13 +302,15 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtlianxiren;
         private DevComponents.DotNetBar.Controls.TextBoxX txtdizhi;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ToolStripMenuItem 仓库类型ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox cmbleixing;
         private DevComponents.Editors.ComboItem comboItem6;
         private DevComponents.Editors.ComboItem comboItem5;
         private DevComponents.Editors.ComboItem comboItem4;
         private DevComponents.Editors.ComboItem comboItem3;
         private DevComponents.Editors.ComboItem comboItem2;
         private DevComponents.Editors.ComboItem comboItem1;
+        private Sunny.UI.UISymbolButton uiSymbolButton2;
+        private Sunny.UI.UISymbolButton uiSymbolButton1;
+        private System.Windows.Forms.Label label3;
+        private Sunny.UI.UIComboBox cmbleixing;
     }
 }

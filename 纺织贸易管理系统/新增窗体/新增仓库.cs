@@ -15,16 +15,14 @@ using 纺织贸易管理系统.选择窗体;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     public partial class 新增仓库 : Sunny.UI.UIForm
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     {
         public StockInfoTable infoTable =new StockInfoTable ();
         public int Useful=FormUseful.新增 ;
         public 新增仓库()
         {
             InitializeComponent();
-           
+            
         }
         private void InitText()
         {
@@ -48,8 +46,9 @@ namespace 纺织贸易管理系统.新增窗体
             else
             {
                 EditText();
-            }
-
+            }        
+            cmbleixing.Items.AddRange(new string[] { "成品仓库", "次品仓库", "半成品仓库", "原料仓库", "五金仓库", "样布库" });
+            cmbleixing.SelectedIndex = 0;
         }
         private void EditText()
         {
@@ -101,6 +100,11 @@ namespace 纺织贸易管理系统.新增窗体
             infoTable  = new StockInfoTable ();
             Useful = FormUseful.新增;
             InitText();
-        } 
+        }
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

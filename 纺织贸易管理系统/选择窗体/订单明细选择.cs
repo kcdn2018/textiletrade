@@ -11,7 +11,7 @@ using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
 {
-    public partial class 订单明细选择 : Form
+    public partial class 订单明细选择 : Sunny.UI.UIForm
     {
         public string OrderNum { get; set; }
         public List <OrderDetailTable > pingzhong { get; set; }
@@ -28,9 +28,17 @@ namespace 纺织贸易管理系统.选择窗体
             Query();
         }
         private void Query()
-        {     
+        {
+            if (!checkBox1.Checked)
+            {
                 dblist = OrderDetailTableService.GetOrderDetailTablelst($"select orderDetailTable.* from orderTable,orderDetailTable where ordertable.orderNum like " +
-                    $"'%{OrderNum}%' and OrderTable.state!='已完成' and OrderTable.OrderNum=OrderDetailTable.OrderNum order by orderTable.ID desc");
+              $"'%{OrderNum}%' and OrderDetailTable.sampleName like '%{txtpingming.Text }%' and OrderDetailTable.color like '%{txtyanse.Text }%' and OrderDetailTable.sampleNum like '%{txtBianhao.Text }%' and OrderTable.OrderNum=OrderDetailTable.OrderNum  order by orderTable.ID desc");
+            }
+            else
+            { 
+            dblist = OrderDetailTableService.GetOrderDetailTablelst($"select orderDetailTable.* from orderTable,orderDetailTable where ordertable.orderNum like " +
+                $"'%{OrderNum}%' and  OrderDetailTable.sampleName like '%{txtpingming.Text }%' and OrderDetailTable.color like '%{txtyanse.Text }%'  and OrderDetailTable.sampleNum like '%{txtBianhao.Text }%'  and OrderTable.state!='已完成' and OrderTable.OrderNum=OrderDetailTable.OrderNum  order by orderTable.ID desc");
+        }
                 gridControl1.DataSource = dblist;
            
         }
@@ -77,6 +85,16 @@ namespace 纺织贸易管理系统.选择窗体
                 OrderNum = txtOrderNum.Text;
                 Query(); 
             }
+        }
+
+        private void uiSymbolButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            Query();
         }
     }
 }

@@ -11,7 +11,7 @@ using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
 {
-    public partial class 员工选择 : Form
+    public partial class 员工选择 : Sunny.UI.UIForm
     {
         public YuanGongTable  linkman { get; set; }
         public 员工选择()

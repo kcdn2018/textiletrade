@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,9 +19,7 @@ using 纺织贸易管理系统.选择窗体;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     public partial class 新增品种 :Sunny.UI.UIForm
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     {
         public db Pingzhong = new db();
         public int Useful { get; set; }
@@ -33,10 +32,55 @@ namespace 纺织贸易管理系统.新增窗体
             var l = LetterTableService.GetOneLetterTable(x => x.own == User.user.own).FirstLetter;
             txtFirsetLetter.Text = l == string.Empty ? "YB" : l;
             cmbMoban.Items.AddRange (Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray ());
-            cmbMoban.SelectedIndex = 0;
+            if (cmbMoban.Items.Count > 0)
+            {
+                cmbMoban.SelectedIndex = 0;
+            }
             dateEdit1.EditValue = DateTime.Now.ToShortDateString ();
             cmbLeibie.DataSource = (from lb in dbService.Getdblst() select lb.lb).ToList().Distinct<string>().ToList ();
             Useful = 1;
+            pictureBox1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseWheel);
+        }
+        int zoomStep = 50;
+        private void pictureBox1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            PictureBox pbox = sender as PictureBox;
+            int x = e.Location.X;
+            int y = e.Location.Y;
+            int ow = pbox.Width;
+            int oh = pbox.Height;
+            int VX, VY;  //因缩放产生的位移矢量
+            if (e.Delta > 0) //放大
+            {
+                //第①步
+                pbox.Width += zoomStep;
+                pbox.Height += zoomStep;
+                //第②步
+                PropertyInfo pInfo = pbox.GetType().GetProperty("ImageRectangle", BindingFlags.Instance |
+                 BindingFlags.NonPublic);
+                Rectangle rect = (Rectangle)pInfo.GetValue(pbox, null);
+                //第③步
+                pbox.Width = rect.Width;
+                pbox.Height = rect.Height;
+            }
+            if (e.Delta < 0) //缩小
+            {
+                //防止一直缩成负值
+                if (pbox.Width < 300)
+                    return;
+
+                pbox.Width -= zoomStep;
+                pbox.Height -= zoomStep;
+                PropertyInfo pInfo = pbox.GetType().GetProperty("ImageRectangle", BindingFlags.Instance |
+                 BindingFlags.NonPublic);
+                Rectangle rect = (Rectangle)pInfo.GetValue(pbox, null);
+                pbox.Width = rect.Width;
+                pbox.Height = rect.Height;
+            }
+            //第④步，求因缩放产生的位移，进行补偿，实现锚点缩放的效果
+            VX = (int)((double)x * (ow - pbox.Width) / ow);
+            VY = (int)((double)y * (oh - pbox.Height) / oh);
+            pbox.Location = new Point(pbox.Location.X + VX, pbox.Location.Y + VY);
         }
 
         private void comboBoxEx1_TextChanged(object sender, EventArgs e)
@@ -62,7 +106,7 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     Pingzhong.bh = "";
                 }
-                Pingzhong.lx = "成品";
+                Pingzhong.lx = QueryTime.IsFabricStyle ;
                 Pingzhong.lb = "无";
                 Pingzhong.caiyang = false;
             }
@@ -76,6 +120,7 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     Pingzhong.bh = "";
                 }
+                Pingzhong.rq = DateTime.Now;
             }
             oldbianhao = Pingzhong.ID;
             txtBianhao.Text = Pingzhong.bh;
@@ -107,6 +152,8 @@ namespace 纺织贸易管理系统.新增窗体
             txtfengge.Text = Pingzhong.Fengge;
             txtyongtu.Text = Pingzhong.YongTu;
             txtbeizhu.Text = Pingzhong.bz;
+            txtTeDian.Text = Pingzhong.Characteristic;
+            txtDescript.Text = Pingzhong.Descript;
             try
             {
                 if (Pingzhong.rq != null)
@@ -217,6 +264,8 @@ namespace 纺织贸易管理系统.新增窗体
             Pingzhong.YongTu = txtyongtu.Text;
             Pingzhong.Zhuyishixiang = txtzhuyishixiang.Text;
             Pingzhong.bz = txtbeizhu.Text;
+            Pingzhong.Characteristic = txtTeDian.Text;
+            Pingzhong.Descript = txtDescript.Text;
             return true;
         }
         private List<ShengChengGongYi > CreateGongyi()
@@ -354,6 +403,7 @@ namespace 纺织贸易管理系统.新增窗体
                     Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "自动生成编号发生错误！请重新输入信息或者手动输入");
                 }
             }
+          
         }
 
         private void txtpingming_TextChanged(object sender, EventArgs e)

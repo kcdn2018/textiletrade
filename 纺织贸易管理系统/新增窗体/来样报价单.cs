@@ -116,6 +116,8 @@ namespace 纺织贸易管理系统.新增窗体
                 listjiyang[i].md = pingzhong.md;
                 listjiyang[i].mf = pingzhong.mf;
                 listjiyang[i].zb = pingzhong.zb;
+                listjiyang[i].GHSMC = pingzhong.GHSMC ;
+                listjiyang[i].SupplierNum = pingzhong.GonghuoShangBianHao ;
                 listjiyang[i].EnglishName = pingzhong.EnglishName;
                 listjiyang[i].ys = pingzhong.ys;                
                 listjiyang[i].PibuPrice =Regex.IsMatch(pingzhong.PBPrice , @"^[+-]?\d*[.]?\d*$")?pingzhong.PBPrice.ToDecimal (0):0;
@@ -170,32 +172,21 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void Init()
         {
-            dateEdit1.DateTime = DateTime.Now.Date;
+            dateEdit1.DateTime = DateTime.Now;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.报价单, dateEdit1.DateTime, DanjuLeiXing.报价单);
             txtkehu.Text = "";       
             txtbeizhu.Text = "";
             listjiyang.Clear();
             for (int i = 0; i < 30 ; i++)
             {
-                listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text,own  = User.user.YHBH,
+                listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text,own  = User.user.YHBH,
             });
             }
             gridControl1.DataSource=listjiyang ;
             gridControl1.RefreshDataSource();
         }
 
-        //private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Print(PrintModel.Design);
-        //}
-        //private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Print(PrintModel.Privew);
-        //}
-        //private void 直接打印ToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Print(PrintModel.Print );
-        //}
+      
         private void 打印寄样标签ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fm = new 打印设置窗体 ();
@@ -237,7 +228,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+            listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
             gridControl1.RefreshDataSource();
         }
 
@@ -248,7 +239,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<JiYangBaoJia >(listjiyang, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<JiYangBaoJia >(listjiyang, rowindex, gridView1, gridView1.FocusedRowHandle,this );
         }
 
         private void 寄样单_Load(object sender, EventArgs e)
@@ -262,12 +253,12 @@ namespace 纺织贸易管理系统.新增窗体
                 if(useful==FormUseful.复制 )
                 {
                     Edit();                  
-                    dateEdit1.Text = DateTime.Now.ToShortDateString(); 
+                   dateEdit1.DateTime= DateTime.Now; 
                     txtdanhao.Text =  BianhaoBLL.CreatDanhao(FirstLetter.报价单 , dateEdit1.DateTime, DanjuLeiXing.报价单);
                     foreach (var j in listjiyang )
                     {
                         j.DH = txtdanhao.Text;
-                        j.RQ = dateEdit1.DateTime;
+                        j.RQ = danju.rq;
                     }
                 }
                 else
@@ -282,7 +273,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtdanhao.Text = danju.dh ;
             txtkehu.Text = danju.ksmc ;
             //txtwuliu.Text = danju.wuliugongsi;
-            dateEdit1.Text = danju.rq.ToShortDateString();
+            dateEdit1.DateTime =danju.rq;
             //txtyundanhao.Text = danju.wuliuBianhao ;
             //txtyunfei.Value =(double) danju.yunfei ;
             txtbeizhu.Text = danju.bz ;
@@ -290,7 +281,7 @@ namespace 纺织贸易管理系统.新增窗体
             var len = listjiyang.Count;
             for (int i = 0; i <30-len ; i++)
             {
-                listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+                listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
             }
             gridControl1.DataSource = listjiyang;
             

@@ -163,6 +163,7 @@
             // 
             // groupPanel1
             // 
+            this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
             this.groupPanel1.Controls.Add(this.cmbwuliugongshi);
@@ -218,11 +219,14 @@
             // 
             // cmbwuliugongshi
             // 
+            this.cmbwuliugongshi.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.cmbwuliugongshi.Border.Class = "TextBoxBorder";
             this.cmbwuliugongshi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cmbwuliugongshi.DisabledBackColor = System.Drawing.Color.White;
+            this.cmbwuliugongshi.ForeColor = System.Drawing.Color.Black;
             this.cmbwuliugongshi.Location = new System.Drawing.Point(460, 55);
             this.cmbwuliugongshi.Name = "cmbwuliugongshi";
             this.cmbwuliugongshi.PreventEnterBeep = true;
@@ -231,11 +235,14 @@
             // 
             // cmbquyu
             // 
+            this.cmbquyu.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.cmbquyu.Border.Class = "TextBoxBorder";
             this.cmbquyu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cmbquyu.DisabledBackColor = System.Drawing.Color.White;
+            this.cmbquyu.ForeColor = System.Drawing.Color.Black;
             this.cmbquyu.Location = new System.Drawing.Point(460, 17);
             this.cmbquyu.Name = "cmbquyu";
             this.cmbquyu.PreventEnterBeep = true;
@@ -244,11 +251,14 @@
             // 
             // txtshdz
             // 
+            this.txtshdz.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtshdz.Border.Class = "TextBoxBorder";
             this.txtshdz.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtshdz.DisabledBackColor = System.Drawing.Color.White;
+            this.txtshdz.ForeColor = System.Drawing.Color.Black;
             this.txtshdz.Location = new System.Drawing.Point(679, 55);
             this.txtshdz.Name = "txtshdz";
             this.txtshdz.PreventEnterBeep = true;
@@ -258,11 +268,14 @@
             // 
             // txtjsr
             // 
+            this.txtjsr.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtjsr.Border.Class = "TextBoxBorder";
             this.txtjsr.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtjsr.DisabledBackColor = System.Drawing.Color.White;
+            this.txtjsr.ForeColor = System.Drawing.Color.Black;
             this.txtjsr.Location = new System.Drawing.Point(68, 55);
             this.txtjsr.Name = "txtjsr";
             this.txtjsr.PreventEnterBeep = true;
@@ -272,11 +285,14 @@
             // 
             // txtdanhao
             // 
+            this.txtdanhao.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtdanhao.Border.Class = "TextBoxBorder";
             this.txtdanhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtdanhao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtdanhao.ForeColor = System.Drawing.Color.Black;
             this.txtdanhao.Location = new System.Drawing.Point(259, 55);
             this.txtdanhao.Name = "txtdanhao";
             this.txtdanhao.PreventEnterBeep = true;
@@ -479,6 +495,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 

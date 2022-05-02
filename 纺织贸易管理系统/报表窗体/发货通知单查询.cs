@@ -40,7 +40,7 @@ namespace 纺织贸易管理系统.报表窗体
         private void 采购查询_Load(object sender, EventArgs e)
         {
           
-            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x=>x.rq >=Convert.ToDateTime ( dateEdit1.Text)&&x.rq<= Convert.ToDateTime(dateEdit2.Text)&&x.ksmc .Contains (txtksmc.Text )&&x.zhuangtai !="已删除"&&x.djlx==DanjuLeiXing.发货通知单  ));
+            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x=>x.rq >=dateEdit1.DateTime.Date&&x.rq<=dateEdit2.DateTime.Date.AddDays(1)&&x.ksmc .Contains (txtksmc.Text )&&x.zhuangtai !="已删除"&&x.djlx==DanjuLeiXing.发货通知单  ));
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= Convert.ToDateTime(dateEdit1.Text) && x.rq <= Convert.ToDateTime(dateEdit2.Text) && x.ksmc.Contains(txtksmc.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发货通知单));
+            CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <=dateEdit2.DateTime.Date.AddDays(1) && x.ksmc.Contains(txtksmc.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发货通知单));
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace 纺织贸易管理系统.报表窗体
                 if ((int)(MessageBox.Show("您确定要删除改发货通知单吗？确定按YES.取消按NO", "提示", MessageBoxButtons.YesNo)) == 6)
                 {
                     单据BLL.删除单据(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
-                    CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= Convert.ToDateTime(dateEdit1.Text) && x.rq <= Convert.ToDateTime(dateEdit2.Text) && x.ksmc.Contains(txtksmc.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发货通知单));
+                    CreateGrid.Query<DanjuTable>(gridControl1, DanjuTableService.GetDanjuTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <=dateEdit2.DateTime.Date.AddDays(1) && x.ksmc.Contains(txtksmc.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.发货通知单));
                 }
             }
             else

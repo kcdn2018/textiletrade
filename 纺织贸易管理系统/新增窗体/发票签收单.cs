@@ -68,7 +68,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
             gridControl2.RefreshDataSource();
         }
 
@@ -79,7 +79,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle,this);
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -152,7 +152,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.bz = txtbeizhu.Text;
             danju.dh = txtdanhao.Text;
             danju.djlx = DanjuLeiXing.发票签收 ;
-            danju.rq = dateEdit1.DateTime.Date ;
+            danju.rq = dateEdit1.DateTime ;
             danju.Hanshui = "含税";
             danju.own = User.user.YHBH;
             danju.je = danjumingxitables.Sum(x => x.hanshuiheji)+txtyouhuipiaoe.Text.ToDecimal ();

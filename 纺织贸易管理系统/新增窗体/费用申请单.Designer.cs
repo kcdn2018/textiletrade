@@ -477,19 +477,17 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.uiTitlePanel1.Controls.Add(this.gridControl1);
             this.uiTitlePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiTitlePanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiTitlePanel1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiTitlePanel1.ForeColor = System.Drawing.Color.White;
             this.uiTitlePanel1.Location = new System.Drawing.Point(0, 251);
             this.uiTitlePanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTitlePanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTitlePanel1.Name = "uiTitlePanel1";
             this.uiTitlePanel1.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
             this.uiTitlePanel1.Size = new System.Drawing.Size(820, 339);
-            this.uiTitlePanel1.Style = Sunny.UI.UIStyle.Custom;
             this.uiTitlePanel1.TabIndex = 5;
             this.uiTitlePanel1.Text = "费用明细";
             this.uiTitlePanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiTitlePanel1.TitleColor = System.Drawing.Color.Silver;
             // 
             // gridControl1
             // 
@@ -581,19 +579,20 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 费用申请单
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AllowShowTitle = false;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 590);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.uiTitlePanel1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "费用申请单";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Padding = new System.Windows.Forms.Padding(0);
+            this.ShowTitle = false;
             this.Text = "费用单";
             this.Load += new System.EventHandler(this.费用申请单_Load);
             this.menuStrip1.ResumeLayout(false);

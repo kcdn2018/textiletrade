@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Model;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,13 +91,14 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables[i].pingming  = pingzhong.pm;
                 danjumingxitables[i].kezhong  = pingzhong.kz;          
                 danjumingxitables[i].menfu  = pingzhong.mf;
+                danjumingxitables[i].menfu =pingzhong.mf ;
                 danjumingxitables[i].danwei  = "米";
                 danjumingxitables[i].offerid = pingzhong.GonghuoShangBianHao;
                 i++;
                 if (i == danjumingxitables.Count - 1)
                     for (int j = 0; j < 30; j++)
                     {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text)});
+                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime});
                     }
             }
             fm.Dispose();
@@ -121,6 +123,7 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables[row].pingming = d.orderDetail.sampleName;
                 danjumingxitables[row].kezhong = d.orderDetail.weight;
                 danjumingxitables[row].menfu = d.orderDetail.width;
+                danjumingxitables[row].FrabicWidth = d.orderDetail.width;
                 danjumingxitables[row].danwei = "米";
                 danjumingxitables[row].OrderNum = d.orderDetail.OrderNum;
                 danjumingxitables[row].kuanhao = d.orderDetail.Kuanhao;
@@ -130,11 +133,13 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables[row].ColorNum = d.orderDetail.ColorNum;
                 danjumingxitables[row].CustomerColorNum = d.orderDetail.CustomerColorNum;
                 danjumingxitables[row].CustomerPingMing = d.orderDetail.CustomerPingMing;
+                var id = d.orderDetail.sampleNum.ToInt();
+                danjumingxitables[row].offerid  =dbService.GetOnedb (x=>x.ID==id ).GonghuoShangBianHao ;
                 row++;
                 if (row == danjumingxitables.Count - 1)
                     for (int j = 0; j < 30; j++)
                     {
-                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
                     }
             }
             gridControl1.RefreshDataSource();
@@ -148,7 +153,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
             gridControl1.RefreshDataSource();
         }
 
@@ -159,7 +164,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle,this );
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -180,7 +185,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.ckmc = cmbcunfang.Text;
             danju.dh = txtdanhao.Text;
             danju.djlx = DanjuLeiXing.采购通知单;
-            danju.rq = dateEdit1.DateTime;
+            danju.rq = dateEdit1.DateTime ;
             danju.shouhuodizhi = txtckmc.Text;
             danju.Qiankuan = cmbqiankuan.Text;
             danju.Hanshui = comhanshui.Text;
@@ -196,6 +201,11 @@ namespace 纺织贸易管理系统.新增窗体
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridView1.CloseEditor();
+            if (danjumingxitables.Sum(x => x.chengpingmishu) == 0)
+            {
+                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "布料数量不能为0，请填写数量！");
+                return;
+            }
             if (danjumingxitables.Where(x =>!string.IsNullOrWhiteSpace(x.Bianhao )).ToList().Count == 0)
             {
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "没有检测到任何布料信息.请选择相应的布料后再保存！");
@@ -237,8 +247,9 @@ namespace 纺织贸易管理系统.新增窗体
                     c.Text = "";
                 }
             } 
-            dateEdit1.DateTime  = DateTime.Now.Date ;
-            txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.采购通知单 , dateEdit1.DateTime, DanjuLeiXing.采购通知单);         
+            dateEdit1.DateTime  = DateTime.Now ;
+            txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.采购通知单 , dateEdit1.DateTime, DanjuLeiXing.采购通知单);
+            comhanshui.Text = QueryTime.IsTax;
             danjumingxitables.Clear();
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)
@@ -272,7 +283,8 @@ namespace 纺织贸易管理系统.新增窗体
             txtlianxidianhua.Text = danju.lianxidianhua;       
             cmbqiankuan.Text = danju.Qiankuan;
             comhanshui.Text = danju.Hanshui;
-            dateEdit1.Text = danju.rq.ToShortDateString();
+            txtLianxiren.Text = danju.lianxiren;
+           dateEdit1.DateTime=danju.rq;
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danju.dh);
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)
@@ -280,6 +292,13 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
             }
             gridControl1.DataSource = danjumingxitables;
+            if(useful==FormUseful.复制 )
+            {
+                useful = FormUseful.新增;
+                dateEdit1.DateTime = DateTime.Now;
+                danjumingxitables.ForEach(x => x.danhao = txtdanhao.Text) ;
+                danjumingxitables.ForEach(x => x.rq = dateEdit1.DateTime);
+            }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

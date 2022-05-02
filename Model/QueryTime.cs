@@ -9,5 +9,10 @@ namespace Model
     {
         public static int 间隔;
         public static int Digit;
+        public static string IsTax=string.Empty ;
+        public static string IsFabricStyle = string.Empty;
+        public static string IsBuyStyle = string.Empty;
+        public static int  Suolv = 100;
+        public static string DanjubianhaoRule = "类型+年份+月份+日+累计编号";
     }
 }

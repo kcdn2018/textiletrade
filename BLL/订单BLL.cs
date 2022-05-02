@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tools;
 using 纺织贸易管理系统;
 
 namespace BLL
@@ -14,7 +15,7 @@ namespace BLL
         {
             while (!string.IsNullOrEmpty(OrderTableService.GetOneOrderTable(x => x.OrderNum == danhao).OrderNum))
             {
-                danhao = BianhaoBLL.CreatOrderNum(FirstLetter.销售计划单, date);
+                danhao = danhao.Substring(0, danhao.Length -3)+ (danhao.Substring(danhao.Length -3,3).TryToInt()+1).ToString ();
             }
             return danhao;
         }
@@ -39,12 +40,14 @@ namespace BLL
             {
                 o.OrderNum = order.OrderNum;
                 o.Shengyumishu = o.YutouMishu - o.Yitoumishu;
-                 OrderDetailTableService.InsertOrderDetailTable(o); 
+                 //OrderDetailTableService.InsertOrderDetailTable(o); 
+                 
                 if(o.OtherCost !=0)
                 {                                     
                     增加单据明细(o, order);                 
                 }
             }
+            OrderDetailTableService.InsertOrderDetailTablelst(orderDetailTables);
         }
         private static void 增加单据明细(OrderDetailTable orderDetailTable, OrderTable order)
         {
@@ -205,7 +208,7 @@ namespace BLL
         {
             if (danjuTable.TotalMishu != 0)
             {
-                decimal yunfei = (int)(danjuTable.yunfei / danjuTable.TotalMishu);
+                decimal yunfei = (int)((danjuTable.yunfei +danjuTable.ChaCheFei +danjuTable.ZhuangXieFei )/ danjuTable.TotalMishu);
                 return yunfei;
             }
             else { return 0; }
@@ -266,8 +269,27 @@ namespace BLL
                     x.sampleNum == mingxi.Bianhao && x.color == mingxi.yanse && x.Kuanhao == mingxi.kuanhao&&x.Huahao ==mingxi.Huahao&&x.CustomerPingMing ==mingxi.CustomerPingMing &&x.CustomerColorNum ==mingxi.CustomerColorNum  );
                     if (orderdetail.sampleNum != string.Empty)
                     {
-                        orderdetail.consignmentNum += mingxi.chengpingmishu;
-                        orderdetail.Shengyumishu -= mingxi.chengpingmishu;
+                        if (mingxi.danwei == orderdetail.danwei)
+                        {
+                            orderdetail.consignmentNum += mingxi.chengpingmishu;
+                            orderdetail.Shengyumishu -= mingxi.chengpingmishu;
+                        }
+                        else
+                        {
+                            if(mingxi.danwei=="米" && orderdetail.danwei =="码")
+                            {
+                                orderdetail.consignmentNum +=( mingxi.chengpingmishu/(0.9144).TryToDecmial ());
+                                orderdetail.Shengyumishu -=( mingxi.chengpingmishu/(0.9144).TryToDecmial ());
+                            }
+                            else
+                            {
+                                if (mingxi.danwei == "码" && orderdetail.danwei == "米")
+                                {
+                                    orderdetail.consignmentNum += (mingxi.chengpingmishu * (0.9144).TryToDecmial());
+                                    orderdetail.Shengyumishu -= (mingxi.chengpingmishu *(0.9144).TryToDecmial());
+                                }
+                            }
+                        }
                         OrderDetailTableService.UpdateOrderDetailTable($"consignmentNum='{orderdetail.consignmentNum }',Shengyumishu='{orderdetail.Shengyumishu }'", x => x.ID == orderdetail.ID);
                     }
                 }
@@ -287,9 +309,30 @@ namespace BLL
                     x.sampleNum == mingxi.Bianhao && x.color == mingxi.yanse && x.Kuanhao == mingxi.kuanhao && x.Huahao == mingxi.Huahao && x.CustomerPingMing == mingxi.CustomerPingMing && x.CustomerColorNum == mingxi.CustomerColorNum);
                     if (orderdetail.sampleNum != string.Empty)
                     {
-                        orderdetail.consignmentNum -= mingxi.chengpingmishu;
-                        orderdetail.Shengyumishu += mingxi.chengpingmishu;
-                        OrderDetailTableService.UpdateOrderDetailTable($"consignmentNum='{orderdetail.consignmentNum }',Shengyumishu='{orderdetail.Shengyumishu }'",x=>x.ID==orderdetail.ID);
+                        if (mingxi.danwei == orderdetail.danwei)
+                        {
+                            orderdetail.consignmentNum -= mingxi.chengpingmishu;
+                            orderdetail.Shengyumishu += mingxi.chengpingmishu;
+                        }
+                        else
+                        {
+                            if (mingxi.danwei == "米" && orderdetail.danwei == "码")
+                            {
+                                orderdetail.consignmentNum -= (mingxi.chengpingmishu / (0.9144).TryToDecmial());
+                                orderdetail.Shengyumishu += (mingxi.chengpingmishu / (0.9144).TryToDecmial());
+                            }
+                            else
+                            {
+                                if (mingxi.danwei == "码" && orderdetail.danwei == "米")
+                                {
+                                    orderdetail.consignmentNum -= (mingxi.chengpingmishu * (0.9144).TryToDecmial());
+                                    orderdetail.Shengyumishu += (mingxi.chengpingmishu * (0.9144).TryToDecmial());
+                                }
+                            }
+                            //    orderdetail.consignmentNum -= mingxi.chengpingmishu;
+                            //orderdetail.Shengyumishu += mingxi.chengpingmishu;
+                            OrderDetailTableService.UpdateOrderDetailTable($"consignmentNum='{orderdetail.consignmentNum }',Shengyumishu='{orderdetail.Shengyumishu }'", x => x.ID == orderdetail.ID);
+                        }
                     }
                 }
             }
@@ -308,7 +351,17 @@ namespace BLL
                  
                     if (order.OrderNum!= string.Empty)
                     {
-                        order.FaHuoMoney  += mingxi.hanshuiheji ;
+                        if (mingxi.bizhong == "人民币")
+                        {
+                            order.FaHuoMoney += mingxi.hanshuiheji;
+                        }
+                        else
+                        {
+                            if (RateModel.CurrentRate != 0)
+                            {
+                                order.FaHuoMoney += mingxi.hanshuiheji * RateModel.CurrentRate;
+                            }
+                        }
                         OrderTableService.UpdateOrderTable (order , x => x.OrderNum == mingxi.OrderNum);
                     }
                 }
@@ -327,9 +380,9 @@ namespace BLL
                     var order = OrderTableService.GetOneOrderTable(x => x.OrderNum == mingxi.OrderNum);
 
                     if (order.OrderNum != string.Empty)
-                    {
-                        order.FaHuoMoney -= mingxi.hanshuiheji;
-                        OrderTableService.UpdateOrderTable(order, x => x.OrderNum == mingxi.OrderNum);
+                    {                       
+                        order.FaHuoMoney -= mingxi.hanshuiheji;                      
+                        Connect.DbHelper().Updateable<OrderTable>(order).ExecuteCommand();
                     }
                 }
             }
@@ -367,7 +420,7 @@ namespace BLL
                 var order = OrderTableService.GetOneOrderTable(x => x.OrderNum == o.OrderNum);
                 order.ShengYuMoney += o.hanshuiheji ;
                 order.HejiLilun = order.YifuMoney - order.Cost;
-                OrderTableService.UpdateOrderTable(order, x => x.OrderNum == o.OrderNum);
+                Connect.DbHelper().Updateable(order).ExecuteCommand();
             }
         }
         public static void 减少剩余金额(List<danjumingxitable> danjumingxitables)
@@ -377,7 +430,7 @@ namespace BLL
                 var order = OrderTableService.GetOneOrderTable(x => x.OrderNum == o.OrderNum);
                 order.ShengYuMoney -= o.hanshuiheji;
                 order.HejiLilun = order.YifuMoney - order.Cost;
-                OrderTableService.UpdateOrderTable(order, x => x.OrderNum == o.OrderNum);
+                Connect.DbHelper().Updateable(order).ExecuteCommand();
             }
         }
         /// <summary>
@@ -404,7 +457,7 @@ namespace BLL
            await Task.Run(() => { 
                 var order = OrderTableService.GetOneOrderTable(x => x.OrderNum == OrderNum);
                 order.state = "已完成";
-                order.HejiLilun = order.FaHuoMoney - order.Deposit;
+                order.HejiLilun = order.FaHuoMoney - order.Deposit-order.Cost;
                 OrderTableService.UpdateOrderTable($"state='已完成',HejiLilun='{order.HejiLilun }'", x => x.OrderNum == OrderNum);
                 ShengChanDanTableService.UpdateShengChanDanTable("State='已结束订单'", x => x.OrderNum ==OrderNum );
                 //添加工艺(OrderNum);
@@ -420,7 +473,7 @@ namespace BLL
             await  Task.Run (() =>
             {
                 var order = OrderTableService.GetOneOrderTable(x => x.OrderNum == OrderNum);
-                order.HejiLilun = order.FaHuoMoney - order.Deposit;
+                order.HejiLilun = order.FaHuoMoney - order.Deposit-order.Cost ;
                 OrderTableService.UpdateOrderTable(order, x => x.OrderNum == OrderNum);
                 //添加工艺(OrderNum);
             });

@@ -41,7 +41,7 @@ namespace 纺织贸易管理系统.报表窗体
             var order = OrderTableService.GetOneOrderTable(x => x.OrderNum == OrderNum);
             txtbeizhu.Text = order.Remakers;
             txtdanhao.Text = order.OrderNum;
-            dateEdit1.Text = order.Orderdate.ToShortDateString();
+           dateEdit1.DateTime= order.Orderdate;
             txtdayangfei.Text = order.DayangFei;
             txtdingjing.Text = order.Deposit.ToString();
             txthetonghao.Text = order.ContractNum;

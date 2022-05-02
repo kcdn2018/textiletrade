@@ -43,5 +43,8 @@ namespace Model
         public const string 打样单 = "打样单";
         public const string 成品登记单 = "成品登记单";
         public const string 展会 = "展会";
+        public const string 点色通知单 = "点色通知单";
+        public const string 配桶登记单 = "配桶登记单";
+        public const string 账户转账单 = "账户转账单";
     }
 }

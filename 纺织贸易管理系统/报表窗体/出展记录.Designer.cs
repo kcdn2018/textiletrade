@@ -119,7 +119,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.txtGuige.BackColor = System.Drawing.Color.White;
             this.txtGuige.ButtonSymbol = 61761;
             this.txtGuige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGuige.FillColor = System.Drawing.Color.White;
             this.txtGuige.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtGuige.ForeColor = System.Drawing.Color.Black;
             this.txtGuige.Location = new System.Drawing.Point(640, 19);
@@ -151,7 +150,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.txtpingming.BackColor = System.Drawing.Color.White;
             this.txtpingming.ButtonSymbol = 61761;
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpingming.FillColor = System.Drawing.Color.White;
             this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtpingming.ForeColor = System.Drawing.Color.Black;
             this.txtpingming.Location = new System.Drawing.Point(452, 19);
@@ -183,7 +181,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.txtbianhao.BackColor = System.Drawing.Color.White;
             this.txtbianhao.ButtonSymbol = 61761;
             this.txtbianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbianhao.FillColor = System.Drawing.Color.White;
             this.txtbianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbianhao.ForeColor = System.Drawing.Color.Black;
             this.txtbianhao.Location = new System.Drawing.Point(263, 19);
@@ -429,6 +426,7 @@ namespace 纺织贸易管理系统.报表窗体
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.toolStripMenuItem2_Click);

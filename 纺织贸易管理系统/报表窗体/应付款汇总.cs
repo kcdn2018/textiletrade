@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tools;
+using 纺织贸易管理系统.自定义类;
 
 namespace 纺织贸易管理系统.报表窗体
 {

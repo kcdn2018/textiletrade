@@ -42,6 +42,11 @@ namespace 纺织贸易管理系统.设置窗体
             var zhangqi= SettingService.GetSetting(x => x.settingname == "检查账期").settingValue;
             cmbzhangqi.Text = string.IsNullOrWhiteSpace(zhangqi) ? "不检查账期" : zhangqi;
             numericUpDown2.Value = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "数量小数位", settingValue = numericUpDown1.Value.ToString() }).settingValue.ToDecimal(0);
+            NumSuoLv.Value = QueryTime.Suolv;
+            cmbBuyStyle.Text = QueryTime.IsBuyStyle;
+            cmbFabricStyle.Text = QueryTime.IsFabricStyle;
+            cmbIsTax.Text = QueryTime.IsTax;
+            cmbdanjubianhao.Text = QueryTime.DanjubianhaoRule;
         }
         private void GetAllPrinter()
         {
@@ -68,23 +73,7 @@ namespace 纺织贸易管理系统.设置窗体
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (cmbcaigou.Text != string.Empty && cmbxianshi.Text != string.Empty && cmbbianhao.Text != string.Empty)
-            {
-                //string shenhe;
-                //if (checkBoxX1.Checked == true)
-                //{
-                //    shenhe = "审核制";
-                //}
-                //else
-                //{
-                //    shenhe = "无需审核";
-                //}
-                //var gsinfo = new info() { cost = comboBoxEx1.Text, GHSMC = txtlxdh.Text, gsmc = cmbgongshimingcheng.Text, own = shenhe, Version = txtVer.Text ,Address=txtaddress.Text ,
-                //BankName=txtbankname.Text ,
-                // BankNum=txtBankNum.Text ,
-                // Email =txtEmail.Text ,
-                // TaxNum =txttaxNum .Text };
-                //infoService.Deleteinfo(x => x.Version == txtVer.Text);
-                //infoService.Insertinfo(gsinfo);
+            {            
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "订单显示样式", settingValue = cmbxianshi.Text });
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "采购显示订单明细", settingValue = cmbcaigou.Text });
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "编号规则", settingValue = cmbbianhao .Text });
@@ -94,8 +83,18 @@ namespace 纺织贸易管理系统.设置窗体
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "标签默认打印机", settingValue = cmbprinters .Text });
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "数量小数位", settingValue = numericUpDown2 .Text });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "检查账期", settingValue = cmbzhangqi.Text });
+                SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "默认含税", settingValue = cmbIsTax .Text });
+                SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "采购类型", settingValue = cmbBuyStyle .Text });
+                SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "产品类型", settingValue = cmbFabricStyle .Text });
+                SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "报警缩率", settingValue = NumSuoLv.Value.ToString()  });
+                SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "单据编号规则", settingValue =cmbdanjubianhao.Text  });
                 QueryTime.间隔 =(int) numericUpDown1.Value;
                 QueryTime.Digit = (int)numericUpDown2.Value;
+                QueryTime.IsTax = cmbIsTax.Text;
+                QueryTime.IsFabricStyle = cmbFabricStyle.Text;
+                QueryTime.IsBuyStyle = cmbBuyStyle.Text;
+                QueryTime.Suolv =(int) NumSuoLv.Value;
+                QueryTime.DanjubianhaoRule = cmbdanjubianhao.Text;
                 AlterDlg.Show("保存完毕");
             }
             else
@@ -103,19 +102,10 @@ namespace 纺织贸易管理系统.设置窗体
                 MessageBox.Show("保存失败！设置信息有没选择！");
             }
         }
-        private void 公司信息_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void uiComboBox1_SelectedValueChanged(object sender, EventArgs e)
-        {
-          
-        }
-
+     
         private void uiSymbolButton1_Click(object sender, EventArgs e)
         {
-            var fm = new 新增公司();
+            var fm = new 新增公司() { UseFul=FormUseful.新增 };
             fm.ShowDialog();
         }
 
@@ -167,6 +157,11 @@ namespace 纺织贸易管理系统.设置窗体
                     Sunny.UI.UIMessageBox.ShowError("删除失败！只有一个公司信息！\r\n不能删除!");
                 }
             }
+        }
+
+        private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Task.Run(new Action(() => { UpdateService.IsNeedUpdate(); }));
         }
     }
 }

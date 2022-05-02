@@ -30,9 +30,10 @@ namespace 纺织贸易管理系统.其他窗体
             }
             catch
             {
-                Query();
+               
                 var fm = new 配置列(gridView1) { formname = this.Name, dt = gridControl1.DataSource as DataTable };
-                fm.ShowDialog();
+                fm.ShowDialog(); 
+                Query();
             }
         }
   
@@ -41,10 +42,10 @@ namespace 纺织贸易管理系统.其他窗体
             Sunny.UI.UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
             DataTable dt = new DataTable();
             if (checkBox1.Checked == true)
-            { dt = SQLHelper.SQLHelper.Chaxun($"select LwDetail.*,danjumingxitable.* from lwDetail left join danjumingxitable on lwdetail.dh=danjumingxitable.danhao where lwDetail.rq between '{ dateEdit1.DateTime.Date}' and '{dateEdit2.DateTime.Date}' and lwdetail.KHBH = '{LinkMan.BH }' order by lwdetail.rq asc"); }
+            { dt = SQLHelper.SQLHelper.Chaxun($"select LwDetail.*,danjumingxitable.* from lwDetail left join danjumingxitable on lwdetail.dh=danjumingxitable.danhao where lwDetail.rq between '{ dateEdit1.DateTime.Date}' and '{dateEdit2.DateTime.Date.AddDays (1)}' and lwdetail.KHBH = '{LinkMan.BH }' order by lwdetail.rq asc"); }
             else
             {
-                dt = SQLHelper.SQLHelper.Chaxun($"select LwDetail.*,danjumingxitable.* from lwDetail left join danjumingxitable on lwdetail.dh=danjumingxitable.danhao where lwdetail.IsCheck='false' and lwDetail.rq between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date }' and lwdetail.KHBH = '{LinkMan.BH }' order by lwdetail.rq asc");
+                dt = SQLHelper.SQLHelper.Chaxun($"select LwDetail.*,danjumingxitable.* from lwDetail left join danjumingxitable on lwdetail.dh=danjumingxitable.danhao where lwdetail.IsCheck='false' and lwDetail.rq between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays (1) }' and lwdetail.KHBH = '{LinkMan.BH }' order by lwdetail.rq asc");
             }
             //DataView dv = querydt.DefaultView;
             //DataTable dt = dv.ToTable(true, new string[] { "ID"});

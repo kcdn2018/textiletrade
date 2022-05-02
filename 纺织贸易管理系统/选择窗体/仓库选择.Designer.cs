@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(仓库选择));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.确定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtzhujici = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -41,7 +38,8 @@
             this.配置列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.menuStrip1.SuspendLayout();
+            this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
+            this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -49,57 +47,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.确定ToolStripMenuItem,
-            this.查询ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 40);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 确定ToolStripMenuItem
-            // 
-            this.确定ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Apply_32x32;
-            this.确定ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.确定ToolStripMenuItem.Name = "确定ToolStripMenuItem";
-            this.确定ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
-            this.确定ToolStripMenuItem.Text = "确定";
-            this.确定ToolStripMenuItem.Click += new System.EventHandler(this.确定ToolStripMenuItem_Click);
-            // 
-            // 查询ToolStripMenuItem
-            // 
-            this.查询ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Find_32x32;
-            this.查询ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.查询ToolStripMenuItem.Name = "查询ToolStripMenuItem";
-            this.查询ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
-            this.查询ToolStripMenuItem.Text = "查询";
-            this.查询ToolStripMenuItem.Click += new System.EventHandler(this.查询ToolStripMenuItem_Click);
-            // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.uiSymbolButton2);
+            this.groupControl1.Controls.Add(this.uiSymbolButton1);
             this.groupControl1.Controls.Add(this.txtzhujici);
             this.groupControl1.Controls.Add(this.labelX1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 40);
+            this.groupControl1.Location = new System.Drawing.Point(0, 31);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(800, 89);
+            this.groupControl1.Size = new System.Drawing.Size(771, 72);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "查询条件";
             // 
             // txtzhujici
             // 
+            this.txtzhujici.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtzhujici.Border.Class = "TextBoxBorder";
             this.txtzhujici.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtzhujici.Location = new System.Drawing.Point(69, 44);
+            this.txtzhujici.DisabledBackColor = System.Drawing.Color.White;
+            this.txtzhujici.ForeColor = System.Drawing.Color.Black;
+            this.txtzhujici.Location = new System.Drawing.Point(67, 36);
+            this.txtzhujici.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtzhujici.Name = "txtzhujici";
             this.txtzhujici.PreventEnterBeep = true;
-            this.txtzhujici.Size = new System.Drawing.Size(166, 22);
+            this.txtzhujici.Size = new System.Drawing.Size(245, 22);
             this.txtzhujici.TabIndex = 1;
             this.txtzhujici.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtzhujici_KeyDown);
             // 
@@ -109,9 +85,10 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(12, 44);
+            this.labelX1.Location = new System.Drawing.Point(8, 38);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(60, 23);
+            this.labelX1.Size = new System.Drawing.Size(55, 19);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "助记词";
             // 
@@ -119,10 +96,12 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 129);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridControl1.Location = new System.Drawing.Point(0, 103);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(800, 321);
+            this.gridControl1.Size = new System.Drawing.Size(771, 343);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -159,6 +138,7 @@
             this.gridView1.Appearance.HideSelectionRow.Options.UseBackColor = true;
             this.gridView1.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridView1.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView1.DetailHeight = 283;
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
@@ -168,40 +148,62 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
+            // uiSymbolButton1
+            // 
+            this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(328, 30);
+            this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton1.Name = "uiSymbolButton1";
+            this.uiSymbolButton1.Size = new System.Drawing.Size(66, 35);
+            this.uiSymbolButton1.TabIndex = 2;
+            this.uiSymbolButton1.Text = "确定";
+            this.uiSymbolButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton1.Click += new System.EventHandler(this.确定ToolStripMenuItem_Click);
+            // 
+            // uiSymbolButton2
+            // 
+            this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(413, 30);
+            this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiSymbolButton2.Name = "uiSymbolButton2";
+            this.uiSymbolButton2.Size = new System.Drawing.Size(66, 35);
+            this.uiSymbolButton2.Symbol = 61442;
+            this.uiSymbolButton2.TabIndex = 3;
+            this.uiSymbolButton2.Text = "查询";
+            this.uiSymbolButton2.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton2.Click += new System.EventHandler(this.查询ToolStripMenuItem_Click);
+            // 
             // 仓库选择
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(771, 446);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1344, 842);
             this.MinimizeBox = false;
             this.Name = "仓库选择";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Padding = new System.Windows.Forms.Padding(0, 31, 0, 0);
             this.Text = "仓库选择";
+            this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.TitleHeight = 31;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.仓库选择_FormClosed);
-            this.Load += new System.EventHandler(this.仓库选择_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 确定ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 查询ToolStripMenuItem;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevComponents.DotNetBar.Controls.TextBoxX txtzhujici;
         private DevComponents.DotNetBar.LabelX labelX1;
@@ -210,5 +212,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 配置列ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
+        private Sunny.UI.UISymbolButton uiSymbolButton2;
+        private Sunny.UI.UISymbolButton uiSymbolButton1;
     }
 }

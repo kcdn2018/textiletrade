@@ -18,7 +18,7 @@ using 纺织贸易管理系统.选择窗体;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-    public partial class 费用申请单 : Form
+    public partial class 费用申请单 : Sunny.UI.UIForm 
     {
         public int useful { get; set; }
         public DanjuTable danju { get; set; } = new DanjuTable();
@@ -72,7 +72,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
 
         }
-        private void Init()
+        private void InitDanju()
         {
             foreach (Control c in this.groupControl1.Controls)
             {
@@ -81,7 +81,7 @@ namespace 纺织贸易管理系统.新增窗体
                     c.Text = "";
                 }
             }
-            dateEdit1.DateTime = DateTime.Now.Date;
+            dateEdit1.DateTime = DateTime.Now;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.费用单, dateEdit1.DateTime, DanjuLeiXing.费用单);
             txtjine.Text = "0.00";
             useful = FormUseful.新增;
@@ -116,7 +116,7 @@ namespace 纺织贸易管理系统.新增窗体
             menuEX.Init();
             if (useful == FormUseful.新增)
             {
-                Init();
+                InitDanju ();
             }
             else
             {
@@ -140,7 +140,7 @@ namespace 纺织贸易管理系统.新增窗体
             cmbjinshouren.Text = danju.own;
             cmbbumen.Text = danju.SaleMan;
             cmbshouzhi.Text = danju.yaoqiu;
-            dateEdit1.Text = danju.rq.ToShortDateString();
+           dateEdit1.DateTime=danju.rq;
             txthetonghao.Text = danju.HetongHao;
             if(danju.yaoqiu =="收入")
             {
@@ -163,7 +163,7 @@ namespace 纺织贸易管理系统.新增窗体
             
         }
         //给单据信息赋值
-        private void InitDanju()
+        private void assignment()
         {         
             danju.dh = txtdanhao.Text;
             danju.djlx = DanjuLeiXing.费用单;
@@ -188,7 +188,7 @@ namespace 纺织贸易管理系统.新增窗体
                     Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请填写金额,保存失败！");
                     return;
             }
-            InitDanju();
+            assignment();
             if (useful == FormUseful.新增)
             {
                 费用BLL.保存单据(danju,danjumingxis.Where (x=>!string.IsNullOrWhiteSpace ( x.pingming)).ToList ());
@@ -197,7 +197,7 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 费用BLL.修改单据(danju, danjumingxis.Where(x =>!string.IsNullOrWhiteSpace ( x.pingming)).ToList());
             }
-            Init();
+            InitDanju ();
         }
 
         private void txtordernum_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

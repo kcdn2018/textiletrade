@@ -28,7 +28,7 @@ namespace BLL
             {
                 houzhengli.ShengChandanhao  = shengChanDanTable.shengchandanhao;       
             } 
-            ShengchanChanshangTableService .InsertShengchanChanshangTablelst  (shengchans);
+            ShengchanChanshangTableService .InsertShengchanChanshangTablelst(shengchans);
         }
         public static void Edit(ShengChanDanTable shengChanDanTable, List<ShengchanBuliaoInfo> shengchanBuliaoInfos, List<ShengchanHouzhengli> shengchanHouzhenglis, List<ShengchanChanshangTable> shengchans)
         {

@@ -16,7 +16,7 @@ using 纺织贸易管理系统.选择窗体;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-    public partial class 付款单 : Form
+    public partial class 付款单 : Sunny.UI.UIForm 
     {
         public int Useful { get; set; } = 1;
         private LXR LinkMan = new LXR ();
@@ -30,7 +30,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             if (Useful==FormUseful.新增 )
             {
-                Init();
+                InitDanju ();
             }
             else
             {
@@ -67,7 +67,7 @@ namespace 纺织贸易管理系统.新增窗体
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             danju.dh = txtdanhao.Text;
-            danju.rq = dateEdit1.DateTime.Date ;
+            danju.rq = dateEdit1.DateTime ;
             danju.ksbh = LinkMan.BH;
             danju.ksmc = LinkMan.MC;
             danju.remarker = txtbeizhu.Text;
@@ -86,13 +86,12 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 付款单BLL.修改 (danju);
             }
-            Thread.Sleep(1000);
             Useful = FormUseful.新增;
-            Init();
+            InitDanju ();
             AlterDlg.Show("保存成功！");
          
         }
-        private void Init()
+        private void InitDanju()
         { 
             dateEdit1.DateTime = DateTime.Now;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.付款单 ,dateEdit1.DateTime,DanjuLeiXing.付款单  );

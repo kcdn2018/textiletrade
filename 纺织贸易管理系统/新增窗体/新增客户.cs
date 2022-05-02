@@ -17,16 +17,14 @@ using 纺织贸易管理系统.选择窗体;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     public partial class 新增客户 : Sunny.UI.UIForm
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIForm”(是否缺少程序集引用?)
     {
         public LXR LinkMan = new LXR();
         public int Useful=FormUseful.新增 ;
         public 新增客户()
         {
             InitializeComponent();
-            comboBoxEx1.DataSource = Tools.获取模板.获取所有模板 (PrintPath.唛头模板);
+            cmbMaitou.DataSource = Tools.获取模板.获取所有模板 (PrintPath.唛头模板);
             cmbOwn.Text = User.user.YHBH;
             var yonghulist = YhbService.GetYhblst();
             foreach (var yonghu in yonghulist )
@@ -91,7 +89,8 @@ namespace 纺织贸易管理系统.新增窗体
             txtpingming.Text = LinkMan.MC;
             txtedu.Text = LinkMan.sxed.ToString();
             txtusd.Text = LinkMan.USD.ToString();
-            comboBoxEx1.Text= MaitouService.GetOneMaitou(x=>x.khbh==LinkMan.BH ).path ;
+            cmbOwn.Text = LinkMan.own;
+            cmbMaitou.Text= MaitouService.GetOneMaitou(x=>x.khbh==LinkMan.BH ).path ;
         }
         private void InitPingzhong()
         {
@@ -133,13 +132,13 @@ namespace 纺织贸易管理系统.新增窗体
                     return;
                 }
                 LXRService .InsertLXR (LinkMan);
-                MaitouService.InsertMaitou(new Maitou() { khbh = LinkMan.BH, path = comboBoxEx1.Text, own = User.user.YHBH });
+                MaitouService.InsertMaitou(new Maitou() { khbh = LinkMan.BH, path = cmbMaitou.Text, own = User.user.YHBH });
             }
             else
             {
                 LXRService.UpdateLXR(LinkMan, y => y.BH == LinkMan.BH);
                 //LXRService.UpdateLXR(LinkMan, x => x.BH == LinkMan.BH);
-                MaitouService.UpdateMaitou(new Maitou() { khbh = LinkMan.BH, path = comboBoxEx1.Text, own = User.user.YHBH }, x => x.khbh == LinkMan.BH);
+                MaitouService.UpdateMaitou(new Maitou() { khbh = LinkMan.BH, path = cmbMaitou.Text, own = User.user.YHBH }, x => x.khbh == LinkMan.BH);
             }
             LinkMan = new LXR() { LX="客户"};
             Useful = FormUseful.新增;
@@ -158,25 +157,49 @@ namespace 纺织贸易管理系统.新增窗体
             if (fm.内容 != "")
             {
                 Tools.获取模板.新增模板(PrintPath.唛头模板 , fm.内容, fm.参考模板);
-                comboBoxEx1.DataSource = Tools.获取模板.获取所有模板(PrintPath.唛头模板);
+                cmbMaitou.DataSource = Tools.获取模板.获取所有模板(PrintPath.唛头模板);
             }
         }
         private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var f = new 打印设置窗体();
             //fm.ShowDialog();
-            new Tools.打印唛头() { copyies = f.copyies, PrinterName = f.printer, userful = PrintModel.Design, moban = PrintPath.唛头模板 + comboBoxEx1 .Text, juan = new JuanHaoTable() }.打印();
+            new Tools.打印唛头() { copyies = f.copyies, PrinterName = f.printer, userful = PrintModel.Design, moban = PrintPath.唛头模板 + cmbMaitou .Text, juan = new JuanHaoTable() }.打印();
         }
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var l = MaitouService.GetMaitoulst(x => x.path == comboBoxEx1.Text);
+            var l = MaitouService.GetMaitoulst(x => x.path == cmbMaitou.Text);
             if(l.Count>0)
             {
                 MessageBox.Show("该唛头已经关联到一些客户。请先解绑！", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            Tools.获取模板.删除模板(PrintPath.唛头模板+comboBoxEx1.Text );
-            comboBoxEx1.DataSource = Tools.获取模板.获取所有模板(PrintPath.唛头模板);
+            Tools.获取模板.删除模板(PrintPath.唛头模板+cmbMaitou.Text );
+            cmbMaitou.DataSource = Tools.获取模板.获取所有模板(PrintPath.唛头模板);
+        }
+
+        private void 重命名ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string newname = string.Empty;
+                Sunny.UI.UIInputDialog.InputStringDialog(ref newname, true, "请输入新的模板名称");
+                string oldname = cmbMaitou.Text;
+                ReportService.ReName(new ReportTable()
+                {
+                    ReportFile = ReportTableService.GetOneReportTable(x => x.reportName == oldname && x.reportStyle == Tools.ReportService.唛头).ReportFile
+                    ,
+                    reportName = newname += ".frx",
+                    reportStyle = Tools.ReportService.唛头
+                }, Application.StartupPath, oldname);
+                cmbMaitou.DataSource = Tools.获取模板.获取所有模板(PrintPath.唛头模板);
+                MaitouService.UpdateMaitou(x => x.path == newname, x => x.path == oldname);
+                cmbMaitou.Text = newname;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

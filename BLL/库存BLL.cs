@@ -13,74 +13,74 @@ namespace BLL
     {
         public static void 增加库存(List<danjumingxitable> danjumingxitables,DanjuTable danjuTable  )
         {
-            foreach (var mingxi in danjumingxitables)
-            {
-              var  stock = StockTableService.GetOneStockTable(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
-                 x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum && x.CustomName == mingxi.CustomName
-                  && x.Pihao == mingxi.Pihao && x.PibuChang == mingxi.PiBuChang );
-                //库存没有这个布 当编号为空的时候
-                if (stock.ID == 0)
+                foreach (var mingxi in danjumingxitables)
                 {
-                    stock.AvgPrice = mingxi.hanshuidanjia+mingxi.AveragePrice ;
-                    stock.BH = mingxi.Bianhao;
-                    stock.biaoqianmishu = 0;
-                    stock.CF = mingxi.chengfeng;
-                    stock.CKMC = danjuTable.ckmc;
-                    stock.ContractNum = mingxi.ContractNum;
-                    stock.CustomName = mingxi.CustomName;
-                    stock.GG = mingxi.guige;
-                    stock.GH = mingxi.ganghao;
-                    stock.houzhengli = mingxi.houzhengli;
-                    stock.JS = mingxi.chengpingjuanshu;
-                    stock.kaijianmishu = 0;
-                    stock.kuanhao = mingxi.kuanhao;
-                    stock.Kuwei = mingxi.Kuwei;
-                    stock.KZ = mingxi.kezhong;
-                    stock.MF = mingxi.menfu;
-                    stock.MS = mingxi.chengpingmishu;
-                    stock.orderNum = mingxi.OrderNum;
-                    stock.own = danjuTable.own;
-                    stock.PM = mingxi.pingming;
-                    stock.RKDH = danjuTable .ksmc ;
-                    stock.RQ = danjuTable.rq;
-                    stock.TotalMoney = mingxi.hanshuiheji;
-                    stock.YS = mingxi.yanse;
-                    stock.Huahao = mingxi.Huahao;
-                    stock.ColorNum = mingxi.ColorNum;
-                    stock.CustomerColorNum = mingxi.CustomerColorNum;
-                    stock.CustomerPingMing = mingxi.CustomerPingMing;
-                    stock.RukuNum = mingxi.chengpingmishu;
-                    stock.Rangchang = mingxi.Rangchang;
-                    stock.PibuChang = mingxi.PiBuChang;
-                    stock.Pihao = mingxi.Pihao;
-                    stock.LiuzhuanCard = danjuTable.LiuzhuanCard;
-                    stock.Remarkers = mingxi.beizhu;
-                    StockTableService.InsertStockTable(stock);
-                }
-                //如果已经存在
-                else
-                {
-                    stock.MS += mingxi.chengpingmishu;
-                    stock.JS += mingxi.chengpingjuanshu;
-                    stock.TotalMoney += (mingxi.hanshuiheji + mingxi.AveragePrice * mingxi.chengpingmishu);
-                    stock.RukuNum += mingxi.chengpingmishu;
-                    if (stock.MS != 0)
+                    var stock = StockTableService.GetOneStockTable(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.MF == mingxi.menfu && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
+                      x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum && x.CustomName == mingxi.CustomName
+                       && x.Pihao == mingxi.Pihao && x.PibuChang == mingxi.PiBuChang);
+                    //库存没有这个布 当编号为空的时候
+                    if (stock.ID == 0)
                     {
-                        stock.AvgPrice = (int)stock.TotalMoney / stock.MS;
+                        stock.AvgPrice = mingxi.hanshuidanjia + mingxi.AveragePrice + (danjuTable.yunfei + danjuTable.ChaCheFei + danjuTable.ZhuangXieFei) / danjumingxitables.Sum(x => x.chengpingmishu);
+                        stock.BH = mingxi.Bianhao;
+                        stock.biaoqianmishu = 0;
+                        stock.CF = mingxi.chengfeng;
+                        stock.CKMC = danjuTable.ckmc;
+                        stock.ContractNum = mingxi.ContractNum;
+                        stock.CustomName = mingxi.CustomName;
+                        stock.GG = mingxi.guige;
+                        stock.GH = mingxi.ganghao;
+                        stock.houzhengli = mingxi.houzhengli;
+                        stock.JS = mingxi.chengpingjuanshu;
+                        stock.kaijianmishu = 0;
+                        stock.kuanhao = mingxi.kuanhao;
+                        stock.Kuwei = mingxi.Kuwei;
+                        stock.KZ = mingxi.kezhong;
+                        stock.MF = mingxi.menfu;
+                        stock.MS = mingxi.chengpingmishu;
+                        stock.orderNum = mingxi.OrderNum;
+                        stock.own = danjuTable.own;
+                        stock.PM = mingxi.pingming;
+                        stock.RKDH = danjuTable.ksmc;
+                        stock.RQ = danjuTable.rq;
+                        stock.TotalMoney = mingxi.hanshuiheji;
+                        stock.YS = mingxi.yanse;
+                        stock.Huahao = mingxi.Huahao;
+                        stock.ColorNum = mingxi.ColorNum;
+                        stock.CustomerColorNum = mingxi.CustomerColorNum;
+                        stock.CustomerPingMing = mingxi.CustomerPingMing;
+                        stock.RukuNum = mingxi.chengpingmishu;
+                        stock.Rangchang = mingxi.Rangchang;
+                        stock.PibuChang = mingxi.PiBuChang;
+                        stock.Pihao = mingxi.Pihao;
+                        stock.LiuzhuanCard = danjuTable.LiuzhuanCard;
+                        stock.Remarkers = mingxi.beizhu;
+                        stock.FrabicWidth = mingxi.FrabicWidth;
+                        StockTableService.InsertStockTable(stock);
                     }
-                    stock.Remarkers = mingxi.beizhu;
-                    //     StockTableService.UpdateStockTable(stock, x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse  &&
-                    //x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum);
-                    StockTableService.UpdateStockTable(stock, x => x.ID == stock.ID);
-
+                    //如果已经存在
+                    else
+                    {
+                        stock.MS += mingxi.chengpingmishu;
+                        stock.JS += mingxi.chengpingjuanshu;
+                        stock.TotalMoney += (mingxi.hanshuiheji + mingxi.AveragePrice * mingxi.chengpingmishu);
+                        stock.RukuNum += mingxi.chengpingmishu;
+                        if (stock.MS != 0)
+                        {
+                            stock.AvgPrice = stock.MS == 0 ? 0 : (int)stock.TotalMoney / stock.MS;
+                        }
+                        stock.Remarkers = mingxi.beizhu;
+                        //     StockTableService.UpdateStockTable(stock, x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse  &&
+                        //x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum);
+                        StockTableService.UpdateStockTable(stock, x => x.ID == stock.ID);
+                    }
+                    增加订单明细的库存数(mingxi, danjuTable.ckmc);
                 }
-                增加订单明细的库存数(mingxi, danjuTable.ckmc);
-            }
         }
         public static void 增加订单明细的库存数(danjumingxitable mingxi, string StockName)
         {
             var order = OrderDetailTableService.GetOneOrderDetailTable(x => x.OrderNum == mingxi.OrderNum && x.color == mingxi.yanse
-               && x.Kuanhao == mingxi.kuanhao  && x.CustomerPingMing == mingxi.CustomerPingMing && x.sampleNum == mingxi.Bianhao);
+               && x.Kuanhao == mingxi.kuanhao  && x.CustomerPingMing == mingxi.CustomerPingMing && x.sampleNum == mingxi.Bianhao && x.width == mingxi.menfu);
             if (!string.IsNullOrEmpty(order.sampleNum))
             {
                 order.StockNum += mingxi.chengpingmishu;
@@ -120,7 +120,7 @@ namespace BLL
         public static void 减少订单明细的库存数(danjumingxitable mingxi, string StockName)
         {
             var order = OrderDetailTableService.GetOneOrderDetailTable(x => x.OrderNum == mingxi.OrderNum && x.color == mingxi.yanse
-               && x.Kuanhao == mingxi.kuanhao && x.CustomerPingMing == mingxi.CustomerPingMing && x.sampleNum == mingxi.Bianhao);
+               && x.Kuanhao == mingxi.kuanhao && x.CustomerPingMing == mingxi.CustomerPingMing && x.sampleNum == mingxi.Bianhao && x.width  == mingxi.menfu);
             if (!string.IsNullOrEmpty(order.sampleNum))
             {
                 order.StockNum -= mingxi.chengpingmishu;
@@ -161,13 +161,13 @@ namespace BLL
         {
             foreach (var mingxi in danjumingxitables)
             {
-                var stock = StockTableService.GetOneStockTable(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
+                var stock = StockTableService.GetOneStockTable(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.MF == mingxi.menfu && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
                   x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum && x.CustomName == mingxi.CustomName
                    && x.Pihao == mingxi.Pihao && x.PibuChang == mingxi.PiBuChang);
                 //库存没有这个布  当编号为空的时候
                 if (stock.ID == 0)
                 {
-                    stock.AvgPrice = mingxi.hanshuidanjia;
+                    stock.AvgPrice = mingxi.Cost ;
                     stock.BH = mingxi.Bianhao;
                     stock.biaoqianmishu = 0;
                     stock.CF = mingxi.chengfeng;
@@ -201,23 +201,24 @@ namespace BLL
                     stock.Pihao = mingxi.Pihao;
                     stock.LiuzhuanCard = danjuTable.LiuzhuanCard;
                     stock.Remarkers = mingxi.beizhu;
+                    stock.FrabicWidth = mingxi.FrabicWidth;
+                    if(danjuTable.djlx ==DanjuLeiXing.销售退货单 )
+                    {
+                        stock.RukuNum -= mingxi.chengpingjuanshu;
+                    }
                     StockTableService.InsertStockTable(stock);
                 }
                 //如果已经存在
                 else
-                {
-                    if (stock.yijianmishu == 0)
-                    {
+                {           
                         stock.MS -= mingxi.chengpingmishu;
                         stock.JS -= mingxi.chengpingjuanshu;
-                    }
-                    else
-                    {
-                        stock.MS -= mingxi.chengpingmishu;
-                        stock.JS -= mingxi.chengpingjuanshu;
-                    }
                     if (danjuTable.djlx.Contains("入库"))
                     { stock.RukuNum -= mingxi.chengpingmishu; }
+                    if (danjuTable.djlx == DanjuLeiXing.销售退货单)
+                    {
+                        stock.RukuNum -= mingxi.chengpingjuanshu;
+                    }
                     stock.TotalMoney -= mingxi.chengpingmishu *mingxi.AveragePrice ;
                     if (stock.TotalMoney != 0&&stock.MS!=0)
                     {
@@ -386,8 +387,24 @@ namespace BLL
                 if (s.MS == 0 && s.JS == 0)
                 {
                     StockTableService.DeleteStockTable(x => x.ID == s.ID);
+                    return;
                     //StockTableService.UpdateStockTable ($"IsFinish='1'", x => x.ID == s.ID);
-                }          
+                }
+                if (s.IsCheckDone == "已结束")
+                {
+                    StockTableService.DeleteStockTable(x => x.ID == s.ID);
+                    return;
+                    //StockTableService.UpdateStockTable ($"IsFinish='1'", x => x.ID == s.ID);
+                }
+                if (s.IsCheckDone == string.Empty)
+                {
+                    if (s.JS <= 0)
+                    {
+                        StockTableService.DeleteStockTable(x => x.ID == s.ID);
+                        return;
+                    }
+                    //StockTableService.UpdateStockTable ($"IsFinish='1'", x => x.ID == s.ID);
+                }
             }
         }
         public static void 清零库存(List<StockTable> stocks)
@@ -442,6 +459,7 @@ namespace BLL
                     stock.PibuChang = mingxi.PibuChang;
                     stock.Pihao = mingxi.Pihao;
                     stock.Remarkers = mingxi.Remarkers;
+                    stock.FrabicWidth = mingxi.FrabicWidth;
                     StockTableService.InsertStockTable(stock);
                 }
                 //如果已经存在
@@ -522,6 +540,7 @@ namespace BLL
                     stock.Pihao = mingxi.Pihao;
                     stock.Rangchang = danjuTable.ksmc ;
                     stock.Remarkers = mingxi.Remarkers;
+                    stock.FrabicWidth = mingxi.FrabicWidth;
                     //stock.RukuNum = mingxi.ToupiMishu;
                     StockTableService.InsertStockTable(stock);
                 }
@@ -680,10 +699,10 @@ namespace BLL
         {
             foreach (var mingxi in danjumingxitables.Where (x=>x.Bianhao !=null).ToList ())
             {
-                var stock = StockTableService.GetOneStockTable(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
+                var stock = Connect.DbHelper ().Queryable <StockTable >().First (x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
                 x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum);
                 //库存没有这个布  当编号为空的时候
-              if(stock.ID == 0)
+              if(stock==null)
                 {
                     return mingxi  ;
                 }

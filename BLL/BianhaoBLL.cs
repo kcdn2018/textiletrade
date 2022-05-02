@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -196,26 +197,37 @@ namespace BLL
         /// <returns></returns>
         public static string CreatShengchangDanhao(string danjuleixing, DateTime dateTime, string lx)
         {
-            var list = ShengChanDanTableService .GetShengChanDanTablelst (x => x.riqi == dateTime.Date).OrderBy(x => x.shengchandanhao ).ToList();
-            if (list.Count > 0)
+            if (QueryTime.DanjubianhaoRule == "类型+年份+月份+日+累计编号")
             {
-                var bh = (int.Parse(list[list.Count - 1].shengchandanhao.Substring(list[list.Count - 1].shengchandanhao.Length - 3, 3)) + 1);
-                return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + bh.ToString();
+                var list = ShengChanDanTableService.GetShengChanDanTablelst(x => x.riqi == dateTime.Date).OrderBy(x => x.shengchandanhao).ToList();
+                if (list.Count > 0)
+                {
+                    var bh = (int.Parse(list[list.Count - 1].shengchandanhao.Substring(list[list.Count - 1].shengchandanhao.Length - 3, 3)) + 1);
+                    return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + bh.ToString();
+                }
+                else
+                {
+                    return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + "101";
+                }
             }
             else
             {
-                //if (list[0].dh == string.Empty)
-                //{
-                return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + "101";
-                //}
-                //else
-                //{
-                //    return danjuleixing + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "102";
-                //}
+                var date = new DateTime(DateTime.Now.Year ,1,1) ;
+                var list = ShengChanDanTableService.GetShengChanDanTablelst(x => x.riqi >= date.Date ).OrderByDescending (x => x.ID   ).ToList();
+                if(list.Count ==0)
+                {
+                    return danjuleixing + date.Year.ToString() + "00001";
+                }
+                else
+                {
+                    var newdanhao = danjuleixing + date.Year.ToString() +string.Format ("{0:00000}",int.Parse ( list [0].shengchandanhao.Substring (list[0].shengchandanhao.Length -5,5))+1);
+                    while (ShengChanDanTableService.GetShengChanDanTablelst(x => x.shengchandanhao == newdanhao).Count > 0)
+                    {
+                        newdanhao = newdanhao.Substring(0, newdanhao.Length - 5) + string.Format("{0:00000}", (Convert.ToInt32(newdanhao.Substring(newdanhao.Length - 5, 5)) + 1));
+                    }
+                    return newdanhao;
+                }
             }
-            //var danhao = danjuleixing + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString();
-            //danhao += DateTime.Now.Second.ToString() + userid;
-            //return danhao;          
         }
         /// <summary>
         /// 创建单号
@@ -224,24 +236,40 @@ namespace BLL
         /// <returns></returns>
         public static string CreatDanhao(string danjuleixing,DateTime dateTime ,string lx)
         {
-            var list = DanjuTableService.GetDanjuTablelst(x => x.dh.Contains(danjuleixing) && x.rq == dateTime.Date&&x.djlx==lx).OrderBy (x=>x.id).ToList ();
-            if (list.Count > 0)
+            if (QueryTime.DanjubianhaoRule == "类型+年份+月份+日+累计编号")
             {
-                var bh = (int.Parse(list[list.Count - 1].dh.Substring(list[list.Count - 1].dh.Length - 3, 3)) + 1);
-                var dh= danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + bh.ToString();
-                while (!string.IsNullOrEmpty ( DanjuTableService.GetOneDanjuTable (x=>x.dh==dh).dh ))
+                var list = DanjuTableService.GetDanjuTablelst(x => x.dh.Contains(danjuleixing) && x.rq  >= dateTime.Date&&x.rq <=dateTime.Date.AddDays (1) && x.djlx == lx).OrderBy(x => x.id).ToList();
+                if (list.Count > 0)
                 {
-                    bh++;
-                    dh = danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + bh.ToString();
+                    var bh = (int.Parse(list[list.Count - 1].dh.Substring(list[list.Count - 1].dh.Length - 3, 3)) + 1);
+                    var dh = danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + bh.ToString();
+                    while (!string.IsNullOrEmpty(DanjuTableService.GetOneDanjuTable(x => x.dh == dh).dh))
+                    {
+                        bh++;
+                        dh = danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + bh.ToString();
+                    }
+                    return dh;
                 }
-                return dh;
+                else
+                {
+
+                    return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + "101";
+                }
             }
             else
             {
-
-                return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + "101";
-            }      
-        }
+                var date = new DateTime(DateTime.Now.Year, 1, 1);
+                var list = DanjuTableService.GetDanjuTablelst(x => x.rq >= date.Date&&x.djlx ==lx).OrderByDescending(x => x.id).ToList();
+                if (list.Count == 0)
+                {
+                    return danjuleixing + date.Year.ToString() + "00001";
+                }
+                else
+                {
+                    return danjuleixing + date.Year.ToString() + string.Format("{0:00000}", int.Parse(list[0].dh.Substring(list[0].dh.Length - 5, 5)) + 1);
+                }
+            }
+            }
         /// <summary>
         /// 创建订单号
         /// </summary>
@@ -250,26 +278,42 @@ namespace BLL
         /// <returns></returns>
         public static string CreatOrderNum(string danjuleixing,DateTime dateTime )
         {
-            if (系统设定.GetSet(new Model.Setting() { formname = "", settingname = "编号规则", settingValue = "按日期时间" }).settingValue == "按日期时间")
+            if (QueryTime.DanjubianhaoRule == "类型+年份+月份+日+累计编号")
             {
-                var danhao = danjuleixing + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString();
-                danhao += DateTime.Now.Second.ToString() ;
-                return danhao;
-            }
-            else
-            {
-                var orderlist = OrderTableService.GetOrderTablelst($"select * from ordertable where orderDate='{dateTime}' order by id asc");
-                if (orderlist.Count > 0)
+                if (系统设定.GetSet(new Model.Setting() { formname = "", settingname = "编号规则", settingValue = "按日期时间" }).settingValue == "按日期时间")
                 {
-                    var ordernum = danjuleixing + dateTime.Year.ToString().Substring (2,2) +string .Format ("{0:00}", dateTime.Month) +string.Format ("{0:00}", dateTime.Day);
-                    var num = int.Parse(orderlist[orderlist.Count-1].OrderNum.Substring(orderlist[orderlist.Count-1].OrderNum.Length - 3));
-                    num++;
-                    ordernum += num.ToString();
-                    return ordernum;
+                    var danhao = danjuleixing + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString();
+                    danhao += DateTime.Now.Second.ToString();
+                    return danhao;
                 }
                 else
                 {
-                    return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + "101";
+                    var orderlist = OrderTableService.GetOrderTablelst($"select * from ordertable where orderDate between '{dateTime}' and '{dateTime.AddDays(1)}' order by OrderNum asc");
+                    if (orderlist.Count > 0)
+                    {
+                        var ordernum = danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day);
+                        var num =(orderlist[orderlist.Count - 1].OrderNum.Substring(orderlist[orderlist.Count - 1].OrderNum.Length - 3)).TryToInt();
+                        num++;
+                        ordernum +=String .Format ("{0:000}",num ) ;
+                        return ordernum;
+                    }
+                    else
+                    {
+                        return danjuleixing + dateTime.Year.ToString().Substring(2, 2) + string.Format("{0:00}", dateTime.Month) + string.Format("{0:00}", dateTime.Day) + "101";
+                    }
+                }
+            }
+            else
+            {
+                var date = new DateTime(DateTime.Now.Year, 1, 1);
+                var list = OrderTableService.GetOrderTablelst(x => x.Orderdate >= date.Date).OrderByDescending(x => x.ID).ToList();
+                if (list.Count == 0)
+                {
+                    return danjuleixing + date.Year.ToString() + "00001";
+                }
+                else
+                {
+                    return danjuleixing + date.Year.ToString() + string.Format("{0:00000}", int.Parse(list[0].OrderNum .Substring(list[0].OrderNum .Length - 5, 5)) + 1);
                 }
             }
         }

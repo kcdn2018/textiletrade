@@ -30,14 +30,21 @@ namespace BLL
                         danju.RemainMoney = remainmoney - danju.je;
                     }
                     break;
-            }
-            sKFS.Zhanghuyue = danju.RemainMoney;
-            DanjuTableService.UpdateDanjuTable($"RemainMoney='{danju.RemainMoney }'", x => x.dh == danju.dh);
-           
+                case DanjuLeiXing.账户转账单:
+                    if (danju.yaoqiu == "收入")
+                    {
+                        danju.RemainMoney = remainmoney + danju.totalmoney;
+                    }
+                    else
+                    {
+                        danju.RemainMoney = remainmoney - danju.je;
+                    }
+                    break;
+            }           
         }
         public static void 刷新剩余金额(DanjuTable danju)
         {
-            string zhanghumingcheng =danju.ShoukuanFangshi ;
+
             var s = SKFSService.GetOneSKFS(x => x.Skfs == danju.ShoukuanFangshi);
             List<DanjuTable> danjulist = Connect.CreatConnect().Query<DanjuTable>($"select * from danjutable where rq>='{danju.rq}' and shoukuanfangshi='{danju.ShoukuanFangshi }' order by rq asc,id asc");
             decimal remainmoney = 0;
@@ -73,6 +80,16 @@ namespace BLL
                             remainmoney = danjulist[i + 1].RemainMoney + danjulist[i + 1].je;
                         }
                         break;
+                    case DanjuLeiXing.账户转账单:
+                        if (danjulist[0].yaoqiu == "收入")
+                        {
+                            remainmoney = danjulist[i + 1].RemainMoney - danjulist[i + 1].totalmoney;
+                        }
+                        else
+                        {
+                            remainmoney = danjulist[i + 1].RemainMoney + danjulist[i + 1].je;
+                        }
+                        break;
                 }
                 计算(danju, remainmoney,s);
                 remainmoney = danju.RemainMoney;
@@ -96,37 +113,58 @@ namespace BLL
                                 remainmoney -= danjulist[index].je;
                             }
                             break;
+                        case DanjuLeiXing.账户转账单:
+                            if (danjulist[0].yaoqiu == "收入")
+                            {
+                                remainmoney = danjulist[i + 1].RemainMoney - danjulist[i + 1].totalmoney;
+                            }
+                            else
+                            {
+                                remainmoney = danjulist[i + 1].RemainMoney + danjulist[i + 1].je;
+                            }
+                            break;
                     }
                     danjulist[index].RemainMoney = remainmoney;
-                    DanjuTableService.UpdateDanjuTableList(danjulist );
-                    SKFSService.UpdateSKFS(s, x => x.BH == s.BH);
+                    Connect.DbHelper().Updateable<DanjuTable>(danjulist).ExecuteCommand();
                 }
             }
             else
             {
-                remainmoney =s .Zhanghuyue;
-                switch (danju.djlx)
-                {
-                    case DanjuLeiXing.付款单:
-                        remainmoney += danju.je;
-                        break;
-                    case DanjuLeiXing.收款单:
-                        remainmoney -= danju.je;
-                        break;
-                    case DanjuLeiXing.费用单:
-                        if (danju.yaoqiu == "收入")
-                        {
-                            remainmoney -= danju.totalmoney;
-                        }
-                        else
-                        {
-                            remainmoney += danju.je;
-                        }
-                        break;
-                }
-                计算(danju, remainmoney,s);
-                SKFSService.UpdateSKFS(s, x => x.BH == s.BH);
+                remainmoney = s.Zhanghuyue;
+                //switch (danju.djlx)
+                //{
+                //    case DanjuLeiXing.付款单:
+                //        remainmoney += danju.je;
+                //        break;
+                //    case DanjuLeiXing.收款单:
+                //        remainmoney -= danju.je;
+                //        break;
+                //    case DanjuLeiXing.费用单:
+                //        if (danju.yaoqiu == "收入")
+                //        {
+                //            remainmoney -= danju.totalmoney;
+                //        }
+                //        else
+                //        {
+                //            remainmoney += danju.je;
+                //        }
+                //        break;
+                //    case DanjuLeiXing.账户转账单:
+                //        if (danju.yaoqiu == "收入")
+                //        {
+                //            remainmoney  -= danju.totalmoney;
+                //        }
+                //        else
+                //        {
+                //            remainmoney  += danju.je;
+                //        }
+                //        break;
+                //}
+                //计算(danju, remainmoney,s);  
+                danju.RemainMoney = remainmoney;
+                Connect.DbHelper().Updateable<DanjuTable>(danju).ExecuteCommand();
             }
+
         }
         #endregion
         #region "删除刷新"
@@ -141,20 +179,16 @@ namespace BLL
         }
         #endregion
         #region "修改刷新"
-        public static async  void 修改刷新(DanjuTable danju)
-        { 
-           await  Task.Run (() => { 
-            var danjulist = Connect.CreatConnect().Query<DanjuTable>($"select * from danjutable where rq>='{danju.rq }' and shoukuanfangshi='{danju.ShoukuanFangshi }' order by rq asc,id asc");
-            var danhao = danju.dh;
-            string zhanghumingcheng = danju.ShoukuanFangshi;
+        public static  void 修改刷新(DanjuTable danju)
+        {
+            //await  Task.Run (() => { 
             var s = SKFSService.GetOneSKFS(x => x.Skfs == danju.ShoukuanFangshi);
-
-               {
-                   decimal remainmoney = 0;
+            var danjulist = Connect.DbHelper().Queryable <DanjuTable>().Where (x=>x.rq>=danju.rq &&x.ShoukuanFangshi==danju.ShoukuanFangshi).ToList ().OrderBy (x=>x.rq ).ThenBy (x=>x.id ).ToList ();//$"select * from danjutable where rq>='{danju.rq }' and shoukuanfangshi='{danju.ShoukuanFangshi }' "
+                   //decimal remainmoney = 0;
                    int i = 0;
                    foreach (var d in danjulist)
                    {
-                       if (d.dh != danhao)
+                       if (d.dh != danju.dh )
                        {
                            i++;
                        }
@@ -163,54 +197,74 @@ namespace BLL
                            break;
                        }
                    }
-                   switch (danjulist[i].djlx)
-                   {
-                       case DanjuLeiXing.付款单:
-                           remainmoney = danjulist[i].RemainMoney + danjulist[i].je;
-                           break;
-                       case DanjuLeiXing.收款单:
-                           remainmoney = danjulist[i].RemainMoney - danjulist[i].je;
-                           break;
-                       case DanjuLeiXing.费用单:
-                           if (danjulist[i].yaoqiu == "收入")
-                           {
-                               remainmoney = danjulist[i].RemainMoney - danjulist[i].totalmoney;
-                           }
-                           else
-                           {
-                               remainmoney = danjulist[i].RemainMoney + danjulist[i].je;
-                           }
-                           break;
-                   }
-                   计算(danju, remainmoney, s);
-                   remainmoney = danju.RemainMoney;
-                   for (int row = i + 1; row < danjulist.Count; row++)
-                   {
-                       switch (danjulist[row].djlx)
-                       {
-                           case DanjuLeiXing.付款单:
-                               danjulist[row].RemainMoney = remainmoney - danjulist[row].je;
-                               break;
-                           case DanjuLeiXing.收款单:
-                               danjulist[row].RemainMoney = remainmoney + danjulist[row].je;
-                               break;
-                           case DanjuLeiXing.费用单:
-                               if (danjulist[row].yaoqiu == "收入")
-                               {
-                                   danjulist[row].RemainMoney = remainmoney + danjulist[row].totalmoney; ;
-                               }
-                               else
-                               {
-                                   danjulist[row].RemainMoney = remainmoney - danjulist[row].je;
-                               }
-                               break;
-                       }
-                       s.Zhanghuyue = danjulist[row].RemainMoney;
-                   }
-               }
-            DanjuTableService.UpdateDanjuTableList(danjulist); 
-           Connect.CreatConnect().Update<SKFS>($"Zhanghuyue='{s.Zhanghuyue }'", x => x.BH == s.BH); 
-           }); 
+                //   switch (danjulist[i].djlx)
+                //   {
+                //       case DanjuLeiXing.付款单:
+                //           remainmoney = danjulist[i].RemainMoney + danjulist[i].je;
+                //           break;
+                //       case DanjuLeiXing.收款单:
+                //           remainmoney = danjulist[i].RemainMoney - danjulist[i].je;
+                //           break;
+                //       case DanjuLeiXing.费用单:
+                //           if (danjulist[i].yaoqiu == "收入")
+                //           {
+                //               remainmoney = danjulist[i].RemainMoney - danjulist[i].totalmoney;
+                //           }
+                //           else
+                //           {
+                //               remainmoney = danjulist[i].RemainMoney + danjulist[i].je;
+                //           }
+                //           break;
+                //    case DanjuLeiXing.账户转账单:
+                //        if (danjulist[0].yaoqiu == "收入")
+                //        {
+                //            remainmoney = danjulist[i].RemainMoney - danjulist[i].totalmoney;
+                //        }
+                //        else
+                //        {
+                //            remainmoney = danjulist[i].RemainMoney + danjulist[i].je;
+                //        }
+                //        break;
+                //}
+            //计算(danju, remainmoney, s);
+            //remainmoney = danju.RemainMoney;
+            //danjulist[i].RemainMoney = remainmoney;
+            for (int row = i + 1; row < danjulist.Count; row++)
+            {
+                switch (danjulist[row].djlx)
+                {
+                    case DanjuLeiXing.付款单:
+                        danjulist[row].RemainMoney = danjulist[row - 1].RemainMoney - danjulist[row].je;
+                        break;
+                    case DanjuLeiXing.收款单:
+                        danjulist[row].RemainMoney = danjulist[row - 1].RemainMoney + danjulist[row].je;
+                        break;
+                    case DanjuLeiXing.费用单:
+                        if (danjulist[row].yaoqiu == "收入")
+                        {
+                            danjulist[row].RemainMoney = danjulist[row - 1].RemainMoney + danjulist[row].totalmoney; ;
+                        }
+                        else
+                        {
+                            danjulist[row].RemainMoney = danjulist[row - 1].RemainMoney - danjulist[row].je;
+                        }
+                        break;
+                    case DanjuLeiXing.账户转账单:
+                        if (danjulist[row].yaoqiu == "收入")
+                        {
+                            danjulist[row].RemainMoney = danjulist[row - 1].RemainMoney + danjulist[row].totalmoney; ;
+                        }
+                        else
+                        {
+                            danjulist[row].RemainMoney = danjulist[row - 1].RemainMoney - danjulist[row].je;
+                        }
+                        break;
+                }
+            }
+            s.Zhanghuyue = danjulist[danjulist.Count - 1].RemainMoney;
+            Connect.DbHelper().Updateable<SKFS>(s).ExecuteCommand();
+            Connect.DbHelper().Updateable<DanjuTable>(danjulist).ExecuteCommand();
+           //}); 
         }
         #endregion 
     }

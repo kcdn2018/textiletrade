@@ -8,6 +8,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -31,6 +33,8 @@ namespace 纺织贸易管理系统.新增窗体
         private int rowindex;
         public ShengChanDanTable shengchandan = new ShengChanDanTable();
         public int useful=FormUseful.新增 ;
+        private int imageindex = 0;
+       private List<Bitmap> imgs = new List<Bitmap>();
         public 生成指示单()
         {
             InitializeComponent();      
@@ -43,6 +47,7 @@ namespace 纺织贸易管理系统.新增窗体
                 gridView1.Columns["BuliaoPingming"].ColumnEdit = ButtonEdit1;
                 gridView1.Columns["SampleNum"].ColumnEdit = ButtonEdit1;
                 gridView1.Columns["Danwei"].ColumnEdit = cmbdanwei ;
+                gridView1.Columns["FriceUnit"].ColumnEdit = cmbdanwei;
                 //////
                 ///
                 gridView1.Columns["ChengpingMishu"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
@@ -113,7 +118,7 @@ namespace 纺织贸易管理系统.新增窗体
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            CopyRow.Copy<ShengchanBuliaoInfo >(shengchanBuliaoInfos , rowindex, gridView1, gridView1.FocusedRowHandle);            
+            CopyRow.Copy<ShengchanBuliaoInfo >(shengchanBuliaoInfos , rowindex, gridView1, gridView1.FocusedRowHandle,this);            
         }
 
         private void TxtOrder_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -295,6 +300,13 @@ namespace 纺织贸易管理系统.新增窗体
             }
             gridControl1.RefreshDataSource();
             gridControl4.RefreshDataSource();
+           foreach (var pic in MadanPictureService.GetMadanPicturelst(x => x.ckdh == txtdanhao.Text).Select(x => x.picture).ToList()){
+                imgs.Add(Tools.ImgHelp.BytesToBitmap (pic));
+            }
+           if(imgs.Count >0)
+            {
+                pictureBox1.Image = imgs[0];
+            }
         }
         private void 生产单赋值()
         {
@@ -326,13 +338,23 @@ namespace 纺织贸易管理系统.新增窗体
             if (useful == FormUseful.新增)
             {
                 生产计划单BLL.Save(shengchandan, shengchanBuliaoInfos.Where(x => !string.IsNullOrWhiteSpace ( x.BuliaoPingming) ).ToList(), gongyis.Where(x => !string.IsNullOrWhiteSpace(x.yaoqiumingcheng )).ToList(), changjialist.Where (x=> !string.IsNullOrWhiteSpace(x.chanjiamingcheng )).ToList ());
-                ShengChanFuHeMingxiService.InsertShengChanFuHeMingxilst(fuHeMingxis.Where (x=> !string.IsNullOrWhiteSpace(x.MianBuColor)).ToList ());
+                fuHeMingxis.ForEach(x => x.ShengChanDanHao = shengchandan.shengchandanhao);
+                ShengChanFuHeMingxiService.InsertShengChanFuHeMingxilst(fuHeMingxis .Where (x=> !string.IsNullOrWhiteSpace(x.MianBuColor)).ToList ());
+                foreach(var img in imgs )
+                {
+                    MadanPictureService.InsertMadanPicture(new MadanPicture() { ckdh=txtdanhao.Text ,rq=dateEdit1.DateTime ,picture =BitmapByte (img),khbh=txtkehu.Text});
+                }
             }
             else
             {
                 ShengChanFuHeMingxiService.DeleteShengChanFuHeMingxi(x => x.ShengChanDanHao == txtdanhao.Text);
                 ShengChanFuHeMingxiService.InsertShengChanFuHeMingxilst(fuHeMingxis.Where(x => !string.IsNullOrWhiteSpace(x.MianBuColor)).ToList());
                 生产计划单BLL.Edit (shengchandan, shengchanBuliaoInfos.Where(x => !string.IsNullOrWhiteSpace(x.BuliaoPingming)).ToList(), gongyis.Where(x => !string.IsNullOrWhiteSpace(x.yaoqiumingcheng )).ToList(), changjialist.Where(x => !string.IsNullOrWhiteSpace(x.chanjiamingcheng )).ToList());
+                MadanPictureService.DeleteMadanPicture(x => x.ckdh == txtdanhao.Text);
+                foreach (var img in imgs)
+                {
+                    MadanPictureService.InsertMadanPicture(new MadanPicture() { ckdh = txtdanhao.Text, rq = dateEdit1.DateTime, picture = BitmapByte(img), khbh = txtkehu.Text });
+                }
             }
             AlterDlg.Show("保存成功！");
             Init();
@@ -408,6 +430,10 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void Print(int useful)
         {
+            gridView1.CloseEditor();
+            gridView2.CloseEditor();
+            gridView3.CloseEditor();
+            gridView4.CloseEditor();
             var gongyilist = GongYiYaoqiuService.GetGongYiYaoqiulst();
             var gongyitable = new DataTable("工艺要求");
             foreach (var g in gongyilist )
@@ -444,6 +470,27 @@ namespace 纺织贸易管理系统.新增窗体
                 ds.Tables.Add(gongyitable);
                 ds.Tables.Add(fuhedt);
                 ds.Tables.Add(changliangdt);
+                DataTable imgDatatable = new DataTable("图片");
+                for (int i = 0; i < 3; i++)
+                {
+                    imgDatatable.Columns.Add("图片"+i.ToString (), typeof(Byte[]));
+                }
+                int row = 0;
+               for(int i=0;i<imgs.Count;i++)
+                {
+                    imgDatatable.Rows.Add();
+                    for (int r = 0; r < 3; r++)
+                    {
+                        imgDatatable.Rows[row][r] = BitmapByte(imgs[i]);
+                        i++;
+                        if(i==imgs.Count )
+                        {
+                            break;
+                        }
+                    }
+                    row++;
+                }
+                ds.Tables.Add(imgDatatable);
             }
             catch(Exception ex)
             {
@@ -630,7 +677,7 @@ namespace 纺织贸易管理系统.新增窗体
                 txtdanhao.Text = BLL.BianhaoBLL.CreatShengchangDanhao(FirstLetter.生产指示单, dateEdit2.DateTime, DanjuLeiXing.生产指示单);
             }
         }
-
+        
         private void uiSymbolButton1_Click(object sender, EventArgs e)
         {
             var openFileDialog1 = new OpenFileDialog();
@@ -641,6 +688,8 @@ namespace 纺织贸易管理系统.新增窗体
                 ////fromImage = fromImage.AdjImageToFitSize(pictureBox1.Width, pictureBox1.Height); //350
                 //this.pictureBox1.Image = fromImage;
                 //pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                imgs.Add((Bitmap)Image.FromFile(openFileDialog1.FileName));
+                imageindex = imgs.Count - 1;
                 PictureBoxEx.loadImg(pictureBox1, openFileDialog1.FileName);
             }
             
@@ -704,6 +753,56 @@ namespace 纺织贸易管理系统.新增窗体
             b.RotateFlip(RotateFlipType.Rotate90FlipXY);//旋转90度
             //b.RotateFlip(RotateFlipType.Rotate90FlipNone);//不进行翻转的旋转
             pictureBox1.Image = b;
+        }
+
+        private void uiSymbolButton6_Click(object sender, EventArgs e)
+        {
+            if(imageindex >0 )
+            {
+                imageindex--;
+                pictureBox1.Image = imgs[imageindex];
+            }
+        }
+
+        private void uiSymbolButton7_Click(object sender, EventArgs e)
+        {
+            if (imageindex < imgs.Count -1)
+            {
+                imageindex++;
+                pictureBox1.Image = imgs[imageindex];
+            }
+        }
+
+        private void uiSymbolButton5_Click(object sender, EventArgs e)
+        {
+            if (imgs.Count > 0)
+            {
+                imgs.RemoveAt(imageindex);
+                imageindex--;
+                if (imageindex < 0)
+                {
+                    imageindex = 0;
+                }
+                if(imgs.Count >0)
+                {
+                    pictureBox1.Image = imgs[imageindex];
+                }
+                else
+                {
+                    pictureBox1.Image = null;
+                }
+            }
+        }
+        public static byte[] BitmapByte(Bitmap bitmap)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                bitmap.Save(stream, ImageFormat.Jpeg);
+                byte[] data = new byte[stream.Length];
+                stream.Seek(0, SeekOrigin.Begin);
+                stream.Read(data, 0, Convert.ToInt32(stream.Length));
+                return data;
+            }
         }
     }
 }

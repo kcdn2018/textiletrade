@@ -35,6 +35,11 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtyunfei = new Sunny.UI.UITextBox();
+            this.txtzhuangxiefei = new Sunny.UI.UITextBox();
+            this.labelX20 = new DevComponents.DotNetBar.LabelX();
+            this.txtChachefei = new Sunny.UI.UITextBox();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.txtlianxidianhua = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.txtQicheleixing = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -57,7 +62,6 @@
             this.txtckmc = new DevExpress.XtraEditors.ButtonEdit();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.txtwuliu = new DevExpress.XtraEditors.ButtonEdit();
-            this.txtyunfei = new DevComponents.Editors.DoubleInput();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.txtbeizhu = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
@@ -87,7 +91,6 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtckmc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtwuliu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtyunfei)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkehu.Properties)).BeginInit();
@@ -107,7 +110,7 @@
             this.打印寄样标签ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1115, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1202, 40);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -145,6 +148,11 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtyunfei);
+            this.groupControl1.Controls.Add(this.txtzhuangxiefei);
+            this.groupControl1.Controls.Add(this.labelX20);
+            this.groupControl1.Controls.Add(this.txtChachefei);
+            this.groupControl1.Controls.Add(this.labelX19);
             this.groupControl1.Controls.Add(this.txtlianxidianhua);
             this.groupControl1.Controls.Add(this.labelX14);
             this.groupControl1.Controls.Add(this.txtQicheleixing);
@@ -161,7 +169,6 @@
             this.groupControl1.Controls.Add(this.txtckmc);
             this.groupControl1.Controls.Add(this.labelX8);
             this.groupControl1.Controls.Add(this.txtwuliu);
-            this.groupControl1.Controls.Add(this.txtyunfei);
             this.groupControl1.Controls.Add(this.labelX7);
             this.groupControl1.Controls.Add(this.txtbeizhu);
             this.groupControl1.Controls.Add(this.labelX4);
@@ -176,9 +183,93 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 40);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1115, 207);
+            this.groupControl1.Size = new System.Drawing.Size(1202, 186);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "单据信息";
+            // 
+            // txtyunfei
+            // 
+            this.txtyunfei.ButtonSymbol = 61761;
+            this.txtyunfei.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtyunfei.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.txtyunfei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtyunfei.Location = new System.Drawing.Point(997, 71);
+            this.txtyunfei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtyunfei.Maximum = 2147483647D;
+            this.txtyunfei.Minimum = -2147483648D;
+            this.txtyunfei.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtyunfei.Name = "txtyunfei";
+            this.txtyunfei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtyunfei.Size = new System.Drawing.Size(151, 23);
+            this.txtyunfei.StyleCustomMode = true;
+            this.txtyunfei.TabIndex = 73;
+            this.txtyunfei.Text = "0";
+            this.txtyunfei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtyunfei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            // 
+            // txtzhuangxiefei
+            // 
+            this.txtzhuangxiefei.ButtonSymbol = 61761;
+            this.txtzhuangxiefei.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtzhuangxiefei.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.txtzhuangxiefei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtzhuangxiefei.Location = new System.Drawing.Point(997, 143);
+            this.txtzhuangxiefei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtzhuangxiefei.Maximum = 2147483647D;
+            this.txtzhuangxiefei.Minimum = -2147483648D;
+            this.txtzhuangxiefei.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtzhuangxiefei.Name = "txtzhuangxiefei";
+            this.txtzhuangxiefei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtzhuangxiefei.Size = new System.Drawing.Size(151, 23);
+            this.txtzhuangxiefei.StyleCustomMode = true;
+            this.txtzhuangxiefei.TabIndex = 72;
+            this.txtzhuangxiefei.Text = "0";
+            this.txtzhuangxiefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtzhuangxiefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            // 
+            // labelX20
+            // 
+            // 
+            // 
+            // 
+            this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX20.Location = new System.Drawing.Point(935, 143);
+            this.labelX20.Name = "labelX20";
+            this.labelX20.Size = new System.Drawing.Size(63, 23);
+            this.labelX20.TabIndex = 71;
+            this.labelX20.Text = "装卸费";
+            // 
+            // txtChachefei
+            // 
+            this.txtChachefei.ButtonSymbol = 61761;
+            this.txtChachefei.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtChachefei.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.txtChachefei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtChachefei.Location = new System.Drawing.Point(997, 107);
+            this.txtChachefei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtChachefei.Maximum = 2147483647D;
+            this.txtChachefei.Minimum = -2147483648D;
+            this.txtChachefei.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtChachefei.Name = "txtChachefei";
+            this.txtChachefei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtChachefei.Size = new System.Drawing.Size(151, 23);
+            this.txtChachefei.StyleCustomMode = true;
+            this.txtChachefei.TabIndex = 70;
+            this.txtChachefei.Text = "0";
+            this.txtChachefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtChachefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            // 
+            // labelX19
+            // 
+            // 
+            // 
+            // 
+            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX19.Location = new System.Drawing.Point(935, 107);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(63, 23);
+            this.labelX19.TabIndex = 69;
+            this.labelX19.Text = "叉车费";
             // 
             // txtlianxidianhua
             // 
@@ -218,7 +309,7 @@
             this.txtQicheleixing.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtQicheleixing.DisabledBackColor = System.Drawing.Color.White;
             this.txtQicheleixing.ForeColor = System.Drawing.Color.Black;
-            this.txtQicheleixing.Location = new System.Drawing.Point(772, 74);
+            this.txtQicheleixing.Location = new System.Drawing.Point(772, 71);
             this.txtQicheleixing.Name = "txtQicheleixing";
             this.txtQicheleixing.PreventEnterBeep = true;
             this.txtQicheleixing.Size = new System.Drawing.Size(147, 22);
@@ -230,7 +321,7 @@
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(709, 74);
+            this.labelX13.Location = new System.Drawing.Point(709, 71);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(72, 23);
             this.labelX13.TabIndex = 43;
@@ -246,7 +337,7 @@
             this.cmbqiankuan.Items.AddRange(new object[] {
             this.comboItem5,
             this.comboItem6});
-            this.cmbqiankuan.Location = new System.Drawing.Point(772, 118);
+            this.cmbqiankuan.Location = new System.Drawing.Point(772, 107);
             this.cmbqiankuan.Name = "cmbqiankuan";
             this.cmbqiankuan.Size = new System.Drawing.Size(147, 23);
             this.cmbqiankuan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -267,7 +358,7 @@
             // 
             // 
             this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(717, 118);
+            this.labelX12.Location = new System.Drawing.Point(717, 107);
             this.labelX12.Name = "labelX12";
             this.labelX12.Size = new System.Drawing.Size(49, 23);
             this.labelX12.TabIndex = 41;
@@ -283,7 +374,7 @@
             this.comhanshui.Items.AddRange(new object[] {
             this.comboItem3,
             this.comboItem4});
-            this.comhanshui.Location = new System.Drawing.Point(546, 118);
+            this.comhanshui.Location = new System.Drawing.Point(546, 107);
             this.comhanshui.Name = "comhanshui";
             this.comhanshui.Size = new System.Drawing.Size(147, 23);
             this.comhanshui.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -304,7 +395,7 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(477, 118);
+            this.labelX11.Location = new System.Drawing.Point(477, 107);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(72, 23);
             this.labelX11.TabIndex = 39;
@@ -320,7 +411,7 @@
             this.cmbcunfang.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
-            this.cmbcunfang.Location = new System.Drawing.Point(80, 118);
+            this.cmbcunfang.Location = new System.Drawing.Point(80, 107);
             this.cmbcunfang.Name = "cmbcunfang";
             this.cmbcunfang.Size = new System.Drawing.Size(156, 23);
             this.cmbcunfang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -345,7 +436,7 @@
             this.txtlianxiren.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtlianxiren.DisabledBackColor = System.Drawing.Color.White;
             this.txtlianxiren.ForeColor = System.Drawing.Color.Black;
-            this.txtlianxiren.Location = new System.Drawing.Point(984, 74);
+            this.txtlianxiren.Location = new System.Drawing.Point(316, 71);
             this.txtlianxiren.Name = "txtlianxiren";
             this.txtlianxiren.PreventEnterBeep = true;
             this.txtlianxiren.Size = new System.Drawing.Size(147, 22);
@@ -357,7 +448,7 @@
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(930, 74);
+            this.labelX10.Location = new System.Drawing.Point(249, 71);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(72, 23);
             this.labelX10.TabIndex = 36;
@@ -373,7 +464,7 @@
             this.txtchepai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtchepai.DisabledBackColor = System.Drawing.Color.White;
             this.txtchepai.ForeColor = System.Drawing.Color.Black;
-            this.txtchepai.Location = new System.Drawing.Point(546, 74);
+            this.txtchepai.Location = new System.Drawing.Point(546, 71);
             this.txtchepai.Name = "txtchepai";
             this.txtchepai.PreventEnterBeep = true;
             this.txtchepai.Size = new System.Drawing.Size(147, 22);
@@ -385,7 +476,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(477, 74);
+            this.labelX9.Location = new System.Drawing.Point(477, 71);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(72, 23);
             this.labelX9.TabIndex = 34;
@@ -393,7 +484,7 @@
             // 
             // txtckmc
             // 
-            this.txtckmc.Location = new System.Drawing.Point(316, 119);
+            this.txtckmc.Location = new System.Drawing.Point(316, 108);
             this.txtckmc.Name = "txtckmc";
             this.txtckmc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -407,7 +498,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(247, 118);
+            this.labelX8.Location = new System.Drawing.Point(247, 107);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(63, 23);
             this.labelX8.TabIndex = 33;
@@ -415,7 +506,7 @@
             // 
             // txtwuliu
             // 
-            this.txtwuliu.Location = new System.Drawing.Point(80, 75);
+            this.txtwuliu.Location = new System.Drawing.Point(80, 72);
             this.txtwuliu.Name = "txtwuliu";
             this.txtwuliu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -423,28 +514,13 @@
             this.txtwuliu.TabIndex = 31;
             this.txtwuliu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtwuliu_ButtonClick);
             // 
-            // txtyunfei
-            // 
-            // 
-            // 
-            // 
-            this.txtyunfei.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtyunfei.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtyunfei.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.txtyunfei.Increment = 1D;
-            this.txtyunfei.Location = new System.Drawing.Point(316, 74);
-            this.txtyunfei.Name = "txtyunfei";
-            this.txtyunfei.ShowUpDown = true;
-            this.txtyunfei.Size = new System.Drawing.Size(147, 22);
-            this.txtyunfei.TabIndex = 30;
-            // 
             // labelX7
             // 
             // 
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(11, 118);
+            this.labelX7.Location = new System.Drawing.Point(11, 107);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(72, 23);
             this.labelX7.TabIndex = 28;
@@ -460,7 +536,7 @@
             this.txtbeizhu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbeizhu.DisabledBackColor = System.Drawing.Color.White;
             this.txtbeizhu.ForeColor = System.Drawing.Color.Black;
-            this.txtbeizhu.Location = new System.Drawing.Point(80, 157);
+            this.txtbeizhu.Location = new System.Drawing.Point(80, 143);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.PreventEnterBeep = true;
             this.txtbeizhu.Size = new System.Drawing.Size(839, 22);
@@ -472,7 +548,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(14, 154);
+            this.labelX4.Location = new System.Drawing.Point(14, 140);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(47, 23);
             this.labelX4.TabIndex = 26;
@@ -484,7 +560,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(247, 74);
+            this.labelX5.Location = new System.Drawing.Point(932, 71);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(63, 23);
             this.labelX5.TabIndex = 25;
@@ -496,7 +572,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(14, 74);
+            this.labelX6.Location = new System.Drawing.Point(14, 71);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(65, 23);
             this.labelX6.TabIndex = 24;
@@ -583,7 +659,7 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 247);
+            this.gridControl1.Location = new System.Drawing.Point(0, 226);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -591,7 +667,7 @@
             this.ButtonEdit2,
             this.cmddanwei,
             this.colorbtn});
-            this.gridControl1.Size = new System.Drawing.Size(1115, 203);
+            this.gridControl1.Size = new System.Drawing.Size(1202, 224);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -713,7 +789,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 450);
+            this.ClientSize = new System.Drawing.Size(1202, 450);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
@@ -727,7 +803,6 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtckmc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtwuliu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtyunfei)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkehu.Properties)).EndInit();
@@ -777,7 +852,6 @@
         private DevExpress.XtraEditors.ButtonEdit txtckmc;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevExpress.XtraEditors.ButtonEdit txtwuliu;
-        private DevComponents.Editors.DoubleInput txtyunfei;
         private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.Controls.TextBoxX txtbeizhu;
         private DevComponents.DotNetBar.LabelX labelX4;
@@ -798,5 +872,10 @@
         private DevComponents.DotNetBar.LabelX labelX14;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit colorbtn;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
+        private Sunny.UI.UITextBox txtzhuangxiefei;
+        private DevComponents.DotNetBar.LabelX labelX20;
+        private Sunny.UI.UITextBox txtChachefei;
+        private DevComponents.DotNetBar.LabelX labelX19;
+        private Sunny.UI.UITextBox txtyunfei;
     }
 }

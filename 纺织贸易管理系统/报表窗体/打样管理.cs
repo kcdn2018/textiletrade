@@ -206,7 +206,7 @@ namespace 纺织贸易管理系统.报表窗体
         private void reflash()
         {
             var interval = 24 - dateEdit2.DateTime.Hour;
-            CreateGrid.Query(gridControl1, $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.DateTime.AddHours (interval ))}' and danjutable.ksmc like '%{txtkehu.Text}%' " +
+            CreateGrid.Query(gridControl1, $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ dateEdit1.DateTime}' and '{Convert.ToDateTime(dateEdit2.DateTime.AddHours (interval ))}' and danjutable.ksmc like '%{txtkehu.Text}%' " +
                 $"and danjumingxitable.bianhao like '%{txtbuliaobianhao.Text }%' " +
                 $"and danjumingxitable.pingming like '%{txtpingming.Text }%' " +
                 $"and danjutable.jiagongleixing like '%{txtgongyimingcheng.Text }%' " +

@@ -44,18 +44,26 @@
             this.配置列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新增ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 31);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(871, 40);
@@ -74,6 +82,10 @@
             // groupPanel1
             // 
             this.groupPanel1.BackColor = System.Drawing.Color.White;
+            this.groupPanel1.Controls.Add(this.dateEdit2);
+            this.groupPanel1.Controls.Add(this.labelX4);
+            this.groupPanel1.Controls.Add(this.dateEdit1);
+            this.groupPanel1.Controls.Add(this.labelX5);
             this.groupPanel1.Controls.Add(this.labelX3);
             this.groupPanel1.Controls.Add(this.labelX2);
             this.groupPanel1.Controls.Add(this.txtguige);
@@ -81,8 +93,9 @@
             this.groupPanel1.Controls.Add(this.txtbianhao);
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.groupPanel1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.groupPanel1.Location = new System.Drawing.Point(0, 40);
+            this.groupPanel1.Location = new System.Drawing.Point(0, 71);
             this.groupPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.groupPanel1.Name = "groupPanel1";
@@ -95,8 +108,8 @@
             // labelX3
             // 
             this.labelX3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.labelX3.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.labelX3.Location = new System.Drawing.Point(324, 26);
+            this.labelX3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX3.Location = new System.Drawing.Point(696, 31);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(47, 23);
             this.labelX3.TabIndex = 5;
@@ -106,8 +119,8 @@
             // labelX2
             // 
             this.labelX2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.labelX2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.labelX2.Location = new System.Drawing.Point(165, 26);
+            this.labelX2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX2.Location = new System.Drawing.Point(537, 31);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(47, 23);
             this.labelX2.TabIndex = 4;
@@ -119,9 +132,9 @@
             this.txtguige.BackColor = System.Drawing.Color.White;
             this.txtguige.ButtonSymbol = 61761;
             this.txtguige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtguige.FillColor = System.Drawing.Color.White;
-            this.txtguige.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtguige.Location = new System.Drawing.Point(377, 26);
+            this.txtguige.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.txtguige.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtguige.Location = new System.Drawing.Point(749, 31);
             this.txtguige.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtguige.Maximum = 2147483647D;
             this.txtguige.Minimum = -2147483648D;
@@ -137,9 +150,9 @@
             this.txtpingming.BackColor = System.Drawing.Color.White;
             this.txtpingming.ButtonSymbol = 61761;
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpingming.FillColor = System.Drawing.Color.White;
-            this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtpingming.Location = new System.Drawing.Point(218, 26);
+            this.txtpingming.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtpingming.Location = new System.Drawing.Point(590, 31);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtpingming.Maximum = 2147483647D;
             this.txtpingming.Minimum = -2147483648D;
@@ -155,9 +168,9 @@
             this.txtbianhao.BackColor = System.Drawing.Color.White;
             this.txtbianhao.ButtonSymbol = 61761;
             this.txtbianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbianhao.FillColor = System.Drawing.Color.White;
-            this.txtbianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtbianhao.Location = new System.Drawing.Point(59, 26);
+            this.txtbianhao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.txtbianhao.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtbianhao.Location = new System.Drawing.Point(431, 31);
             this.txtbianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtbianhao.Maximum = 2147483647D;
             this.txtbianhao.Minimum = -2147483648D;
@@ -171,8 +184,8 @@
             // labelX1
             // 
             this.labelX1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.labelX1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.labelX1.Location = new System.Drawing.Point(6, 26);
+            this.labelX1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX1.Location = new System.Drawing.Point(378, 31);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(47, 23);
             this.labelX1.TabIndex = 0;
@@ -184,11 +197,11 @@
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl1.Location = new System.Drawing.Point(0, 106);
+            this.gridControl1.Location = new System.Drawing.Point(0, 137);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(871, 422);
+            this.gridControl1.Size = new System.Drawing.Size(871, 391);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -238,6 +251,64 @@
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(244, 32);
+            this.dateEdit2.Margin = new System.Windows.Forms.Padding(2);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateEdit2.Properties.Appearance.Options.UseFont = true;
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(123, 24);
+            this.dateEdit2.TabIndex = 56;
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX4.Location = new System.Drawing.Point(194, 32);
+            this.labelX4.Margin = new System.Windows.Forms.Padding(2);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(63, 19);
+            this.labelX4.TabIndex = 55;
+            this.labelX4.Text = "日期到";
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(67, 32);
+            this.dateEdit1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(123, 24);
+            this.dateEdit1.TabIndex = 54;
+            // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX5.Location = new System.Drawing.Point(7, 32);
+            this.labelX5.Margin = new System.Windows.Forms.Padding(2);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(67, 19);
+            this.labelX5.TabIndex = 53;
+            this.labelX5.Text = "日期从";
+            // 
             // 采购通知单选择
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -253,8 +324,10 @@
             this.MaximumSize = new System.Drawing.Size(1344, 842);
             this.MinimizeBox = false;
             this.Name = "采购通知单选择";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Padding = new System.Windows.Forms.Padding(0, 31, 0, 0);
             this.Text = "采购通知单选择";
+            this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.TitleHeight = 31;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.品种选择_FormClosed);
             this.Load += new System.EventHandler(this.品种选择_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -263,6 +336,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +361,9 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 配置列ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevComponents.DotNetBar.LabelX labelX4;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevComponents.DotNetBar.LabelX labelX5;
     }
 }

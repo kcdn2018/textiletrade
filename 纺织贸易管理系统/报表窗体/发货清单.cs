@@ -69,5 +69,11 @@ namespace 纺织贸易管理系统.报表窗体
         {
           
         }
+
+        private void 复制ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gridControl2.Focus();
+            SendKeys.Send("^c");
+        }
     }
 }

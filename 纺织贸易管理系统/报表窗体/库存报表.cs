@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Tools;
 using 纺织贸易管理系统.其他窗体;
 using 纺织贸易管理系统.报表窗体;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
@@ -35,7 +36,10 @@ namespace 纺织贸易管理系统.选择窗体
             try
             {
                 cmbmaitou.Items.AddRange(Tools.获取模板.获取所有模板(PrintPath.唛头模板).ToArray());
-                cmbmaitou.SelectedIndex = 0;
+                if (cmbmaitou.Items.Count > 0)
+                {
+                    cmbmaitou.SelectedIndex = 0;
+                }
             }
             catch
             {
@@ -207,7 +211,7 @@ namespace 纺织贸易管理系统.选择窗体
         {
             var fm = new 打印设置窗体();
             //fm.ShowDialog();
-            var moban = MaitouService.GetOneMaitou(x => x.khbh ==gridView2.GetRowCellValue (gridView2.FocusedRowHandle,"CustomerName").ToString ()).path;
+            string moban = string.Empty;
             if (string.IsNullOrWhiteSpace(moban))
             {
                 moban = cmbmaitou.Text;
@@ -220,14 +224,15 @@ namespace 纺织贸易管理系统.选择窗体
             var fm = new 打印设置窗体();
             fm.ShowDialog();
             var juanlist = gridControl2.DataSource as DataTable;
-            var moban = MaitouService.GetOneMaitou(x => x.khbh == (String)juanlist.Rows[gridView2.FocusedRowHandle]["CustomerName"]).path;
-            if (!string.IsNullOrWhiteSpace(moban))
-            {
+            string moban = string.Empty;
+            //var moban = MaitouService.GetOneMaitou(x => x.khbh == (String)juanlist.Rows[gridView2.FocusedRowHandle]["CustomerName"]).path;
+            //if (!string.IsNullOrWhiteSpace(moban))
+            //{
                 moban = cmbmaitou.Text;
-            }
+            //}
             foreach (var index in gridView2.GetSelectedRows())
             {
-                new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Print, moban = PrintPath.唛头模板 + moban, juan = JuanHaoTableService.GetOneJuanHaoTable(x => x.JuanHao == (string)gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "JuanHao")) }.打印();
+                new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Print, moban = PrintPath.唛头模板 + moban, juan = JuanHaoTableService.GetOneJuanHaoTable(x => x.JuanHao == (string)gridView2.GetRowCellValue(index, "JuanHao")) }.打印();
             }
         }
 
@@ -276,6 +281,90 @@ namespace 纺织贸易管理系统.选择窗体
                 StockName = treeView1.SelectedNode.Text == "所有仓库" ? "" : treeView1.SelectedNode.Text;
                 gridControl2.DataSource = null;
                 Query();
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (gridView1.FocusedRowHandle >= 0)
+            {
+                var remarkers = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Remarkers").ToString();
+                Sunny.UI.UIInputDialog.InputStringDialog(this, ref remarkers,true ,"请输入该库存的完成备注");
+                gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Remarkers", remarkers);
+                int id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").TryToInt ();
+                StockTable stock = StockTableService.GetOneStockTable (x => x.ID ==id);
+                stock.Remarkers = remarkers;
+                Connect.DbHelper().Updateable<StockTable >(stock).ExecuteCommandAsync();
+            }
+        }
+
+        private void 登记库存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gridView1.FocusedRowHandle >= 0)
+            {
+                //var remarkers = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Kuwei").ToString();
+                var fm = new 库位登记() { StockName = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "CKMC").ToString() };
+                fm.ShowDialog();
+                int id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").TryToInt();
+                StockTable stock = StockTableService.GetOneStockTable(x => x.ID == id);
+                stock.Kuwei = fm.Kuwei;
+                gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Kuwei", fm.Kuwei);
+                Connect.DbHelper().Updateable<StockTable>(stock).ExecuteCommandAsync();
+            }
+        }
+
+        private void 唛头模板ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gridView1.GetSelectedRows().Length > 0)
+                {
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.DefaultExt = "xls";
+                    openFileDialog.Filter = "Excel文件(*.xls)|*.xls|Excel文件(*.xlsx)|*.xlsx";
+                    openFileDialog.RestoreDirectory = true;
+                    openFileDialog.Title = "Excel文件路径";
+                    openFileDialog.ShowDialog();
+                    var ds = ExcelService.ExcelToDataSet(openFileDialog.FileName, true);
+                    List<StockTable> stocks = new List<StockTable>();
+                    foreach (var i in gridView1.GetSelectedRows())
+                    {
+                        stocks.Add(pingzhong.FirstOrDefault(x => x.ID == (int)gridView1.GetRowCellValue(i, "ID")));
+                    }
+                    var fm = new 码单导入() { GetDataSet = ds,stockTables =stocks  };
+                    fm.ShowDialog();
+                }
+                else
+                {
+                    Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请选择你要导入的缸号");
+                }
+            }
+            catch (Exception ex)
+            {
+                Sunny.UI.UIMessageBox.ShowError("导入码单发送错误  "+ex.Message);
+            }
+        }
+
+        private void 复检ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Sunny.UI.UIMessageBox.ShowAsk ("您确定要把这些选中的库存复检吗？\r\n复检会删除全部这些库存的在库的打卷信息"))
+            {
+                var stocks = new List<StockTable>();
+                foreach (var s in gridView1.GetSelectedRows() )
+                {
+                    var d = pingzhong.FirstOrDefault(x => x.ID == (int)gridView1.GetRowCellValue(s, "ID"));                   
+                    d.biaoqianmishu -=Connect.DbHelper().Queryable <JuanHaoTable >().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
+            && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Sum (x=>x.biaoqianmishu );
+                    d.yijianmishu  -= Connect.DbHelper().Queryable<JuanHaoTable>().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
+           && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Sum(x => x.MiShu );
+                    d.yijianjuanshu  -= Connect.DbHelper().Queryable<JuanHaoTable>().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
+             && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Count();
+                    JuanHaoTableService.DeleteJuanHaoTable(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
+                   && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC);
+                    stocks.Add(d);
+                }
+                Connect.DbHelper().Updateable<StockTable>(stocks).ExecuteCommand();
+                Sunny.UI.UIMessageDialog.ShowSuccessDialog(this, "复检完成");
             }
         }
     }

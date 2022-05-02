@@ -16,14 +16,16 @@ using 纺织贸易管理系统.选择窗体;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-    public partial class 收款单 : Form
+    public partial class 收款单 : Form 
     {
         public int Useful { get; set; } = 1;
         private LXR LinkMan = new LXR ();
         public DanjuTable danju { get; set; } = new DanjuTable() { djlx=DanjuLeiXing.收款单 };
         public 收款单()
         {
-            InitializeComponent();         
+            InitializeComponent();
+            cmb_Bizhong.SelectedIndex = 0;
+       
         }
 
         private void 收款单_Load(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace 纺织贸易管理系统.新增窗体
             dataGridViewX3.AutoGenerateColumns = false;
             if (Useful==FormUseful.新增 )
             {
-                Init();
+                InitDanju ();
             }
             else
             {
@@ -49,7 +51,8 @@ namespace 纺织贸易管理系统.新增窗体
             txtyuanying.Text = danju.yaoqiu;
             txtzhanghu.Text = danju.ShoukuanFangshi;
             LinkMan.BH = danju.ksbh;
-            dateEdit1.DateTime = danju.rq.Date ;
+            uiDatePicker1 .Value = danju.rq.Date ;
+            cmb_Bizhong.SelectedIndex = danju.Bizhong == "人民币" ? 0 : 1;
             txtyouhui.Text = danju.totalmoney.ToString();
             //txtyingshoujine.Text = danju.RemainMoney.ToString();
             dataGridViewX1.DataSource = ProcessTableService.GetProcessTablelst(x => x.receiptnum == danju.dh);
@@ -68,38 +71,21 @@ namespace 纺织贸易管理系统.新增窗体
             dataGridViewX3.DataSource = dt1;
         }
 
-        private void txtkehu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            var fm = new 客户选择() { linkman = new LXR() { MC = "" ,ZJC="" } };
-            fm.ShowDialog();
-            LinkMan = fm.linkman;
-            txtkehu.Text = LinkMan.MC;
-            txtyingshoujine.Text = LinkMan.JE.ToString();
-            dataGridViewX1.DataSource = OrderTableService.GetOrderTablelst(x => x.CustomerNum == fm.linkman.BH && x.ShengYuMoney > 0);
-            dataGridViewX2.DataSource = RemainMoneyTableService.GetRemainMoneyTablelst(x => x.MachineType == DanjuLeiXing.打样工艺单 || x.MachineType == DanjuLeiXing.销售出库单 || x.MachineType == DanjuLeiXing.色卡销售单).Where(x => x.ShengYuMoney > 0&&x.SupplierName ==fm.linkman.MC ).ToList();
-            dataGridViewX3.DataSource = RemainMoneyTableService.GetRemainMoneyTablelst(x => x.SupplierNum == fm.linkman.BH && x.MachineType == DanjuLeiXing.发票开具  && x.ShengYuMoney > 0);
-        }
 
-        private void txtzhanghu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            var fm = new 收款方式();
-            fm.ShowDialog();
-            txtzhanghu.Text = fm.skfs.Skfs ;
-        }
         private List<ProcessTable  > CreateOrderList()
         {
             List<ProcessTable > processTables  = new List<ProcessTable >();
             for(int i=0;i<dataGridViewX1.Rows.Count;i++)
             {
                 processTables.Add(new ProcessTable () { OrderNum = dataGridViewX1.Rows[i].Cells[COrderNum.Name ].Value .ToString (), TotalMoney = dataGridViewX1.Rows[i].Cells[CShoukuan .Name ].Value .TryToDecmial(2),receiptnum=txtdanhao.Text ,
-               MachineType=DanjuLeiXing.收款单 , Currency="人民币", rq= dateEdit1.DateTime ,Documenttype=txtyuanying.Text });
+               MachineType=DanjuLeiXing.收款单 , Currency="人民币", rq=uiDatePicker1 .Value ,Documenttype=txtyuanying.Text });
             }
             return processTables;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             danju.dh = txtdanhao.Text;
-            danju.rq = dateEdit1.DateTime.Date ;
+            danju.rq =uiDatePicker1 .Value ;
             danju.ksbh = LinkMan.BH;
             danju.ksmc = LinkMan.MC;
             danju.remarker = txtbeizhu.Text;
@@ -109,6 +95,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.ShoukuanFangshi = txtzhanghu.Text;
             danju.djlx = DanjuLeiXing.收款单;
             danju.Qiankuan = "欠款";
+            danju.Bizhong = cmb_Bizhong.Text;
             danju.own = User.user.YHBH;
             if (Useful==FormUseful.新增 )
             {
@@ -120,7 +107,7 @@ namespace 纺织贸易管理系统.新增窗体
          
             }
             Thread.Sleep(1000);
-            Init();
+            InitDanju ();
             Useful = FormUseful.新增;
         }
      
@@ -152,10 +139,10 @@ namespace 纺织贸易管理系统.新增窗体
             return mxlist;
         }
  
-        private void Init()
+        private void InitDanju()
         {
-            dateEdit1.DateTime = DateTime.Now;
-            txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.收款单 ,dateEdit1.DateTime, DanjuLeiXing.收款单 );
+           uiDatePicker1 .Value = DateTime.Now;
+            txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.收款单 , uiDatePicker1.Value, DanjuLeiXing.收款单 );
             txtjine.Text = "0";
             txtyuanying.Text = "";
             txtkehu.Text = "";
@@ -181,17 +168,6 @@ namespace 纺织贸易管理系统.新增窗体
             }
         }
 
-        private void dateEdit1_DateTimeChanged(object sender, EventArgs e)
-        {
-            if (Useful == FormUseful.新增)
-            {
-                if (dateEdit1.DateTime == DateTime.Parse("0001-01-01 0:00:00"))
-                {
-                    dateEdit1.DateTime = DateTime.Now;
-                }
-                txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.收款单 , dateEdit1.DateTime, DanjuLeiXing.收款单);
-            }
-        }
 
         private void txtjine_ValueChanged(object sender, EventArgs e)
         {
@@ -237,6 +213,37 @@ namespace 纺织贸易管理系统.新增窗体
                 }
             }
             dataGridViewX3.RefreshEdit();
+        }
+
+        private void txtzhanghu_ButtonClick(object sender, EventArgs e)
+        {
+            var fm = new 收款方式();
+            fm.ShowDialog();
+            txtzhanghu.Text = fm.skfs.Skfs;
+        }
+
+        private void uiDatePicker1_ValueChanged(object sender, DateTime value)
+        {
+            if (Useful == FormUseful.新增)
+            {
+                if (uiDatePicker1.Value == DateTime.Parse("0001-01-01 0:00:00"))
+                {
+                    uiDatePicker1.Value = DateTime.Now;
+                }
+                txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.收款单, uiDatePicker1.Value, DanjuLeiXing.收款单);
+            }
+        }
+
+        private void txtkehu_ButtonClick(object sender, EventArgs e)
+        {
+            var fm = new 客户选择() { linkman = new LXR() { MC = "", ZJC = "" } };
+            fm.ShowDialog();
+            LinkMan = fm.linkman;
+            txtkehu.Text = LinkMan.MC;
+            txtyingshoujine.Text = LinkMan.JE.ToString();
+            dataGridViewX1.DataSource = OrderTableService.GetOrderTablelst(x => x.CustomerNum == fm.linkman.BH && x.ShengYuMoney > 0);
+            dataGridViewX2.DataSource = RemainMoneyTableService.GetRemainMoneyTablelst(x => x.MachineType == DanjuLeiXing.打样工艺单 || x.MachineType == DanjuLeiXing.销售出库单 || x.MachineType == DanjuLeiXing.色卡销售单).Where(x => x.ShengYuMoney > 0 && x.SupplierName == fm.linkman.MC).ToList();
+            dataGridViewX3.DataSource = RemainMoneyTableService.GetRemainMoneyTablelst(x => x.SupplierNum == fm.linkman.BH && x.MachineType == DanjuLeiXing.发票开具 && x.ShengYuMoney > 0);
         }
     }
 }

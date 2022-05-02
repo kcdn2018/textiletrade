@@ -36,6 +36,8 @@
             this.打印编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.直接打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtkezhong = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.cmbgongyimingcheng = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.labelX16 = new DevComponents.DotNetBar.LabelX();
@@ -100,6 +102,8 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colorbtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelX20 = new DevComponents.DotNetBar.LabelX();
+            this.txtBuliaoSource = new DevExpress.XtraEditors.ButtonEdit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -118,6 +122,7 @@
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuliaoSource.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -178,6 +183,10 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelX20);
+            this.groupControl1.Controls.Add(this.txtBuliaoSource);
+            this.groupControl1.Controls.Add(this.txtkezhong);
+            this.groupControl1.Controls.Add(this.labelX19);
             this.groupControl1.Controls.Add(this.cmbgongyimingcheng);
             this.groupControl1.Controls.Add(this.labelX18);
             this.groupControl1.Controls.Add(this.labelX16);
@@ -217,9 +226,37 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 40);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(971, 282);
+            this.groupControl1.Size = new System.Drawing.Size(971, 248);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "单据信息";
+            // 
+            // txtkezhong
+            // 
+            this.txtkezhong.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtkezhong.Border.Class = "TextBoxBorder";
+            this.txtkezhong.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtkezhong.DisabledBackColor = System.Drawing.Color.White;
+            this.txtkezhong.ForeColor = System.Drawing.Color.Black;
+            this.txtkezhong.Location = new System.Drawing.Point(543, 139);
+            this.txtkezhong.Name = "txtkezhong";
+            this.txtkezhong.PreventEnterBeep = true;
+            this.txtkezhong.Size = new System.Drawing.Size(147, 22);
+            this.txtkezhong.TabIndex = 101;
+            // 
+            // labelX19
+            // 
+            // 
+            // 
+            // 
+            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX19.Location = new System.Drawing.Point(471, 139);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(63, 23);
+            this.labelX19.TabIndex = 100;
+            this.labelX19.Text = "成品克重";
             // 
             // cmbgongyimingcheng
             // 
@@ -228,9 +265,9 @@
             this.cmbgongyimingcheng.ForeColor = System.Drawing.Color.Black;
             this.cmbgongyimingcheng.FormattingEnabled = true;
             this.cmbgongyimingcheng.ItemHeight = 17;
-            this.cmbgongyimingcheng.Location = new System.Drawing.Point(77, 207);
+            this.cmbgongyimingcheng.Location = new System.Drawing.Point(313, 139);
             this.cmbgongyimingcheng.Name = "cmbgongyimingcheng";
-            this.cmbgongyimingcheng.Size = new System.Drawing.Size(156, 23);
+            this.cmbgongyimingcheng.Size = new System.Drawing.Size(147, 23);
             this.cmbgongyimingcheng.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbgongyimingcheng.TabIndex = 99;
             // 
@@ -240,7 +277,7 @@
             // 
             // 
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(12, 207);
+            this.labelX18.Location = new System.Drawing.Point(242, 139);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(60, 23);
             this.labelX18.TabIndex = 98;
@@ -252,7 +289,7 @@
             // 
             // 
             this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX16.Location = new System.Drawing.Point(466, 162);
+            this.labelX16.Location = new System.Drawing.Point(239, 175);
             this.labelX16.Name = "labelX16";
             this.labelX16.Size = new System.Drawing.Size(53, 23);
             this.labelX16.TabIndex = 97;
@@ -264,7 +301,7 @@
             // 
             // 
             this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX17.Location = new System.Drawing.Point(706, 162);
+            this.labelX17.Location = new System.Drawing.Point(471, 175);
             this.labelX17.Name = "labelX17";
             this.labelX17.Size = new System.Drawing.Size(57, 23);
             this.labelX17.TabIndex = 96;
@@ -280,7 +317,7 @@
             this.comhanshui.Items.AddRange(new object[] {
             this.comboItem5,
             this.comboItem6});
-            this.comhanshui.Location = new System.Drawing.Point(543, 162);
+            this.comhanshui.Location = new System.Drawing.Point(313, 175);
             this.comhanshui.Name = "comhanshui";
             this.comhanshui.Size = new System.Drawing.Size(147, 23);
             this.comhanshui.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -305,7 +342,7 @@
             this.cmbqiankuan.Items.AddRange(new object[] {
             this.comboItem4,
             this.comboItem7});
-            this.cmbqiankuan.Location = new System.Drawing.Point(769, 162);
+            this.cmbqiankuan.Location = new System.Drawing.Point(543, 175);
             this.cmbqiankuan.Name = "cmbqiankuan";
             this.cmbqiankuan.Size = new System.Drawing.Size(147, 23);
             this.cmbqiankuan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -326,7 +363,7 @@
             // 
             // 
             this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX15.Location = new System.Drawing.Point(242, 162);
+            this.labelX15.Location = new System.Drawing.Point(6, 175);
             this.labelX15.Name = "labelX15";
             this.labelX15.Size = new System.Drawing.Size(60, 23);
             this.labelX15.TabIndex = 92;
@@ -344,7 +381,7 @@
             this.comboItem2,
             this.comboItem3,
             this.comboItem8});
-            this.comleixing.Location = new System.Drawing.Point(77, 162);
+            this.comleixing.Location = new System.Drawing.Point(77, 139);
             this.comleixing.Name = "comleixing";
             this.comleixing.Size = new System.Drawing.Size(156, 23);
             this.comleixing.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -373,7 +410,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(12, 162);
+            this.labelX7.Location = new System.Drawing.Point(12, 139);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(60, 23);
             this.labelX7.TabIndex = 89;
@@ -389,7 +426,7 @@
             this.txtchengfeng.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtchengfeng.DisabledBackColor = System.Drawing.Color.White;
             this.txtchengfeng.ForeColor = System.Drawing.Color.Black;
-            this.txtchengfeng.Location = new System.Drawing.Point(769, 114);
+            this.txtchengfeng.Location = new System.Drawing.Point(769, 101);
             this.txtchengfeng.Name = "txtchengfeng";
             this.txtchengfeng.PreventEnterBeep = true;
             this.txtchengfeng.ReadOnly = true;
@@ -402,7 +439,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(706, 114);
+            this.labelX6.Location = new System.Drawing.Point(706, 101);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(63, 23);
             this.labelX6.TabIndex = 87;
@@ -418,7 +455,7 @@
             this.txtlianxiren.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtlianxiren.DisabledBackColor = System.Drawing.Color.White;
             this.txtlianxiren.ForeColor = System.Drawing.Color.Black;
-            this.txtlianxiren.Location = new System.Drawing.Point(543, 24);
+            this.txtlianxiren.Location = new System.Drawing.Point(543, 33);
             this.txtlianxiren.Name = "txtlianxiren";
             this.txtlianxiren.PreventEnterBeep = true;
             this.txtlianxiren.Size = new System.Drawing.Size(147, 22);
@@ -430,7 +467,7 @@
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(466, 24);
+            this.labelX13.Location = new System.Drawing.Point(471, 33);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(72, 23);
             this.labelX13.TabIndex = 85;
@@ -446,7 +483,7 @@
             this.txtguige.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtguige.DisabledBackColor = System.Drawing.Color.White;
             this.txtguige.ForeColor = System.Drawing.Color.Black;
-            this.txtguige.Location = new System.Drawing.Point(543, 114);
+            this.txtguige.Location = new System.Drawing.Point(543, 101);
             this.txtguige.Name = "txtguige";
             this.txtguige.PreventEnterBeep = true;
             this.txtguige.ReadOnly = true;
@@ -459,7 +496,7 @@
             // 
             // 
             this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(466, 114);
+            this.labelX12.Location = new System.Drawing.Point(471, 101);
             this.labelX12.Name = "labelX12";
             this.labelX12.Size = new System.Drawing.Size(63, 23);
             this.labelX12.TabIndex = 83;
@@ -471,7 +508,7 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(466, 66);
+            this.labelX11.Location = new System.Drawing.Point(471, 66);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(65, 23);
             this.labelX11.TabIndex = 82;
@@ -503,7 +540,7 @@
             this.txtbianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtbianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtbianhao.Location = new System.Drawing.Point(77, 114);
+            this.txtbianhao.Location = new System.Drawing.Point(77, 101);
             this.txtbianhao.Name = "txtbianhao";
             this.txtbianhao.PreventEnterBeep = true;
             this.txtbianhao.ReadOnly = true;
@@ -516,7 +553,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(239, 114);
+            this.labelX9.Location = new System.Drawing.Point(239, 101);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(63, 23);
             this.labelX9.TabIndex = 79;
@@ -524,7 +561,7 @@
             // 
             // txtpingming
             // 
-            this.txtpingming.Location = new System.Drawing.Point(313, 115);
+            this.txtpingming.Location = new System.Drawing.Point(313, 102);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -539,7 +576,7 @@
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(12, 114);
+            this.labelX10.Location = new System.Drawing.Point(12, 101);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(60, 23);
             this.labelX10.TabIndex = 77;
@@ -600,7 +637,7 @@
             this.txtlianxidianhua.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtlianxidianhua.DisabledBackColor = System.Drawing.Color.White;
             this.txtlianxidianhua.ForeColor = System.Drawing.Color.Black;
-            this.txtlianxidianhua.Location = new System.Drawing.Point(769, 24);
+            this.txtlianxidianhua.Location = new System.Drawing.Point(769, 33);
             this.txtlianxidianhua.Name = "txtlianxidianhua";
             this.txtlianxidianhua.PreventEnterBeep = true;
             this.txtlianxidianhua.Size = new System.Drawing.Size(147, 22);
@@ -612,7 +649,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(706, 24);
+            this.labelX14.Location = new System.Drawing.Point(706, 33);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(72, 23);
             this.labelX14.TabIndex = 69;
@@ -628,10 +665,10 @@
             this.txtbeizhu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbeizhu.DisabledBackColor = System.Drawing.Color.White;
             this.txtbeizhu.ForeColor = System.Drawing.Color.Black;
-            this.txtbeizhu.Location = new System.Drawing.Point(77, 254);
+            this.txtbeizhu.Location = new System.Drawing.Point(77, 214);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.PreventEnterBeep = true;
-            this.txtbeizhu.Size = new System.Drawing.Size(603, 22);
+            this.txtbeizhu.Size = new System.Drawing.Size(613, 22);
             this.txtbeizhu.TabIndex = 56;
             // 
             // labelX4
@@ -640,7 +677,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(22, 254);
+            this.labelX4.Location = new System.Drawing.Point(22, 214);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(47, 23);
             this.labelX4.TabIndex = 55;
@@ -673,7 +710,7 @@
             // 
             // txtjiagongc
             // 
-            this.txtjiagongc.Location = new System.Drawing.Point(313, 25);
+            this.txtjiagongc.Location = new System.Drawing.Point(313, 34);
             this.txtjiagongc.Name = "txtjiagongc";
             this.txtjiagongc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -688,7 +725,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(239, 24);
+            this.labelX2.Location = new System.Drawing.Point(239, 33);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(63, 23);
             this.labelX2.TabIndex = 49;
@@ -704,7 +741,7 @@
             this.txtdanhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtdanhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtdanhao.ForeColor = System.Drawing.Color.Black;
-            this.txtdanhao.Location = new System.Drawing.Point(77, 24);
+            this.txtdanhao.Location = new System.Drawing.Point(77, 33);
             this.txtdanhao.Name = "txtdanhao";
             this.txtdanhao.PreventEnterBeep = true;
             this.txtdanhao.ReadOnly = true;
@@ -717,7 +754,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(9, 24);
+            this.labelX1.Location = new System.Drawing.Point(9, 33);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(47, 23);
             this.labelX1.TabIndex = 47;
@@ -725,12 +762,12 @@
             // 
             // txtheji
             // 
-            this.txtheji.Location = new System.Drawing.Point(313, 163);
+            this.txtheji.Location = new System.Drawing.Point(77, 176);
             this.txtheji.Name = "txtheji";
             this.txtheji.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtheji.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtheji.Size = new System.Drawing.Size(147, 20);
+            this.txtheji.Size = new System.Drawing.Size(156, 20);
             this.txtheji.TabIndex = 93;
             // 
             // tabControl1
@@ -869,12 +906,12 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 322);
+            this.gridControl1.Location = new System.Drawing.Point(0, 288);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.colorbtn});
-            this.gridControl1.Size = new System.Drawing.Size(971, 134);
+            this.gridControl1.Size = new System.Drawing.Size(971, 168);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -967,6 +1004,29 @@
             this.colorbtn.Name = "colorbtn";
             this.colorbtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colorbtn_ButtonClick);
             // 
+            // labelX20
+            // 
+            // 
+            // 
+            // 
+            this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX20.Location = new System.Drawing.Point(704, 140);
+            this.labelX20.Name = "labelX20";
+            this.labelX20.Size = new System.Drawing.Size(65, 23);
+            this.labelX20.TabIndex = 103;
+            this.labelX20.Text = "布料来源";
+            // 
+            // txtBuliaoSource
+            // 
+            this.txtBuliaoSource.Location = new System.Drawing.Point(769, 142);
+            this.txtBuliaoSource.Name = "txtBuliaoSource";
+            this.txtBuliaoSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtBuliaoSource.Size = new System.Drawing.Size(147, 20);
+            this.txtBuliaoSource.TabIndex = 102;
+            this.txtBuliaoSource.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_ButtonClick);
+            this.txtBuliaoSource.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuliaoSource_KeyDown);
+            // 
             // 打样工艺单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -999,6 +1059,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuliaoSource.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1077,5 +1138,9 @@
         private DevComponents.Editors.ComboItem comboItem8;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbgongyimingcheng;
         private DevComponents.DotNetBar.LabelX labelX18;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtkezhong;
+        private DevComponents.DotNetBar.LabelX labelX19;
+        private DevComponents.DotNetBar.LabelX labelX20;
+        private DevExpress.XtraEditors.ButtonEdit txtBuliaoSource;
     }
 }

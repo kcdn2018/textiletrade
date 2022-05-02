@@ -99,7 +99,7 @@ namespace 纺织贸易管理系统.新增窗体
                 if (i == danjumingxitables.Count - 1)
                     for (int j = 0; j < 30; j++)
                     {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text)});
+                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime});
                     }
             }
             fm.Dispose();
@@ -124,6 +124,7 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables[row].pingming = d.orderDetail.sampleName;
                 danjumingxitables[row].kezhong = d.orderDetail.weight;
                 danjumingxitables[row].menfu = d.orderDetail.width;
+                danjumingxitables[row].menfu = d.orderDetail.width ;
                 danjumingxitables[row].danwei = "米";
                 danjumingxitables[row].OrderNum = d.orderDetail.OrderNum;
                 danjumingxitables[row].kuanhao = d.orderDetail.Kuanhao;
@@ -137,7 +138,7 @@ namespace 纺织贸易管理系统.新增窗体
                 if (row == danjumingxitables.Count - 1)
                     for (int j = 0; j < 30; j++)
                     {
-                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
                     }
             }
             gridControl1.RefreshDataSource();
@@ -151,7 +152,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
             gridControl1.RefreshDataSource();
         }
 
@@ -162,7 +163,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle);
+                CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle,this);
         }
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -180,16 +181,20 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
             gridView1.CloseEditor();
-            if (string.IsNullOrWhiteSpace (txtckmc.Text.TrimEnd()))
+            if (danjumingxitables.Sum(x => x.chengpingmishu) == 0)
+            {
+                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "布料数量不能为0，请填写数量！");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtckmc.Text.TrimEnd()))
             {
                 MessageBox.Show("请选择收货地址或者供货商！保存失败", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (danjumingxitables.Where(x => !string.IsNullOrWhiteSpace  ( x.Bianhao)).ToList().Count == 0)
+            if (danjumingxitables.Where(x => !string.IsNullOrWhiteSpace(x.Bianhao)).ToList().Count == 0)
             {
-                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "没有检测到任何布料信息.请选择相应的布料后再保存！");
+                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "没有检测到任何布料信息，请选择相应的布料后再保存！");
                 return;
             } 
             UIWaitFormService.ShowWaitForm("正在保存！。。。。");
@@ -240,7 +245,7 @@ namespace 纺织贸易管理系统.新增窗体
                     c.Text = "";
                 }
             }
-            dateEdit1.DateTime = DateTime.Now.Date;
+            dateEdit1.DateTime = DateTime.Now;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.盘盈入库单, dateEdit1.DateTime,DanjuLeiXing.盘盈入库单);
             danjumingxitables.Clear();
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == txtdanhao.Text);
@@ -271,7 +276,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtckmc.Text = danju.ckmc  ;
             cmbcunfang.Text = danju.StockName; 
             txtdanhao.Text = danju.dh;
-            dateEdit1.Text = danju.rq.ToShortDateString();
+           dateEdit1.DateTime=danju.rq;
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == txtdanhao.Text);
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)
@@ -298,11 +303,6 @@ namespace 纺织贸易管理系统.新增窗体
             gridView1.CloseEditor();
         }
 
-        private void 盘盈入库单_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         private void dateEdit1_DateTimeChanged(object sender, EventArgs e)
         {
             if (useful == FormUseful.新增)
@@ -327,6 +327,35 @@ namespace 纺织贸易管理系统.新增窗体
             danjumingxitables[gridView1.FocusedRowHandle].Rangchang = fm.linkman.MC;
             gridView1.CloseEditor();
             gridControl1.RefreshDataSource();
+        }
+
+        private void colorbtn_KeyDown(object sender, KeyEventArgs e)
+        {         
+            if (e.KeyCode==Keys.Enter )
+            {
+                gridView1.CloseEditor();
+                var colorlist = ColorTableService.GetColorTablelst (x => x.ColorNum.Contains(danjumingxitables[gridView1.FocusedRowHandle].yanse));
+                ColorTable color  = new ColorTable();
+                if (colorlist.Count > 1)
+                {
+                    var fm = new 色号选择() { colorInfo = new ColorTable() { ColorNum = danjumingxitables[gridView1.FocusedRowHandle].yanse } };
+                    fm.ShowDialog();
+                    color = fm.colorInfo;
+                }
+                else
+                {
+                    if (colorlist.Count == 1)
+                    {
+                        color = colorlist[0];
+                    }
+                }
+                if (!string.IsNullOrEmpty(color.ColorNum))
+                {
+                    danjumingxitables[gridView1.FocusedRowHandle].ColorNum = color.ColorNum;
+                    danjumingxitables[gridView1.FocusedRowHandle].yanse = color.ColorName;
+                }
+                gridControl1.RefreshDataSource();
+            }
         }
     }
 }

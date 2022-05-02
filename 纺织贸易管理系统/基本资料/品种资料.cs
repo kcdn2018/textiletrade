@@ -29,8 +29,11 @@ namespace 纺织贸易管理系统.基本资料
         public 品种资料()
         {
             InitializeComponent();
-            cmbMoban.Items .AddRange ( Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray() );
-            cmbMoban.SelectedIndex = 0;
+            cmbMoban .Items .AddRange ( Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray() );
+            if (cmbMoban.Items.Count > 0)
+            {
+                cmbMoban.SelectedIndex = 0;
+            }
             CreateGrid.Create(this.Name, gridView1);
             gridView1.OptionsCustomization.AllowSort = true;
             //Query();
@@ -219,6 +222,8 @@ namespace 纺织贸易管理系统.基本资料
             {
                 Tools.获取模板.新增模板(PrintPath.标签模板, fm.内容,fm.参考模板);
             }
+            cmbMoban.Items.Clear();
+            cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
         }
 
         private void txtbianhao_KeyDown(object sender, KeyEventArgs e)
@@ -350,6 +355,8 @@ namespace 纺织贸易管理系统.基本资料
         private void 删除模板ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Tools.ReportService.Delete(new ReportTable { reportName = cmbMoban.Text, reportStyle = Tools.ReportService.标签 },Application.StartupPath );
+            cmbMoban.Items.Clear();
+            cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
         }
 
         private void uiRadioButton1_ValueChanged(object sender, bool value)
@@ -390,6 +397,30 @@ namespace 纺织贸易管理系统.基本资料
             catch
             {
                 Sunny.UI.UIMessageBox.ShowError("请先配置列！增加一个ID自增列");
+            }
+        }
+
+        private void 重命名ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string newname = string.Empty;
+                Sunny.UI.UIInputDialog.InputStringDialog(ref newname, true, "请输入新的模板名称");
+                string oldname = cmbMoban.Text;
+                ReportService.ReName(new ReportTable()
+                {
+                    ReportFile = ReportTableService.GetOneReportTable(x => x.reportName == oldname && x.reportStyle == Tools.ReportService.标签).ReportFile
+                    ,
+                    reportName = newname+".frx",
+                    reportStyle = Tools.ReportService.标签
+                }, Application.StartupPath, oldname);
+                cmbMoban.Items.Clear();
+                cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
+                cmbMoban.Text = newname;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

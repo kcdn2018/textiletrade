@@ -93,12 +93,24 @@ namespace BLL
             }
             else
             {
-                var newdanhao = danhao.Substring(0, danhao.Length - 3) + (Convert.ToInt32(danhao.Substring(danhao.Length - 3, 3)) + 1).ToString();
-                while (DanjuTableService.GetDanjuTablelst(x => x.dh == newdanhao).Count > 0)
+                if (QueryTime.DanjubianhaoRule == "类型+年份+月份+日+累计编号")
                 {
-                    newdanhao = newdanhao.Substring(0, newdanhao.Length - 3) + (Convert.ToInt32(newdanhao.Substring(newdanhao.Length - 3, 3)) + 1).ToString();
+                    var newdanhao = danhao.Substring(0, danhao.Length - 3) + (Convert.ToInt32(danhao.Substring(danhao.Length - 3, 3)) + 1).ToString();
+                    while (DanjuTableService.GetDanjuTablelst(x => x.dh == newdanhao).Count > 0)
+                    {
+                        newdanhao = newdanhao.Substring(0, newdanhao.Length - 3) + (Convert.ToInt32(newdanhao.Substring(newdanhao.Length - 3, 3)) + 1).ToString();
+                    }
+                    return newdanhao;
                 }
-                return newdanhao;
+                else
+                {
+                    var newdanhao = danhao.Substring(0, danhao.Length - 5) +string.Format ("{0:00000}", (Convert.ToInt32(danhao.Substring(danhao.Length - 5, 5)) + 1));
+                    while (DanjuTableService.GetDanjuTablelst(x => x.dh == newdanhao).Count > 0)
+                    {
+                        newdanhao = newdanhao .Substring(0, newdanhao .Length - 5) + string.Format("{0:00000}", (Convert.ToInt32(newdanhao .Substring(newdanhao .Length - 5, 5)) + 1));
+                    }
+                    return newdanhao;
+                }
             }
         }
         public static string 检查生产单号(string danhao)
@@ -110,12 +122,24 @@ namespace BLL
             }
             else
             {
-                var newdanhao = danhao.Substring(0, danhao.Length - 3) + (Convert.ToInt32(danhao.Substring(danhao.Length - 3, 3)) + 1).ToString();
-                while (ShengChanDanTableService.GetShengChanDanTablelst(x => x.shengchandanhao == newdanhao).Count > 0)
+                if (QueryTime.DanjubianhaoRule == "类型+年份+月份+日+累计编号")
                 {
-                    newdanhao = newdanhao.Substring(0, newdanhao.Length - 3) + (Convert.ToInt32(newdanhao.Substring(newdanhao.Length - 3, 3)) + 1).ToString();
+                    var newdanhao = danhao.Substring(0, danhao.Length - 3) + (Convert.ToInt32(danhao.Substring(danhao.Length - 3, 3)) + 1).ToString();
+                    while (ShengChanDanTableService.GetShengChanDanTablelst(x => x.shengchandanhao == newdanhao).Count > 0)
+                    {
+                        newdanhao = newdanhao.Substring(0, newdanhao.Length - 3) + (Convert.ToInt32(newdanhao.Substring(newdanhao.Length - 3, 3)) + 1).ToString();
+                    }
+                    return newdanhao;
                 }
-                return newdanhao;
+                else
+                {
+                    var newdanhao = danhao.Substring(0, danhao.Length - 5) + string.Format("{0:00000}", (Convert.ToInt32(danhao.Substring(danhao.Length - 5, 5)) + 1));
+                    while (ShengChanDanTableService.GetShengChanDanTablelst(x => x.shengchandanhao == newdanhao).Count > 0)
+                    {
+                        newdanhao = danhao.Substring(0, danhao.Length - 5) + string.Format("{0:00000}", (Convert.ToInt32(newdanhao .Substring(newdanhao .Length - 5, 5)) + 1));
+                    }
+                    return newdanhao;
+                }
             }
         }
     }

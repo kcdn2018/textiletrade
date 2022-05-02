@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tools;
 using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
 {
-    public partial class 品种选择 : Form
+    public partial class 品种选择 : Sunny.UI.UIForm
     {
         public string zjc { get; set; }
         public string Bianhao { get; set; }
@@ -28,12 +29,14 @@ namespace 纺织贸易管理系统.选择窗体
         {
             txtpingming.Text = zjc;
             txtbianhao.Text = Bianhao;
-            dblist =dbService.Getdblst(x => x.bh.Contains(txtbianhao.Text) && x.pm.Contains(txtpingming.Text) && x.gg.Contains(txtguige.Text) && x.EnglishName.Contains(txtyingwenming.Text) && x.HH.Contains(txthuohao.Text),10,100,1,0);
-            gridControl1.DataSource = dblist;
+            Query(1);
         }
-        private void Query()
-        {
-            dblist = dbService.Getdblst(x => x.bh.Contains(txtbianhao.Text) && x.pm.Contains(txtpingming.Text) && x.gg.Contains(txtguige.Text) && x.EnglishName.Contains(txtyingwenming.Text) && x.HH.Contains(txthuohao.Text)).OrderByDescending (x=>x.rq ).ToList ();
+        private void Query(int currentpage)
+        {     
+            dblist = dblist = dbService.Getdblst(x => x.bh.Contains(txtbianhao.Text) && x.pm.Contains(txtpingming.Text) && x.gg.Contains(txtguige.Text) && x.EnglishName.Contains(txtyingwenming.Text) && x.HH.Contains(txthuohao.Text) 
+               , currentpage , uiPagination1.PageSize , currentpage , 1);
+            string wherestring = SQLHelper.SqlSugor.GetWhereByLambda<db>(x => x.bh.Contains(txtbianhao.Text) && x.pm.Contains(txtpingming.Text) && x.gg.Contains(txtguige.Text) && x.EnglishName.Contains(txtyingwenming.Text) && x.HH.Contains(txthuohao.Text), "sqlserver");
+            uiPagination1.TotalCount  = Connect.CreatConnect().Query("select count(id) from db where " + wherestring).Rows[0][0].TryToInt();
             gridControl1.DataSource = dblist;
         }
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,7 +65,7 @@ namespace 纺织贸易管理系统.选择窗体
         {
             if(e.KeyCode==Keys.Enter )
             {
-                Query();
+                Query(1);
             }
         }
 
@@ -78,6 +81,11 @@ namespace 纺织贸易管理系统.选择窗体
                 gridView1.SelectRow(gridView1.FocusedRowHandle);
                 this.Close();
             }
+        }
+
+        private void uiPagination1_PageChanged(object sender, object pagingSource, int pageIndex, int count)
+        {
+            Query(pageIndex);
         }
     }
 }

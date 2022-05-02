@@ -37,7 +37,7 @@ namespace 纺织贸易管理系统.其他窗体
         private void Query()
         {
             Sunny.UI.UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            var dt = SQLHelper.SQLHelper.Chaxun($"select LwDetail.*,danjumingxitable.* from lwDetail left join danjumingxitable on lwdetail.dh=danjumingxitable.danhao where lwDetail.rq between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date }' and lwdetail.KHBH = '{LinkMan.BH }' order by lwdetail.rq asc");
+            var dt = SQLHelper.SQLHelper.Chaxun($"select LwDetail.*,danjumingxitable.* from lwDetail left join danjumingxitable on lwdetail.dh=danjumingxitable.danhao where lwDetail.rq between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1) }' and lwdetail.KHBH = '{LinkMan.BH }' order by lwdetail.rq asc");
             DataRow dataRow = dt.NewRow();
             int index = 0;
             if (dt.Rows.Count > 0)

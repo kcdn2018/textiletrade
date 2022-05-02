@@ -26,8 +26,8 @@ namespace 纺织贸易管理系统.报表窗体
             dateEdit1.DateTime = dateEdit2.DateTime.AddDays(-QueryTime.间隔);
             gridView2.IndicatorWidth = 30;
             EndDateEdit.NullDate = DateTime.Now;
-            gridView1.Columns["remarker"].ColumnEdit = EndDateEdit;
-            gridView1.Columns["yaoqiu"].ColumnEdit = cmbgongyi;
+            //gridView1.Columns["remarker"].ColumnEdit = EndDateEdit;
+            //gridView1.Columns["yaoqiu"].ColumnEdit = cmbgongyi;
             foreach(var g in DanjuTableService.GetGongYiList ())
             {
                 cmbgongyi.Items.Add(g);
@@ -207,12 +207,12 @@ namespace 纺织贸易管理系统.报表窗体
            Sunny.UI. UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
             if (checkBox1.Checked == true)
             {
-                danjulist = DanjuTableService.GetDanjuTablelst(x => x.rq >= Convert.ToDateTime(dateEdit1.Text) && x.rq <= Convert.ToDateTime(dateEdit2.Text) && x.ksmc.Contains(txtghsmc.Text) && x.SaleMan.Contains(txtkehu.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.打样工艺单
+                danjulist = DanjuTableService.GetDanjuTablelst(x => x.rq >=dateEdit1.DateTime  && x.rq <=dateEdit2.DateTime && x.ksmc.Contains(txtghsmc.Text) && x.SaleMan.Contains(txtkehu.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.打样工艺单
                 &&x.ordernum.Contains (txtOrdernum.Text) &&x.fromDanhao.Contains (txthetonghao .Text) &&x.StockName.Contains (txtbuliaobianhao.Text) &&x.CarLeixing.Contains (txtpingming.Text )&&x.yaoqiu .Contains (txtgongyimingcheng.Text) );
             }
             else
             {
-                danjulist = DanjuTableService.GetDanjuTablelst(x => x.rq >= Convert.ToDateTime(dateEdit1.Text) && x.rq <= Convert.ToDateTime(dateEdit2.Text) && x.ksmc.Contains(txtghsmc.Text) && x.SaleMan.Contains(txtkehu.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.打样工艺单&&x.remarker ==string.Empty
+                danjulist = DanjuTableService.GetDanjuTablelst(x => x.rq >=dateEdit1.DateTime.Date  && x.rq <= dateEdit2.DateTime.Date.AddDays(1)  && x.ksmc.Contains(txtghsmc.Text) && x.SaleMan.Contains(txtkehu.Text) && x.zhuangtai != "已删除" && x.djlx == DanjuLeiXing.打样工艺单&&x.remarker ==string.Empty
                 && x.ordernum.Contains(txtOrdernum.Text) && x.fromDanhao.Contains(txthetonghao.Text) && x.StockName.Contains(txtbuliaobianhao.Text) && x.CarLeixing.Contains(txtpingming.Text) && x.yaoqiu .Contains(txtgongyimingcheng.Text));
             }
                 gridControl1.DataSource = danjulist;

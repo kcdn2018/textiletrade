@@ -37,6 +37,7 @@ namespace 纺织贸易管理系统.其他窗体
             this.全部显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图片居中ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.旋转图片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,35 +48,36 @@ namespace 纺织贸易管理系统.其他窗体
             this.适应大小ToolStripMenuItem,
             this.缩小ToolStripMenuItem,
             this.全部显示ToolStripMenuItem,
-            this.图片居中ToolStripMenuItem});
+            this.图片居中ToolStripMenuItem,
+            this.旋转图片ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
             // 
             // 适应大小ToolStripMenuItem
             // 
             this.适应大小ToolStripMenuItem.Name = "适应大小ToolStripMenuItem";
-            this.适应大小ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.适应大小ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.适应大小ToolStripMenuItem.Text = "适应大小";
             this.适应大小ToolStripMenuItem.Click += new System.EventHandler(this.适应大小ToolStripMenuItem_Click);
             // 
             // 缩小ToolStripMenuItem
             // 
             this.缩小ToolStripMenuItem.Name = "缩小ToolStripMenuItem";
-            this.缩小ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.缩小ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.缩小ToolStripMenuItem.Text = "缩小";
             this.缩小ToolStripMenuItem.Click += new System.EventHandler(this.缩小ToolStripMenuItem_Click);
             // 
             // 全部显示ToolStripMenuItem
             // 
             this.全部显示ToolStripMenuItem.Name = "全部显示ToolStripMenuItem";
-            this.全部显示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.全部显示ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.全部显示ToolStripMenuItem.Text = "全部显示";
             this.全部显示ToolStripMenuItem.Click += new System.EventHandler(this.全部显示ToolStripMenuItem_Click);
             // 
             // 图片居中ToolStripMenuItem
             // 
             this.图片居中ToolStripMenuItem.Name = "图片居中ToolStripMenuItem";
-            this.图片居中ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.图片居中ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.图片居中ToolStripMenuItem.Text = "图片居中";
             this.图片居中ToolStripMenuItem.Click += new System.EventHandler(this.图片居中ToolStripMenuItem_Click);
             // 
@@ -88,6 +90,13 @@ namespace 纺织贸易管理系统.其他窗体
             this.pictureBox1.Size = new System.Drawing.Size(800, 450);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // 旋转图片ToolStripMenuItem
+            // 
+            this.旋转图片ToolStripMenuItem.Name = "旋转图片ToolStripMenuItem";
+            this.旋转图片ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.旋转图片ToolStripMenuItem.Text = "旋转图片";
+            this.旋转图片ToolStripMenuItem.Click += new System.EventHandler(this.旋转图片ToolStripMenuItem_Click);
             // 
             // 图片显示
             // 
@@ -114,5 +123,6 @@ namespace 纺织贸易管理系统.其他窗体
         private System.Windows.Forms.ToolStripMenuItem 缩小ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 全部显示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 图片居中ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 旋转图片ToolStripMenuItem;
     }
 }

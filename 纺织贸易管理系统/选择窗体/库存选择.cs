@@ -11,7 +11,7 @@ using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
 {
-    public partial class 库存选择 : Form
+    public partial class 库存选择 : Sunny.UI.UIForm 
     {
         public string StockName { get; set; } = "";
         public List <StockTable > pingzhong { get; set; }
@@ -30,7 +30,7 @@ namespace 纺织贸易管理系统.选择窗体
         }
         private void Query()
         {
-            dblist = Connect.DbHelper().Queryable <StockTable >().Where  (x => x.ContractNum .Contains(txthetonghao.Text) && x.PM .Contains(txtpingming.Text) && x.GG .Contains(txtguige.Text) && x.GH.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)&& x.CKMC.Contains(StockName )
+            dblist = Connect.DbHelper().Queryable <StockTable >().Where  (x =>x.BH.Contains (txtbianhao.Text )&& x.ContractNum .Contains(txthetonghao.Text) && x.PM .Contains(txtpingming.Text) && x.GG .Contains(txtguige.Text) && x.GH.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)&& x.CKMC.Contains(StockName )
             &&x.CustomName.Contains (txtkehu.Text )&&x.orderNum.Contains (txtOrderNum.Text ) ).ToList () .OrderByDescending(x=>x.ID ).ToList ();
             gridControl1.DataSource = dblist;
         }
@@ -73,5 +73,12 @@ namespace 纺织贸易管理系统.选择窗体
         {
             this.Close();
         }
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            Query();
+        }
+
+      
     }
 }

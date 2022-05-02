@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using 纺织贸易管理系统;
 
@@ -72,6 +73,7 @@ namespace BLL
                     单据反审核(danhao);
                 }
             }
+            Thread.Sleep(200);
             DanjuTableService.DeleteDanjuTable(x => x.dh == danhao);
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danhao);
         }

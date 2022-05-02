@@ -12,7 +12,7 @@ using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
 {
-    public partial class 订单号选择 : Form
+    public partial class 订单号选择 : Sunny.UI.UIForm
     {
         /// <summary>
         /// 查询返回模式，1表示返回明细返回，0表示只返回一个订单号
@@ -38,7 +38,7 @@ namespace 纺织贸易管理系统.选择窗体
         }
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fm = new 配置列(gridView1) { formname = this.Name };
+            var fm = new 配置列(gridView1) { formname = this.Name, Obj = null, dt = gridControl1.DataSource as DataTable };
             fm.ShowDialog();
         }
 
@@ -82,7 +82,7 @@ namespace 纺织贸易管理系统.选择窗体
         }
         private void Query()
         {
-           string q = $"select orderTable.*,orderDetailTable.* from orderTable,orderdetailTable where OrderTable.orderdate between '{ Convert.ToDateTime(dateEdit1.Text)}' and '{Convert.ToDateTime(dateEdit2.Text)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
+           string q = $"select orderTable.*,orderDetailTable.* from orderTable,orderdetailTable where OrderTable.orderdate between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
                $"and OrderDetailTable.sampleNum like '%{txtbianhao.Text }%' " +
                $"and OrderDetailTable.sampleName like '%{txtpingming.Text }%' " +
                $"and OrderDetailTable.Specifications like '%{txtGuige.Text }%' " +

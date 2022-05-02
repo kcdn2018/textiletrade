@@ -16,7 +16,6 @@ namespace BLL
             danju.dh = 单据BLL.检查单号(danju.dh);
             DanjuTableService.InsertDanjuTable(danju);
             var gonghuoshang = LXRService.GetOneLXR(x=>x.MC ==danju.ksmc).Leixing ;
-
             foreach (var d in danjumingxitables.Where(x=>x.Bianhao!=null).ToList ())
             {
                 d.danhao = danju.dh;
@@ -131,6 +130,7 @@ namespace BLL
             {
                 单据反审核(danhao);
             }
+            Thread.Sleep(200);
             DanjuTableService.DeleteDanjuTable(x => x.dh == danhao);
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danhao);
             RangShequpiTableService.DeleteRangShequpiTable(x => x.DocumentNum == danhao);

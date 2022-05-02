@@ -69,7 +69,7 @@ namespace 纺织贸易管理系统.新增窗体
                     if (Useful == FormUseful.复制)
                     {
                         Edit();
-                        dateEdit1.DateTime = DateTime.Now.Date;
+                        dateEdit1.DateTime = DateTime.Now;
                         txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.打样单, dateEdit1.DateTime, DanjuLeiXing.打样单);
                         Useful = FormUseful.新增;
                     }
@@ -409,7 +409,7 @@ namespace 纺织贸易管理系统.新增窗体
                 if (i == danjumingxitables.Count - 1)
                     for (int j = 0; j < 30; j++)
                     {
-                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
                     }
             }
             gridView1.CloseEditor();
@@ -438,7 +438,7 @@ namespace 纺织贸易管理系统.新增窗体
                     if (i == danjumingxitables.Count - 1)
                         for (int j = 0; j < 30; j++)
                         {
-                            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = Convert.ToDateTime(dateEdit1.Text) });
+                            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
                         }
                 }
                 gridView1.CloseEditor();

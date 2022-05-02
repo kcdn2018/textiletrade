@@ -20,7 +20,7 @@ namespace Update
                 sQLiteCommand.ExecuteNonQuery();
                 Console.WriteLine("创建设置表成功");
                 verinfo.Version = "1.0.2.7";
-               更新数据库版本.UpdateInfo(verinfo);
+                更新数据库版本.UpdateInfo(verinfo);
             }
         }
     }

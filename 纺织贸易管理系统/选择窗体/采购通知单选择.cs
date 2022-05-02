@@ -12,7 +12,7 @@ using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
 {
-    public partial class 采购通知单选择 :Form
+    public partial class 采购通知单选择 :Sunny.UI.UIForm 
     {
         public string zjc { get; set; }
         public string Bianhao { get; set; }
@@ -20,6 +20,8 @@ namespace 纺织贸易管理系统.选择窗体
         public 采购通知单选择()
         {
             InitializeComponent();
+            dateEdit2.DateTime = DateTime.Now;
+            dateEdit1.DateTime = dateEdit2.DateTime.AddDays(-QueryTime.间隔);
             CreateGrid.Create(this.Name, gridView1);
             gridView1.OptionsCustomization.AllowSort = true;
         }
@@ -28,7 +30,7 @@ namespace 纺织贸易管理系统.选择窗体
         {
             txtpingming.Text = zjc;
             txtbianhao.Text = Bianhao;
-            gridControl1.DataSource=danjumingxitableService .Getdanjumingxitablelst (x => x.danhao.Contains(FirstLetter.采购通知单 ) && x.pingming .Contains(txtpingming.Text) && x.guige .Contains(txtguige.Text) );
+            gridControl1.DataSource=danjumingxitableService .Getdanjumingxitablelst (x => x.danhao.Contains(FirstLetter.采购通知单 ) && x.pingming .Contains(txtpingming.Text) && x.guige .Contains(txtguige.Text) &&x.rq >=dateEdit1.DateTime.Date&&x.rq <=dateEdit2.DateTime.Date.AddDays(1)).OrderByDescending  (x=>x.rq );
         }
         private void Query()
         {

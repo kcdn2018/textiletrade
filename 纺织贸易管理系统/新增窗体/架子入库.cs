@@ -20,7 +20,7 @@ namespace 纺织贸易管理系统.新增窗体
         public 架子入库()
         {
             InitializeComponent();
-            uiDatePicker1.Value = DateTime.Now.Date;
+            uiDatePicker1.Value = DateTime.Now;
         }
 
         private void 确认出库ToolStripMenuItem_Click(object sender, EventArgs e)

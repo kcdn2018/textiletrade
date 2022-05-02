@@ -131,14 +131,14 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void Init()
         {
-            dateEdit1.DateTime = DateTime.Now.Date;
+            dateEdit1.DateTime = DateTime.Now;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.门市采样单, dateEdit1.DateTime, DanjuLeiXing.门市采样单);
             txtkehu.Text = "";       
             txtbeizhu.Text = "";
             listjiyang.Clear();
             for (int i = 0; i < 30 ; i++)
             {
-                listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text,own = User.user.YHBH
+                listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text,own = User.user.YHBH
             });
             }
             gridControl1.DataSource=listjiyang ;
@@ -168,7 +168,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+            listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
             gridControl1.RefreshDataSource();
         }
 
@@ -179,7 +179,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<JiYangBaoJia >(listjiyang, rowindex, gridView1, gridView1.FocusedRowHandle);
+            CopyRow.Copy<JiYangBaoJia >(listjiyang, rowindex, gridView1, gridView1.FocusedRowHandle,this );
         }
 
         private void 寄样单_Load(object sender, EventArgs e)
@@ -193,12 +193,12 @@ namespace 纺织贸易管理系统.新增窗体
                 if(useful==FormUseful.复制 )
                 {
                     Edit();
-                    dateEdit1.DateTime = DateTime.Now.Date;
+                    dateEdit1.DateTime = DateTime.Now;
                     txtdanhao.Text =  BianhaoBLL.CreatDanhao(FirstLetter.门市采样单 , dateEdit1.DateTime, DanjuLeiXing.门市采样单);                 
                     foreach (var j in listjiyang )
                     {
                         j.DH = txtdanhao.Text;
-                        j.RQ = dateEdit1.DateTime;
+                        j.RQ = danju.rq;
                     }
                 }
                 else
@@ -213,7 +213,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtdanhao.Text = danju.dh ;
             txtkehu.Text = danju.ksmc ;
             //txtwuliu.Text = danju.wuliugongsi;
-            dateEdit1.Text = danju.rq.ToShortDateString();
+           dateEdit1.DateTime=danju.rq;
             //txtyundanhao.Text = danju.wuliuBianhao ;
             //txtyunfei.Value =(double) danju.yunfei ;
             txtbeizhu.Text = danju.bz ;
@@ -221,7 +221,7 @@ namespace 纺织贸易管理系统.新增窗体
             var len = listjiyang.Count;
             for (int i = 0; i <30-len ; i++)
             {
-                listjiyang.Add(new JiYangBaoJia() { RQ = Convert.ToDateTime(dateEdit1.Text), DH = txtdanhao.Text });
+                listjiyang.Add(new JiYangBaoJia() { RQ = dateEdit1.DateTime, DH = txtdanhao.Text });
             }
             gridControl1.DataSource = listjiyang;
             
@@ -323,7 +323,7 @@ namespace 纺织贸易管理系统.新增窗体
                 dh = txtdanhao.Text,
                 bz = txtbeizhu.Text,
                 je = listjiyang.Sum(x => x.HejiJinE),
-                rq = Convert.ToDateTime(dateEdit1.Text),
+                rq = dateEdit1.DateTime,
                 ksmc = txtkehu.Text,
             };
             var dt = new DataTable("单据明细");
@@ -414,9 +414,42 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 票签模式ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = new 票签模式();
+            var form = new 票签模式();
             form.ShowDialog();
-            this.Hide();
+            int index=0;
+            for(int i=index;i<listjiyang .Count;i++)
+            {
+                if (string.IsNullOrWhiteSpace(listjiyang[i].SPMC))
+                {
+                    index = i;
+                    break;
+                }
+                else
+                {
+                    index = i;
+                }
+            }
+           foreach(JiYangBaoJia jiYangBaoJia in form.JiYangBaoJiaList )
+            {                  
+                    jiYangBaoJia.Danhao = txtdanhao.Text;
+                    jiYangBaoJia.RQ = danju.rq;
+                    jiYangBaoJia.own = User.user.YHBH;
+                    listjiyang[index ] = jiYangBaoJia;
+                    if (index  + 1 == listjiyang.Count)
+                    {
+                        for (int j = 0; j < 30; j++)
+                        {
+                            listjiyang.Add(new JiYangBaoJia()
+                            {
+                                RQ = dateEdit1.DateTime,
+                                DH = txtdanhao.Text,
+                                own = User.user.YHBH
+                            });
+                        }
+                    }
+                index++;
+            }
+            gridControl1.RefreshDataSource ();
         }
     }
 }

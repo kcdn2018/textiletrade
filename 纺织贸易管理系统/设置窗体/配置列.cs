@@ -36,19 +36,23 @@ namespace 纺织贸易管理系统.设置窗体
         private void 保存设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridView1.CloseEditor();
-            foreach (var c in collist )
-            { c.UserID = User.user.YHBH; }
+            //foreach (var c in collist )
+            //{ c.UserID = User.user.YHBH; 
+            //}
+            collist.ForEach(x => x.UserID = User.user.YHBH);
             label1 .Text = "正在保存，请等待";
             //Thread.Sleep(500);
             if (grid != null)
-            {             
+            {
+                collist.ForEach(x => x.GridName = grid.Name);
                     Connect.DeleteColumnTable(formname, grid.Name, User.user.YHBH);
                     Connect.SaveColumnTable(collist);  
-                   CreateGrid.Create(formname , grid );
+                    CreateGrid.Create(formname , grid );
             }
             else
             {
-                    Connect.DeleteColumnTable(formname, sunnyview.Name , User.user.YHBH);
+                collist.ForEach(x => x.GridName = sunnyview.Name);
+                Connect.DeleteColumnTable(formname, sunnyview.Name , User.user.YHBH);
                     Connect.SaveColumnTable(collist);
                     CreateGrid.CreateDatagridview(formname, sunnyview);
             }
@@ -60,7 +64,7 @@ namespace 纺织贸易管理系统.设置窗体
         {
             toolStripStatusLabel2.Text += formname;      
             cmbUser.DataSource= YhbService.GetYhblst().Select(x => x.YHBH).ToList ();
-            调用窗体ToolStripMenuItem.DataSource = Connect.GetFormName(); 
+            调用窗体ToolStripMenuItem.DataSource = Connect.GetFormName();
             调用窗体ToolStripMenuItem.Text = formname;
             if (!AccessBLL.CheckAccess("配置列"))
             {
@@ -309,7 +313,7 @@ namespace 纺织贸易管理系统.设置窗体
 
         private void 过滤ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            collist = collist.Distinct().ToList ();
+            collist = collist.Where((x, i) => collist .FindIndex(z => z.ColumnName  == x.ColumnName ) == i).ToList ();
             gridControl1.RefreshDataSource();
         }
 

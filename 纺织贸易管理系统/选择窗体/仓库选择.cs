@@ -11,7 +11,7 @@ using 纺织贸易管理系统.设置窗体;
 
 namespace 纺织贸易管理系统.选择窗体
 {
-    public partial class 仓库选择 : Form
+    public partial class 仓库选择 : Sunny.UI.UIForm 
     {
         public StockInfoTable stock = new StockInfoTable();
         public 仓库选择()
@@ -48,17 +48,15 @@ namespace 纺织贸易管理系统.选择窗体
         private void 仓库选择_FormClosed(object sender, FormClosedEventArgs e)
         {
             gridView1.CloseEditor();
-            stock =StockInfoTableService.GetOneStockInfoTable  (x => x.bianhao == gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"bianhao").ToString ());
+            if (gridView1.FocusedRowHandle >= 0)
+            {
+                stock = StockInfoTableService.GetOneStockInfoTable(x => x.bianhao == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bianhao").ToString());
+            }
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void 仓库选择_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void 保存样式ToolStripMenuItem_Click(object sender, EventArgs e)

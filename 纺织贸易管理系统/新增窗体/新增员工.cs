@@ -78,7 +78,12 @@ namespace 纺织贸易管理系统.新增窗体
             InitPingzhong();
             if (Useful == FormUseful.新增)
             {
-                YuanGongTableService .InsertYuanGongTable (LinkMan);               
+                YuanGongTableService .InsertYuanGongTable (LinkMan);
+               if( Sunny.UI.UIMessageBox.ShowAsk("是否同时创建一个登陆账户？"))
+                {
+                    MainForm.mainform.AddMidForm(new 新增用户() { useful = FormUseful.新增,Yonghu =new Yhb() { YHMC =txtpingming.Text } });
+                    this.Dispose();
+                }
             }
             else
             {
@@ -87,6 +92,11 @@ namespace 纺织贸易管理系统.新增窗体
             LinkMan = new YuanGongTable ();
             Useful = FormUseful.新增;
             InitText();
+        }
+
+        private void uiSymbolButton2_Click(object sender, EventArgs e)
+        {
+            this.Dispose ();
         }
     }
 }

@@ -291,8 +291,8 @@ namespace 纺织贸易管理系统.其他窗体
                     var j = juanHao.Where(x => x.JuanHao == gridView2.GetRowCellValue(i, "JuanHao").ToString()).ToList();
                     if (j.Count > 0)
                     {
-                        biaoqianmishu = j[0].biaoqianmishu;
-                        yijianmishu = j[0].MiShu;
+                        biaoqianmishu += j[0].biaoqianmishu;
+                        yijianmishu += j[0].MiShu;
                         yijianjuanshu += 1;
                     }
                 }

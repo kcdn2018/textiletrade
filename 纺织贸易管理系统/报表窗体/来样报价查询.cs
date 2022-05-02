@@ -31,7 +31,7 @@ namespace 纺织贸易管理系统.报表窗体
         private void query()
         {
             Sunny.UI.UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            gridControl1.DataSource = JiYangBaoJiaService.GetJiYangBaoJialst(x => x.RQ >= dateEdit1.DateTime && x.RQ <= dateEdit2.DateTime && x.KHMC.Contains(txtksmc.Text)
+            gridControl1.DataSource = JiYangBaoJiaService.GetJiYangBaoJialst(x =>x.Houzhengli.Contains (txthouzhengli.Text )&& x.RQ >= dateEdit1.DateTime && x.RQ <= dateEdit2.DateTime && x.KHMC.Contains(txtksmc.Text)
              &&  x.SPMC.Contains(txtpingming.Text) && x.EnglishName.Contains(txtyingwenming.Text)&& x.SPBH.Contains(txtbianhao.Text) && x.DH.Contains(FirstLetter.报价单 ) && x.gg.Contains(txtGuige.Text)).OrderByDescending (x=>x.RQ );
             Sunny.UI.UIWaitFormService.HideWaitForm ();
         }

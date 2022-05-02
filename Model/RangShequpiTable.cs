@@ -47,5 +47,13 @@ namespace 纺织贸易管理系统
         /// 坯布厂
         /// </summary>
         public System.String PibuChang { get; set; }
+        /// <summary>
+        /// 坯布门幅
+        /// </summary>
+        public string FrabicWidth { get; set; }
+        /// <summary>
+        /// 剩余米数
+        /// </summary>
+        public decimal RemainingMetres { get; set; }
     }
 }

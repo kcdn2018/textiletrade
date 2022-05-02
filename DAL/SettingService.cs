@@ -15,9 +15,10 @@ namespace DAL
         public static Setting GetSetting(Setting setting )
         {
             var sql = $"select * from setting where formname='{setting.formname }' and settingname='{setting.settingname }' limit 1";
-            SQLiteDataAdapter dp = new SQLiteDataAdapter(sql , Connect.CreatSqlite());
+            SQLiteDataAdapter dp = new SQLiteDataAdapter(sql, Connect.CreatSqlite());
             DataTable dt = new DataTable();
             dp.Fill(dt);
+            //var dt = Connect.GetSqlsugarSqlite().Ado.GetDataTable(sql);
             if (dt.Rows.Count > 0)
             {
                 return  SQLHelper.SqlSugor.ChangToModel<Setting>(dt)[0];

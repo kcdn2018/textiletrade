@@ -238,7 +238,7 @@
             this.txtordernum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtordernum.DisabledBackColor = System.Drawing.Color.White;
             this.txtordernum.ForeColor = System.Drawing.Color.Black;
-            this.txtordernum.Location = new System.Drawing.Point(444, 98);
+            this.txtordernum.Location = new System.Drawing.Point(444, 97);
             this.txtordernum.Name = "txtordernum";
             this.txtordernum.PreventEnterBeep = true;
             this.txtordernum.Size = new System.Drawing.Size(121, 21);
@@ -266,7 +266,7 @@
             this.txtGuige.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtGuige.DisabledBackColor = System.Drawing.Color.White;
             this.txtGuige.ForeColor = System.Drawing.Color.Black;
-            this.txtGuige.Location = new System.Drawing.Point(444, 56);
+            this.txtGuige.Location = new System.Drawing.Point(444, 57);
             this.txtGuige.Name = "txtGuige";
             this.txtGuige.PreventEnterBeep = true;
             this.txtGuige.Size = new System.Drawing.Size(121, 21);
@@ -295,7 +295,7 @@
             this.txthetonghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txthetonghao.DisabledBackColor = System.Drawing.Color.White;
             this.txthetonghao.ForeColor = System.Drawing.Color.Black;
-            this.txthetonghao.Location = new System.Drawing.Point(67, 98);
+            this.txthetonghao.Location = new System.Drawing.Point(67, 97);
             this.txthetonghao.Name = "txthetonghao";
             this.txthetonghao.PreventEnterBeep = true;
             this.txthetonghao.Size = new System.Drawing.Size(121, 21);
@@ -324,7 +324,7 @@
             this.txtyanse.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtyanse.DisabledBackColor = System.Drawing.Color.White;
             this.txtyanse.ForeColor = System.Drawing.Color.Black;
-            this.txtyanse.Location = new System.Drawing.Point(256, 98);
+            this.txtyanse.Location = new System.Drawing.Point(256, 97);
             this.txtyanse.Name = "txtyanse";
             this.txtyanse.PreventEnterBeep = true;
             this.txtyanse.Size = new System.Drawing.Size(121, 21);
@@ -353,7 +353,7 @@
             this.txtpingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtpingming.DisabledBackColor = System.Drawing.Color.White;
             this.txtpingming.ForeColor = System.Drawing.Color.Black;
-            this.txtpingming.Location = new System.Drawing.Point(256, 56);
+            this.txtpingming.Location = new System.Drawing.Point(256, 57);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.PreventEnterBeep = true;
             this.txtpingming.Size = new System.Drawing.Size(121, 21);
@@ -382,7 +382,7 @@
             this.txtbianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtbianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtbianhao.Location = new System.Drawing.Point(67, 56);
+            this.txtbianhao.Location = new System.Drawing.Point(67, 57);
             this.txtbianhao.Name = "txtbianhao";
             this.txtbianhao.PreventEnterBeep = true;
             this.txtbianhao.Size = new System.Drawing.Size(121, 21);
@@ -626,6 +626,7 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 

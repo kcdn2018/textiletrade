@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
@@ -35,7 +36,7 @@ namespace 纺织贸易管理系统.设置窗体
             }
         }
         public static void Create(string formname,GridView  gridView  )
-        {
+        { 
             gridView.OptionsView.AllowCellMerge = false ;
             gridView.Columns.Clear();
             gridView.OptionsClipboard.CopyColumnHeaders =DevExpress.Utils.DefaultBoolean.False ;
@@ -62,16 +63,17 @@ namespace 纺织贸易管理系统.设置窗体
                     if (columnTable.ColumnText.Contains("价") || columnTable.ColumnText.Contains("含税") || columnTable.ColumnText.Contains("金额"))
                     {
                         gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                        gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatString = "C2";
+                        gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatString = "C2";                     
                     }
                     else
                     {
                         gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
                         gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatString = $"F{QueryTime.Digit}";
+                        gridView.Columns[columnTable.DataProperty].SummaryItem.DisplayFormat = "{0:0.##}";
                     }
                     gridView.Columns[columnTable.DataProperty].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                     gridView.Columns[columnTable.DataProperty].SummaryItem.FieldName = columnTable.DataProperty;
-                    gridView.Columns[columnTable.DataProperty].SummaryItem.DisplayFormat  ="{0:0.##}";
+                   gridView.Columns[columnTable.DataProperty].SummaryItem.DisplayFormat   = "{0:0.##}";
                     gridView.OptionsView.ShowFooter = true;
                 }
                 var a = GetAccess.AccessList.Where(x => x.AccessName == (formname + "价格可见")).ToList();
@@ -99,6 +101,7 @@ namespace 纺织贸易管理系统.设置窗体
             }
             gridView.IndicatorWidth = 45;
             gridView.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(gridView1_CustomDrawRowIndicator);
+            gridView.CustomColumnDisplayText += CustomColumnDisplayText;
             gridView.OptionsView.EnableAppearanceEvenRow = true;
             gridView.OptionsView.EnableAppearanceOddRow = true;
             gridView.Appearance.EvenRow.BackColor = System.Drawing.ColorTranslator.FromHtml( Connect.GetColumnSetting().EvenColor);
@@ -212,6 +215,11 @@ namespace 纺织贸易管理系统.设置窗体
             }
             Connect.DeleteColumnTable(formname, grid.Name, User.user.YHBH); 
             Connect.SaveColumnTable(collist);
+        }
+        private  static  void CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (Convert.ToString(e.Value) == "0")
+                e.DisplayText = string.Empty;
         }
     }
 }
