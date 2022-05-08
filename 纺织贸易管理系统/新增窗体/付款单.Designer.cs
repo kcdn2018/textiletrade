@@ -255,6 +255,7 @@
             this.txtkehu.Name = "txtkehu";
             this.txtkehu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtkehu.Properties.ReadOnly = true;
             this.txtkehu.Size = new System.Drawing.Size(147, 20);
             this.txtkehu.TabIndex = 19;
             this.txtkehu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtkehu_ButtonClick);
@@ -302,8 +303,7 @@
             // 
             // 付款单
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(714, 588);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
@@ -313,6 +313,7 @@
             this.Name = "付款单";
             this.Text = "付款单";
             this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 714, 588);
             this.Load += new System.EventHandler(this.收款单_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -41,5 +41,7 @@ namespace Model
         public const string 点色通知单 = "DS";
         public const string 配桶登记单 = "PT";
         public const string 账户转账单 = "ZZ";
+        public const string 白坯发货单 = "BP";
+        public const string 委外通知单 = "WT";
     }
 }

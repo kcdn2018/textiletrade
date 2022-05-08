@@ -44,7 +44,7 @@ namespace Tools
             gongyidt.Columns.Add("加工要求");
             gongyidt.Columns.Add("单价");
             foreach (var g in shengChengGongYis )
-            {              
+            {
                 var row = gongyidt.NewRow();
                 row["加工单位"] = g.JGDW;
                 row["加工工艺"] = g.JGGY;

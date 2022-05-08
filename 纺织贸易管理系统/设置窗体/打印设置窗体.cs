@@ -25,6 +25,7 @@ namespace 纺织贸易管理系统.设置窗体
             GetAllPrinter();
             printer = cmbprinters.Text;
             copyies = txtNum.Value;
+            printerSettings.IsCancelPrint = true;
         }
         private void GetAllPrinter()
         {
@@ -68,6 +69,7 @@ namespace 纺织贸易管理系统.设置窗体
             printerSettings.PrintName  = cmbprinters.Text;
             printerSettings.PrintNum  =(short ) txtNum.Value;
             printerSettings.Printmodel = PrintModel.Print;
+            printerSettings.IsCancelPrint = false;
             this.Close();
         }
 

@@ -136,10 +136,8 @@ namespace BLL
         {
             return danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
         }
-        public static async  void  单据审核(string danhao)
-        {
-            await Task.Run(() =>
-            {
+        public static   void  单据审核(string danhao)
+        {       
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
                 订单BLL.增加已发货数量(danjumingxitables);
@@ -158,7 +156,6 @@ namespace BLL
                 财务BLL.减少剩余额度(danju.ksbh, danju.je);
                 库存BLL.增加发货数量(danju, danjumingxitables);
                 //return "审核成功";
-            });
         }
         public static   void 单据反审核(string danhao)
         {

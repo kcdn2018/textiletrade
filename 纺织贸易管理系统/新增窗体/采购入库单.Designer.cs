@@ -651,6 +651,7 @@
             this.txtkehu.Name = "txtkehu";
             this.txtkehu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtkehu.Properties.ReadOnly = true;
             this.txtkehu.Size = new System.Drawing.Size(147, 20);
             this.txtkehu.TabIndex = 19;
             this.txtkehu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtkehu_ButtonClick);

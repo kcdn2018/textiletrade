@@ -132,5 +132,16 @@ namespace 纺织贸易管理系统.报表窗体
                 MainForm.mainform.AddMidForm(new 点色通知单() { UseFul = FormUseful.查看, danju = DanjuTableService.GetOneDanjuTable(x => x.dh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) });
             }
         }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (AccessBLL.CheckAccess("修改配桶登记单") == true)
+            {
+                if (gridView1.FocusedRowHandle >= 0)
+                {
+                    MainForm.mainform.AddMidForm(new 配桶登记单() { UseFul = FormUseful.查看, danju = DanjuTableService.GetOneDanjuTable(x => x.dh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) });
+                }
+            }
+        }
     }
 }

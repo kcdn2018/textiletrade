@@ -417,7 +417,7 @@ namespace 纺织贸易管理系统.新增窗体
                     pingzhong.lxr = jiYangBaoJia.Lianxiren;
                     pingzhong.EnglishName = jiYangBaoJia.EnglishName;
                     pingzhong.HH = jiYangBaoJia.Kuanhao;
-                    pingzhong.rq = jiYangBaoJia.RQ.Date;
+                    pingzhong.rq = dateEdit1.DateTime ;
                     pingzhong.hzl = jiYangBaoJia.Houzhengli;
                     pingzhong.hzljg = jiYangBaoJia.HouzhengliPrice.ToString ();
                     AlterDlg.Show($"正在打印第{i+1}行信息的标签");

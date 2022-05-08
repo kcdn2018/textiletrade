@@ -29,7 +29,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             InitializeComponent();
             cmbzhidongbianhao.Text = SettingService.GetSetting (new Setting() { formname = this.Name, settingname = "自动编号", settingValue = "是" }).settingValue ;
-            var l = LetterTableService.GetOneLetterTable(x => x.own == User.user.own).FirstLetter;
+            var l = LetterTableService.GetOneLetterTable(x => x.own == User.user.YHBH ).FirstLetter;
             txtFirsetLetter.Text = l == string.Empty ? "YB" : l;
             cmbMoban.Items.AddRange (Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray ());
             if (cmbMoban.Items.Count > 0)
@@ -286,7 +286,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace ( txtBianhao.Text.Trim ()))
+            if(string.IsNullOrWhiteSpace(txtBianhao.Text))
             {
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "编号不能为空,请输入布料编号！n\\保存失败");
                 return;
@@ -295,10 +295,8 @@ namespace 纺织贸易管理系统.新增窗体
             { return; }
             if (Useful == FormUseful.新增)
             {
-
                 dbService.Insertdb(Pingzhong);
                 var madan = new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image),rq=DateTime.Now  };
-
                 MadanPictureService.InsertMadanPicture(madan );
                 ShengChengGongYiService.DeleteShengChengGongYi(x => x.SPBH == Pingzhong.bh);
                 ShengChengGongYiService.InsertShengChengGongYilst(CreateGongyi());
@@ -306,8 +304,7 @@ namespace 纺织贸易管理系统.新增窗体
             else
             {
                 if (Useful == FormUseful.复制)
-                {
-                   
+                {                   
                     dbService.Insertdb(Pingzhong);
                     MadanPictureService.InsertMadanPicture(new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now });
                     ShengChengGongYiService.DeleteShengChengGongYi(x => x.SPBH == Pingzhong.bh);
@@ -360,9 +357,12 @@ namespace 纺织贸易管理系统.新增窗体
             InitPingzhong();
             var fm = new 打印设置窗体 ();
             fm.ShowDialog();
-            var printset = fm.printerSettings ;
-            printset.Path = PrintPath.标签模板 + cmbMoban.Text;
-            Tools.打印标签.打印(0, Pingzhong, printset, CreateGongyi(), new JiYangBaoJia());
+            if (!fm.printerSettings.IsCancelPrint)
+            {
+                var printset = fm.printerSettings;
+                printset.Path = PrintPath.标签模板 + cmbMoban.Text;
+                Tools.打印标签.打印(0, Pingzhong, printset, CreateGongyi(), new JiYangBaoJia());
+            }
         }
 
         private void 新增品种_FormClosing(object sender, FormClosingEventArgs e)
@@ -375,7 +375,7 @@ namespace 纺织贸易管理系统.新增窗体
             }
             else
             {
-                LetterTableService.UpdateLetterTable(new LetterTable() { FirstLetter = txtFirsetLetter.Text, own = User.user.YHBH }, x => x.own == User.user.own);
+                LetterTableService.UpdateLetterTable(new LetterTable() { FirstLetter = txtFirsetLetter.Text, own = User.user.YHBH }, x => x.own == User.user.YHBH );
             }
         }
 

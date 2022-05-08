@@ -31,6 +31,7 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 gridView2.Columns["SampleNum"].ColumnEdit = BuliaoBTN ;
                 gridView2.Columns["OrderNum"].ColumnEdit = BuliaoBTN;
+                gridView1.Columns["Bianhao"].ColumnEdit = ButtonEdit1;
                 gridView1.Columns["OrderNum"].ColumnEdit = ButtonEdit2;
                 gridView1.Columns["danwei"].ColumnEdit = cmddanwei;
                 gridView1.Columns["yanse"].ColumnEdit = colorbtn;
@@ -103,6 +104,7 @@ namespace 纺织贸易管理系统.新增窗体
             dateEdit1.DateTime = DateTime.Now;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.配桶登记单, dateEdit1.DateTime, DanjuLeiXing.配桶登记单);
             danjumingxitables.Clear();
+            ToupiList.Clear();
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == txtdanhao.Text);
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)
@@ -170,7 +172,7 @@ namespace 纺织贸易管理系统.新增窗体
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridView1.CloseEditor();
-            if (danjumingxitables.Sum(x => x.chengpingmishu) == 0)
+            if (danjumingxitables.Sum(x => x.chengpingmishu  ) == 0)
             {
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "布料数量不能为0，请填写数量！");
                 return;
@@ -194,9 +196,10 @@ namespace 纺织贸易管理系统.新增窗体
         {
             danju.dh = 单据BLL.检查单号(txtdanhao.Text);
             InitDanju();
+            ToupiList.ForEach(x => x.DocumentNum = danju.dh);
             DanjuTableService.InsertDanjuTable(danju);
             var mingxis = danjumingxitables.Where(x => !string.IsNullOrEmpty(x.yanse )).ToList();
-            库存BLL.减少库存(ToupiList , danju);
+            库存BLL.减少库存(ToupiList.Where (x=>!string.IsNullOrEmpty (x.SampleNum )).ToList () , danju);
             mingxis.ForEach(x => { x.danhao = danju.dh; x.houzhengli += "+已配桶"; });
             foreach (var m in mingxis)
             {
@@ -223,6 +226,7 @@ namespace 纺织贸易管理系统.新增窗体
             }
             库存BLL.增加库存(mingxis, danju);
             danjumingxitableService.Insertdanjumingxitablelst(mingxis);
+            RangShequpiTableService.InsertRangShequpiTablelst(ToupiList.Where(x => !string.IsNullOrEmpty(x.SampleNum)).ToList());
         }
         private void EditSave()
         {
@@ -253,6 +257,10 @@ namespace 纺织贸易管理系统.新增窗体
             danjumingxitableService.Insertdanjumingxitablelst(mingxis);
             RangShequpiTableService.DeleteRangShequpiTable(x => x.DocumentNum == txtdanhao.Text);
             RangShequpiTableService.InsertRangShequpiTablelst(ToupiList);
+            if(UseFul ==FormUseful.查看  )
+            {
+                保存ToolStripMenuItem.Enabled = false;
+            }
         }
         private void InitDanju()
         {
@@ -405,6 +413,220 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 danjumingxitables[gridView1.FocusedRowHandle].ColorNum = color.ColorNum;
                 danjumingxitables[gridView1.FocusedRowHandle].yanse = color.ColorName;
+            }
+            gridControl1.RefreshDataSource();
+        }
+
+        private void ButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var fm = new 订单号选择() { UseFul = 1 };
+            fm.ShowDialog();
+            var row = gridView2.FocusedRowHandle;
+            foreach (var d in fm.returnDatas)
+            {
+                danjumingxitables[row].OrderNum = d.order.OrderNum;
+                danjumingxitables[row].ContractNum = d.order.ContractNum;
+                danjumingxitables[row].CustomName = d.order.CustomerName;
+                danjumingxitables[row].bizhong = "人民币￥";
+                danjumingxitables[row].Bianhao = d.orderDetail.sampleNum;
+                danjumingxitables[row].guige = d.orderDetail.Specifications;
+                danjumingxitables[row].chengfeng = d.orderDetail.Component;
+                danjumingxitables[row].pingming = d.orderDetail.sampleName;
+                danjumingxitables[row].kezhong = d.orderDetail.weight;
+                danjumingxitables[row].menfu = d.orderDetail.width;
+                danjumingxitables[row].FrabicWidth = d.orderDetail.width;
+                danjumingxitables[row].danwei = "米";
+                danjumingxitables[row].OrderNum = d.orderDetail.OrderNum;
+                danjumingxitables[row].kuanhao = d.orderDetail.Kuanhao;
+                danjumingxitables[row].yanse = d.orderDetail.color;
+                danjumingxitables[row].chengpingmishu = d.orderDetail.Num - d.orderDetail.consignmentNum;
+                danjumingxitables[row].Huahao = d.orderDetail.Huahao;
+                danjumingxitables[row].ColorNum = d.orderDetail.ColorNum;
+                danjumingxitables[row].CustomerColorNum = d.orderDetail.CustomerColorNum;
+                danjumingxitables[row].CustomerPingMing = d.orderDetail.CustomerPingMing;
+                var mx = ToupiList.Where(x => x.SampleNum == d.orderDetail.sampleNum && x.OrderNum == d.orderDetail.OrderNum && x.color == d.orderDetail.color).ToList();
+                if (mx.Count > 0)
+                {
+                    danjumingxitables[row].ganghao = mx[0].ganghao;
+                }
+                row++;
+                if (row == danjumingxitables.Count - 1)
+                    for (int j = 0; j < 30; j++)
+                    {
+                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
+                    }
+            }
+            gridControl2.RefreshDataSource();
+            gridView2.CloseEditor();
+        }
+
+        private void ButtonEdit1_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var row = gridView2.FocusedRowHandle;
+            if (danjumingxitables[row].OrderNum == null)
+            {
+                var fm = new 品种选择();
+                fm.ShowDialog();
+                var i = gridView2.FocusedRowHandle;
+                foreach (var pingzhong in fm.pingzhong)
+                {
+                    danjumingxitables[i].bizhong = "人民币￥";
+                    danjumingxitables[i].Bianhao = pingzhong.bh;
+                    danjumingxitables[i].guige = pingzhong.gg;
+                    danjumingxitables[i].chengfeng = pingzhong.cf;
+                    danjumingxitables[i].pingming = pingzhong.pm;
+                    danjumingxitables[i].kezhong = pingzhong.kz;
+                    danjumingxitables[i].menfu = pingzhong.mf;
+                    danjumingxitables[i].FrabicWidth = pingzhong.mf;
+                    danjumingxitables[i].danwei = "米";
+                    danjumingxitables[i].Kuwei  = string.Empty;
+                    danjumingxitables[i].ColorNum  = string.Empty;
+                    var mx = ToupiList.Where(x => x.SampleNum == pingzhong.bh && x.OrderNum == x.OrderNum && x.color == x.color).ToList();
+                    if (mx.Count > 0)
+                    {
+                        danjumingxitables[i].FrabicWidth = mx[0].FrabicWidth;
+                        danjumingxitables[i].houzhengli = mx[0].houzhengli;
+                    }    
+                    else
+                    {
+                        danjumingxitables[i].houzhengli = mx[0].houzhengli;
+                    }
+                    i++;
+                    if (i == danjumingxitables.Count - 1)
+                        for (int j = 0; j < 30; j++)
+                        {
+                            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
+                        }
+                }
+                fm.Dispose();
+                gridControl1.RefreshDataSource();
+                gridView1.CloseEditor();
+            }
+            else
+            {
+                var fm = new 订单明细选择() { OrderNum = danjumingxitables[row].OrderNum };
+                fm.ShowDialog();
+                var order = OrderTableService.GetOneOrderTable(x => x.OrderNum == danjumingxitables[row].OrderNum);
+                var i = gridView2.FocusedRowHandle;
+                foreach (var pingzhong in fm.pingzhong)
+                {
+                    danjumingxitables[i].bizhong = "人民币￥";
+                    danjumingxitables[i].Bianhao = pingzhong.sampleNum;
+                    danjumingxitables[i].guige = pingzhong.Specifications;
+                    danjumingxitables[i].chengfeng = pingzhong.Component;
+                    danjumingxitables[i].pingming = pingzhong.sampleName;
+                    danjumingxitables[i].kezhong = pingzhong.weight;
+                    danjumingxitables[i].menfu = pingzhong.width;
+                    danjumingxitables[i].FrabicWidth = pingzhong.width;
+                    danjumingxitables[i].danwei = "米";
+                    danjumingxitables[i].OrderNum = pingzhong.OrderNum;
+                    danjumingxitables[i].kuanhao = pingzhong.Kuanhao;
+                    danjumingxitables[i].yanse = pingzhong.color;
+                    danjumingxitables[i].chengpingmishu = pingzhong.Num - pingzhong.consignmentNum;
+                    danjumingxitables[i].ContractNum = order.ContractNum;
+                    danjumingxitables[i].CustomName = order.CustomerName;
+                    danjumingxitables[i].Huahao = pingzhong.Huahao;
+                    danjumingxitables[i].ColorNum = pingzhong.ColorNum;
+                    danjumingxitables[i].CustomerColorNum = pingzhong.CustomerColorNum;
+                    danjumingxitables[i].CustomerPingMing = pingzhong.CustomerPingMing;
+                    var mx = ToupiList.Where(x => x.SampleNum == pingzhong.sampleNum && x.OrderNum == pingzhong.OrderNum && x.color == pingzhong.color).ToList();
+                    if (mx.Count > 0)
+                    {
+                        danjumingxitables[i].FrabicWidth = mx[0].FrabicWidth;
+                        danjumingxitables[i].houzhengli = mx[0].houzhengli ;
+                    }
+                    else
+                    {
+                        danjumingxitables[i].houzhengli = string.Empty ;
+                    }
+                    i++;
+                    if (i == danjumingxitables.Count - 1)
+                        for (int j = 0; j < 30; j++)
+                        {
+                            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
+                        }
+                }
+                foreach (var d in danjumingxitables.Where(x => !string.IsNullOrWhiteSpace(x.Bianhao)))
+                {
+                    var t = ToupiList.Where(x => x.ganghao == d.ganghao).ToList();
+                    if (t.Count > 0)
+                    {
+                        d.Rangchang = t[0].FactoryName;
+                        d.houzhengli = t[0].houzhengli;
+                    }
+                }
+                gridControl1.RefreshDataSource();
+                gridView1.CloseEditor();
+            }
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (gridView1.FocusedColumn.FieldName == "chengpingmishu")
+            {
+                ToupiList[0].ToupiMishu = danjumingxitables.Sum(x => x.chengpingmishu );
+                ToupiList[0].ToupiJuanshu = danjumingxitables.Sum(x => x.chengpingjuanshu);
+                gridControl2.RefreshDataSource();
+            }
+            else
+            {
+                if (gridView1.FocusedColumn.FieldName == "chengpingjuanshu")
+                {
+                    ToupiList[0].ToupiMishu = danjumingxitables.Sum(x => x.chengpingmishu);
+                    ToupiList[0].ToupiJuanshu = danjumingxitables.Sum(x => x.chengpingjuanshu);
+                    gridControl2.RefreshDataSource();
+                }
+            }
+        }
+
+        private void 相同信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (var pingzhong in ToupiList.Where(x => x.SampleNum != null).ToList())
+            {
+                var mingxi = (new danjumingxitable()
+                {
+                    CustomName = pingzhong.CustomName,
+                    chengfeng = pingzhong.chengfeng,
+                    ganghao = pingzhong.ganghao,
+                    Bianhao = pingzhong.SampleNum,
+                    pingming = pingzhong.sampleName,
+                    guige = pingzhong.Specifications,
+                    ContractNum = pingzhong.ContractNum,
+                    chengpingmishu = pingzhong.ToupiMishu,
+                    chengpingjuanshu = pingzhong.ToupiJuanshu,
+                    bizhong = "人民币￥",
+                    beizhu = pingzhong.SampleRemarks,
+                    Chengpingyanse = pingzhong.color,
+                    yanse = pingzhong.color,
+                    danhao = txtdanhao.Text,
+                    menfu = pingzhong.menfu,
+                    Kuwei = pingzhong.Remarkers,
+                    kezhong = pingzhong.kezhong,
+                    kuanhao = pingzhong.kuanhao,
+                    OrderNum = pingzhong.OrderNum,
+                    Huahao = pingzhong.Huahao,
+                    rq = dateEdit1.DateTime,
+                    danwei = "米",
+                    rkdh = pingzhong.rkdh,
+                    CustomerColorNum = pingzhong.CustomerColorNum,
+                    CustomerPingMing = pingzhong.CustomerPingMing,
+                    ColorNum = pingzhong.ColorNum,
+                    Rangchang = pingzhong.FactoryName,
+                    Pihao = pingzhong.Pihao,
+                    PiBuChang = pingzhong.PibuChang,
+                    FrabicWidth = pingzhong.FrabicWidth,
+                });
+                if (pingzhong.houzhengli != "")
+                {
+                    mingxi.houzhengli = pingzhong.houzhengli ;
+                }
+                else
+                {
+                    mingxi.houzhengli = string.Empty ;
+                }
+                danjumingxitables[i] = (mingxi);
+                i++;
             }
             gridControl1.RefreshDataSource();
         }

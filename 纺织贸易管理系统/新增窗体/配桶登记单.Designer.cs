@@ -75,6 +75,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
+            this.相同信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtgengdanyuan.Properties)).BeginInit();
@@ -133,6 +134,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.打印单据ToolStripMenuItem.Name = "打印单据ToolStripMenuItem";
             this.打印单据ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
             this.打印单据ToolStripMenuItem.Text = "打印单据";
+            this.打印单据ToolStripMenuItem.Visible = false;
             // 
             // 打印编辑ToolStripMenuItem
             // 
@@ -238,6 +240,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtkehu.Name = "txtkehu";
             this.txtkehu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtkehu.Properties.ReadOnly = true;
             this.txtkehu.Size = new System.Drawing.Size(147, 20);
             this.txtkehu.TabIndex = 19;
             this.txtkehu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtkehu_ButtonClick);
@@ -251,14 +254,15 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtlianxidianhua.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtlianxidianhua.Location = new System.Drawing.Point(314, 49);
             this.txtlianxidianhua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtlianxidianhua.Maximum = 2147483647D;
-            this.txtlianxidianhua.Minimum = -2147483648D;
             this.txtlianxidianhua.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtlianxidianhua.Name = "txtlianxidianhua";
             this.txtlianxidianhua.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtlianxidianhua.ShowText = false;
             this.txtlianxidianhua.Size = new System.Drawing.Size(147, 23);
+            this.txtlianxidianhua.Style = Sunny.UI.UIStyle.Custom;
             this.txtlianxidianhua.TabIndex = 46;
             this.txtlianxidianhua.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtlianxidianhua.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX14
             // 
@@ -281,15 +285,16 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtdanhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtdanhao.Location = new System.Drawing.Point(77, 5);
             this.txtdanhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtdanhao.Maximum = 2147483647D;
-            this.txtdanhao.Minimum = -2147483648D;
             this.txtdanhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtdanhao.Name = "txtdanhao";
             this.txtdanhao.ReadOnly = true;
             this.txtdanhao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtdanhao.ShowText = false;
             this.txtdanhao.Size = new System.Drawing.Size(156, 23);
+            this.txtdanhao.Style = Sunny.UI.UIStyle.Custom;
             this.txtdanhao.TabIndex = 21;
             this.txtdanhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtdanhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtbeizhu
             // 
@@ -300,14 +305,15 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtbeizhu.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbeizhu.Location = new System.Drawing.Point(77, 97);
             this.txtbeizhu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtbeizhu.Maximum = 2147483647D;
-            this.txtbeizhu.Minimum = -2147483648D;
             this.txtbeizhu.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtbeizhu.ShowText = false;
             this.txtbeizhu.Size = new System.Drawing.Size(613, 23);
+            this.txtbeizhu.Style = Sunny.UI.UIStyle.Custom;
             this.txtbeizhu.TabIndex = 27;
             this.txtbeizhu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbeizhu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX1
             // 
@@ -394,15 +400,16 @@ namespace 纺织贸易管理系统.新增窗体
             this.复制行ToolStripMenuItem,
             this.粘贴行ToolStripMenuItem,
             this.配置列ToolStripMenuItem,
-            this.保存样式ToolStripMenuItem});
+            this.保存样式ToolStripMenuItem,
+            this.相同信息ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 180);
             // 
             // 删除行ToolStripMenuItem
             // 
             this.删除行ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
             this.删除行ToolStripMenuItem.Name = "删除行ToolStripMenuItem";
-            this.删除行ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除行ToolStripMenuItem.Text = "删除行";
             this.删除行ToolStripMenuItem.Click += new System.EventHandler(this.删除行ToolStripMenuItem_Click);
             // 
@@ -410,7 +417,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.添加行ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
             this.添加行ToolStripMenuItem.Name = "添加行ToolStripMenuItem";
-            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.添加行ToolStripMenuItem.Text = "添加行";
             this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click);
             // 
@@ -418,7 +425,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.复制行ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Copy_32x32;
             this.复制行ToolStripMenuItem.Name = "复制行ToolStripMenuItem";
-            this.复制行ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.复制行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.复制行ToolStripMenuItem.Text = "复制行";
             this.复制行ToolStripMenuItem.Click += new System.EventHandler(this.复制行ToolStripMenuItem_Click);
             // 
@@ -426,7 +433,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.粘贴行ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Paste_32x32;
             this.粘贴行ToolStripMenuItem.Name = "粘贴行ToolStripMenuItem";
-            this.粘贴行ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.粘贴行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.粘贴行ToolStripMenuItem.Text = "粘贴行";
             this.粘贴行ToolStripMenuItem.Click += new System.EventHandler(this.粘贴行ToolStripMenuItem_Click);
             // 
@@ -434,7 +441,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.配置列ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.reading_32x32;
             this.配置列ToolStripMenuItem.Name = "配置列ToolStripMenuItem";
-            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.配置列ToolStripMenuItem.Text = "配置列";
             this.配置列ToolStripMenuItem.Click += new System.EventHandler(this.配置列ToolStripMenuItem_Click);
             // 
@@ -442,7 +449,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.保存样式ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
             this.保存样式ToolStripMenuItem.Name = "保存样式ToolStripMenuItem";
-            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.保存样式ToolStripMenuItem.Text = "保存样式";
             this.保存样式ToolStripMenuItem.Click += new System.EventHandler(this.保存样式ToolStripMenuItem_Click);
             // 
@@ -461,6 +468,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             // 
             // ButtonEdit1
             // 
@@ -468,6 +476,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.ButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.ButtonEdit1.Name = "ButtonEdit1";
+            this.ButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ButtonEdit1_ButtonClick_1);
             // 
             // ButtonEdit2
             // 
@@ -475,7 +484,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.ButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.ButtonEdit2.Name = "ButtonEdit2";
-            this.ButtonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ButtonEdit1_ButtonClick);
+            this.ButtonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ButtonEdit2_ButtonClick);
             // 
             // cmddanwei
             // 
@@ -503,6 +512,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.uiSplitContainer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.uiSplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiSplitContainer1.Location = new System.Drawing.Point(0, 203);
+            this.uiSplitContainer1.MinimumSize = new System.Drawing.Size(20, 20);
             this.uiSplitContainer1.Name = "uiSplitContainer1";
             this.uiSplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -517,6 +527,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.uiSplitContainer1.SplitterDistance = 217;
             this.uiSplitContainer1.SplitterWidth = 11;
             this.uiSplitContainer1.TabIndex = 53;
+            this.uiSplitContainer1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiGroupBox2
             // 
@@ -532,6 +543,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.uiGroupBox2.TabIndex = 0;
             this.uiGroupBox2.Text = "坯布信息";
             this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiGroupBox2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // gridControl2
             // 
@@ -648,6 +660,15 @@ namespace 纺织贸易管理系统.新增窗体
             this.uiGroupBox1.TabIndex = 0;
             this.uiGroupBox1.Text = "配桶信息";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // 相同信息ToolStripMenuItem
+            // 
+            this.相同信息ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Copy_32x32;
+            this.相同信息ToolStripMenuItem.Name = "相同信息ToolStripMenuItem";
+            this.相同信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.相同信息ToolStripMenuItem.Text = "相同信息";
+            this.相同信息ToolStripMenuItem.Click += new System.EventHandler(this.相同信息ToolStripMenuItem_Click);
             // 
             // 配桶登记单
             // 
@@ -738,5 +759,6 @@ namespace 纺织贸易管理系统.新增窗体
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem 相同信息ToolStripMenuItem;
     }
 }

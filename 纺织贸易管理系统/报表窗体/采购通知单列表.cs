@@ -79,7 +79,8 @@ namespace 纺织贸易管理系统.报表窗体
                 {
                     if (单据BLL.检查是否已经审核(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) == false)
                     {
-                        采购入库单BLL.删除单据(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
+                        DanjuTableService.DeleteDanjuTable(x => x.dh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
+                        danjumingxitableService.Deletedanjumingxitable(x => x.danhao == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
                         Query();
                     }
                     else

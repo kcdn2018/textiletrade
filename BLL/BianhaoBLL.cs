@@ -174,7 +174,7 @@ namespace BLL
                         var b = dt2.Rows[0]["bh"].ToString();
                         b = b.Substring(firstLetter.Length, b.Length - firstLetter.Length);
                         b = b.Split('-')[0];
-                        return firstLetter + string.Format("{0:00000}", (Convert.ToInt32(b) + 1));
+                        return firstLetter + string.Format("{0:000000}", (Convert.ToInt32(b) + 1));
                     }
                     catch
                     {
@@ -185,7 +185,7 @@ namespace BLL
                     }
                 }
                 else
-                { return firstLetter + "00001"; }
+                { return firstLetter + "000001"; }
             }
         }
         /// <summary>

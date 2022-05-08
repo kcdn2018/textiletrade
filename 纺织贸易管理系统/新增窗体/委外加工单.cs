@@ -618,5 +618,36 @@ namespace 纺织贸易管理系统.新增窗体
         {
             打印单据(PrintModel.Print );
         }
+
+        private void 加载委外通知单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fm = new 委外通知单选择();
+            fm.ShowDialog(this);
+            var mingxis = fm.pingzhong;
+            if (mingxis.Count > 0)
+            {
+                var danhao = danju.dh;
+                danju = DanjuTableService.GetOneDanjuTable(x => x.dh == mingxis[0].danhao);
+                txtdanhao.Text =danhao ;
+                txtbeizhu.Text = danju.bz;
+                txtchepai.Text = danju.CarNum;
+                txtckmc.Text = danju.shouhuodizhi;
+                //cmbcunfang.Text = danju.ckmc;
+                txtkehu.Text = danju.ksmc;
+                txtlianxidianhua.Text = danju.lianxidianhua;
+                txtlianxiren.Text = danju.lianxiren;
+                txtQicheleixing.Text = danju.CarLeixing;
+                txtwuliu.Text = danju.wuliugongsi;
+                txtyunfei.Text = danju.yunfei.ToString();
+                dateEdit1.DateTime = danju.rq;
+                cmbgongyi.Text = danju.jiagongleixing;
+                txtyaoqiu.Text = danju.yaoqiu;
+                txtzhuangxiefei.Text = danju.ZhuangXieFei.ToString();
+                txtChachefei.Text = danju.ChaCheFei.ToString();
+                danjumingxitables = mingxis;
+                gridControl1.RefreshDataSource();
+                加载卷();
+            }
+        }
     }
 }

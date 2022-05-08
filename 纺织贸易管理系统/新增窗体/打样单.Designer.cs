@@ -223,24 +223,24 @@
             this.uiPanel1.TabIndex = 102;
             this.uiPanel1.Text = "uiPanel1";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtdayangyuan
             // 
             this.txtdayangyuan.ButtonSymbol = 61761;
             this.txtdayangyuan.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtdayangyuan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtdayangyuan.FillColor = System.Drawing.Color.White;
             this.txtdayangyuan.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtdayangyuan.Location = new System.Drawing.Point(0, 0);
             this.txtdayangyuan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtdayangyuan.Maximum = 2147483647D;
-            this.txtdayangyuan.Minimum = -2147483648D;
             this.txtdayangyuan.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtdayangyuan.Name = "txtdayangyuan";
             this.txtdayangyuan.Padding = new System.Windows.Forms.Padding(5);
+            this.txtdayangyuan.ShowText = false;
             this.txtdayangyuan.Size = new System.Drawing.Size(106, 23);
             this.txtdayangyuan.TabIndex = 3;
             this.txtdayangyuan.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtdayangyuan.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtdayangyuan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.uiTextBox1_KeyDown);
             // 
             // button1
@@ -269,7 +269,6 @@
             // 
             // txtbeizhu
             // 
-            this.txtbeizhu.AutoWordSelection = true;
             this.txtbeizhu.FillColor = System.Drawing.Color.White;
             this.txtbeizhu.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbeizhu.Location = new System.Drawing.Point(77, 113);
@@ -277,11 +276,12 @@
             this.txtbeizhu.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.Padding = new System.Windows.Forms.Padding(2);
+            this.txtbeizhu.ShowText = false;
             this.txtbeizhu.Size = new System.Drawing.Size(598, 91);
             this.txtbeizhu.Style = Sunny.UI.UIStyle.Custom;
             this.txtbeizhu.TabIndex = 100;
             this.txtbeizhu.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtbeizhu.WordWrap = true;
+            this.txtbeizhu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX16
             // 
@@ -702,12 +702,14 @@
             this.uiTitlePanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTitlePanel1.Name = "uiTitlePanel1";
             this.uiTitlePanel1.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
+            this.uiTitlePanel1.ShowText = false;
             this.uiTitlePanel1.Size = new System.Drawing.Size(1092, 89);
             this.uiTitlePanel1.Style = Sunny.UI.UIStyle.Custom;
             this.uiTitlePanel1.TabIndex = 100;
             this.uiTitlePanel1.Text = "色卡要求";
             this.uiTitlePanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiTitlePanel1.TitleColor = System.Drawing.Color.Silver;
+            this.uiTitlePanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // gridControl1
             // 

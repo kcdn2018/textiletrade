@@ -1,6 +1,6 @@
 ﻿namespace 纺织贸易管理系统.新增窗体
 {
-    partial class 采购通知单
+    partial class 委外通知单
     {
         /// <summary>
         /// Required designer variable.
@@ -35,28 +35,17 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.直接打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.加载生产单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtLianxiren = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.txtlianxidianhua = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
-            this.cmbqiankuan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem5 = new DevComponents.Editors.ComboItem();
-            this.comboItem6 = new DevComponents.Editors.ComboItem();
-            this.labelX12 = new DevComponents.DotNetBar.LabelX();
-            this.comhanshui = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem3 = new DevComponents.Editors.ComboItem();
-            this.comboItem4 = new DevComponents.Editors.ComboItem();
-            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.cmbcunfang = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem1 = new DevComponents.Editors.ComboItem();
             this.comboItem2 = new DevComponents.Editors.ComboItem();
             this.txtckmc = new DevExpress.XtraEditors.ButtonEdit();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.txtbeizhu = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtkehu = new DevExpress.XtraEditors.ButtonEdit();
@@ -76,6 +65,14 @@
             this.ButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmddanwei = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.txtyaoqiu = new Sunny.UI.UITextBox();
+            this.labelX16 = new DevComponents.DotNetBar.LabelX();
+            this.cmbgongyi = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.comboItem7 = new DevComponents.Editors.ComboItem();
+            this.comboItem8 = new DevComponents.Editors.ComboItem();
+            this.labelX15 = new DevComponents.DotNetBar.LabelX();
+            this.txtbeizhu = new Sunny.UI.UITextBox();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -95,8 +92,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.保存ToolStripMenuItem,
-            this.打印寄样标签ToolStripMenuItem,
-            this.加载生产单ToolStripMenuItem});
+            this.打印寄样标签ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1115, 40);
@@ -145,30 +141,22 @@
             this.直接打印ToolStripMenuItem.Text = "直接打印";
             this.直接打印ToolStripMenuItem.Click += new System.EventHandler(this.直接打印ToolStripMenuItem_Click);
             // 
-            // 加载生产单ToolStripMenuItem
-            // 
-            this.加载生产单ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.LoadFrom_32x32;
-            this.加载生产单ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.加载生产单ToolStripMenuItem.Name = "加载生产单ToolStripMenuItem";
-            this.加载生产单ToolStripMenuItem.Size = new System.Drawing.Size(112, 36);
-            this.加载生产单ToolStripMenuItem.Text = "加载生产单";
-            // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtyaoqiu);
+            this.groupControl1.Controls.Add(this.labelX16);
+            this.groupControl1.Controls.Add(this.cmbgongyi);
+            this.groupControl1.Controls.Add(this.labelX15);
+            this.groupControl1.Controls.Add(this.txtbeizhu);
+            this.groupControl1.Controls.Add(this.labelX6);
             this.groupControl1.Controls.Add(this.txtLianxiren);
             this.groupControl1.Controls.Add(this.labelX5);
             this.groupControl1.Controls.Add(this.txtlianxidianhua);
             this.groupControl1.Controls.Add(this.labelX14);
-            this.groupControl1.Controls.Add(this.cmbqiankuan);
-            this.groupControl1.Controls.Add(this.labelX12);
-            this.groupControl1.Controls.Add(this.comhanshui);
-            this.groupControl1.Controls.Add(this.labelX11);
             this.groupControl1.Controls.Add(this.cmbcunfang);
             this.groupControl1.Controls.Add(this.txtckmc);
             this.groupControl1.Controls.Add(this.labelX8);
             this.groupControl1.Controls.Add(this.labelX7);
-            this.groupControl1.Controls.Add(this.txtbeizhu);
-            this.groupControl1.Controls.Add(this.labelX4);
             this.groupControl1.Controls.Add(this.dateEdit1);
             this.groupControl1.Controls.Add(this.labelX3);
             this.groupControl1.Controls.Add(this.txtkehu);
@@ -238,84 +226,11 @@
             this.labelX14.TabIndex = 45;
             this.labelX14.Text = "联系电话";
             // 
-            // cmbqiankuan
-            // 
-            this.cmbqiankuan.DisplayMember = "Text";
-            this.cmbqiankuan.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbqiankuan.ForeColor = System.Drawing.Color.Black;
-            this.cmbqiankuan.FormattingEnabled = true;
-            this.cmbqiankuan.ItemHeight = 17;
-            this.cmbqiankuan.Items.AddRange(new object[] {
-            this.comboItem5,
-            this.comboItem6});
-            this.cmbqiankuan.Location = new System.Drawing.Point(316, 124);
-            this.cmbqiankuan.Name = "cmbqiankuan";
-            this.cmbqiankuan.Size = new System.Drawing.Size(147, 23);
-            this.cmbqiankuan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbqiankuan.TabIndex = 42;
-            this.cmbqiankuan.Text = "欠款";
-            // 
-            // comboItem5
-            // 
-            this.comboItem5.Text = "欠款";
-            // 
-            // comboItem6
-            // 
-            this.comboItem6.Text = "现金预付";
-            // 
-            // labelX12
-            // 
-            // 
-            // 
-            // 
-            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(251, 124);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(49, 23);
-            this.labelX12.TabIndex = 41;
-            this.labelX12.Text = "欠款";
-            // 
-            // comhanshui
-            // 
-            this.comhanshui.DisplayMember = "Text";
-            this.comhanshui.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comhanshui.ForeColor = System.Drawing.Color.Black;
-            this.comhanshui.FormattingEnabled = true;
-            this.comhanshui.ItemHeight = 17;
-            this.comhanshui.Items.AddRange(new object[] {
-            this.comboItem3,
-            this.comboItem4});
-            this.comhanshui.Location = new System.Drawing.Point(80, 124);
-            this.comhanshui.Name = "comhanshui";
-            this.comhanshui.Size = new System.Drawing.Size(156, 23);
-            this.comhanshui.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comhanshui.TabIndex = 40;
-            this.comhanshui.Text = "含税";
-            // 
-            // comboItem3
-            // 
-            this.comboItem3.Text = "含税";
-            // 
-            // comboItem4
-            // 
-            this.comboItem4.Text = "不含税";
-            // 
-            // labelX11
-            // 
-            // 
-            // 
-            // 
-            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(11, 124);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(72, 23);
-            this.labelX11.TabIndex = 39;
-            this.labelX11.Text = "含税";
-            // 
             // cmbcunfang
             // 
             this.cmbcunfang.DisplayMember = "Text";
             this.cmbcunfang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbcunfang.Enabled = false;
             this.cmbcunfang.ForeColor = System.Drawing.Color.Black;
             this.cmbcunfang.FormattingEnabled = true;
             this.cmbcunfang.ItemHeight = 17;
@@ -327,7 +242,7 @@
             this.cmbcunfang.Size = new System.Drawing.Size(156, 23);
             this.cmbcunfang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbcunfang.TabIndex = 38;
-            this.cmbcunfang.Text = "加工厂";
+            this.cmbcunfang.Text = "仓库";
             // 
             // comboItem1
             // 
@@ -343,6 +258,7 @@
             this.txtckmc.Name = "txtckmc";
             this.txtckmc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtckmc.Properties.ReadOnly = true;
             this.txtckmc.Size = new System.Drawing.Size(147, 20);
             this.txtckmc.TabIndex = 32;
             this.txtckmc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtckmc_ButtonClick);
@@ -357,7 +273,7 @@
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(63, 23);
             this.labelX8.TabIndex = 33;
-            this.labelX8.Text = "存放地址";
+            this.labelX8.Text = "发货地址";
             // 
             // labelX7
             // 
@@ -369,35 +285,7 @@
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(72, 23);
             this.labelX7.TabIndex = 28;
-            this.labelX7.Text = "存放位置";
-            // 
-            // txtbeizhu
-            // 
-            this.txtbeizhu.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtbeizhu.Border.Class = "TextBoxBorder";
-            this.txtbeizhu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtbeizhu.DisabledBackColor = System.Drawing.Color.White;
-            this.txtbeizhu.ForeColor = System.Drawing.Color.Black;
-            this.txtbeizhu.Location = new System.Drawing.Point(80, 170);
-            this.txtbeizhu.Name = "txtbeizhu";
-            this.txtbeizhu.PreventEnterBeep = true;
-            this.txtbeizhu.Size = new System.Drawing.Size(839, 22);
-            this.txtbeizhu.TabIndex = 27;
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(14, 170);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(47, 23);
-            this.labelX4.TabIndex = 26;
-            this.labelX4.Text = "备注";
+            this.labelX7.Text = "发货位置";
             // 
             // dateEdit1
             // 
@@ -430,6 +318,7 @@
             this.txtkehu.Name = "txtkehu";
             this.txtkehu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtkehu.Properties.ReadOnly = true;
             this.txtkehu.Size = new System.Drawing.Size(147, 20);
             this.txtkehu.TabIndex = 19;
             this.txtkehu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtkehu_ButtonClick);
@@ -607,7 +496,105 @@
             this.cmddanwei.Name = "cmddanwei";
             this.cmddanwei.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
-            // 采购通知单
+            // txtyaoqiu
+            // 
+            this.txtyaoqiu.BackColor = System.Drawing.Color.White;
+            this.txtyaoqiu.ButtonSymbol = 61761;
+            this.txtyaoqiu.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtyaoqiu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.txtyaoqiu.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtyaoqiu.Location = new System.Drawing.Point(316, 125);
+            this.txtyaoqiu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtyaoqiu.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtyaoqiu.Name = "txtyaoqiu";
+            this.txtyaoqiu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtyaoqiu.ShowText = false;
+            this.txtyaoqiu.Size = new System.Drawing.Size(377, 23);
+            this.txtyaoqiu.Style = Sunny.UI.UIStyle.Custom;
+            this.txtyaoqiu.TabIndex = 64;
+            this.txtyaoqiu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtyaoqiu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // labelX16
+            // 
+            // 
+            // 
+            // 
+            this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX16.Location = new System.Drawing.Point(247, 125);
+            this.labelX16.Name = "labelX16";
+            this.labelX16.Size = new System.Drawing.Size(75, 23);
+            this.labelX16.TabIndex = 63;
+            this.labelX16.Text = "工艺要求";
+            // 
+            // cmbgongyi
+            // 
+            this.cmbgongyi.DisplayMember = "Text";
+            this.cmbgongyi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbgongyi.ForeColor = System.Drawing.Color.Black;
+            this.cmbgongyi.FormattingEnabled = true;
+            this.cmbgongyi.ItemHeight = 17;
+            this.cmbgongyi.Items.AddRange(new object[] {
+            this.comboItem7,
+            this.comboItem8});
+            this.cmbgongyi.Location = new System.Drawing.Point(80, 125);
+            this.cmbgongyi.Name = "cmbgongyi";
+            this.cmbgongyi.Size = new System.Drawing.Size(156, 23);
+            this.cmbgongyi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmbgongyi.TabIndex = 62;
+            // 
+            // comboItem7
+            // 
+            this.comboItem7.Text = "含税";
+            // 
+            // comboItem8
+            // 
+            this.comboItem8.Text = "未税";
+            // 
+            // labelX15
+            // 
+            // 
+            // 
+            // 
+            this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX15.Location = new System.Drawing.Point(11, 125);
+            this.labelX15.Name = "labelX15";
+            this.labelX15.Size = new System.Drawing.Size(75, 23);
+            this.labelX15.TabIndex = 61;
+            this.labelX15.Text = "加工类型：";
+            // 
+            // txtbeizhu
+            // 
+            this.txtbeizhu.BackColor = System.Drawing.Color.White;
+            this.txtbeizhu.ButtonSymbol = 61761;
+            this.txtbeizhu.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbeizhu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.txtbeizhu.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtbeizhu.Location = new System.Drawing.Point(80, 175);
+            this.txtbeizhu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtbeizhu.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtbeizhu.Name = "txtbeizhu";
+            this.txtbeizhu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtbeizhu.ShowText = false;
+            this.txtbeizhu.Size = new System.Drawing.Size(613, 23);
+            this.txtbeizhu.Style = Sunny.UI.UIStyle.Custom;
+            this.txtbeizhu.TabIndex = 60;
+            this.txtbeizhu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbeizhu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Location = new System.Drawing.Point(12, 175);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(62, 23);
+            this.labelX6.TabIndex = 59;
+            this.labelX6.Text = "备注";
+            // 
+            // 委外通知单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -615,8 +602,8 @@
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "采购通知单";
-            this.Text = "采购通知单";
+            this.Name = "委外通知单";
+            this.Text = "委外通知单";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.采购入库单_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -655,22 +642,12 @@
         private System.Windows.Forms.ToolStripMenuItem 复制行ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 粘贴行ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 配置列ToolStripMenuItem;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbqiankuan;
-        private DevComponents.Editors.ComboItem comboItem5;
-        private DevComponents.Editors.ComboItem comboItem6;
-        private DevComponents.DotNetBar.LabelX labelX12;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comhanshui;
-        private DevComponents.Editors.ComboItem comboItem3;
-        private DevComponents.Editors.ComboItem comboItem4;
-        private DevComponents.DotNetBar.LabelX labelX11;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbcunfang;
         private DevComponents.Editors.ComboItem comboItem1;
         private DevComponents.Editors.ComboItem comboItem2;
         private DevExpress.XtraEditors.ButtonEdit txtckmc;
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.LabelX labelX7;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtbeizhu;
-        private DevComponents.DotNetBar.LabelX labelX4;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevExpress.XtraEditors.ButtonEdit txtkehu;
@@ -686,6 +663,13 @@
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.TextBoxX txtLianxiren;
         private DevComponents.DotNetBar.LabelX labelX5;
-        private System.Windows.Forms.ToolStripMenuItem 加载生产单ToolStripMenuItem;
+        private Sunny.UI.UITextBox txtyaoqiu;
+        private DevComponents.DotNetBar.LabelX labelX16;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbgongyi;
+        private DevComponents.Editors.ComboItem comboItem7;
+        private DevComponents.Editors.ComboItem comboItem8;
+        private DevComponents.DotNetBar.LabelX labelX15;
+        private Sunny.UI.UITextBox txtbeizhu;
+        private DevComponents.DotNetBar.LabelX labelX6;
     }
 }

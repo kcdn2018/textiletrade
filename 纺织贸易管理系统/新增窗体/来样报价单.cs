@@ -191,34 +191,37 @@ namespace 纺织贸易管理系统.新增窗体
         {
             var fm = new 打印设置窗体 ();
             fm.Show();
-            var printer = fm.printerSettings .PrintName;
-            var num = fm.printerSettings .PrintNum;
-            foreach(var i in gridView1.GetSelectedRows() )
+            if (!fm.printerSettings.IsCancelPrint)
             {
-                jiYangBaoJia = listjiyang[i];
-                var pingzhong = dbService.GetOnedb(x => x.bh == jiYangBaoJia.SPBH);
-                if(pingzhong.bh=="")
+                var printer = fm.printerSettings.PrintName;
+                var num = fm.printerSettings.PrintNum;
+                foreach (var i in gridView1.GetSelectedRows())
                 {
-                    pingzhong.bh = jiYangBaoJia.SPBH;
-                    pingzhong.pm = jiYangBaoJia.SPMC;
-                    pingzhong.gg = jiYangBaoJia.gg;
-                    pingzhong.cf = jiYangBaoJia.cf;
-                    pingzhong.kz = jiYangBaoJia.kz;
-                    pingzhong.mf = jiYangBaoJia.mf;
-                    pingzhong.md = jiYangBaoJia.md;
-                    pingzhong.zb = jiYangBaoJia.zb;
-                    pingzhong.jg = jiYangBaoJia.JG.ToString () ;
-                    pingzhong.ys = jiYangBaoJia.ys;
-                    pingzhong.HH = jiYangBaoJia.Hetonghao ;
+                    jiYangBaoJia = listjiyang[i];
+                    var pingzhong = dbService.GetOnedb(x => x.bh == jiYangBaoJia.SPBH);
+                    if (pingzhong.bh == "")
+                    {
+                        pingzhong.bh = jiYangBaoJia.SPBH;
+                        pingzhong.pm = jiYangBaoJia.SPMC;
+                        pingzhong.gg = jiYangBaoJia.gg;
+                        pingzhong.cf = jiYangBaoJia.cf;
+                        pingzhong.kz = jiYangBaoJia.kz;
+                        pingzhong.mf = jiYangBaoJia.mf;
+                        pingzhong.md = jiYangBaoJia.md;
+                        pingzhong.zb = jiYangBaoJia.zb;
+                        pingzhong.jg = jiYangBaoJia.JG.ToString();
+                        pingzhong.ys = jiYangBaoJia.ys;
+                        pingzhong.HH = jiYangBaoJia.Hetonghao;
+                    }
+                    else
+                    {
+                        pingzhong.jg = jiYangBaoJia.JG.ToString();
+                        pingzhong.ys = jiYangBaoJia.ys;
+                        pingzhong.HH = jiYangBaoJia.Hetonghao;
+                    }
+                    //Tools.打印标签.打印(jiYangBaoJia.JG ,pingzhong ,new PrintSetting() {  Path =PrintPath.标签模板 +cmbMoban.Text ,Printmodel =PrintModel.Print , PrintName=printer ,PrintNum =num});
                 }
-                else
-                {
-                    pingzhong.jg = jiYangBaoJia.JG.ToString();
-                    pingzhong.ys = jiYangBaoJia.ys;
-                    pingzhong.HH = jiYangBaoJia.Hetonghao;
-                }
-                //Tools.打印标签.打印(jiYangBaoJia.JG ,pingzhong ,new PrintSetting() {  Path =PrintPath.标签模板 +cmbMoban.Text ,Printmodel =PrintModel.Print , PrintName=printer ,PrintNum =num});
-            }          
+            }
         }
 
         private void 删除行ToolStripMenuItem_Click(object sender, EventArgs e)

@@ -182,6 +182,8 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     shengchanBuliaoInfos[i].BuliaoPingming = pingzhong.pm;
                     shengchanBuliaoInfos[i].SampleNum = pingzhong.bh;
+                    shengchanBuliaoInfos[i].Menfu  = pingzhong.mf;
+                    shengchanBuliaoInfos[i].Kezhong  = pingzhong.kz ;
                     shengchanBuliaoInfos[i].Danwei  ="米";
                     i++;
                     if (i >= shengchanBuliaoInfos.Count + 1)

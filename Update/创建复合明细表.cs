@@ -13,6 +13,45 @@ namespace Update
 		/// <summary>
 		/// 创建点色和配桶信息单
 		/// </summary>
+		public static void CreatDuanTongZhiMenu()
+		{
+			var dbhelper = Connect.SoftkcDBHelper();
+			var dt = Connect.DbHelper().Queryable<MenuTable>().Where(x => x.FormName == "检验通知单").ToList();
+			if (dt.Count == 0)
+			{
+				Console.WriteLine("正在创建检验通知单菜单功能，请等待。。。。。。");
+				var yhs = Connect.CreatConnect().Query<Yhb>();
+				foreach (var yh in yhs)
+				{
+					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "生产管理", FormName = "检验通知单", MenuName = "检验通知单", UserID = yh.YHBH, Visitable = true });
+					var columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "检验通知单").ToList();
+					columns.ForEach(x => x.UserID = yh.YHBH);
+					Connect.CreatConnect().Insert<ColumnTable>(columns);
+					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "委外通知单").ToList();
+					columns.ForEach(x => x.UserID = yh.YHBH);
+					Connect.CreatConnect().Insert<ColumnTable>(columns);
+					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "生产管理", FormName = "委外通知单", MenuName = "委外通知单", UserID = yh.YHBH, Visitable = true });
+					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "细码库存").ToList();
+					columns.ForEach(x => x.UserID = yh.YHBH);
+					Connect.CreatConnect().Insert<ColumnTable>(columns);
+					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "库存管理", FormName = "细码库存", MenuName = "细码库存", UserID = yh.YHBH, Visitable = true });
+					//columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "配桶登记列表").ToList();
+					//columns.ForEach(x => x.UserID = yh.YHBH);
+					//Connect.CreatConnect().Insert<ColumnTable>(columns);
+					//columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "配桶登记单").ToList();
+					//columns.ForEach(x => x.UserID = yh.YHBH);
+					//Connect.CreatConnect().Insert<ColumnTable>(columns);
+				}
+				var report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "委外通知单").ToList();
+				Connect.CreatConnect().Insert<ReportTable>(report);
+				report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "检验通知单").ToList();
+				Connect.CreatConnect().Insert<ReportTable>(report);
+				Console.WriteLine("创建检验通知单菜单菜单成功");
+			}
+		}
+		/// <summary>
+		/// 创建点色和配桶信息单
+		/// </summary>
 		public static void CreatDianSeMenu()
         {
 			var dbhelper = Connect.SoftkcDBHelper();

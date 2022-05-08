@@ -361,7 +361,8 @@ namespace 纺织贸易管理系统.新增窗体
                 yaoqiu = cmbgongyimingcheng.Text,
                 Weight = txtkezhong.Text,
                 //布料来源
-                fromDanhao = txtBuliaoSource.Text
+                fromDanhao = txtBuliaoSource.Text,
+                 
             };
             var listhouzhenli = new List<ShengchandanHouzhengli>();
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "A", Value = checkBoxX1.Checked });
@@ -493,6 +494,13 @@ namespace 纺织贸易管理系统.新增窗体
                 fm.ShowDialog();
                 txtBuliaoSource.Text = fm.linkman.MC;
             }
+        }
+
+        private void txtGengdan_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var fm = new 员工选择() { linkman = new YuanGongTable() { Xingming = "" } };
+            fm.ShowDialog();
+            txtguangyue.Text = fm.linkman.Xingming;
         }
     }
 }

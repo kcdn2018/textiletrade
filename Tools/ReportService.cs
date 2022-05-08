@@ -71,7 +71,7 @@ namespace Tools
         }
         public static void ReName(ReportTable report, string path,string oldname)
         {
-            ReportTableService.UpdateReportTable (report , x => x.reportName ==oldname  && x.reportStyle == report.reportStyle);
+            Connect.DbHelper().Updateable <ReportTable >( report);
             path += "\\" + report.reportStyle + "\\" + oldname ;
             new Computer().FileSystem.RenameFile(path, report.reportName);
         }

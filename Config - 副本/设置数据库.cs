@@ -10,6 +10,7 @@ using System.Data.SQLite;
 using System.Data.SqlClient;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Config
 {
@@ -18,6 +19,7 @@ namespace Config
         private string Environmen = string.Empty;
         private SqlConnection sqlConnection = new SqlConnection ();
         private List <LinkInfo > Linkinfos = InitLinkInfos.GetLinkInfos();
+        private DataTable alllinks = new DataTable();
         public 设置数据库()
         {
             InitializeComponent();
@@ -81,18 +83,23 @@ namespace Config
 
         private void 设置数据库_Load(object sender, EventArgs e)
         {
-           
-            comboBox2.DataSource = Linkinfos.Select(x => x.CompanyName).ToList();
-            Environmen = comboBox1.Text;
-            var dt = GetSqlite();
-            //return $"server={dt.Rows[0]["server"]},{};uid={};pwd={};database={}";
-            if (dt.Rows.Count > 0)
+            using (SqlConnection conn = new SqlConnection("server=192.168.0.109;uid=sa;pwd=Kc123456;database=UserDB"))
             {
-                txtIP.Text = dt.Rows[0]["server"].ToString();
-                TXTDBNAME.Text = dt.Rows[0]["database"].ToString();
-                TXTPASSWORD.Text = dt.Rows[0]["PWD"].ToString();
-                TXTPORT.Text = dt.Rows[0]["port"].ToString();
-                TXTUSER.Text = dt.Rows[0]["username"].ToString();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select * from DBTable",conn);
+                sqlDataAdapter.Fill(alllinks);
+                Linkinfos =InitLinkInfos.DataTableToDataList<LinkInfo>(alllinks);
+                comboBox2.DataSource = Linkinfos.Select (x=>x.CompanyName ).ToList () ;
+                Environmen = comboBox1.Text;
+                var dt = GetSqlite();
+                //return $"server={dt.Rows[0]["server"]},{};uid={};pwd={};database={}";
+                if (dt.Rows.Count > 0)
+                {
+                    txtIP.Text = dt.Rows[0]["server"].ToString();
+                    TXTDBNAME.Text = dt.Rows[0]["database"].ToString();
+                    TXTPASSWORD.Text = dt.Rows[0]["PWD"].ToString();
+                    TXTPORT.Text = dt.Rows[0]["port"].ToString();
+                    TXTUSER.Text = dt.Rows[0]["username"].ToString();
+                }
             }
         } 
         public  SQLiteConnection CreatSqlite()
@@ -154,14 +161,14 @@ namespace Config
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty ( comboBox2.Text ))
+            if (!string.IsNullOrEmpty (comboBox2.Text ))
             {
                 var link = Linkinfos.FirstOrDefault(x => x.CompanyName == comboBox2.Text);
-                txtIP.Text = link.Server;
-                TXTDBNAME.Text = link.DatabaseName;
-                TXTPASSWORD.Text = link.Password;
+                txtIP.Text = link.ServerName ;
+                TXTDBNAME.Text = link.DbName;
+                TXTPASSWORD.Text = link.PWD;
                 TXTPORT.Text = link.Port;
-                TXTUSER.Text = link.UserName;
+                TXTUSER.Text = link.UID;
             }
         }
 
@@ -170,5 +177,6 @@ namespace Config
             Application.ExitThread();
             Application.Exit();
         }
+
     }
 }

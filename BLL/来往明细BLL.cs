@@ -16,6 +16,9 @@ namespace BLL
             LwDetail lwDetail = new LwDetail();
             switch (danju.djlx )
             {
+                case DanjuLeiXing.白坯销售单 :
+                    lwDetail = 销售单(danju);
+                    break;
                 case DanjuLeiXing.销售出库单:             
                      lwDetail = 销售单(danju);                  
                     break ;
@@ -452,32 +455,6 @@ namespace BLL
                     }
                 }
                 Connect.DbHelper().Updateable<LwDetail>(lwlist).ExecuteCommand();
-                //DanjuTable danju = SQLHelper.SQLHelper.CreatNewInstance(Olddanju);         
-                //var dt = SQLHelper.SQLHelper.Chaxun($"select * from lwdetail where dh='{danju.dh}' ");
-                //int id = 0;
-                //if (dt.Rows.Count > 0)
-                //{
-                //    id = (int)dt.Rows[0]["ID"];
-                //}
-                //var lwlist = Connect.CreatConnect().Query<LwDetail>($"select * from lwdetail where rq>='{danju.rq }' and khbh='{danju.ksbh  }'  order by rq asc , id asc");
-                //if (lwlist.Count > 1)
-                //{
-                //    decimal qichu, qimo;
-                //    qichu = lwlist[0].QichuJine;
-                //    qimo = lwlist[0].QiMojine;
-                //    foreach (var lw in lwlist)
-                //    {
-                //        if (lw.DH != danju.dh)
-                //        {
-                //            if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收&&lw.LX!=DanjuLeiXing.退卷单 &&lw.LX!=DanjuLeiXing.入库单)
-                //            {
-                //                lw.QichuJine = qichu;
-                //                lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;                             
-                //                qichu = lw.QiMojine;
-                //            }
-                //        }
-                //    }
-                //LwDetailService.UpdateLwDetailLst(lwlist );
             }
         }
         private static void 新增刷新(DanjuTable Olddanju)
@@ -502,38 +479,7 @@ namespace BLL
                 }
                 Connect.DbHelper().Updateable<LwDetail>(lwlist).ExecuteCommand();
             }
-            //DanjuTable danju = SQLHelper.SQLHelper.CreatNewInstance(Olddanju);
-            //var dt = SQLHelper.SQLHelper.Chaxun($"select * from lwdetail where dh='{danju.dh}' ");
-            //int id = 0;
-            //if (dt.Rows.Count > 0)
-            //{
-            //    id = (int)dt.Rows[0]["ID"];
-            //}
-            //var lwlist = Connect.CreatConnect().Query<LwDetail>($"select * from lwdetail where rq>='{danju.rq }' and khbh='{danju.ksbh  }'  order by rq asc , id asc");
-            //if (lwlist.Count > 1)
-            //{
-            //    decimal qichu, qimo;             
-            //        if (lwlist[0].rq < lwlist[1].rq)
-            //        {
-            //            qichu = lwlist[1].QichuJine;
-            //        }
-            //        else
-            //        {
-            //            qichu = lwlist[0].QichuJine;
-            //        }
-
-            //    qimo = lwlist[0].QiMojine;
-            //    foreach (var lw in lwlist)
-            //    {                   
-            //            if (lw.LX != DanjuLeiXing.发票开具 && lw.LX != DanjuLeiXing.发票签收 && lw.LX != DanjuLeiXing.退卷单 && lw.LX != DanjuLeiXing.入库单)
-            //            {
-            //                lw.QichuJine = qichu;
-            //                lw.QiMojine = lw.QichuJine + lw.AddYingFukuan + lw.AddYingshoukuan - lw.ReduceYingShouKuan - lw.ReduceYingFuKuan;
-            //            qichu = lw.QiMojine;
-            //            }
-            //    }
-            //    LwDetailService.UpdateLwDetailLst(lwlist);
-            //}
+          
         }
         public static void 修改(DanjuTable danju )
         {
@@ -541,6 +487,9 @@ namespace BLL
             LwDetail lwDetail = new LwDetail();
             switch (danju.djlx)
             {
+                case DanjuLeiXing.白坯销售单:
+                    lwDetail = 销售单(danju);
+                    break;
                 case DanjuLeiXing.销售出库单:
                     lwDetail = 销售单(danju);
                     break;

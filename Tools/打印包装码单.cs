@@ -111,7 +111,7 @@ namespace Tools
             
             DataTable mingxiti = CreatMingxi();
             //列出所有包号
-            var baohaolist = juanhaolist.OrderBy(x => x.LogID ).ThenBy(x => x.OrderNum).ThenBy(x => x.SampleNum).ThenBy(x => x.GangHao).ToList();
+            var baohaolist = juanhaolist.OrderBy(x => x.LogID ).ThenBy(x => x.OrderNum).ThenBy(x => x.SampleNum).ThenBy(x => x.GangHao).ThenBy (x=>x.yanse ).ToList();
             int row = 0;
             JuanHaoTable prejuan = new JuanHaoTable();
             int n = 1;
@@ -204,26 +204,7 @@ namespace Tools
                         }
                     }
                 } 
-                
-                //foreach (var b in baohaolist )
-                //{
-                //    //找出这个包号的所有布料
 
-                //    //找出一个订单号的
-                //    int c = 0;
-                //    foreach (var o in  juanhaolist.Where(x => x.state == b).ToList().Select(x => x.OrderNum).Distinct().ToList())
-                //    {
-                //        foreach (var j in juanhaolist.Where(x => x.OrderNum == o && x.state == b).ToList().OrderBy (x=>x.SampleNum  ).ThenBy (x=>x.GangHao ).ToList())
-                //        {
-                //            if (c == 0)
-                //            {
-                //                mingxiti.Rows.Add();
-                //                var juan =j;
-                //                赋值一行(mingxiti, row, juan);
-                //                mingxiti.Rows[row]["1"] = juan.biaoqianmishu;
-                //            }
-                //        }
-                //    }
             }
             catch(Exception ex)
             {
@@ -231,7 +212,7 @@ namespace Tools
             }
             for(int r=0;r<mingxiti.Rows.Count;r++)
             {
-                //mingxiti.Rows[r]["合计数量"] =(int)(mingxiti.Rows[r]["1"]) +(int)(mingxiti.Rows[r]["2"]) + (int)(mingxiti.Rows[r]["3"]) + (int)(mingxiti.Rows[r]["4"]) +( int)(mingxiti.Rows[r]["5"]);
+               
                 decimal pishu = 0;
                 decimal num = 0;
                 for(int p=1;p<6;p++)

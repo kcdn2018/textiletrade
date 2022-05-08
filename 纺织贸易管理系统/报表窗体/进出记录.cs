@@ -33,13 +33,13 @@ namespace 纺织贸易管理系统.报表窗体
         private void Query()
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            var querystring = $"select danjutable.*,danjumingxitable.* from danjutable,danjumingxitable where danjutable.rq between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and danjutable.ckmc like '%{txtckmc.Text}%' " 
-                    +$"and danjutable.dh=danjumingxitable.danhao";
+            var querystring = $"select t0.*,t1.* from danjutable t0,danjumingxitable t1 where t0.rq between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and t0.ckmc like '%{txtckmc.Text}%' and t1.ganghao like '%{txtganghao.Text }%' " 
+                    +$"and t0.dh=t1.danhao";
             if (User.user.access == "自己")
             {
-                querystring += $" and danjutable.own='{User.user.YHBH }'";
+                querystring += $" and t0.own='{User.user.YHBH }'";
             }
-            querystring += " order by danjutable.id desc";
+            querystring += " order by t0.id desc";
             var dt = Connect.CreatConnect().Query(querystring);
             for(int row=0;row<dt.Rows.Count;row++)
             {
@@ -104,6 +104,14 @@ namespace 纺织贸易管理系统.报表窗体
         {
             gridControl1.Focus();
             SendKeys.Send("^c");
+        }
+
+        private void txtganghao_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter )
+            {
+                Query();
+            }
         }
     }
 }

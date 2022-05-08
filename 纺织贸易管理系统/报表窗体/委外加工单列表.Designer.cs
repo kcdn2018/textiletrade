@@ -39,17 +39,11 @@
             this.单据反审ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.txtordernum = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.txtGuige = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.txthetonghao = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.txtyanse = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.txtpingming = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.txtbianhao = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.txtksmc = new DevExpress.XtraEditors.ButtonEdit();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
@@ -70,6 +64,14 @@
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.txtganghao = new System.Windows.Forms.TextBox();
+            this.txtbianhao = new System.Windows.Forms.TextBox();
+            this.txtpingming = new System.Windows.Forms.TextBox();
+            this.txtGuige = new System.Windows.Forms.TextBox();
+            this.txthetonghao = new System.Windows.Forms.TextBox();
+            this.txtyanse = new System.Windows.Forms.TextBox();
+            this.txtordernum = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -176,16 +178,18 @@
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
             this.groupPanel1.Controls.Add(this.txtordernum);
-            this.groupPanel1.Controls.Add(this.labelX6);
-            this.groupPanel1.Controls.Add(this.txtGuige);
-            this.groupPanel1.Controls.Add(this.labelX9);
-            this.groupPanel1.Controls.Add(this.txthetonghao);
-            this.groupPanel1.Controls.Add(this.labelX8);
             this.groupPanel1.Controls.Add(this.txtyanse);
-            this.groupPanel1.Controls.Add(this.labelX7);
+            this.groupPanel1.Controls.Add(this.txthetonghao);
+            this.groupPanel1.Controls.Add(this.txtGuige);
             this.groupPanel1.Controls.Add(this.txtpingming);
-            this.groupPanel1.Controls.Add(this.labelX5);
             this.groupPanel1.Controls.Add(this.txtbianhao);
+            this.groupPanel1.Controls.Add(this.txtganghao);
+            this.groupPanel1.Controls.Add(this.labelX10);
+            this.groupPanel1.Controls.Add(this.labelX6);
+            this.groupPanel1.Controls.Add(this.labelX9);
+            this.groupPanel1.Controls.Add(this.labelX8);
+            this.groupPanel1.Controls.Add(this.labelX7);
+            this.groupPanel1.Controls.Add(this.labelX5);
             this.groupPanel1.Controls.Add(this.labelX4);
             this.groupPanel1.Controls.Add(this.txtksmc);
             this.groupPanel1.Controls.Add(this.labelX3);
@@ -228,50 +232,17 @@
             this.groupPanel1.TabIndex = 5;
             this.groupPanel1.Text = "查询条件";
             // 
-            // txtordernum
-            // 
-            this.txtordernum.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtordernum.Border.Class = "TextBoxBorder";
-            this.txtordernum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtordernum.DisabledBackColor = System.Drawing.Color.White;
-            this.txtordernum.ForeColor = System.Drawing.Color.Black;
-            this.txtordernum.Location = new System.Drawing.Point(444, 98);
-            this.txtordernum.Name = "txtordernum";
-            this.txtordernum.PreventEnterBeep = true;
-            this.txtordernum.Size = new System.Drawing.Size(121, 21);
-            this.txtordernum.TabIndex = 50;
-            // 
             // labelX6
             // 
             // 
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(383, 97);
+            this.labelX6.Location = new System.Drawing.Point(383, 99);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(55, 23);
             this.labelX6.TabIndex = 49;
             this.labelX6.Text = "订单号";
-            // 
-            // txtGuige
-            // 
-            this.txtGuige.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtGuige.Border.Class = "TextBoxBorder";
-            this.txtGuige.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuige.DisabledBackColor = System.Drawing.Color.White;
-            this.txtGuige.ForeColor = System.Drawing.Color.Black;
-            this.txtGuige.Location = new System.Drawing.Point(444, 56);
-            this.txtGuige.Name = "txtGuige";
-            this.txtGuige.PreventEnterBeep = true;
-            this.txtGuige.Size = new System.Drawing.Size(121, 21);
-            this.txtGuige.TabIndex = 48;
-            this.txtGuige.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX9
             // 
@@ -285,51 +256,17 @@
             this.labelX9.TabIndex = 47;
             this.labelX9.Text = "规格";
             // 
-            // txthetonghao
-            // 
-            this.txthetonghao.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txthetonghao.Border.Class = "TextBoxBorder";
-            this.txthetonghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txthetonghao.DisabledBackColor = System.Drawing.Color.White;
-            this.txthetonghao.ForeColor = System.Drawing.Color.Black;
-            this.txthetonghao.Location = new System.Drawing.Point(67, 98);
-            this.txthetonghao.Name = "txthetonghao";
-            this.txthetonghao.PreventEnterBeep = true;
-            this.txthetonghao.Size = new System.Drawing.Size(121, 21);
-            this.txthetonghao.TabIndex = 46;
-            this.txthetonghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
-            // 
             // labelX8
             // 
             // 
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(6, 97);
+            this.labelX8.Location = new System.Drawing.Point(6, 99);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(55, 23);
             this.labelX8.TabIndex = 45;
             this.labelX8.Text = "合同号";
-            // 
-            // txtyanse
-            // 
-            this.txtyanse.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtyanse.Border.Class = "TextBoxBorder";
-            this.txtyanse.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtyanse.DisabledBackColor = System.Drawing.Color.White;
-            this.txtyanse.ForeColor = System.Drawing.Color.Black;
-            this.txtyanse.Location = new System.Drawing.Point(256, 98);
-            this.txtyanse.Name = "txtyanse";
-            this.txtyanse.PreventEnterBeep = true;
-            this.txtyanse.Size = new System.Drawing.Size(121, 21);
-            this.txtyanse.TabIndex = 44;
-            this.txtyanse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX7
             // 
@@ -337,28 +274,11 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(195, 97);
+            this.labelX7.Location = new System.Drawing.Point(195, 99);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(55, 23);
             this.labelX7.TabIndex = 43;
             this.labelX7.Text = "色号";
-            // 
-            // txtpingming
-            // 
-            this.txtpingming.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtpingming.Border.Class = "TextBoxBorder";
-            this.txtpingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtpingming.DisabledBackColor = System.Drawing.Color.White;
-            this.txtpingming.ForeColor = System.Drawing.Color.Black;
-            this.txtpingming.Location = new System.Drawing.Point(256, 56);
-            this.txtpingming.Name = "txtpingming";
-            this.txtpingming.PreventEnterBeep = true;
-            this.txtpingming.Size = new System.Drawing.Size(121, 21);
-            this.txtpingming.TabIndex = 40;
-            this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX5
             // 
@@ -371,23 +291,6 @@
             this.labelX5.Size = new System.Drawing.Size(55, 23);
             this.labelX5.TabIndex = 39;
             this.labelX5.Text = "品名";
-            // 
-            // txtbianhao
-            // 
-            this.txtbianhao.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtbianhao.Border.Class = "TextBoxBorder";
-            this.txtbianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtbianhao.DisabledBackColor = System.Drawing.Color.White;
-            this.txtbianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtbianhao.Location = new System.Drawing.Point(67, 56);
-            this.txtbianhao.Name = "txtbianhao";
-            this.txtbianhao.PreventEnterBeep = true;
-            this.txtbianhao.Size = new System.Drawing.Size(121, 21);
-            this.txtbianhao.TabIndex = 38;
-            this.txtbianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX4
             // 
@@ -631,6 +534,74 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(577, 99);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(55, 23);
+            this.labelX10.TabIndex = 51;
+            this.labelX10.Text = "缸号";
+            // 
+            // txtganghao
+            // 
+            this.txtganghao.Location = new System.Drawing.Point(638, 100);
+            this.txtganghao.Name = "txtganghao";
+            this.txtganghao.Size = new System.Drawing.Size(123, 21);
+            this.txtganghao.TabIndex = 52;
+            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // txtbianhao
+            // 
+            this.txtbianhao.Location = new System.Drawing.Point(67, 56);
+            this.txtbianhao.Name = "txtbianhao";
+            this.txtbianhao.Size = new System.Drawing.Size(121, 21);
+            this.txtbianhao.TabIndex = 53;
+            this.txtbianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // txtpingming
+            // 
+            this.txtpingming.Location = new System.Drawing.Point(256, 56);
+            this.txtpingming.Name = "txtpingming";
+            this.txtpingming.Size = new System.Drawing.Size(121, 21);
+            this.txtpingming.TabIndex = 54;
+            this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // txtGuige
+            // 
+            this.txtGuige.Location = new System.Drawing.Point(444, 56);
+            this.txtGuige.Name = "txtGuige";
+            this.txtGuige.Size = new System.Drawing.Size(121, 21);
+            this.txtGuige.TabIndex = 55;
+            this.txtGuige.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // txthetonghao
+            // 
+            this.txthetonghao.Location = new System.Drawing.Point(67, 100);
+            this.txthetonghao.Name = "txthetonghao";
+            this.txthetonghao.Size = new System.Drawing.Size(121, 21);
+            this.txthetonghao.TabIndex = 56;
+            this.txthetonghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // txtyanse
+            // 
+            this.txtyanse.Location = new System.Drawing.Point(256, 100);
+            this.txtyanse.Name = "txtyanse";
+            this.txtyanse.Size = new System.Drawing.Size(121, 21);
+            this.txtyanse.TabIndex = 57;
+            this.txtyanse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // txtordernum
+            // 
+            this.txtordernum.Location = new System.Drawing.Point(444, 100);
+            this.txtordernum.Name = "txtordernum";
+            this.txtordernum.Size = new System.Drawing.Size(121, 21);
+            this.txtordernum.TabIndex = 58;
+            this.txtordernum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
             // 委外加工单列表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -644,6 +615,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
+            this.groupPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
@@ -670,15 +642,10 @@
         private System.Windows.Forms.ToolStripMenuItem 审核通过ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 单据反审ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtGuige;
         private DevComponents.DotNetBar.LabelX labelX9;
-        private DevComponents.DotNetBar.Controls.TextBoxX txthetonghao;
         private DevComponents.DotNetBar.LabelX labelX8;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtyanse;
         private DevComponents.DotNetBar.LabelX labelX7;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtpingming;
         private DevComponents.DotNetBar.LabelX labelX5;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtbianhao;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevExpress.XtraEditors.ButtonEdit txtksmc;
         private DevComponents.DotNetBar.LabelX labelX3;
@@ -699,7 +666,14 @@
         private System.Windows.Forms.ToolStripMenuItem 新增ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtordernum;
         private DevComponents.DotNetBar.LabelX labelX6;
+        private System.Windows.Forms.TextBox txtordernum;
+        private System.Windows.Forms.TextBox txtyanse;
+        private System.Windows.Forms.TextBox txthetonghao;
+        private System.Windows.Forms.TextBox txtGuige;
+        private System.Windows.Forms.TextBox txtpingming;
+        private System.Windows.Forms.TextBox txtbianhao;
+        private System.Windows.Forms.TextBox txtganghao;
+        private DevComponents.DotNetBar.LabelX labelX10;
     }
 }

@@ -108,7 +108,7 @@ namespace 纺织贸易管理系统.设置窗体
             gridView.Appearance.OddRow .BackColor = System.Drawing.ColorTranslator.FromHtml(Connect.GetColumnSetting().OddColor );
             gridView.OptionsCustomization.AllowSort  = false;
         }
-        private static void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        public  static void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
             if (e.Info.IsRowIndicator && e.RowHandle >= 0)
             {
@@ -216,7 +216,7 @@ namespace 纺织贸易管理系统.设置窗体
             Connect.DeleteColumnTable(formname, grid.Name, User.user.YHBH); 
             Connect.SaveColumnTable(collist);
         }
-        private  static  void CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        public  static  void CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
             if (Convert.ToString(e.Value) == "0")
                 e.DisplayText = string.Empty;

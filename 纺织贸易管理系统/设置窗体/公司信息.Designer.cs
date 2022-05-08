@@ -301,6 +301,8 @@
             this.uiSymbolButton3.Symbol = 61527;
             this.uiSymbolButton3.TabIndex = 65;
             this.uiSymbolButton3.Text = "删除";
+            this.uiSymbolButton3.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiSymbolButton3.Click += new System.EventHandler(this.uiSymbolButton3_Click);
             // 
             // cmbgongshimingcheng
@@ -317,6 +319,7 @@
             this.cmbgongshimingcheng.Size = new System.Drawing.Size(254, 23);
             this.cmbgongshimingcheng.TabIndex = 64;
             this.cmbgongshimingcheng.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbgongshimingcheng.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.cmbgongshimingcheng.SelectedIndexChanged += new System.EventHandler(this.cmbgongshimingcheng_SelectedIndexChanged);
             // 
             // uiSymbolButton2
@@ -330,6 +333,8 @@
             this.uiSymbolButton2.Symbol = 61462;
             this.uiSymbolButton2.TabIndex = 25;
             this.uiSymbolButton2.Text = "修改";
+            this.uiSymbolButton2.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiSymbolButton2.Click += new System.EventHandler(this.uiSymbolButton2_Click);
             // 
             // uiSymbolButton1
@@ -343,6 +348,8 @@
             this.uiSymbolButton1.Symbol = 61525;
             this.uiSymbolButton1.TabIndex = 24;
             this.uiSymbolButton1.Text = "新增";
+            this.uiSymbolButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiSymbolButton1.Click += new System.EventHandler(this.uiSymbolButton1_Click);
             // 
             // labelX9
@@ -638,11 +645,6 @@
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(115, 218);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(120, 21);
             this.numericUpDown2.TabIndex = 19;

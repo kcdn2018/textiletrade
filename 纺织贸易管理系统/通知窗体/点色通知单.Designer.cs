@@ -215,6 +215,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtkehu.Name = "txtkehu";
             this.txtkehu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtkehu.Properties.ReadOnly = true;
             this.txtkehu.Size = new System.Drawing.Size(147, 20);
             this.txtkehu.TabIndex = 19;
             this.txtkehu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtkehu_ButtonClick);
@@ -229,14 +230,15 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtlianxidianhua.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtlianxidianhua.Location = new System.Drawing.Point(314, 49);
             this.txtlianxidianhua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtlianxidianhua.Maximum = 2147483647D;
-            this.txtlianxidianhua.Minimum = -2147483648D;
             this.txtlianxidianhua.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtlianxidianhua.Name = "txtlianxidianhua";
             this.txtlianxidianhua.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtlianxidianhua.ShowText = false;
             this.txtlianxidianhua.Size = new System.Drawing.Size(147, 23);
+            this.txtlianxidianhua.Style = Sunny.UI.UIStyle.Custom;
             this.txtlianxidianhua.TabIndex = 46;
             this.txtlianxidianhua.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtlianxidianhua.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX14
             // 
@@ -259,15 +261,16 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtdanhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtdanhao.Location = new System.Drawing.Point(77, 5);
             this.txtdanhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtdanhao.Maximum = 2147483647D;
-            this.txtdanhao.Minimum = -2147483648D;
             this.txtdanhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtdanhao.Name = "txtdanhao";
             this.txtdanhao.ReadOnly = true;
             this.txtdanhao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtdanhao.ShowText = false;
             this.txtdanhao.Size = new System.Drawing.Size(156, 23);
+            this.txtdanhao.Style = Sunny.UI.UIStyle.Custom;
             this.txtdanhao.TabIndex = 21;
             this.txtdanhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtdanhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtbeizhu
             // 
@@ -278,14 +281,15 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtbeizhu.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbeizhu.Location = new System.Drawing.Point(77, 97);
             this.txtbeizhu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtbeizhu.Maximum = 2147483647D;
-            this.txtbeizhu.Minimum = -2147483648D;
             this.txtbeizhu.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtbeizhu.ShowText = false;
             this.txtbeizhu.Size = new System.Drawing.Size(613, 23);
+            this.txtbeizhu.Style = Sunny.UI.UIStyle.Custom;
             this.txtbeizhu.TabIndex = 27;
             this.txtbeizhu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbeizhu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX1
             // 
@@ -491,6 +495,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.uiGroupBox2.TabIndex = 53;
             this.uiGroupBox2.Text = "成品信息";
             this.uiGroupBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiGroupBox2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // 点色通知单
             // 

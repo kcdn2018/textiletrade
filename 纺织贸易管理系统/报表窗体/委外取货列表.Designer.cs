@@ -40,13 +40,13 @@
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new Sunny.UI.UIGroupBox();
             this.txthetonghao = new Sunny.UI.UITextBox();
-            this.txtbianhao = new Sunny.UI.UITextBox();
-            this.txtyanse = new Sunny.UI.UITextBox();
-            this.txtpingming = new Sunny.UI.UITextBox();
-            this.txtGuige = new Sunny.UI.UITextBox();
-            this.txtordernum = new Sunny.UI.UITextBox();
-            this.txtChengpingmenfu = new Sunny.UI.UITextBox();
-            this.TxtPibumenfu = new Sunny.UI.UITextBox();
+            this.txtbianhao = new System.Windows.Forms.TextBox();
+            this.txtyanse = new System.Windows.Forms.TextBox();
+            this.txtpingming = new System.Windows.Forms.TextBox();
+            this.txtGuige = new System.Windows.Forms.TextBox();
+            this.txtordernum = new System.Windows.Forms.TextBox();
+            this.txtChengpingmenfu = new System.Windows.Forms.TextBox();
+            this.TxtPibumenfu = new System.Windows.Forms.TextBox();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
@@ -74,6 +74,9 @@
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtganghao = new System.Windows.Forms.TextBox();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -177,6 +180,8 @@
             // groupPanel1
             // 
             this.groupPanel1.BackColor = System.Drawing.Color.White;
+            this.groupPanel1.Controls.Add(this.txtganghao);
+            this.groupPanel1.Controls.Add(this.labelX12);
             this.groupPanel1.Controls.Add(this.txthetonghao);
             this.groupPanel1.Controls.Add(this.txtbianhao);
             this.groupPanel1.Controls.Add(this.txtyanse);
@@ -212,150 +217,111 @@
             this.groupPanel1.TabIndex = 5;
             this.groupPanel1.Text = "查询条件";
             this.groupPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txthetonghao
             // 
+            this.txthetonghao.BackColor = System.Drawing.Color.White;
             this.txthetonghao.ButtonSymbol = 61761;
             this.txthetonghao.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txthetonghao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txthetonghao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txthetonghao.Location = new System.Drawing.Point(74, 117);
             this.txthetonghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txthetonghao.Maximum = 2147483647D;
-            this.txthetonghao.Minimum = -2147483648D;
             this.txthetonghao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txthetonghao.Name = "txthetonghao";
             this.txthetonghao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txthetonghao.ShowText = false;
             this.txthetonghao.Size = new System.Drawing.Size(120, 23);
+            this.txthetonghao.Style = Sunny.UI.UIStyle.Custom;
             this.txthetonghao.StyleCustomMode = true;
             this.txthetonghao.TabIndex = 58;
             this.txthetonghao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txthetonghao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtbianhao
             // 
-            this.txtbianhao.ButtonSymbol = 61761;
+            this.txtbianhao.BackColor = System.Drawing.Color.White;
             this.txtbianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbianhao.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtbianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbianhao.Location = new System.Drawing.Point(74, 75);
             this.txtbianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtbianhao.Maximum = 2147483647D;
-            this.txtbianhao.Minimum = -2147483648D;
             this.txtbianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbianhao.Name = "txtbianhao";
-            this.txtbianhao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtbianhao.Size = new System.Drawing.Size(120, 23);
-            this.txtbianhao.StyleCustomMode = true;
             this.txtbianhao.TabIndex = 58;
-            this.txtbianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtyanse
             // 
-            this.txtyanse.ButtonSymbol = 61761;
+            this.txtyanse.BackColor = System.Drawing.Color.White;
             this.txtyanse.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtyanse.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtyanse.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtyanse.Location = new System.Drawing.Point(263, 117);
             this.txtyanse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtyanse.Maximum = 2147483647D;
-            this.txtyanse.Minimum = -2147483648D;
             this.txtyanse.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtyanse.Name = "txtyanse";
-            this.txtyanse.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtyanse.Size = new System.Drawing.Size(120, 23);
-            this.txtyanse.StyleCustomMode = true;
             this.txtyanse.TabIndex = 58;
-            this.txtyanse.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtpingming
             // 
-            this.txtpingming.ButtonSymbol = 61761;
+            this.txtpingming.BackColor = System.Drawing.Color.White;
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpingming.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtpingming.Location = new System.Drawing.Point(263, 75);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtpingming.Maximum = 2147483647D;
-            this.txtpingming.Minimum = -2147483648D;
             this.txtpingming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpingming.Name = "txtpingming";
-            this.txtpingming.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtpingming.Size = new System.Drawing.Size(120, 23);
-            this.txtpingming.StyleCustomMode = true;
             this.txtpingming.TabIndex = 58;
-            this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtGuige
             // 
-            this.txtGuige.ButtonSymbol = 61761;
+            this.txtGuige.BackColor = System.Drawing.Color.White;
             this.txtGuige.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtGuige.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtGuige.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtGuige.Location = new System.Drawing.Point(451, 75);
             this.txtGuige.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGuige.Maximum = 2147483647D;
-            this.txtGuige.Minimum = -2147483648D;
             this.txtGuige.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtGuige.Name = "txtGuige";
-            this.txtGuige.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtGuige.Size = new System.Drawing.Size(120, 23);
-            this.txtGuige.StyleCustomMode = true;
             this.txtGuige.TabIndex = 57;
-            this.txtGuige.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtordernum
             // 
-            this.txtordernum.ButtonSymbol = 61761;
+            this.txtordernum.BackColor = System.Drawing.Color.White;
             this.txtordernum.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtordernum.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtordernum.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtordernum.Location = new System.Drawing.Point(451, 117);
             this.txtordernum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtordernum.Maximum = 2147483647D;
-            this.txtordernum.Minimum = -2147483648D;
             this.txtordernum.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtordernum.Name = "txtordernum";
-            this.txtordernum.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtordernum.Size = new System.Drawing.Size(120, 23);
-            this.txtordernum.StyleCustomMode = true;
             this.txtordernum.TabIndex = 56;
-            this.txtordernum.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtChengpingmenfu
             // 
-            this.txtChengpingmenfu.ButtonSymbol = 61761;
+            this.txtChengpingmenfu.BackColor = System.Drawing.Color.White;
             this.txtChengpingmenfu.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtChengpingmenfu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.txtChengpingmenfu.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtChengpingmenfu.Location = new System.Drawing.Point(649, 120);
             this.txtChengpingmenfu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtChengpingmenfu.Maximum = 2147483647D;
-            this.txtChengpingmenfu.Minimum = -2147483648D;
             this.txtChengpingmenfu.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtChengpingmenfu.Name = "txtChengpingmenfu";
-            this.txtChengpingmenfu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.txtChengpingmenfu.Size = new System.Drawing.Size(112, 23);
-            this.txtChengpingmenfu.StyleCustomMode = true;
             this.txtChengpingmenfu.TabIndex = 55;
-            this.txtChengpingmenfu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TxtPibumenfu
             // 
-            this.TxtPibumenfu.ButtonSymbol = 61761;
+            this.TxtPibumenfu.BackColor = System.Drawing.Color.White;
             this.TxtPibumenfu.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TxtPibumenfu.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
             this.TxtPibumenfu.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.TxtPibumenfu.Location = new System.Drawing.Point(649, 75);
             this.TxtPibumenfu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.TxtPibumenfu.Maximum = 2147483647D;
-            this.TxtPibumenfu.Minimum = -2147483648D;
             this.TxtPibumenfu.MinimumSize = new System.Drawing.Size(1, 1);
             this.TxtPibumenfu.Name = "TxtPibumenfu";
-            this.TxtPibumenfu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
             this.TxtPibumenfu.Size = new System.Drawing.Size(112, 23);
-            this.TxtPibumenfu.StyleCustomMode = true;
             this.TxtPibumenfu.TabIndex = 54;
-            this.TxtPibumenfu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelX11
             // 
@@ -682,6 +648,36 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txtganghao
+            // 
+            this.txtganghao.BackColor = System.Drawing.Color.White;
+            this.txtganghao.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtganghao.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtganghao.Location = new System.Drawing.Point(649, 35);
+            this.txtganghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtganghao.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtganghao.Name = "txtganghao";
+            this.txtganghao.Size = new System.Drawing.Size(112, 23);
+            this.txtganghao.TabIndex = 60;
+            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX12
+            // 
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Location = new System.Drawing.Point(581, 35);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(61, 23);
+            this.labelX12.TabIndex = 59;
+            this.labelX12.Text = "缸号";
+            // 
             // 委外取货列表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -695,6 +691,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
+            this.groupPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
@@ -746,15 +743,18 @@
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
         private DevComponents.DotNetBar.LabelX labelX6;
-        private Sunny.UI.UITextBox txthetonghao;
-        private Sunny.UI.UITextBox txtbianhao;
-        private Sunny.UI.UITextBox txtyanse;
-        private Sunny.UI.UITextBox txtpingming;
-        private Sunny.UI.UITextBox txtGuige;
-        private Sunny.UI.UITextBox txtordernum;
-        private Sunny.UI.UITextBox txtChengpingmenfu;
-        private Sunny.UI.UITextBox TxtPibumenfu;
+        private Sunny.UI.UITextBox  txthetonghao;
+        private System.Windows.Forms.TextBox txtbianhao;
+        private System.Windows.Forms.TextBox txtyanse;
+        private System.Windows.Forms.TextBox txtpingming;
+        private System.Windows.Forms.TextBox txtGuige;
+        private System.Windows.Forms.TextBox txtordernum;
+        private System.Windows.Forms.TextBox txtChengpingmenfu;
+        private System.Windows.Forms.TextBox TxtPibumenfu;
         private DevComponents.DotNetBar.LabelX labelX11;
         private DevComponents.DotNetBar.LabelX labelX10;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.TextBox txtganghao;
+        private DevComponents.DotNetBar.LabelX labelX12;
     }
 }

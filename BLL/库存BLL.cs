@@ -15,11 +15,11 @@ namespace BLL
         {
                 foreach (var mingxi in danjumingxitables)
                 {
-                    var stock = StockTableService.GetOneStockTable(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.MF == mingxi.menfu && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
+                    var stock =StockTableService.GetOneStockTable  (x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.MF == mingxi.menfu && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
                       x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum && x.CustomName == mingxi.CustomName
                        && x.Pihao == mingxi.Pihao && x.PibuChang == mingxi.PiBuChang);
                     //库存没有这个布 当编号为空的时候
-                    if (stock.ID == 0)
+                    if (stock.ID==0 )
                     {
                         stock.AvgPrice = mingxi.hanshuidanjia + mingxi.AveragePrice + (danjuTable.yunfei + danjuTable.ChaCheFei + danjuTable.ZhuangXieFei) / danjumingxitables.Sum(x => x.chengpingmishu);
                         stock.BH = mingxi.Bianhao;
@@ -161,11 +161,11 @@ namespace BLL
         {
             foreach (var mingxi in danjumingxitables)
             {
-                var stock = StockTableService.GetOneStockTable(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.MF == mingxi.menfu && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
+                var stock =StockTableService.GetOneStockTable (x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.MF == mingxi.menfu && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
                   x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum && x.CustomName == mingxi.CustomName
                    && x.Pihao == mingxi.Pihao && x.PibuChang == mingxi.PiBuChang);
                 //库存没有这个布  当编号为空的时候
-                if (stock.ID == 0)
+                if (stock.ID==0)
                 {
                     stock.AvgPrice = mingxi.Cost ;
                     stock.BH = mingxi.Bianhao;

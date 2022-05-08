@@ -92,6 +92,7 @@
     <Compile Include="db.cs" />
     <Compile Include="DeleteLog.cs" />
     <Compile Include="DengJiNameTable.cs" />
+    <Compile Include="FabricMadan.cs" />
     <Compile Include="FahuoDan.cs" />
     <Compile Include="FatherMenuTable.cs" />
     <Compile Include="FirstLetter.cs" />

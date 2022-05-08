@@ -95,7 +95,7 @@ namespace Tools
         {
             DataTable mingxiti = CreatMingxi();
             //列出所有包号
-            var baohaolist = juanhaolist.OrderBy(x=>x.GangHao).ThenBy(x=>x.PiHao );
+            var baohaolist = juanhaolist.OrderBy(x=>x.GangHao).ThenBy (x=>x.yanse ).ThenBy(x=>x.PiHao );
             int row = 0;
             JuanHaoTable prejuan = new JuanHaoTable();
             int n = 1;

@@ -143,8 +143,17 @@ namespace 纺织贸易管理系统
                     case "账户管理":
                         CheckTab(new 账户资料 ());
                         break;
+                    case "细码库存":
+                        CheckTab(new 细码库存());
+                        break;
                     case "展会管理":
                         CheckTab(new 展会管理() { Userful=FormUseful.新增 });
+                        break;
+                    case "委外发货列表":
+                        CheckTab(new 委外通知列表());
+                        break;
+                    case "检验通知列表":
+                        CheckTab(new 检验通知列表());
                         break;
                     case "出展记录":
                         CheckTab(new 出展记录 ());
@@ -416,6 +425,9 @@ namespace 纺织贸易管理系统
                         break;
                     case "进出记录":
                         CheckTab(new 进出记录 ());
+                        break;
+                    case "白坯销售列表":
+                        CheckTab(new 白坯销售列表 ());
                         break;
                 }
             }

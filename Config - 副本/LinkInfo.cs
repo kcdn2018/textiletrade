@@ -8,10 +8,10 @@ namespace Config
   public  class LinkInfo
     {
         public string CompanyName { get; set; }
-        public string Server { get; set; }
+        public string ServerName { get; set; }
         public string Port { get; set; }
-        public string DatabaseName { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public string DbName { get; set; }
+        public string UID { get; set; }
+        public string PWD { get; set; }
     }
 }

@@ -11,5 +11,9 @@ namespace Model
         public int Printmodel { get; set; }
         public string Path { get; set; }
         public int PrintNum { get; set; }
+        /// <summary>
+        /// 是否取消打印
+        /// </summary>
+        public Boolean IsCancelPrint { get; set; }
     }
 }

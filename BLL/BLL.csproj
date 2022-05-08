@@ -103,6 +103,7 @@
     <Compile Include="流转单BLL.cs" />
     <Compile Include="生产退卷单BLL.cs" />
     <Compile Include="生产入库单BLL.cs" />
+    <Compile Include="白坯销售单BLL.cs" />
     <Compile Include="系统设定.cs" />
     <Compile Include="AccessBLL.cs" />
     <Compile Include="BianhaoBLL.cs" />

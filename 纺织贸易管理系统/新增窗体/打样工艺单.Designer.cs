@@ -36,6 +36,8 @@
             this.打印编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.直接打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelX20 = new DevComponents.DotNetBar.LabelX();
+            this.txtBuliaoSource = new DevExpress.XtraEditors.ButtonEdit();
             this.txtkezhong = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.cmbgongyimingcheng = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -102,11 +104,12 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colorbtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.labelX20 = new DevComponents.DotNetBar.LabelX();
-            this.txtBuliaoSource = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelX21 = new DevComponents.DotNetBar.LabelX();
+            this.txtGengdan = new DevExpress.XtraEditors.ButtonEdit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuliaoSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpingming.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtorder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkehu.Properties)).BeginInit();
@@ -122,7 +125,7 @@
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBuliaoSource.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGengdan.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -183,6 +186,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelX21);
+            this.groupControl1.Controls.Add(this.txtGengdan);
             this.groupControl1.Controls.Add(this.labelX20);
             this.groupControl1.Controls.Add(this.txtBuliaoSource);
             this.groupControl1.Controls.Add(this.txtkezhong);
@@ -229,6 +234,29 @@
             this.groupControl1.Size = new System.Drawing.Size(971, 248);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "单据信息";
+            // 
+            // labelX20
+            // 
+            // 
+            // 
+            // 
+            this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX20.Location = new System.Drawing.Point(704, 140);
+            this.labelX20.Name = "labelX20";
+            this.labelX20.Size = new System.Drawing.Size(65, 23);
+            this.labelX20.TabIndex = 103;
+            this.labelX20.Text = "布料来源";
+            // 
+            // txtBuliaoSource
+            // 
+            this.txtBuliaoSource.Location = new System.Drawing.Point(769, 142);
+            this.txtBuliaoSource.Name = "txtBuliaoSource";
+            this.txtBuliaoSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtBuliaoSource.Size = new System.Drawing.Size(147, 20);
+            this.txtBuliaoSource.TabIndex = 102;
+            this.txtBuliaoSource.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_ButtonClick);
+            this.txtBuliaoSource.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuliaoSource_KeyDown);
             // 
             // txtkezhong
             // 
@@ -289,7 +317,7 @@
             // 
             // 
             this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX16.Location = new System.Drawing.Point(239, 175);
+            this.labelX16.Location = new System.Drawing.Point(242, 175);
             this.labelX16.Name = "labelX16";
             this.labelX16.Size = new System.Drawing.Size(53, 23);
             this.labelX16.TabIndex = 97;
@@ -410,7 +438,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(12, 139);
+            this.labelX7.Location = new System.Drawing.Point(6, 139);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(60, 23);
             this.labelX7.TabIndex = 89;
@@ -439,7 +467,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(706, 101);
+            this.labelX6.Location = new System.Drawing.Point(704, 101);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(63, 23);
             this.labelX6.TabIndex = 87;
@@ -553,7 +581,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(239, 101);
+            this.labelX9.Location = new System.Drawing.Point(242, 101);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(63, 23);
             this.labelX9.TabIndex = 79;
@@ -576,7 +604,7 @@
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(12, 101);
+            this.labelX10.Location = new System.Drawing.Point(6, 101);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(60, 23);
             this.labelX10.TabIndex = 77;
@@ -598,7 +626,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(706, 66);
+            this.labelX8.Location = new System.Drawing.Point(704, 66);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(65, 23);
             this.labelX8.TabIndex = 75;
@@ -621,7 +649,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(12, 66);
+            this.labelX5.Location = new System.Drawing.Point(6, 66);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(60, 23);
             this.labelX5.TabIndex = 71;
@@ -649,7 +677,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(706, 33);
+            this.labelX14.Location = new System.Drawing.Point(704, 33);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(72, 23);
             this.labelX14.TabIndex = 69;
@@ -677,7 +705,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(22, 214);
+            this.labelX4.Location = new System.Drawing.Point(6, 214);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(47, 23);
             this.labelX4.TabIndex = 55;
@@ -702,7 +730,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(239, 66);
+            this.labelX3.Location = new System.Drawing.Point(242, 66);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(47, 23);
             this.labelX3.TabIndex = 51;
@@ -714,6 +742,7 @@
             this.txtjiagongc.Name = "txtjiagongc";
             this.txtjiagongc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtjiagongc.Properties.ReadOnly = true;
             this.txtjiagongc.Size = new System.Drawing.Size(147, 20);
             this.txtjiagongc.TabIndex = 48;
             this.txtjiagongc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtjiagongc_ButtonClick);
@@ -725,7 +754,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(239, 33);
+            this.labelX2.Location = new System.Drawing.Point(242, 33);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(63, 23);
             this.labelX2.TabIndex = 49;
@@ -754,7 +783,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(9, 33);
+            this.labelX1.Location = new System.Drawing.Point(6, 33);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(47, 23);
             this.labelX1.TabIndex = 47;
@@ -870,7 +899,7 @@
             this.txtguangyue.Location = new System.Drawing.Point(3, 3);
             this.txtguangyue.Name = "txtguangyue";
             this.txtguangyue.Rtf = "{\\rtf1\\ansi\\ansicpg936\\deff0\\nouicompat\\deflang1033\\deflangfe2052{\\fonttbl{\\f0\\fn" +
-    "il\\fcharset134 \\\'cb\\\'ce\\\'cc\\\'e5;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4" +
+    "il\\fcharset134 \\\'cb\\\'ce\\\'cc\\\'e5;}}\r\n{\\*\\generator Riched20 10.0.22000}\\viewkind4" +
     "\\uc1 \r\n\\pard\\f0\\fs18\\lang2052\\par\r\n}\r\n";
             this.txtguangyue.Size = new System.Drawing.Size(957, 54);
             this.txtguangyue.TabIndex = 2;
@@ -897,7 +926,7 @@
             this.txtcicun.Location = new System.Drawing.Point(3, 3);
             this.txtcicun.Name = "txtcicun";
             this.txtcicun.Rtf = "{\\rtf1\\ansi\\ansicpg936\\deff0\\nouicompat\\deflang1033\\deflangfe2052{\\fonttbl{\\f0\\fn" +
-    "il\\fcharset134 \\\'cb\\\'ce\\\'cc\\\'e5;}}\r\n{\\*\\generator Riched20 10.0.19041}\\viewkind4" +
+    "il\\fcharset134 \\\'cb\\\'ce\\\'cc\\\'e5;}}\r\n{\\*\\generator Riched20 10.0.22000}\\viewkind4" +
     "\\uc1 \r\n\\pard\\f0\\fs18\\lang2052\\par\r\n}\r\n";
             this.txtcicun.Size = new System.Drawing.Size(957, 54);
             this.txtcicun.TabIndex = 1;
@@ -1004,28 +1033,27 @@
             this.colorbtn.Name = "colorbtn";
             this.colorbtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colorbtn_ButtonClick);
             // 
-            // labelX20
+            // labelX21
             // 
             // 
             // 
             // 
-            this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX20.Location = new System.Drawing.Point(704, 140);
-            this.labelX20.Name = "labelX20";
-            this.labelX20.Size = new System.Drawing.Size(65, 23);
-            this.labelX20.TabIndex = 103;
-            this.labelX20.Text = "布料来源";
+            this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX21.Location = new System.Drawing.Point(704, 176);
+            this.labelX21.Name = "labelX21";
+            this.labelX21.Size = new System.Drawing.Size(65, 23);
+            this.labelX21.TabIndex = 105;
+            this.labelX21.Text = "跟单员";
             // 
-            // txtBuliaoSource
+            // txtGengdan
             // 
-            this.txtBuliaoSource.Location = new System.Drawing.Point(769, 142);
-            this.txtBuliaoSource.Name = "txtBuliaoSource";
-            this.txtBuliaoSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtGengdan.Location = new System.Drawing.Point(769, 178);
+            this.txtGengdan.Name = "txtGengdan";
+            this.txtGengdan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtBuliaoSource.Size = new System.Drawing.Size(147, 20);
-            this.txtBuliaoSource.TabIndex = 102;
-            this.txtBuliaoSource.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEdit1_ButtonClick);
-            this.txtBuliaoSource.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuliaoSource_KeyDown);
+            this.txtGengdan.Size = new System.Drawing.Size(147, 20);
+            this.txtGengdan.TabIndex = 104;
+            this.txtGengdan.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtGengdan_ButtonClick);
             // 
             // 打样工艺单
             // 
@@ -1044,6 +1072,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtBuliaoSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpingming.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtorder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkehu.Properties)).EndInit();
@@ -1059,7 +1088,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBuliaoSource.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGengdan.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1142,5 +1171,7 @@
         private DevComponents.DotNetBar.LabelX labelX19;
         private DevComponents.DotNetBar.LabelX labelX20;
         private DevExpress.XtraEditors.ButtonEdit txtBuliaoSource;
+        private DevComponents.DotNetBar.LabelX labelX21;
+        private DevExpress.XtraEditors.ButtonEdit txtGengdan;
     }
 }

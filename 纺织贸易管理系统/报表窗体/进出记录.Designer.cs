@@ -50,8 +50,10 @@ namespace 纺织贸易管理系统.报表窗体
             this.配置列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.txtganghao = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtckmc.Properties)).BeginInit();
@@ -95,6 +97,8 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             // uiGroupBox1
             // 
+            this.uiGroupBox1.Controls.Add(this.txtganghao);
+            this.uiGroupBox1.Controls.Add(this.labelX3);
             this.uiGroupBox1.Controls.Add(this.cmbcunfang);
             this.uiGroupBox1.Controls.Add(this.txtckmc);
             this.uiGroupBox1.Controls.Add(this.labelX8);
@@ -114,6 +118,7 @@ namespace 纺织贸易管理系统.报表窗体
             this.uiGroupBox1.TabIndex = 3;
             this.uiGroupBox1.Text = "查询条件";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // cmbcunfang
             // 
@@ -243,13 +248,13 @@ namespace 纺织贸易管理系统.报表窗体
             this.保存样式ToolStripMenuItem,
             this.复制ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 114);
             // 
             // 导出到EXCELToolStripMenuItem
             // 
             this.导出到EXCELToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ExportToXLS_32x32;
             this.导出到EXCELToolStripMenuItem.Name = "导出到EXCELToolStripMenuItem";
-            this.导出到EXCELToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.导出到EXCELToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.导出到EXCELToolStripMenuItem.Text = "导出到EXCEL";
             this.导出到EXCELToolStripMenuItem.Click += new System.EventHandler(this.导出到EXCELToolStripMenuItem_Click);
             // 
@@ -257,7 +262,7 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             this.配置列ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.reading_32x32;
             this.配置列ToolStripMenuItem.Name = "配置列ToolStripMenuItem";
-            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.配置列ToolStripMenuItem.Text = "配置列";
             this.配置列ToolStripMenuItem.Click += new System.EventHandler(this.配置列ToolStripMenuItem_Click);
             // 
@@ -265,7 +270,7 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             this.刷新ToolStripMenuItem1.Image = global::纺织贸易管理系统.Properties.Resources.Refresh_32x32;
             this.刷新ToolStripMenuItem1.Name = "刷新ToolStripMenuItem1";
-            this.刷新ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.刷新ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
             this.刷新ToolStripMenuItem1.Text = "刷新";
             this.刷新ToolStripMenuItem1.Click += new System.EventHandler(this.刷新ToolStripMenuItem1_Click);
             // 
@@ -273,9 +278,17 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             this.保存样式ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
             this.保存样式ToolStripMenuItem.Name = "保存样式ToolStripMenuItem";
-            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.保存样式ToolStripMenuItem.Text = "保存样式";
             this.保存样式ToolStripMenuItem.Click += new System.EventHandler(this.保存样式ToolStripMenuItem_Click);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Copy_32x32;
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -294,13 +307,25 @@ namespace 纺织贸易管理系统.报表窗体
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
-            // 复制ToolStripMenuItem
+            // labelX3
             // 
-            this.复制ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Copy_32x32;
-            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.复制ToolStripMenuItem.Text = "复制";
-            this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(852, 34);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(55, 23);
+            this.labelX3.TabIndex = 43;
+            this.labelX3.Text = "缸号：";
+            // 
+            // txtganghao
+            // 
+            this.txtganghao.Location = new System.Drawing.Point(913, 34);
+            this.txtganghao.Name = "txtganghao";
+            this.txtganghao.Size = new System.Drawing.Size(100, 23);
+            this.txtganghao.TabIndex = 44;
+            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtganghao_KeyDown);
             // 
             // 进出记录
             // 
@@ -316,6 +341,7 @@ namespace 纺织贸易管理系统.报表窗体
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.uiGroupBox1.ResumeLayout(false);
+            this.uiGroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtckmc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
@@ -353,5 +379,7 @@ namespace 纺织贸易管理系统.报表窗体
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtganghao;
+        private DevComponents.DotNetBar.LabelX labelX3;
     }
 }
