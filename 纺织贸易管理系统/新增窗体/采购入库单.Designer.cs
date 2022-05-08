@@ -210,17 +210,18 @@
             this.txtyunfei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtyunfei.Location = new System.Drawing.Point(984, 77);
             this.txtyunfei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtyunfei.Maximum = 2147483647D;
-            this.txtyunfei.Minimum = -2147483648D;
             this.txtyunfei.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtyunfei.Name = "txtyunfei";
             this.txtyunfei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtyunfei.ShowText = false;
             this.txtyunfei.Size = new System.Drawing.Size(151, 23);
+            this.txtyunfei.Style = Sunny.UI.UIStyle.Custom;
             this.txtyunfei.StyleCustomMode = true;
             this.txtyunfei.TabIndex = 77;
             this.txtyunfei.Text = "0";
             this.txtyunfei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtyunfei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtyunfei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtzhuangxiefei
             // 
@@ -230,17 +231,18 @@
             this.txtzhuangxiefei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtzhuangxiefei.Location = new System.Drawing.Point(984, 156);
             this.txtzhuangxiefei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtzhuangxiefei.Maximum = 2147483647D;
-            this.txtzhuangxiefei.Minimum = -2147483648D;
             this.txtzhuangxiefei.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtzhuangxiefei.Name = "txtzhuangxiefei";
             this.txtzhuangxiefei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtzhuangxiefei.ShowText = false;
             this.txtzhuangxiefei.Size = new System.Drawing.Size(151, 23);
+            this.txtzhuangxiefei.Style = Sunny.UI.UIStyle.Custom;
             this.txtzhuangxiefei.StyleCustomMode = true;
             this.txtzhuangxiefei.TabIndex = 76;
             this.txtzhuangxiefei.Text = "0";
             this.txtzhuangxiefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtzhuangxiefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtzhuangxiefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX20
             // 
@@ -262,17 +264,18 @@
             this.txtChachefei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtChachefei.Location = new System.Drawing.Point(984, 117);
             this.txtChachefei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtChachefei.Maximum = 2147483647D;
-            this.txtChachefei.Minimum = -2147483648D;
             this.txtChachefei.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtChachefei.Name = "txtChachefei";
             this.txtChachefei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtChachefei.ShowText = false;
             this.txtChachefei.Size = new System.Drawing.Size(151, 23);
+            this.txtChachefei.Style = Sunny.UI.UIStyle.Custom;
             this.txtChachefei.StyleCustomMode = true;
             this.txtChachefei.TabIndex = 74;
             this.txtChachefei.Text = "0";
             this.txtChachefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtChachefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtChachefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX19
             // 
@@ -526,6 +529,7 @@
             this.txtckmc.Name = "txtckmc";
             this.txtckmc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtckmc.Properties.ReadOnly = true;
             this.txtckmc.Size = new System.Drawing.Size(147, 20);
             this.txtckmc.TabIndex = 32;
             this.txtckmc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtckmc_ButtonClick);

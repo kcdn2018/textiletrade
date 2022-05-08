@@ -206,17 +206,18 @@
             this.txtzhuangxiefei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtzhuangxiefei.Location = new System.Drawing.Point(991, 150);
             this.txtzhuangxiefei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtzhuangxiefei.Maximum = 2147483647D;
-            this.txtzhuangxiefei.Minimum = -2147483648D;
             this.txtzhuangxiefei.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtzhuangxiefei.Name = "txtzhuangxiefei";
             this.txtzhuangxiefei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtzhuangxiefei.ShowText = false;
             this.txtzhuangxiefei.Size = new System.Drawing.Size(151, 23);
+            this.txtzhuangxiefei.Style = Sunny.UI.UIStyle.Custom;
             this.txtzhuangxiefei.StyleCustomMode = true;
             this.txtzhuangxiefei.TabIndex = 68;
             this.txtzhuangxiefei.Text = "0";
             this.txtzhuangxiefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtzhuangxiefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtzhuangxiefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX20
             // 
@@ -238,17 +239,18 @@
             this.txtChachefei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtChachefei.Location = new System.Drawing.Point(991, 120);
             this.txtChachefei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtChachefei.Maximum = 2147483647D;
-            this.txtChachefei.Minimum = -2147483648D;
             this.txtChachefei.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtChachefei.Name = "txtChachefei";
             this.txtChachefei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtChachefei.ShowText = false;
             this.txtChachefei.Size = new System.Drawing.Size(151, 23);
+            this.txtChachefei.Style = Sunny.UI.UIStyle.Custom;
             this.txtChachefei.StyleCustomMode = true;
             this.txtChachefei.TabIndex = 66;
             this.txtChachefei.Text = "0";
             this.txtChachefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtChachefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtChachefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX19
             // 
@@ -270,93 +272,134 @@
             this.txtyunfei.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtyunfei.Location = new System.Drawing.Point(991, 92);
             this.txtyunfei.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtyunfei.Maximum = 2147483647D;
-            this.txtyunfei.Minimum = -2147483648D;
             this.txtyunfei.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtyunfei.Name = "txtyunfei";
             this.txtyunfei.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtyunfei.ShowText = false;
             this.txtyunfei.Size = new System.Drawing.Size(151, 23);
+            this.txtyunfei.Style = Sunny.UI.UIStyle.Custom;
             this.txtyunfei.StyleCustomMode = true;
             this.txtyunfei.TabIndex = 64;
             this.txtyunfei.Text = "0";
             this.txtyunfei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtyunfei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtyunfei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // cmbcunfang
             // 
             this.cmbcunfang.BackColor = System.Drawing.Color.White;
+            this.cmbcunfang.DataSource = null;
+            this.cmbcunfang.FillColor = System.Drawing.Color.White;
+            this.cmbcunfang.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cmbcunfang.FilterMaxCount = 50;
             this.cmbcunfang.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbcunfang.FormattingEnabled = true;
+            this.cmbcunfang.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.cmbcunfang.Items.AddRange(new object[] {
             "仓库",
             "加工厂"});
             this.cmbcunfang.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.cmbcunfang.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
+            this.cmbcunfang.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.cmbcunfang.Location = new System.Drawing.Point(80, 92);
+            this.cmbcunfang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbcunfang.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbcunfang.Name = "cmbcunfang";
+            this.cmbcunfang.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
             this.cmbcunfang.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.cmbcunfang.Size = new System.Drawing.Size(156, 22);
             this.cmbcunfang.Style = Sunny.UI.UIStyle.Gray;
             this.cmbcunfang.StyleCustomMode = true;
             this.cmbcunfang.TabIndex = 63;
             this.cmbcunfang.Text = "仓库";
+            this.cmbcunfang.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbcunfang.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.cmbcunfang.SelectedIndexChanged += new System.EventHandler(this.cmbcunfang_SelectedIndexChanged);
             // 
             // cmbgongyi
             // 
             this.cmbgongyi.BackColor = System.Drawing.Color.White;
+            this.cmbgongyi.DataSource = null;
+            this.cmbgongyi.FillColor = System.Drawing.Color.White;
+            this.cmbgongyi.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cmbgongyi.FilterMaxCount = 50;
             this.cmbgongyi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbgongyi.FormattingEnabled = true;
+            this.cmbgongyi.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.cmbgongyi.Items.AddRange(new object[] {
             "含税",
             "未税"});
             this.cmbgongyi.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.cmbgongyi.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
+            this.cmbgongyi.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.cmbgongyi.Location = new System.Drawing.Point(80, 120);
+            this.cmbgongyi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbgongyi.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbgongyi.Name = "cmbgongyi";
+            this.cmbgongyi.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
             this.cmbgongyi.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.cmbgongyi.Size = new System.Drawing.Size(156, 22);
             this.cmbgongyi.Style = Sunny.UI.UIStyle.Gray;
             this.cmbgongyi.StyleCustomMode = true;
             this.cmbgongyi.TabIndex = 62;
+            this.cmbgongyi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbgongyi.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // cmbqiankuan
             // 
             this.cmbqiankuan.BackColor = System.Drawing.Color.White;
+            this.cmbqiankuan.DataSource = null;
+            this.cmbqiankuan.FillColor = System.Drawing.Color.White;
+            this.cmbqiankuan.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cmbqiankuan.FilterMaxCount = 50;
             this.cmbqiankuan.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbqiankuan.FormattingEnabled = true;
+            this.cmbqiankuan.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.cmbqiankuan.Items.AddRange(new object[] {
             "欠款",
             "预付"});
             this.cmbqiankuan.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.cmbqiankuan.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
+            this.cmbqiankuan.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.cmbqiankuan.Location = new System.Drawing.Point(771, 92);
+            this.cmbqiankuan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbqiankuan.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbqiankuan.Name = "cmbqiankuan";
+            this.cmbqiankuan.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
             this.cmbqiankuan.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.cmbqiankuan.Size = new System.Drawing.Size(151, 22);
             this.cmbqiankuan.Style = Sunny.UI.UIStyle.Gray;
             this.cmbqiankuan.StyleCustomMode = true;
             this.cmbqiankuan.TabIndex = 61;
             this.cmbqiankuan.Text = "欠款";
+            this.cmbqiankuan.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbqiankuan.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // comhanshui
             // 
             this.comhanshui.BackColor = System.Drawing.Color.White;
+            this.comhanshui.DataSource = null;
+            this.comhanshui.FillColor = System.Drawing.Color.White;
+            this.comhanshui.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.comhanshui.FilterMaxCount = 50;
             this.comhanshui.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comhanshui.FormattingEnabled = true;
+            this.comhanshui.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.comhanshui.Items.AddRange(new object[] {
             "含税",
             "未税"});
             this.comhanshui.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.comhanshui.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(244)))));
+            this.comhanshui.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.comhanshui.Location = new System.Drawing.Point(771, 120);
+            this.comhanshui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comhanshui.MinimumSize = new System.Drawing.Size(63, 0);
             this.comhanshui.Name = "comhanshui";
+            this.comhanshui.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
             this.comhanshui.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.comhanshui.Size = new System.Drawing.Size(151, 22);
             this.comhanshui.Style = Sunny.UI.UIStyle.Gray;
             this.comhanshui.StyleCustomMode = true;
             this.comhanshui.TabIndex = 60;
             this.comhanshui.Text = "含税";
+            this.comhanshui.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.comhanshui.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtsuolv
             // 
@@ -366,18 +409,19 @@
             this.txtsuolv.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtsuolv.Location = new System.Drawing.Point(771, 150);
             this.txtsuolv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtsuolv.Maximum = 2147483647D;
-            this.txtsuolv.Minimum = -2147483648D;
             this.txtsuolv.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtsuolv.Name = "txtsuolv";
             this.txtsuolv.Padding = new System.Windows.Forms.Padding(5);
             this.txtsuolv.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtsuolv.ShowText = false;
             this.txtsuolv.Size = new System.Drawing.Size(151, 23);
+            this.txtsuolv.Style = Sunny.UI.UIStyle.Custom;
             this.txtsuolv.StyleCustomMode = true;
             this.txtsuolv.TabIndex = 58;
             this.txtsuolv.Text = "0";
             this.txtsuolv.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtsuolv.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtsuolv.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX18
             // 
@@ -601,6 +645,7 @@
             this.txtckmc.Name = "txtckmc";
             this.txtckmc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtckmc.Properties.ReadOnly = true;
             this.txtckmc.Size = new System.Drawing.Size(147, 20);
             this.txtckmc.TabIndex = 32;
             this.txtckmc.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtckmc_ButtonClick);
@@ -792,13 +837,13 @@
             this.配置列ToolStripMenuItem,
             this.保存样式ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 92);
             // 
             // 删除行ToolStripMenuItem
             // 
             this.删除行ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
             this.删除行ToolStripMenuItem.Name = "删除行ToolStripMenuItem";
-            this.删除行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除行ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除行ToolStripMenuItem.Text = "删除行";
             this.删除行ToolStripMenuItem.Click += new System.EventHandler(this.删除行ToolStripMenuItem_Click_1);
             // 
@@ -806,7 +851,7 @@
             // 
             this.添加行ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
             this.添加行ToolStripMenuItem.Name = "添加行ToolStripMenuItem";
-            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.添加行ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.添加行ToolStripMenuItem.Text = "添加行";
             this.添加行ToolStripMenuItem.Click += new System.EventHandler(this.添加行ToolStripMenuItem_Click_1);
             // 
@@ -814,7 +859,7 @@
             // 
             this.配置列ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.reading_32x32;
             this.配置列ToolStripMenuItem.Name = "配置列ToolStripMenuItem";
-            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.配置列ToolStripMenuItem.Text = "配置列";
             this.配置列ToolStripMenuItem.Click += new System.EventHandler(this.配置列ToolStripMenuItem_Click);
             // 
@@ -822,7 +867,7 @@
             // 
             this.保存样式ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
             this.保存样式ToolStripMenuItem.Name = "保存样式ToolStripMenuItem";
-            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.保存样式ToolStripMenuItem.Text = "保存样式";
             this.保存样式ToolStripMenuItem.Click += new System.EventHandler(this.保存样式ToolStripMenuItem_Click);
             // 
