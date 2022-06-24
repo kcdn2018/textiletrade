@@ -332,7 +332,9 @@
             this.txtjine.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtjine.Type = Sunny.UI.UITextBox.UIEditType.Double;
             this.txtjine.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+
             this.txtjine.TextChanged += new System.EventHandler(this.txtjine_ValueChanged);
+
             // 
             // cmb_Bizhong
             // 

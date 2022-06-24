@@ -661,6 +661,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.uiGroupBox1.Text = "配桶信息";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+
             // 
             // 相同信息ToolStripMenuItem
             // 

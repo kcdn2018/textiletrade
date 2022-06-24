@@ -27,11 +27,13 @@ namespace 纺织贸易管理系统.其他窗体
               $" from DanjuTable where DanjuTable.djlx = '销售出库单' and DanjuTable.rq between '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}' group by SaleMan");
             var totaljine = dt.Compute("sum(合计销售额)", "true").TryToDecmial();
             var totallilun = dt.Compute("sum(合计利润)", "true").TryToDecmial();
+            dt.Columns.Add("提成");
             foreach (DataRow row in dt.Rows)
             {
                 var name = YhbService.GetOneYhb(x => x.YHBH == row["业务员"].ToString()).YHMC;
                 row["业务员"] = string.IsNullOrEmpty(name) ? row["业务员"] : name;
-                dataGridViewX1.AddRow(row["业务员"], row["合计销售数量"], row["合计销售额"], row["合计利润"], (row["合计销售额"].TryToDecmial() / totaljine).ToString("0%"));
+                row["提成"] = row["合计利润"].TryToDecmial () * txtticheng.Text.TryToDecmial()/100;
+                dataGridViewX1.AddRow(row["业务员"], row["合计销售数量"], row["合计销售额"], row["合计利润"], (row["合计销售额"].TryToDecmial() / totaljine).ToString("0%"), row["提成"]);
             }
             txtstock.Text = Connect.CreatConnect().Query("select sum(t.AvgPrice *t.MS ) 库存金额 from StockTable t").Rows[0][0].ToString();
             txtxiaoshoue.Text = totaljine.ToString();
@@ -41,7 +43,7 @@ namespace 纺织贸易管理系统.其他窗体
             txtcaigou.Text = Connect.CreatConnect().Query($"select sum(t.je ) from DanjuTable t where t.djlx ='{DanjuLeiXing.采购入库单 }' and t.rq between  '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}'").Rows[0][0].ToString();
             txtjiagong.Text = Connect.CreatConnect().Query($"select sum(t.je ) from DanjuTable t where t.djlx ='{DanjuLeiXing.委外取货单 }' and t.rq between  '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}'").Rows[0][0].ToString();
             txtshouru.Text = Connect.CreatConnect().Query($"select sum(t.totalmoney  ) from DanjuTable t where t.djlx ='{DanjuLeiXing.费用单  }' and  t.yaoqiu='{ShouzhiStyle.收入 }' and t.rq between  '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}'").Rows[0][0].ToString();
-            txtshouru.Text = Connect.CreatConnect().Query($"select sum(t.je  ) from DanjuTable t where t.djlx ='{DanjuLeiXing.费用单  }' and  t.yaoqiu='{ShouzhiStyle.支出  }' and t.rq between  '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}'").Rows[0][0].ToString();
+            txtzhichu .Text = Connect.CreatConnect().Query($"select sum(t.je  ) from DanjuTable t where t.djlx ='{DanjuLeiXing.费用单  }' and  t.yaoqiu='{ShouzhiStyle.支出  }' and t.rq between  '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}'").Rows[0][0].ToString();
         }
         private void 销售汇总_Load(object sender, EventArgs e)
         {

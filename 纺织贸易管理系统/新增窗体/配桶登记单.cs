@@ -579,6 +579,7 @@ namespace 纺织贸易管理系统.新增窗体
             }
         }
 
+
         private void 相同信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int i = 0;
@@ -630,5 +631,6 @@ namespace 纺织贸易管理系统.新增窗体
             }
             gridControl1.RefreshDataSource();
         }
+
     }
 }

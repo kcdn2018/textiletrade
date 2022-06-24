@@ -104,8 +104,10 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colorbtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+
             this.labelX21 = new DevComponents.DotNetBar.LabelX();
             this.txtGengdan = new DevExpress.XtraEditors.ButtonEdit();
+
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -125,7 +127,9 @@
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.txtGengdan.Properties)).BeginInit();
+
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1088,6 +1092,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.txtGengdan.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
