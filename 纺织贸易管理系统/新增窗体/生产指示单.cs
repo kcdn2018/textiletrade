@@ -478,19 +478,27 @@ namespace 纺织贸易管理系统.新增窗体
                     imgDatatable.Columns.Add("图片"+i.ToString (), typeof(Byte[]));
                 }
                 int row = 0;
-               for(int i=0;i<imgs.Count;i++)
+                if(imgs.Count >0)
+                {
+                    for (int i = 0; i < imgs.Count; i++)
+                    {
+                        imgDatatable.Rows.Add();
+                        for (int r = 0; r < 3; r++)
+                        {
+                            imgDatatable.Rows[row][r] = BitmapByte(imgs[i]);
+                            i++;
+                            if (i == imgs.Count)
+                            {
+                                break;
+                            }
+                        }
+                    }                   
+                    row++;
+                }
+                else
                 {
                     imgDatatable.Rows.Add();
-                    for (int r = 0; r < 3; r++)
-                    {
-                        imgDatatable.Rows[row][r] = BitmapByte(imgs[i]);
-                        i++;
-                        if(i==imgs.Count )
-                        {
-                            break;
-                        }
-                    }
-                    row++;
+                    imgDatatable.Rows[row][0] = pictureBox1.Image ;
                 }
                 ds.Tables.Add(imgDatatable);
             }

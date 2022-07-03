@@ -153,6 +153,10 @@ namespace 纺织贸易管理系统
         /// </summary>
         public string ShoukuanFangshi { get; set; }
         /// <summary>
+        /// 采购含税
+        /// </summary>
+        public string CaiGouHanshui { get; set; }
+        /// <summary>
         /// 实际发货地址
         /// </summary>
         //public string Fahuodizhi { get; set; }

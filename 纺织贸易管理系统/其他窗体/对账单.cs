@@ -119,6 +119,13 @@ namespace 纺织贸易管理系统.其他窗体
                         dt.Rows[row]["hanshuiheji"] = dt.Rows[row]["weishuiheji"].TryToDecmial(0) +dt.Rows[row]["hanshuiheji"].TryToDecmial(0);
                     //}
                 }
+                if (dt.Rows[row]["LX"].ToString() == DanjuLeiXing.白坯直销单 )
+                {
+                    //if (!string.IsNullOrWhiteSpace(dt.Rows[row]["weishuiheji"].ToString()) && !string.IsNullOrWhiteSpace(dt.Rows[row]["hanshuiheji"].ToString()))
+                    //{
+                    dt.Rows[row]["weishuiheji"] =0;
+                    //}
+                }
                 decimal qichu, qimo, hanshui, yingshoukuan,otherCost;
                 qichu = dt.Rows[row - 1]["Qimojine"].TryToDecmial(0);          
                 yingshoukuan = dt.Rows[row]["ReduceYingShouKuan"].TryToDecmial(0);

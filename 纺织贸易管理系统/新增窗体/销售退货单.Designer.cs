@@ -132,19 +132,21 @@
             this.打印寄样标签ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.打印寄样标签ToolStripMenuItem.Name = "打印寄样标签ToolStripMenuItem";
             this.打印寄样标签ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
-            this.打印寄样标签ToolStripMenuItem.Text = "打印合同";
+            this.打印寄样标签ToolStripMenuItem.Text = "打印单据";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.toolStripMenuItem1.Text = "修改合同";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "打印编辑";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "打印预览";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // groupControl1
             // 

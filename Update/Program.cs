@@ -11,7 +11,7 @@ namespace Update
     {
         static void Main(string[] args)
         {
-            //Connect.Environmen = "公司";
+            Connect.Environmen = "公司";
             创建复合明细表.CreatDuanTongZhiMenu();
             //创建复合明细表.CreateDBId();
             //创建复合明细表.CreatTable();

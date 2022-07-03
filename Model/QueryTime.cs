@@ -14,5 +14,7 @@ namespace Model
         public static string IsBuyStyle = string.Empty;
         public static int  Suolv = 100;
         public static string DanjubianhaoRule = "类型+年份+月份+日+累计编号";
+        //业务员是否必填
+        public static string IsNeedSaleMan = "否";
     }
 }

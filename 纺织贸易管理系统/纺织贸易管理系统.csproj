@@ -138,8 +138,8 @@
     <Reference Include="Rate">
       <HintPath>..\..\纺织贸易管理\纺织贸易管理系统\Scmanager\bin\x86\Debug\Rate.dll</HintPath>
     </Reference>
-    <Reference Include="SqlSugar, Version=5.0.5.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SqlSugar.5.0.5.4\lib\SqlSugar.dll</HintPath>
+    <Reference Include="SqlSugar, Version=5.0.9.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.9.2\lib\SqlSugar.dll</HintPath>
     </Reference>
     <Reference Include="SunnyUI, Version=3.2.0.0, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\SunnyUI.3.2.0\lib\net40\SunnyUI.dll</HintPath>
@@ -279,6 +279,18 @@
     </Compile>
     <Compile Include="其他窗体\账户转账.Designer.cs">
       <DependentUpon>账户转账.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\白坯直销列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\白坯直销列表.Designer.cs">
+      <DependentUpon>白坯直销列表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\白坯直销单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\白坯直销单.Designer.cs">
+      <DependentUpon>白坯直销单.cs</DependentUpon>
     </Compile>
     <Compile Include="汇总窗体\销售汇总.cs">
       <SubType>Form</SubType>
@@ -886,6 +898,12 @@
     <Compile Include="新增窗体\流转登记.Designer.cs">
       <DependentUpon>流转登记.cs</DependentUpon>
     </Compile>
+    <Compile Include="汇总窗体\销售统计.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="汇总窗体\销售统计.Designer.cs">
+      <DependentUpon>销售统计.cs</DependentUpon>
+    </Compile>
     <Compile Include="通知窗体\检验通知单.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1350,6 +1368,12 @@
     <EmbeddedResource Include="其他窗体\账户转账.resx">
       <DependentUpon>账户转账.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\白坯直销列表.resx">
+      <DependentUpon>白坯直销列表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\白坯直销单.resx">
+      <DependentUpon>白坯直销单.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="汇总窗体\销售汇总.resx">
       <DependentUpon>销售汇总.cs</DependentUpon>
     </EmbeddedResource>
@@ -1652,6 +1676,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="新增窗体\流转登记.resx">
       <DependentUpon>流转登记.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="汇总窗体\销售统计.resx">
+      <DependentUpon>销售统计.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="通知窗体\检验通知单.resx">
       <DependentUpon>检验通知单.cs</DependentUpon>

@@ -86,7 +86,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fm = new 配置列(gridView1) { formname = this.Name };
+            var fm = new 配置列(gridView1) { formname = this.Name,Obj=new CiDianNameTable () };
             fm.ShowDialog();
         }
 

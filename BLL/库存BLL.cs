@@ -21,7 +21,7 @@ namespace BLL
                     //库存没有这个布 当编号为空的时候
                     if (stock.ID==0 )
                     {
-                        stock.AvgPrice = mingxi.hanshuidanjia + mingxi.AveragePrice + (danjuTable.yunfei + danjuTable.ChaCheFei + danjuTable.ZhuangXieFei) / danjumingxitables.Sum(x => x.chengpingmishu);
+                        stock.AvgPrice =(danjuTable.djlx ==DanjuLeiXing.委外取货单 ?0 : mingxi.hanshuidanjia )+ mingxi.AveragePrice + (danjuTable.yunfei + danjuTable.ChaCheFei + danjuTable.ZhuangXieFei) / danjumingxitables.Sum(x => x.chengpingmishu);
                         stock.BH = mingxi.Bianhao;
                         stock.biaoqianmishu = 0;
                         stock.CF = mingxi.chengfeng;
@@ -43,7 +43,7 @@ namespace BLL
                         stock.PM = mingxi.pingming;
                         stock.RKDH = danjuTable.ksmc;
                         stock.RQ = danjuTable.rq;
-                        stock.TotalMoney = mingxi.hanshuiheji;
+                        stock.TotalMoney = mingxi.chengpingmishu *stock.AvgPrice ;
                         stock.YS = mingxi.yanse;
                         stock.Huahao = mingxi.Huahao;
                         stock.ColorNum = mingxi.ColorNum;
@@ -63,12 +63,17 @@ namespace BLL
                     {
                         stock.MS += mingxi.chengpingmishu;
                         stock.JS += mingxi.chengpingjuanshu;
-                        stock.TotalMoney += (mingxi.hanshuiheji + mingxi.AveragePrice * mingxi.chengpingmishu);
+                    if(danjuTable.djlx.Contains ("入库"))
+                    {
+                        stock.TotalMoney += (mingxi.weishuiheji + mingxi.hanshuidanjia  * mingxi.chengpingmishu);
+                    }
+                    else
+                    {
+                        stock.TotalMoney +=( mingxi.AveragePrice * mingxi.chengpingmishu);
+                    }
+                       
                         stock.RukuNum += mingxi.chengpingmishu;
-                        if (stock.MS != 0)
-                        {
-                            stock.AvgPrice = stock.MS == 0 ? 0 : (int)stock.TotalMoney / stock.MS;
-                        }
+                        stock.AvgPrice = stock.MS == 0 ? 0 : (int)stock.TotalMoney / stock.MS;
                         stock.Remarkers = mingxi.beizhu;
                         //     StockTableService.UpdateStockTable(stock, x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse  &&
                         //x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum);
@@ -213,13 +218,22 @@ namespace BLL
                 {           
                         stock.MS -= mingxi.chengpingmishu;
                         stock.JS -= mingxi.chengpingjuanshu;
-                    if (danjuTable.djlx.Contains("入库"))
-                    { stock.RukuNum -= mingxi.chengpingmishu; }
+                  
                     if (danjuTable.djlx == DanjuLeiXing.销售退货单)
                     {
                         stock.RukuNum -= mingxi.chengpingjuanshu;
                     }
-                    stock.TotalMoney -= mingxi.chengpingmishu *mingxi.AveragePrice ;
+                    //如果是入库单 删除或者修改的时候应该减去米数*单据单价
+                    if (danjuTable.djlx.Contains("入库"))
+                    { 
+                        stock.RukuNum -= mingxi.chengpingmishu;
+                        stock.TotalMoney -= mingxi.chengpingmishu * mingxi.hanshuidanjia ;
+                    }
+                    else
+                    {                    
+                            //如果是销售等其他出库的时候应该减去米数*平均价格
+                            stock.TotalMoney -= mingxi.chengpingmishu * mingxi.AveragePrice;
+                    }
                     if (stock.TotalMoney != 0&&stock.MS!=0)
                     {
                         stock.AvgPrice = (int)stock.TotalMoney / stock.MS;

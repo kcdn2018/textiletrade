@@ -88,6 +88,8 @@
             this.cmbxianshi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorPickerDropDown1 = new DevComponents.DotNetBar.ColorPickerDropDown();
+            this.cmbNeedSaleMan = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -494,6 +496,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmbNeedSaleMan);
+            this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.cmbdanjubianhao);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Controls.Add(this.NumSuoLv);
@@ -728,7 +732,7 @@
             this.cmbAutoPrice.Items.AddRange(new object[] {
             "自动",
             "手动"});
-            this.cmbAutoPrice.Location = new System.Drawing.Point(116, 269);
+            this.cmbAutoPrice.Location = new System.Drawing.Point(116, 268);
             this.cmbAutoPrice.Name = "cmbAutoPrice";
             this.cmbAutoPrice.Size = new System.Drawing.Size(121, 20);
             this.cmbAutoPrice.TabIndex = 9;
@@ -737,7 +741,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 270);
+            this.label5.Location = new System.Drawing.Point(7, 272);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 8;
@@ -837,6 +841,27 @@
             this.colorPickerDropDown1.Tooltip = "Custom color scheme is created based on currently selected color table. Try selec" +
     "ting Silver or Blue color table and then creating custom color scheme.";
             // 
+            // cmbNeedSaleMan
+            // 
+            this.cmbNeedSaleMan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNeedSaleMan.FormattingEnabled = true;
+            this.cmbNeedSaleMan.Items.AddRange(new object[] {
+            "是",
+            "否"});
+            this.cmbNeedSaleMan.Location = new System.Drawing.Point(382, 268);
+            this.cmbNeedSaleMan.Name = "cmbNeedSaleMan";
+            this.cmbNeedSaleMan.Size = new System.Drawing.Size(121, 20);
+            this.cmbNeedSaleMan.TabIndex = 31;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(273, 272);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(65, 12);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "业务员必填";
+            // 
             // 公司信息
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -932,5 +957,7 @@
         private System.Windows.Forms.ToolStripMenuItem 检查更新ToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbdanjubianhao;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cmbNeedSaleMan;
+        private System.Windows.Forms.Label label15;
     }
 }

@@ -18,6 +18,8 @@ namespace 纺织贸易管理系统.报表窗体
     public partial class 细码库存 : Form
     {
         private List<JuanHaoTable> juanlist = new List<JuanHaoTable>();
+        private int pageindex = 1;
+        private int totalNum = 0;
         public 细码库存()
         {
             InitializeComponent();
@@ -36,7 +38,6 @@ namespace 纺织贸易管理系统.报表窗体
             {
                 cmbmaitou.SelectedIndex = 0;
             }
-
             Query();
         }
 
@@ -53,9 +54,11 @@ namespace 纺织贸易管理系统.报表窗体
         private void Query()
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            juanlist = JuanHaoTableService.GetJuanHaoTablelst(x =>  x.SampleName.Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)
-             && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text)&&x.state ==0);
-            gridControl1.DataSource = juanlist;         
+            juanlist = Connect.DbHelper().Queryable<JuanHaoTable >().Where (x =>  x.SampleName.Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)
+             && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text)&&x.state ==0).ToPageList (this.pageindex,uiPagination1.PageSize ,ref totalNum ).OrderByDescending(x=>x.ID ).ToList ();
+            label2.Text = this.totalNum.ToString () + "卷";
+            uiPagination1.TotalCount = this.totalNum;
+            gridControl1.DataSource = juanlist.OrderByDescending(x=>x.ID );         
             UIWaitFormService.HideWaitForm();
         }
 
@@ -66,6 +69,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.pageindex = 1;
             Query();
         }
 
@@ -83,6 +87,7 @@ namespace 纺织贸易管理系统.报表窗体
                 {
                     可发卷BLL.卷删除(gridView1.GetRowCellValue(i, "JuanHao").ToString());
                 }
+                this.pageindex = 1;
                 Query();
             }
         }
@@ -103,7 +108,40 @@ namespace 纺织贸易管理系统.报表窗体
         private void txtpingming_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode==Keys.Enter )
-            { Query(); }
+            {
+                this.pageindex = 1;
+                Query(); }
+        }
+
+        private void 编辑报告ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tools.打印检验报告.PrintReport(PrintModel.Design , CreateJuanhao());
+        }
+        private List<JuanHaoTable > CreateJuanhao()
+        {
+            var selectjuan = new List<JuanHaoTable>();
+            foreach (var s in gridView1.GetSelectedRows())
+            {
+                selectjuan.Add(juanlist[s]);
+            }
+            return selectjuan;
+        }
+
+        private void 预览报告ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tools.打印检验报告.PrintReport(PrintModel.Privew, CreateJuanhao());
+        }
+
+        private void 打印报告ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tools.打印检验报告.PrintReport(PrintModel.Print, CreateJuanhao());
+        }
+
+        private void uiPagination1_PageChanged(object sender, object pagingSource, int pageIndex, int count)
+        {
+            this.pageindex = pageIndex;
+            Query();
+            
         }
     }
 }

@@ -91,6 +91,7 @@
     <Compile Include="打印价格码单.cs" />
     <Compile Include="打印包装码单.cs" />
     <Compile Include="打印打样单后整理.cs" />
+    <Compile Include="打印检验报告.cs" />
     <Compile Include="打印清单码单.cs" />
     <Compile Include="打印退卷单.cs" />
     <Compile Include="打印发货单.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="打印横版码单.cs" />
     <Compile Include="打印生产单.cs" />
     <Compile Include="打印白坯码单.cs" />
+    <Compile Include="打印销售退货单.cs" />
     <Compile Include="获取模板.cs" />
   </ItemGroup>
   <ItemGroup>

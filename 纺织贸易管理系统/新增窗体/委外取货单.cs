@@ -267,21 +267,25 @@ namespace 纺织贸易管理系统.新增窗体
                         var t2 = ToupiList.Where(x => x.SampleNum == m.Bianhao && x.ganghao == m.ganghao && x.houzhengli == houzheng).ToList ();
                         if (t2 .Count >0)
                         {
-                            m.AveragePrice = ToupiList.Where (x => x.SampleNum == m.Bianhao&&x.ganghao==m.ganghao &&x.houzhengli==houzheng ).ToList ()[0].AveragePrice;
+                            var pibu = ToupiList.FirstOrDefault(x => x.SampleNum == m.Bianhao && x.ganghao == m.ganghao && x.houzhengli == houzheng);
+                            m.AveragePrice =pibu .Danjia+m.hanshuidanjia +(pibu.ToupiMishu -m.chengpingmishu)*pibu.Danjia /m.chengpingmishu  ;
                         }
                         else
                         {
-                            m.AveragePrice = ToupiList.Where(x => x.SampleNum == m.Bianhao&&x.ganghao==m.ganghao ).ToList ()[0].AveragePrice;
+                            var pibu = ToupiList.FirstOrDefault(x => x.SampleNum == m.Bianhao && x.ganghao == m.ganghao);
+                            m.AveragePrice = pibu.Danjia + m.hanshuidanjia + (pibu.ToupiMishu - m.chengpingmishu) * pibu.Danjia / m.chengpingmishu;
                         }
                     }
                     else
                     {
-                        m.AveragePrice =ToupiList.Where  (x=>x.SampleNum==m.Bianhao ).ToList ()[0].AveragePrice ;
+                        var pibu = ToupiList.FirstOrDefault(x => x.SampleNum == m.Bianhao);
+                        m.AveragePrice =pibu.Danjia +m.hanshuidanjia  +(ToupiList.Sum (x=>x.ToupiMishu )-danjumingxitables.Sum (x=>x.chengpingmishu ))*pibu.Danjia/ danjumingxitables.Sum(x => x.chengpingmishu);
                     }
                 }
                 else
                 {
-                    m.AveragePrice = ToupiList.Sum(x => x.ToupiMishu) * ToupiList.Sum(x => x.AveragePrice)/ToupiList.Sum (x=>x.ToupiMishu );
+                    var pibu = ToupiList[0];
+                    m.AveragePrice = pibu.Danjia + m.chengpingmishu + (ToupiList.Sum(x => x.ToupiMishu) - danjumingxitables.Sum(x => x.chengpingmishu)) * pibu.Danjia / danjumingxitables.Sum(x => x.chengpingmishu);
                 }
                 
             }

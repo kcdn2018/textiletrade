@@ -23,6 +23,7 @@ using 纺织贸易管理系统.其他窗体;
 using 纺织贸易管理系统.基本资料;
 using 纺织贸易管理系统.报表窗体;
 using 纺织贸易管理系统.新增窗体;
+using 纺织贸易管理系统.汇总窗体;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -57,6 +58,8 @@ namespace 纺织贸易管理系统
                 QueryTime.IsBuyStyle = SettingService.GetSetting(x => x.settingname == "采购类型").settingValue;
                 QueryTime.IsBuyStyle = string.IsNullOrWhiteSpace(QueryTime.IsBuyStyle) ? "成品采购" : QueryTime.IsBuyStyle;
                 QueryTime.IsFabricStyle = SettingService.GetSetting(x => x.settingname == "产品类型").settingValue;
+                var isneedSaleman = SettingService.GetSetting(x => x.settingname == "业务员必填").settingValue;
+                QueryTime.IsNeedSaleMan  =string.IsNullOrWhiteSpace (isneedSaleman ) ?"否":isneedSaleman ;
                 QueryTime.Suolv = string.IsNullOrWhiteSpace(SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue) ? 100 : SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue.TryToInt(0);
             }));
         }
@@ -428,6 +431,16 @@ namespace 纺织贸易管理系统
                         break;
                     case "白坯销售列表":
                         CheckTab(new 白坯销售列表 ());
+                        break;
+                    case "白坯直销单":
+                        CheckTab(new 白坯直销列表());
+                        break;
+                 
+                    case "销售统计":
+                        if (AccessBLL.CheckAccess("销售统计") == true)
+                        {
+                            CheckTab  (new 销售统计());
+                        }
                         break;
                 }
             }

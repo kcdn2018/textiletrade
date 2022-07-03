@@ -47,6 +47,7 @@ namespace 纺织贸易管理系统.设置窗体
             cmbFabricStyle.Text = QueryTime.IsFabricStyle;
             cmbIsTax.Text = QueryTime.IsTax;
             cmbdanjubianhao.Text = QueryTime.DanjubianhaoRule;
+            cmbNeedSaleMan.Text = QueryTime.IsNeedSaleMan;
         }
         private void GetAllPrinter()
         {
@@ -88,6 +89,7 @@ namespace 纺织贸易管理系统.设置窗体
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "产品类型", settingValue = cmbFabricStyle .Text });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "报警缩率", settingValue = NumSuoLv.Value.ToString()  });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "单据编号规则", settingValue =cmbdanjubianhao.Text  });
+                SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "业务员必填", settingValue = cmbNeedSaleMan .Text });
                 QueryTime.间隔 =(int) numericUpDown1.Value;
                 QueryTime.Digit = (int)numericUpDown2.Value;
                 QueryTime.IsTax = cmbIsTax.Text;
@@ -95,6 +97,7 @@ namespace 纺织贸易管理系统.设置窗体
                 QueryTime.IsBuyStyle = cmbBuyStyle.Text;
                 QueryTime.Suolv =(int) NumSuoLv.Value;
                 QueryTime.DanjubianhaoRule = cmbdanjubianhao.Text;
+                QueryTime.IsNeedSaleMan = cmbNeedSaleMan.Text;
                 AlterDlg.Show("保存完毕");
             }
             else
@@ -161,7 +164,7 @@ namespace 纺织贸易管理系统.设置窗体
 
         private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Task.Run(new Action(() => { UpdateService.IsNeedUpdate(); }));
+            Task.Run(new Action(() => { UpdateService.IsNeedUpdate(this); }));
         }
     }
 }

@@ -35,6 +35,10 @@ namespace 纺织贸易管理系统.报表窗体
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除卷ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除开剪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印检验报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.编辑报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.预览报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印唛头ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.唛头模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbmaitou = new System.Windows.Forms.ToolStripComboBox();
@@ -55,22 +59,28 @@ namespace 纺织贸易管理系统.报表窗体
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.txtguige = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtpingming = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.uiPagination1 = new Sunny.UI.UIPagination();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            this.uiPagination1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -80,6 +90,7 @@ namespace 纺织贸易管理系统.报表窗体
             this.刷新ToolStripMenuItem,
             this.删除卷ToolStripMenuItem,
             this.删除开剪ToolStripMenuItem,
+            this.打印检验报告ToolStripMenuItem,
             this.打印唛头ToolStripMenuItem,
             this.唛头模板ToolStripMenuItem,
             this.cmbmaitou});
@@ -123,6 +134,42 @@ namespace 纺织贸易管理系统.报表窗体
             this.删除开剪ToolStripMenuItem.Name = "删除开剪ToolStripMenuItem";
             this.删除开剪ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
             this.删除开剪ToolStripMenuItem.Text = "删除开剪";
+            // 
+            // 打印检验报告ToolStripMenuItem
+            // 
+            this.打印检验报告ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑报告ToolStripMenuItem,
+            this.预览报告ToolStripMenuItem,
+            this.打印报告ToolStripMenuItem});
+            this.打印检验报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
+            this.打印检验报告ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.打印检验报告ToolStripMenuItem.Name = "打印检验报告ToolStripMenuItem";
+            this.打印检验报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.打印检验报告ToolStripMenuItem.Text = "打印检验报告";
+            // 
+            // 编辑报告ToolStripMenuItem
+            // 
+            this.编辑报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
+            this.编辑报告ToolStripMenuItem.Name = "编辑报告ToolStripMenuItem";
+            this.编辑报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.编辑报告ToolStripMenuItem.Text = "编辑报告";
+            this.编辑报告ToolStripMenuItem.Click += new System.EventHandler(this.编辑报告ToolStripMenuItem_Click);
+            // 
+            // 预览报告ToolStripMenuItem
+            // 
+            this.预览报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
+            this.预览报告ToolStripMenuItem.Name = "预览报告ToolStripMenuItem";
+            this.预览报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.预览报告ToolStripMenuItem.Text = "预览报告";
+            this.预览报告ToolStripMenuItem.Click += new System.EventHandler(this.预览报告ToolStripMenuItem_Click);
+            // 
+            // 打印报告ToolStripMenuItem
+            // 
+            this.打印报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
+            this.打印报告ToolStripMenuItem.Name = "打印报告ToolStripMenuItem";
+            this.打印报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印报告ToolStripMenuItem.Text = "打印报告";
+            this.打印报告ToolStripMenuItem.Click += new System.EventHandler(this.打印报告ToolStripMenuItem_Click);
             // 
             // 打印唛头ToolStripMenuItem
             // 
@@ -403,22 +450,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.txtpingming.TabIndex = 21;
             this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpingming_KeyDown);
             // 
-            // gridControl1
-            // 
-            this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 142);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1,
-            this.repositoryItemButtonEdit2,
-            this.repositoryItemComboBox1});
-            this.gridControl1.Size = new System.Drawing.Size(800, 308);
-            this.gridControl1.TabIndex = 13;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -443,6 +474,22 @@ namespace 纺织贸易管理系统.报表窗体
             this.toolStripMenuItem2.Text = "保存样式";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // gridControl1
+            // 
+            this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 142);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1,
+            this.repositoryItemButtonEdit2,
+            this.repositoryItemComboBox1});
+            this.gridControl1.Size = new System.Drawing.Size(800, 273);
+            this.gridControl1.TabIndex = 15;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
             // gridView1
             // 
             this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -456,6 +503,7 @@ namespace 纺织贸易管理系统.报表窗体
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -486,12 +534,65 @@ namespace 纺织贸易管理系统.报表窗体
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             this.repositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
+            // uiPagination1
+            // 
+            this.uiPagination1.Controls.Add(this.panel1);
+            this.uiPagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiPagination1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.uiPagination1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.uiPagination1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiPagination1.Location = new System.Drawing.Point(0, 415);
+            this.uiPagination1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPagination1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPagination1.Name = "uiPagination1";
+            this.uiPagination1.PageSize = 30;
+            this.uiPagination1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.uiPagination1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
+            this.uiPagination1.ShowText = false;
+            this.uiPagination1.Size = new System.Drawing.Size(800, 35);
+            this.uiPagination1.Style = Sunny.UI.UIStyle.Gray;
+            this.uiPagination1.StyleCustomMode = true;
+            this.uiPagination1.TabIndex = 14;
+            this.uiPagination1.Text = "uiPagination1";
+            this.uiPagination1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiPagination1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiPagination1.PageChanged += new Sunny.UI.UIPagination.OnPageChangeEventHandler(this.uiPagination1_PageChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(600, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 35);
+            this.panel1.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "合计：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "0卷";
+            // 
             // 细码库存
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.uiPagination1);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "细码库存";
@@ -499,12 +600,15 @@ namespace 纺织贸易管理系统.报表窗体
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            this.uiPagination1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,13 +641,21 @@ namespace 纺织贸易管理系统.报表窗体
         private DevComponents.DotNetBar.LabelX labelX11;
         private DevComponents.DotNetBar.Controls.TextBoxX txtguige;
         private DevComponents.DotNetBar.Controls.TextBoxX txtpingming;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem 打印检验报告ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 编辑报告ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 预览报告ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打印报告ToolStripMenuItem;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private Sunny.UI.UIPagination uiPagination1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

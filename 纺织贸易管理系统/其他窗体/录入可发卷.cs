@@ -333,7 +333,7 @@ namespace 纺织贸易管理系统.其他窗体
                 selectJuanhaos .Add (juanHaoTables [row]);
             }
             gridControl2.DataSource = selectJuanhaos;
-            ExportFile.导出到文件(gridControl2, "质检报告");
+            Tools.打印检验报告.PrintReport(PrintModel.Privew, selectJuanhaos);
         }
     }
 }

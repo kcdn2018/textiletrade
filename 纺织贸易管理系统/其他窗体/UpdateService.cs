@@ -77,12 +77,12 @@ namespace 纺织贸易管理系统.其他窗体
             { }
             return serverVersion;
             }
-        public static  void IsNeedUpdate()
+        public static  void IsNeedUpdate(Form form)
         {
             var check = CheckUpdate();
             if (check == true)
             {
-                if (MessageBox.Show("有新的更新！启用更新将会关闭程序。请做好保存", "系统提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (Sunny.UI.UIMessageDialog .ShowAskDialog (form, "系统提示", "有新的更新！启用更新将会关闭程序。请做好保存"))
                 {
                     Process.Start(Application.StartupPath + "\\Updater.exe");
                     Process cur = Process.GetCurrentProcess();

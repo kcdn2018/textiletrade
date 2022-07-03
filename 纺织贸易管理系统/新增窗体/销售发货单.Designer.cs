@@ -263,22 +263,25 @@
             // 
             this.编辑报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
             this.编辑报告ToolStripMenuItem.Name = "编辑报告ToolStripMenuItem";
-            this.编辑报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.编辑报告ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.编辑报告ToolStripMenuItem.Text = "编辑报告";
+            this.编辑报告ToolStripMenuItem.Click += new System.EventHandler(this.编辑报告ToolStripMenuItem_Click);
             // 
             // 预览报告ToolStripMenuItem
             // 
             this.预览报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.预览报告ToolStripMenuItem.Name = "预览报告ToolStripMenuItem";
-            this.预览报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.预览报告ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.预览报告ToolStripMenuItem.Text = "预览报告";
+            this.预览报告ToolStripMenuItem.Click += new System.EventHandler(this.预览报告ToolStripMenuItem_Click);
             // 
             // 打印报告ToolStripMenuItem
             // 
             this.打印报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.打印报告ToolStripMenuItem.Name = "打印报告ToolStripMenuItem";
-            this.打印报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印报告ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印报告ToolStripMenuItem.Text = "打印报告";
+            this.打印报告ToolStripMenuItem.Click += new System.EventHandler(this.打印报告ToolStripMenuItem_Click);
             // 
             // 码单样式ToolStripMenuItem
             // 

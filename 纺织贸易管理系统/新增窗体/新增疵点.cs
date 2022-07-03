@@ -57,16 +57,17 @@ namespace 纺织贸易管理系统.新增窗体
             cidianname = infoTable.CiDianName;
             txtkoufeng.Text = infoTable.KouFen.ToString () ;
             txtKoumi.Text = infoTable.KouMi.ToString () ;           
-            txtpingming.Text = infoTable.CiDianName   ;
+            txtpingming.Text = infoTable.CiDianName.Trim(' ')  ;
             cmbWenti .Text = infoTable.Guisuo ;
+            txtdaihao.Text = infoTable.Daihao;
         }
         private void InitPingzhong()
-        {
-         
+        {      
             infoTable.CiDianName  = txtpingming .Text;
             infoTable.KouMi    = txtKoumi.Text.ToDecimal(0);
             infoTable.KouFen    = txtkoufeng .Text.ToInt ();
             infoTable.Guisuo  = cmbWenti .Text;
+            infoTable.Daihao = txtdaihao.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -75,9 +76,19 @@ namespace 纺织贸易管理系统.新增窗体
                 MessageBox.Show("请填写疵点问题归属", "提醒",MessageBoxButtons.OK , MessageBoxIcon.Information);
                 return;
             }
+            if (txtdaihao.Text == "")
+            {
+                MessageBox.Show("请填写疵点的字母代号", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             InitPingzhong();
             if (Useful == FormUseful.新增)
             {
+              if(  CiDianNameTableService.GetOneCiDianNameTable (x=>x.Daihao ==txtdaihao.Text ).CiDianName !=string.Empty )
+                {
+                    MessageBox.Show("改疵点代号已经存在！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
               if(  CiDianNameTableService.CheckName (infoTable )==false )
                 {
                     MessageBox.Show("改疵点名称已经存在！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);

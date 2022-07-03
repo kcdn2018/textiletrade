@@ -252,17 +252,17 @@ namespace 纺织贸易管理系统.新增窗体
                 列表赋值 ();
                 if (useful == FormUseful.新增)
                 {
-                    寄样单BLL.保存寄样单(listjiyang.Where (x=>!string.IsNullOrWhiteSpace (x.SPMC)).ToList (), danju,chkCangku .Checked );
+                    寄样单BLL.保存寄样单(listjiyang.Where (x=>!string.IsNullOrWhiteSpace (x.SPMC)||!string.IsNullOrWhiteSpace(x.EnglishName ) || !string.IsNullOrWhiteSpace(x.SPBH)).ToList (), danju,chkCangku .Checked );
                 }
                 else
                 {
                     if (useful == FormUseful.复制)
                     {
-                        寄样单BLL.保存寄样单(listjiyang.Where(x => !string.IsNullOrWhiteSpace(x.SPMC) ).ToList(), danju, chkCangku.Checked);
+                        寄样单BLL.保存寄样单(listjiyang.Where(x => !string.IsNullOrWhiteSpace(x.SPMC) || !string.IsNullOrWhiteSpace(x.EnglishName) || !string.IsNullOrWhiteSpace(x.SPBH)).ToList(), danju, chkCangku.Checked);
                     }
                     else
                     {
-                     寄样单BLL.修改单据(listjiyang.Where(x => !string.IsNullOrWhiteSpace(x.SPMC) ).ToList(), danju, chkCangku.Checked);
+                     寄样单BLL.修改单据(listjiyang.Where(x => !string.IsNullOrWhiteSpace(x.SPMC) || !string.IsNullOrWhiteSpace(x.EnglishName) || !string.IsNullOrWhiteSpace(x.SPBH)).ToList(), danju, chkCangku.Checked);
                     }
                 }
                 AlterDlg.Show("保存成功！");

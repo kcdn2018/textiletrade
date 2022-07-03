@@ -10,5 +10,6 @@ namespace 纺织贸易管理系统
         public int KouFen { get; set; }
         public decimal  KouMi { get; set; }
         public string Guisuo { get; set; }
+        public string Daihao { get; set; } = string.Empty;
      }
 }

@@ -84,8 +84,8 @@
     <Reference Include="NPOI.OpenXmlFormats, Version=2.5.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.5.5\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
-    <Reference Include="SqlSugar, Version=5.0.5.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SqlSugar.5.0.5.4\lib\SqlSugar.dll</HintPath>
+    <Reference Include="SqlSugar, Version=5.0.9.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.9.2\lib\SqlSugar.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -103,6 +103,7 @@
     <Compile Include="流转单BLL.cs" />
     <Compile Include="生产退卷单BLL.cs" />
     <Compile Include="生产入库单BLL.cs" />
+    <Compile Include="白坯直销单BLL.cs" />
     <Compile Include="白坯销售单BLL.cs" />
     <Compile Include="系统设定.cs" />
     <Compile Include="AccessBLL.cs" />

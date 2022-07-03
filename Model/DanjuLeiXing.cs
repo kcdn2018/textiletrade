@@ -48,5 +48,6 @@ namespace Model
         public const string 账户转账单 = "账户转账单";
         public const string 白坯销售单 = "白坯销售单";
         public const string 委外通知单 = " 委外通知单";
+        public const string 白坯直销单 = "白坯直销单";
     }
 }

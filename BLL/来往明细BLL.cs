@@ -16,6 +16,9 @@ namespace BLL
             LwDetail lwDetail = new LwDetail();
             switch (danju.djlx )
             {
+                case DanjuLeiXing.白坯直销单 :
+                    lwDetail =LXRService.GetOneLXR (x=>x.MC==danju.ksmc ).Leixing =="客户"? 销售单(danju):白坯直销单(danju);
+                    break;
                 case DanjuLeiXing.白坯销售单 :
                     lwDetail = 销售单(danju);
                     break;
@@ -235,8 +238,7 @@ namespace BLL
                 KHBH = danju.ksbh,
                 KHMC = danju.ksmc,
                 LX = danju.djlx,
-                rq = danju.rq,
-                
+                rq = danju.rq,               
             };
             if (danju.Hanshui == "含税")
             {
@@ -249,6 +251,43 @@ namespace BLL
             }
             lw.QichuJine = LXRService.GetOneLXR(x => x.BH == danju.ksbh).JE;
             lw.QiMojine = lw.QichuJine + danju.je;
+            lw.own = danju.own;
+            lw.Hanshui = danju.Hanshui;
+            if (danju.Qiankuan == "欠款")
+            {
+                lw.debt = true;
+            }
+            else
+            {
+                lw.debt = false;
+            }
+            return lw;
+        }
+        private static LwDetail 白坯直销单(DanjuTable danju)
+        {
+            var je = danju.je - danju.Profit;
+            var lw = new LwDetail()
+            {
+                AddYingFukuan =je,
+                DH = danju.dh,
+                JE = je,
+                bz = danju.bz,
+                KHBH = danju.ksbh,
+                KHMC = danju.ksmc,
+                LX = danju.djlx,
+                rq = danju.rq,
+            };
+            if (danju.Hanshui == "含税")
+            {
+                lw.FapiaoJine = je;
+                lw.AddYingShouFapiao = je;
+            }
+            else
+            {
+                lw.FapiaoJine = 0;
+            }
+            lw.QichuJine = LXRService.GetOneLXR(x => x.BH == danju.ksbh).JE;
+            lw.QiMojine = lw.QichuJine + je;
             lw.own = danju.own;
             lw.Hanshui = danju.Hanshui;
             if (danju.Qiankuan == "欠款")

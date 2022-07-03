@@ -337,5 +337,25 @@ namespace 纺织贸易管理系统.新增窗体
                 txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.销售退货单 , dateEdit1.DateTime, DanjuLeiXing.销售退货单);
             }
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PrintDanju(PrintModel.Design);
+        }
+        private void PrintDanju(int useful)
+        {
+            new Tools.打印销售退货单()
+            {
+                danjuTable = danju,
+                danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
+                danjuinfo = new Tools.FormInfo() { FormName = "销售退货列表", GridviewName = gridView1.Name },
+                mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
+            }.Print(PrintPath.报表模板 + "销售退货单.frx", useful);
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            PrintDanju(PrintModel.Privew );
+        }
     }
 }

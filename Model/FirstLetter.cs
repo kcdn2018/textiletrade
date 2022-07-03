@@ -43,5 +43,6 @@ namespace Model
         public const string 账户转账单 = "ZZ";
         public const string 白坯发货单 = "BP";
         public const string 委外通知单 = "WT";
+        public const string 白坯直销单 = "ZX";
     }
 }

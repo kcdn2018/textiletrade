@@ -95,7 +95,8 @@ namespace 纺织贸易管理系统.其他窗体
 
         private void 登陆窗体_Load(object sender, EventArgs e)
         {
-            Task.Run(new Action(() => { UpdateService.IsNeedUpdate (); }));
+            //this.Invoke(new Action(() => { UpdateService.IsNeedUpdate(); }));
+            Task.Run(new Action(() => { UpdateService.IsNeedUpdate(this); }));
         }
             private void 登陆窗体_FormClosed(object sender, FormClosedEventArgs e)
         {

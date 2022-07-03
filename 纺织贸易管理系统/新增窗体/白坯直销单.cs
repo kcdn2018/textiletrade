@@ -19,24 +19,24 @@ using 纺织贸易管理系统.选择窗体;
 
 namespace 纺织贸易管理系统.新增窗体
 {
-    public partial class 白坯销售单 : Form
+    public partial class 白坯直销单 : Form
     {
         public int useful = FormUseful.新增;
         public List<danjumingxitable> danjumingxitables = new List<danjumingxitable>();
         public DanjuTable danju = new DanjuTable();
-        private List<FabricMadan > juanList = new List<FabricMadan>();
+        private List<FabricMadan> juanList = new List<FabricMadan>();
         private int rowindex;
 
-        public 白坯销售单()
+        public 白坯直销单()
         {
-            InitializeComponent();          
-            CreateGrid.Create(this.Name  ,gridView1);
+            InitializeComponent();
+            CreateGrid.Create(this.Name, gridView1);
             //CreateGrid.Create(this.Name , gridView2);
-            cmbFahuogongsi .DataSource = infoService.Getinfolst().Select(x => x.gsmc).ToList();
+            cmbFahuogongsi.DataSource = infoService.Getinfolst().Select(x => x.gsmc).ToList();
             try
             {
                 gridView1.Columns["Bianhao"].ColumnEdit = ButtonEdit1;
-                gridView1.Columns["OrderNum"].ColumnEdit = ButtonEdit1;
+                gridView1.Columns["OrderNum"].ColumnEdit = ButtonEdit2;
                 gridView1.Columns["danwei"].ColumnEdit = cmddanwei;
                 gridView1.Columns["hanshuiheji"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                 gridView1.Columns["hanshuiheji"].SummaryItem.FieldName = "hanshuiheji";
@@ -53,6 +53,8 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 配置列ToolStripMenuItem_Click(null, null);
             }
+            cmbCaihouhansui.SelectedIndex = 0;
+            cmbxiaoshouhanshui.SelectedIndex = 0;
         }
 
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void txtkehu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 客户选择() { linkman=new LXR() { MC="",ZJC="" } };
+            var fm = new 客户选择() { linkman = new LXR() { MC = "", ZJC = "" } };
             fm.ShowDialog();
             danju.ksbh = fm.linkman.BH;
             danju.ksmc = fm.linkman.MC;
@@ -74,99 +76,105 @@ namespace 纺织贸易管理系统.新增窗体
         {
             var fm = new 物流选择();
             fm.ShowDialog();
-            danju.wuliuBianhao  = fm.linkman.Bianhao  ;
-            txtwuliu.Text = fm.linkman.name ;
+            danju.wuliuBianhao = fm.linkman.Bianhao;
+            txtwuliu.Text = fm.linkman.name;
             var wuliu = fm.linkman;
             txtchepai.Text = wuliu.CarNum;
             txtlianxiren.Text = wuliu.name;
-            txtQicheleixing.Text = wuliu.CarLeixing;            
+            txtQicheleixing.Text = wuliu.CarLeixing;
         }
 
         private void txtckmc_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 仓库选择();
+            var fm = new 供货商选择();
             fm.ShowDialog();
-            txtckmc.Text = fm.stock.mingcheng;
+            txtckmc.Text = fm.linkman.MC;
         }
 
         private void ButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if(txtckmc.Text =="")
+            if (gridView1.FocusedRowHandle >= 0)
             {
-                MessageBox.Show("请先选择仓库名称","错误",MessageBoxButtons.OK );
-                return;
-            }
-            var fm = new 库存选择() { StockName=txtckmc.Text };
-            fm.ShowDialog();
-            var i = gridView1.FocusedRowHandle;
-            foreach (var pingzhong in fm.pingzhong)
-            {
-                danjumingxitables[i].bizhong = "人民币￥";
-                danjumingxitables[i].Bianhao  = pingzhong.BH ;
-                danjumingxitables[i].guige = pingzhong.GG;
-                danjumingxitables[i].chengfeng = pingzhong.CF;
-                danjumingxitables[i].pingming  = pingzhong.PM;
-                danjumingxitables[i].kezhong  = pingzhong.KZ;          
-                danjumingxitables[i].menfu  = pingzhong.MF;
-                danjumingxitables[i].FrabicWidth = pingzhong.FrabicWidth;
-                danjumingxitables[i].danwei  = "米";
-                danjumingxitables[i].ContractNum  = pingzhong.ContractNum ;
-                danjumingxitables[i].CustomName = pingzhong.CustomName ;
-                danjumingxitables[i].OrderNum  = pingzhong.orderNum ;
-                danjumingxitables[i].kuanhao  = pingzhong.kuanhao ;
-                danjumingxitables[i].houzhengli  = pingzhong.houzhengli ;
-                danjumingxitables[i].yanse  = pingzhong.YS ;
-                danjumingxitables[i].Chengpingyanse = pingzhong.YS;
-                danjumingxitables[i].ganghao  = pingzhong.GH;
-                danjumingxitables[i].chengpingjuanshu = pingzhong.JS ;
-                danjumingxitables[i].toupimishu  = pingzhong.MS;
-                danjumingxitables[i].chengpingmishu  = pingzhong.MS ;
-                danjumingxitables[i].Kuwei  = pingzhong.Kuwei;
-                danjumingxitables[i].Huahao = pingzhong.Huahao;
-                danjumingxitables[i].ColorNum = pingzhong.ColorNum;
-                danjumingxitables[i].CustomerColorNum  = pingzhong.CustomerColorNum ;
-                danjumingxitables[i].CustomerPingMing  = pingzhong.CustomerPingMing;
-                danjumingxitables[i].rq = danju.rq;
-                danjumingxitables[i].PiBuChang = pingzhong.PibuChang;
-                danjumingxitables[i].Pihao = pingzhong.Pihao;
-                danjumingxitables[i].IsHanshui = QueryTime .IsTax ;
-                danjumingxitables[i].AveragePrice = pingzhong.AvgPrice ;
-                danjumingxitables[i].hanshuidanjia = OrderDetailTableService.GetOneOrderDetailTable(x => x.OrderNum == pingzhong.orderNum && x.sampleNum == pingzhong.BH && x.Kuanhao == pingzhong.kuanhao
-                && x.ColorNum == pingzhong.ColorNum && x.color == pingzhong.YS&&x.Huahao==pingzhong.Huahao ).price;
-                danjumingxitables[i].hanshuiheji = danjumingxitables[i].hanshuidanjia * pingzhong.MS;
-                i++;
-                if (i == danjumingxitables.Count - 1)
-                    for (int j = 0; j < 30; j++)
-                    {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime });
-                    }
-            }
-            fm.Dispose();
-            gridControl1.RefreshDataSource();
-            gridView1.CloseEditor();
-            检查其他费用();
-        }
-        private void  检查其他费用()
-        {
-            foreach(var d in danjumingxitables.Where (x=>x.OrderNum !=null ).Select (x=>x.OrderNum ).Distinct ().ToList ())
-            {
-                if(订单BLL.CheckOtherCost(d )==true )
+                if (系统设定.GetSet(new Setting() { formname = "", settingname = "采购显示订单明细", settingValue = "不显示" }).settingValue == "不显示" || danjumingxitables[gridView1.FocusedRowHandle].OrderNum == null)
                 {
-                  if(  销售发货单BLL .CheckDanjuMingxiContainOtherCost (d )==false )
+                    var fm = new 品种选择();
+                    fm.ShowDialog();
+                    var i = gridView1.FocusedRowHandle;
+                    foreach (var pingzhong in fm.pingzhong)
+                    {
+                        danjumingxitables[i].bizhong = "人民币￥";
+                        danjumingxitables[i].Bianhao = pingzhong.bh;
+                        danjumingxitables[i].guige = pingzhong.gg;
+                        danjumingxitables[i].chengfeng = pingzhong.cf;
+                        danjumingxitables[i].pingming = pingzhong.pm;
+                        danjumingxitables[i].kezhong = pingzhong.kz;
+                        danjumingxitables[i].menfu = pingzhong.mf;
+                        danjumingxitables[i].FrabicWidth = pingzhong.mf;
+                        danjumingxitables[i].danwei = "米";
+                        i++;
+                        if (i == danjumingxitables.Count - 1)
+                            for (int j = 0; j < 30; j++)
+                            {
+                                danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
+                            }
+                    }
+                }
+                else
+                {
+                    OrderDetailSelect.Select(gridView1.FocusedRowHandle, danjumingxitables, new List<RangShequpiTable>(), "", txtdanhao.Text, dateEdit1.DateTime);
+                }
+                gridControl1.RefreshDataSource();
+                gridView1.CloseEditor();
+            }
+        }
+        private void 检查其他费用()
+        {
+            foreach (var d in danjumingxitables.Where(x => x.OrderNum != null).Select(x => x.OrderNum).Distinct().ToList())
+            {
+                if (订单BLL.CheckOtherCost(d) == true)
+                {
+                    if (销售发货单BLL.CheckDanjuMingxiContainOtherCost(d) == false)
                     {
                         Sunny.UI.UIMessageDialog.ShowAskDialog(this, $"改订单号{d }存在其他费用！而且对账单还没体现过！");
                     }
                 }
             }
         }
-    
+
         private void ButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 订单号选择 ();
+            var fm = new 订单号选择() { UseFul = 1 };
             fm.ShowDialog();
-            danjumingxitables[gridView1.FocusedRowHandle].OrderNum = fm.Order.OrderNum;
-            danjumingxitables[gridView1.FocusedRowHandle].CustomName  = fm.Order.CustomerName ;
-            danjumingxitables[gridView1.FocusedRowHandle].ContractNum  = fm.Order.ContractNum ;
+            var row = gridView1.FocusedRowHandle;
+            foreach (var d in fm.returnDatas)
+            {
+                danjumingxitables[row].OrderNum = d.order.OrderNum;
+                danjumingxitables[row].ContractNum = d.order.ContractNum;
+                danjumingxitables[row].CustomName = d.order.CustomerName;
+                danjumingxitables[row].bizhong = "人民币￥";
+                danjumingxitables[row].Bianhao = d.orderDetail.sampleNum;
+                danjumingxitables[row].guige = d.orderDetail.Specifications;
+                danjumingxitables[row].chengfeng = d.orderDetail.Component;
+                danjumingxitables[row].pingming = d.orderDetail.sampleName;
+                danjumingxitables[row].kezhong = d.orderDetail.weight;
+                danjumingxitables[row].menfu = d.orderDetail.width;
+                danjumingxitables[row].FrabicWidth = d.orderDetail.width;
+                danjumingxitables[row].danwei = "米";
+                danjumingxitables[row].OrderNum = d.orderDetail.OrderNum;
+                danjumingxitables[row].kuanhao = d.orderDetail.Kuanhao;
+                danjumingxitables[row].yanse = d.orderDetail.color;
+                danjumingxitables[row].chengpingmishu = d.orderDetail.Num - d.orderDetail.consignmentNum;
+                danjumingxitables[row].Huahao = d.orderDetail.Huahao;
+                danjumingxitables[row].ColorNum = d.orderDetail.ColorNum;
+                danjumingxitables[row].CustomerColorNum = d.orderDetail.CustomerColorNum;
+                danjumingxitables[row].CustomerPingMing = d.orderDetail.CustomerPingMing;
+                row++;
+                if (row == danjumingxitables.Count - 1)
+                    for (int j = 0; j < 30; j++)
+                    {
+                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
+                    }
+            }
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
         }
@@ -178,7 +186,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime  });
+            danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
         }
 
         private void 复制行ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,27 +196,19 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle,this);
+            CopyRow.Copy<danjumingxitable>(danjumingxitables, rowindex, gridView1, gridView1.FocusedRowHandle, this);
         }
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             try
             {
-                if (ckshifa.Checked)
-                {
-                    danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji = danjumingxitables[gridView1.FocusedRowHandle].hanshuidanjia * danjumingxitables[gridView1.FocusedRowHandle].toupimishu;
-                    danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].AveragePrice * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
-                    danjumingxitables[gridView1.FocusedRowHandle].Profit = danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji  - danjumingxitables[gridView1.FocusedRowHandle].Cost ;
-                }
-                else
-                {
-                    danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji = danjumingxitables[gridView1.FocusedRowHandle].hanshuidanjia * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu ;
-                    danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].AveragePrice * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
-                    danjumingxitables[gridView1.FocusedRowHandle].Profit = danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji - danjumingxitables[gridView1.FocusedRowHandle].Cost;
-                }
-                    gridControl1.RefreshDataSource();
+                danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji = danjumingxitables[gridView1.FocusedRowHandle].hanshuidanjia * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
+                danjumingxitables[gridView1.FocusedRowHandle].weishuiheji = danjumingxitables[gridView1.FocusedRowHandle].weishuidanjia * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
+                danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].weishuiheji ;
+                danjumingxitables[gridView1.FocusedRowHandle].Profit = danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji - danjumingxitables[gridView1.FocusedRowHandle].Cost;
+                gridControl1.RefreshDataSource();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("请输入数字。计算错误");
             }
@@ -220,25 +220,25 @@ namespace 纺织贸易管理系统.新增窗体
             danju.CarLeixing = txtQicheleixing.Text;
             danju.CarNum = txtchepai.Text;
             danju.ckmc = txtckmc.Text;
-            danju.StockName = cmbcunfang.Text;
             danju.dh = txtdanhao.Text;
-            danju.djlx = DanjuLeiXing.白坯销售单 ;
+            danju.djlx = DanjuLeiXing.白坯直销单 ;
             danju.rq = dateEdit1.DateTime;
             danju.shouhuodizhi = txtShouhuodizhi.Text;
             danju.lianxiren = txtlianxiren.Text;
-            danju.Qiankuan = cmbqiankuan.Text;
-            danju.Hanshui =QueryTime.IsTax ;
-            danju.je = danjumingxitables.Sum(x => x.hanshuiheji)+danjumingxitables.Sum(x=>x.weishuiheji);
+            danju.Hanshui  =cmbxiaoshouhanshui.Text ;
+            danju.Hanshui = QueryTime.IsTax;
+            danju.je = danjumingxitables.Sum(x => x.hanshuiheji);
             danju.totaljuanshu = danjumingxitables.Sum(x => x.chengpingjuanshu);
-            danju.TotalMishu = danjumingxitables.Sum(x => x.chengpingmishu );
+            danju.TotalMishu = danjumingxitables.Sum(x => x.chengpingmishu);
             danju.wuliugongsi = txtwuliu.Text;
-            danju.yunfei = txtyunfei.Text.TryToDecmial ();
+            danju.yunfei = txtyunfei.Text.TryToDecmial();
             danju.lianxidianhua = txtlianxidianhua.Text;
             danju.own = User.user.YHBH;
-            danju.Bizhong = cmbbizhong.Text;
+            danju.Bizhong ="人民币";
             danju.SaleMan = txtyewuyuan.Text;
             danju.ChaCheFei = txtChachefei.Text.TryToDecmial();
             danju.ZhuangXieFei = txtzhuangxiefei.Text.TryToDecmial();
+            danju.Qiankuan = "欠款";
             //danju.Fahuodizhi = txtjiagongchang.Text;
         }
         /// <summary>
@@ -280,21 +280,6 @@ namespace 纺织贸易管理系统.新增窗体
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请选择一个客户。客户必须填写！");
                 return false;
             }
-            if (gridView2.SelectedRowsCount == 0)
-            {
-                if (juanList.Count > 0)
-                {
-                    MessageBox.Show("没有任何卷被选中！保存失败", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return false;
-                }
-            }
-            var d = 库存BLL.检查库存(danjumingxitables, danju);
-            if (d.Bianhao != null)
-            {
-                var mes = $"该发货单中\n 布料编号:{d.Bianhao }\n 订单号:{d.OrderNum } \n 色号:{d.ColorNum } \n 缸号:{d.ganghao } \n 颜色:{d.yanse }在该仓库中没有！保存失败";
-                MessageBox.Show(mes, this.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
             if (useful == FormUseful.新增)
             {
                 if (财务BLL.查询额度(danju.ksbh, danjumingxitables.Sum(x => x.hanshuiheji)) == false)
@@ -316,18 +301,18 @@ namespace 纺织贸易管理系统.新增窗体
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridView1.CloseEditor();
-            if (CheckAllField() == false)
+            if (CheckAllField()==false )
             {
                 return;
             }
             InitDanju();
             if (useful == FormUseful.新增)
-            {          
-                白坯销售单BLL .保存单据(danju, danjumingxitables, juanList);
+            {
+                白坯直销单BLL .保存单据(danju, danjumingxitables, juanList);
             }
             else
             {
-                白坯销售单BLL.修改单据(danju, danjumingxitables, juanList);
+                白坯直销单BLL.修改单据(danju, danjumingxitables, juanList);
             }
             if (!string.IsNullOrWhiteSpace(SysInfo.GetInfo.own))
             {
@@ -335,7 +320,7 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     if ((int)(MessageBox.Show("是否直接审核过账？", this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == 6)
                     {
-                        白坯销售单BLL.单据审核(danju.dh);
+                        白坯直销单BLL.单据审核(danju.dh);
                         检测状态.检测(danjumingxitables);
                     }
                 }
@@ -349,21 +334,21 @@ namespace 纺织贸易管理系统.新增窗体
             Init();
         }
         private void Init()
-        { 
-            foreach (Control  c in this.groupControl1.Controls  )
+        {
+            foreach (Control c in this.groupControl1.Controls)
             {
-                if(c is DevComponents.DotNetBar.Controls.TextBoxX)
+                if (c is DevComponents.DotNetBar.Controls.TextBoxX)
                 {
                     c.Text = "";
                 }
-                if(c is DevExpress.XtraEditors.ButtonEdit)
+                if (c is DevExpress.XtraEditors.ButtonEdit)
                 {
                     c.Text = "";
                 }
             }
             txtjiagongchang.Text = "";
             dateEdit1.DateTime = DateTime.Now;
-            txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.白坯发货单  , dateEdit1.DateTime, DanjuLeiXing.白坯销售单 );
+            txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.白坯直销单 , dateEdit1.DateTime, DanjuLeiXing.白坯直销单 );
             txtChachefei.Text = "0";
             txtyunfei.Text = "0";
             txtzhuangxiefei.Text = "0";
@@ -371,19 +356,21 @@ namespace 纺织贸易管理系统.新增窗体
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)
             {
-                danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text,rq=dateEdit1.DateTime  });
+                danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
             }
             juanList = Connect.DbHelper().Queryable<FabricMadan>().Where(x => x.Danhao == txtdanhao.Text).ToList();
             length = juanList.Count;
-            for(int i=0;i<10-length;i++)
+            for (int i = 0; i < 10 - length; i++)
             {
-                juanList.Add(new FabricMadan() { Danhao = txtdanhao.Text }) ;
+                juanList.Add(new FabricMadan() { Danhao = txtdanhao.Text });
             }
             txtyewuyuan.Text =string.Empty ;
             gridControl1.DataSource = danjumingxitables;
             gridControl1.RefreshDataSource();
             gridControl2.DataSource = juanList;
             gridControl2.RefreshDataSource();
+            cmbCaihouhansui.SelectedIndex = 0;
+            cmbxiaoshouhanshui.SelectedIndex = 0;
             useful = FormUseful.新增;
         }
 
@@ -414,7 +401,7 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
             }
             juanList = Connect.DbHelper().Queryable<FabricMadan>().Where(x => x.Danhao == danju.dh).ToList();
-           var length = juanList.Count;
+            var length = juanList.Count;
             for (int i = 0; i < 10 - length; i++)
             {
                 juanList.Add(new FabricMadan() { Danhao = txtdanhao.Text });
@@ -427,20 +414,19 @@ namespace 纺织贸易管理系统.新增窗体
             txtdanhao.Text = danju.dh;
             txtbeizhu.Text = danju.bz;
             txtchepai.Text = danju.CarNum;
-            txtckmc.Text = danju.ckmc ;
-            cmbcunfang.Text = danju.StockName;
+            txtckmc.Text = danju.ckmc;
             txtkehu.Text = danju.ksmc;
             txtlianxidianhua.Text = danju.lianxidianhua;
             txtlianxiren.Text = danju.lianxiren;
             txtQicheleixing.Text = danju.CarLeixing;
             txtwuliu.Text = danju.wuliugongsi;
             txtyunfei.Text = danju.yunfei.ToString();
-            cmbqiankuan.Text = danju.Qiankuan;
+            cmbxiaoshouhanshui .Text = danju.Hanshui ;
             txtzhuangxiefei.Text = danju.ZhuangXieFei.ToString();
             txtChachefei.Text = danju.ChaCheFei.ToString();
             dateEdit1.DateTime = danju.rq;
             txtyewuyuan.Text = danju.SaleMan;
-            cmbbizhong.Text = danju.Bizhong;
+           
         }
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -449,46 +435,47 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void 打印码单(int use)
         {
+            if (CheckAllField() == false)
+            {
+                return;
+            }
+            InitDanju();
+            new 打印白坯码单()
+            {
+                Danju = danju,
+                Danjumingxitables = danjumingxitables,
+                juanhaolist = juanList,
+                FormInfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = "gridView1" }
+            }.Print(use, PrintPath.报表模板 + "\\白坯码单.frx");
+
+        }
+        private void 码单预览ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            打印码单(PrintModel.Privew);
+        }
+
+        private void 直接打印ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            打印码单(PrintModel.Print);
+        }
+
+        private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             if(CheckAllField()==false )
             {
                 return;
             }
             InitDanju();
-            new 打印白坯码单() { Danju = danju, Danjumingxitables = danjumingxitables, juanhaolist = juanList ,
-                FormInfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = "gridView1" }
-            }.Print( use, PrintPath.报表模板 + "\\白坯码单.frx");
-          
+            new Tools.打印发货单()
+            {
+                danjuTable = danju,
+                danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
+                danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
+                mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
+            }.Print(PrintPath.报表模板 + "发货单.frx", PrintModel.Privew);
         }
-        private void 码单预览ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            打印码单(PrintModel.Privew );
-        }
-
-        private void 直接打印ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            打印码单(PrintModel.Print );
-        }
-
-        private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PrintDanju(PrintModel.Privew );
-        }
-
 
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PrintDanju(PrintModel.Design);
-        }
-
-        private void 直接打印ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PrintDanju(PrintModel.Print);
-        }
-        /// <summary>
-        /// 打印单据
-        /// </summary>
-        /// <param name="useful">打印模式</param>
-        private void PrintDanju(int useful)
         {
             if (CheckAllField() == false)
             {
@@ -501,11 +488,28 @@ namespace 纺织贸易管理系统.新增窗体
                 danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
                 danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
                 mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
-            }.Print(PrintPath.报表模板 + "发货单.frx", useful );
+            }.Print(PrintPath.报表模板 + "发货单.frx", PrintModel.Design);
         }
+
+        private void 直接打印ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CheckAllField() == false)
+            {
+                return;
+            }
+            InitDanju();
+            new Tools.打印发货单()
+            {
+                danjuTable = danju,
+                danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
+                danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
+                mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
+            }.Print(PrintPath.报表模板 + "发货单.frx", PrintModel.Print);
+        }
+
         private void txtkehu_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter )
+            if (e.KeyCode == Keys.Enter)
             {
                 var fm = new 客户选择() { linkman = new LXR() { ZJC = txtkehu.Text, MC = "" } };
                 fm.ShowDialog();
@@ -529,7 +533,7 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     dateEdit1.DateTime = DateTime.Now;
                 }
-                txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.销售发货单 , dateEdit1.DateTime, DanjuLeiXing.销售出库单 );
+                txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.白坯直销单, dateEdit1.DateTime, DanjuLeiXing.白坯直销单);
             }
         }
 
@@ -542,18 +546,18 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void ckshifa_ValueChanged(object sender, bool value)
         {
-            if(value )
+            if (value)
             {
-                foreach(var d in danjumingxitables )
+                foreach (var d in danjumingxitables)
                 {
-                    d.hanshuiheji = d.hanshuidanjia  * d.toupimishu;
+                    d.hanshuiheji = d.hanshuidanjia * d.toupimishu;
                 }
             }
             else
             {
                 foreach (var d in danjumingxitables)
                 {
-                    d.hanshuiheji = d.hanshuidanjia  * d.chengpingmishu;
+                    d.hanshuiheji = d.hanshuidanjia * d.chengpingmishu;
                 }
             }
             gridControl1.RefreshDataSource();
@@ -570,9 +574,9 @@ namespace 纺织贸易管理系统.新增窗体
         {
             int juanshu = 0;//合计卷数
             decimal TotalMishu = 0;//合计米数
-            foreach (var j in juanList )
+            foreach (var j in juanList)
             {
-                if(j.C1 >0)
+                if (j.C1 > 0)
                 {
                     juanshu++;
                     TotalMishu += j.C1;
@@ -622,10 +626,10 @@ namespace 纺织贸易管理系统.新增窗体
                     juanshu++;
                     TotalMishu += j.C10;
                 }
-               
+
             }
             danjumingxitables[0].chengpingmishu = TotalMishu;
-                danjumingxitables[0].chengpingjuanshu = juanshu;
+            danjumingxitables[0].chengpingjuanshu = juanshu;
             gridControl1.RefreshDataSource();
         }
     }

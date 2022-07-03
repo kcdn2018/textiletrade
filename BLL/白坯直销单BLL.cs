@@ -9,7 +9,7 @@ using 纺织贸易管理系统;
 
 namespace BLL
 {
-   public  class 白坯销售单BLL
+  public   class 白坯直销单BLL
     {
         public static void 保存单据(DanjuTable danju, List<danjumingxitable> danjumingxitables, List<FabricMadan> juanHaoTables)
         {
@@ -43,7 +43,7 @@ namespace BLL
                 }
             }
         }
-        public static void 修改单据(DanjuTable danju, List<danjumingxitable> danjumingxitables, List<FabricMadan > juanHaoTables)
+        public static void 修改单据(DanjuTable danju, List<danjumingxitable> danjumingxitables, List<FabricMadan> juanHaoTables)
         {
             //删除信息
             if (SysInfo.GetInfo.own != string.Empty)
@@ -55,7 +55,7 @@ namespace BLL
                 }
             }
             Thread.Sleep(200);
-            Connect.CreatConnect().Delete<FabricMadan>(x => x.Danhao == danju.dh );
+            Connect.CreatConnect().Delete<FabricMadan>(x => x.Danhao == danju.dh);
             ///删除信息
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
             danju.Profit = danjumingxitables.Sum(x => x.Profit);
@@ -102,7 +102,6 @@ namespace BLL
             财务BLL.增加应收款(danju);
             财务BLL.增加应开发票(danjumingxitables, danju);
             订单BLL.增加费用(danjumingxitables, danju);
-            库存BLL.减少库存(danjumingxitables, danju);
             单据BLL.审核(danhao);
             订单进度BLL.新增进度(danjumingxitables, danju);
             //可发卷BLL.卷出库(juanhaos);
@@ -111,6 +110,12 @@ namespace BLL
             财务BLL.减少剩余额度(danju.ksbh, danju.je);
             库存BLL.增加发货数量(danju, danjumingxitables);
             //return "审核成功";
+            danju.ksmc = danju.ckmc;
+            danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
+            danju.je -= danju.Profit;
+            来往明细BLL.增加来往记录(danju);
+            财务BLL.增加应付款(danju);
+            财务BLL.增加应收发票(danju);
         }
         public static void 单据反审核(string danhao)
         {
@@ -122,7 +127,6 @@ namespace BLL
             财务BLL.减少应收款(danju);
             财务BLL.减少应开发票(danju, danjumingxitables);
             订单BLL.减少费用(danjumingxitables, danju);
-            库存BLL.增加库存(danjumingxitables, danju);
             单据BLL.未审核(danhao);
             订单进度BLL.删除进度(danju.dh);
             订单BLL.减少已发货数量(danjumingxitables);
@@ -130,22 +134,13 @@ namespace BLL
             订单BLL.减少剩余金额(danjumingxitables);
             财务BLL.增加剩余额度(danju.ksbh, danju.je);
             库存BLL.减少发货数量(danju, danjumingxitables);
-        }
-        /// <summary>
-        /// 检查销售出库单是否已经填写过该订单的其他费用
-        /// </summary>
-        /// <param name="OrderNum">订单号</param>
-        /// <returns>已经收过返回True,没有返回False</returns>
-        public static Boolean CheckDanjuMingxiContainOtherCost(string OrderNum)
-        {
-            var sql = $"select danjumingxitable.* from danjutable,danjumingxitable where danjutable.djlx='{DanjuLeiXing.销售出库单 }' and danjumingxitable.danhao=danjutable.dh and danjumingxitable.weishuiheji>0";
-            var mingxis = danjumingxitableService.Getdanjumingxitablelst(sql);
-            if (mingxis.Count > 0)
-            {
-                return true;
-            }
-            else
-            { return false; }
+            ///
+            danju.ksmc = danju.ckmc;
+            danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
+            danju.je -= danju.Profit;
+            来往明细BLL.删除来往记录 (danju);
+            财务BLL.减少应付款 (danju);
+            财务BLL.减少应收发票(danju);
         }
     }
 }
