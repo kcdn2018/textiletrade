@@ -1910,10 +1910,6 @@
       <Project>{59f481bf-0de3-4fec-9512-9fcbeb96f364}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Config\Config.csproj">
-      <Project>{1408ae00-244a-4505-9b5d-9fd0cad1b07e}</Project>
-      <Name>Config</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{c6fea1fd-75bf-488d-acab-30d77525700f}</Project>
       <Name>DAL</Name>
