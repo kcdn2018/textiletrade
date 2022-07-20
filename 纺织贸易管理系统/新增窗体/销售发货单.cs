@@ -325,13 +325,13 @@ namespace 纺织贸易管理系统.新增窗体
                     return false ;
                 }
             }
-            var d = 库存BLL.检查库存(danjumingxitables, danju);
-            if (d.Bianhao != null)
-            {
-                var mes = $"该发货单中\n 布料编号:{d.Bianhao }\n 订单号:{d.OrderNum } \n 色号:{d.ColorNum } \n 缸号:{d.ganghao } \n 颜色:{d.yanse }在该仓库中没有！保存失败";
-                MessageBox.Show(mes, this.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false ;
-            }
+            //var d = 库存BLL.检查库存(danjumingxitables, danju);
+            //if (d.Bianhao != null)
+            //{
+            //    var mes = $"该发货单中\n 布料编号:{d.Bianhao }\n 订单号:{d.OrderNum } \n 色号:{d.ColorNum } \n 缸号:{d.ganghao } \n 颜色:{d.yanse }在该仓库中没有！保存失败";
+            //    MessageBox.Show(mes, this.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return false ;
+            //}
             if (useful == FormUseful.新增)
             {
                 if (财务BLL.查询额度(danju.ksbh, danjumingxitables.Sum(x => x.hanshuiheji)) == false)

@@ -60,6 +60,13 @@ namespace 纺织贸易管理系统
                 QueryTime.IsFabricStyle = SettingService.GetSetting(x => x.settingname == "产品类型").settingValue;
                 var isneedSaleman = SettingService.GetSetting(x => x.settingname == "业务员必填").settingValue;
                 QueryTime.IsNeedSaleMan  =string.IsNullOrWhiteSpace (isneedSaleman ) ?"否":isneedSaleman ;
+                QueryTime.Tax = (SettingService.GetSetting(x => x.settingname == "税率").settingValue ?? "6").TryToDecmial(6);
+                QueryTime .DefaultLabel  = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "默认标签", settingValue = string.Empty  }).settingValue;
+                if(string.IsNullOrWhiteSpace ( QueryTime .DefaultLabel) )
+                {
+                    QueryTime.DefaultLabel = Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels")[0];
+                }
+
                 QueryTime.Suolv = string.IsNullOrWhiteSpace(SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue) ? 100 : SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue.TryToInt(0);
             }));
         }

@@ -38,6 +38,7 @@
             this.订单转换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清零选择库存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.复检ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.录入明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.登记库存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +91,7 @@
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
-            this.复检ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改成本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -145,21 +146,21 @@
             // 
             this.直接打印ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.直接打印ToolStripMenuItem.Name = "直接打印ToolStripMenuItem";
-            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.直接打印ToolStripMenuItem.Text = "打印";
             // 
             // 编辑ToolStripMenuItem
             // 
             this.编辑ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.编辑ToolStripMenuItem.Text = "编辑";
             // 
             // 导出到EXCELToolStripMenuItem
             // 
             this.导出到EXCELToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ExportToXLS_32x32;
             this.导出到EXCELToolStripMenuItem.Name = "导出到EXCELToolStripMenuItem";
-            this.导出到EXCELToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.导出到EXCELToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.导出到EXCELToolStripMenuItem.Text = "导出到EXCEL";
             this.导出到EXCELToolStripMenuItem.Click += new System.EventHandler(this.导出到EXCELToolStripMenuItem_Click);
             // 
@@ -189,6 +190,15 @@
             this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
             this.刷新ToolStripMenuItem.Text = "刷新";
             this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
+            // 
+            // 复检ToolStripMenuItem
+            // 
+            this.复检ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.UpdateTableOfContents_32x32;
+            this.复检ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.复检ToolStripMenuItem.Name = "复检ToolStripMenuItem";
+            this.复检ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
+            this.复检ToolStripMenuItem.Text = "复检";
+            this.复检ToolStripMenuItem.Click += new System.EventHandler(this.复检ToolStripMenuItem_Click);
             // 
             // 录入明细ToolStripMenuItem
             // 
@@ -275,6 +285,7 @@
             this.groupPanel1.TabIndex = 3;
             this.groupPanel1.Text = "查询条件";
             this.groupPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtkehu
             // 
@@ -285,15 +296,16 @@
             this.txtkehu.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtkehu.Location = new System.Drawing.Point(586, 52);
             this.txtkehu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtkehu.Maximum = 2147483647D;
-            this.txtkehu.Minimum = -2147483648D;
             this.txtkehu.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtkehu.Name = "txtkehu";
             this.txtkehu.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtkehu.ShowText = false;
             this.txtkehu.Size = new System.Drawing.Size(100, 23);
+            this.txtkehu.Style = Sunny.UI.UIStyle.Custom;
             this.txtkehu.StyleCustomMode = true;
             this.txtkehu.TabIndex = 17;
             this.txtkehu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtkehu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtkehu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX7
@@ -347,15 +359,16 @@
             this.txtsehao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtsehao.Location = new System.Drawing.Point(415, 52);
             this.txtsehao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtsehao.Maximum = 2147483647D;
-            this.txtsehao.Minimum = -2147483648D;
             this.txtsehao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtsehao.Name = "txtsehao";
             this.txtsehao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtsehao.ShowText = false;
             this.txtsehao.Size = new System.Drawing.Size(100, 23);
+            this.txtsehao.Style = Sunny.UI.UIStyle.Custom;
             this.txtsehao.StyleCustomMode = true;
             this.txtsehao.TabIndex = 13;
             this.txtsehao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtsehao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtsehao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtBianhao
@@ -367,15 +380,16 @@
             this.txtBianhao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtBianhao.Location = new System.Drawing.Point(244, 52);
             this.txtBianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtBianhao.Maximum = 2147483647D;
-            this.txtBianhao.Minimum = -2147483648D;
             this.txtBianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtBianhao.Name = "txtBianhao";
             this.txtBianhao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtBianhao.ShowText = false;
             this.txtBianhao.Size = new System.Drawing.Size(100, 23);
+            this.txtBianhao.Style = Sunny.UI.UIStyle.Custom;
             this.txtBianhao.StyleCustomMode = true;
             this.txtBianhao.TabIndex = 12;
             this.txtBianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtBianhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtBianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtOrderNum
@@ -387,15 +401,16 @@
             this.txtOrderNum.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtOrderNum.Location = new System.Drawing.Point(70, 52);
             this.txtOrderNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtOrderNum.Maximum = 2147483647D;
-            this.txtOrderNum.Minimum = -2147483648D;
             this.txtOrderNum.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtOrderNum.Name = "txtOrderNum";
             this.txtOrderNum.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtOrderNum.ShowText = false;
             this.txtOrderNum.Size = new System.Drawing.Size(95, 23);
+            this.txtOrderNum.Style = Sunny.UI.UIStyle.Custom;
             this.txtOrderNum.StyleCustomMode = true;
             this.txtOrderNum.TabIndex = 11;
             this.txtOrderNum.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtOrderNum.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtOrderNum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX10
@@ -421,15 +436,16 @@
             this.txthuohao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txthuohao.Location = new System.Drawing.Point(757, 25);
             this.txthuohao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txthuohao.Maximum = 2147483647D;
-            this.txthuohao.Minimum = -2147483648D;
             this.txthuohao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txthuohao.Name = "txthuohao";
             this.txthuohao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txthuohao.ShowText = false;
             this.txthuohao.Size = new System.Drawing.Size(100, 23);
+            this.txthuohao.Style = Sunny.UI.UIStyle.Custom;
             this.txthuohao.StyleCustomMode = true;
             this.txthuohao.TabIndex = 9;
             this.txthuohao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txthuohao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txthuohao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX5
@@ -455,15 +471,16 @@
             this.txtganghao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtganghao.Location = new System.Drawing.Point(586, 25);
             this.txtganghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtganghao.Maximum = 2147483647D;
-            this.txtganghao.Minimum = -2147483648D;
             this.txtganghao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtganghao.Name = "txtganghao";
             this.txtganghao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtganghao.ShowText = false;
             this.txtganghao.Size = new System.Drawing.Size(100, 23);
+            this.txtganghao.Style = Sunny.UI.UIStyle.Custom;
             this.txtganghao.StyleCustomMode = true;
             this.txtganghao.TabIndex = 7;
             this.txtganghao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtganghao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX4
@@ -517,15 +534,16 @@
             this.txtguige.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtguige.Location = new System.Drawing.Point(415, 25);
             this.txtguige.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtguige.Maximum = 2147483647D;
-            this.txtguige.Minimum = -2147483648D;
             this.txtguige.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtguige.Name = "txtguige";
             this.txtguige.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtguige.ShowText = false;
             this.txtguige.Size = new System.Drawing.Size(100, 23);
+            this.txtguige.Style = Sunny.UI.UIStyle.Custom;
             this.txtguige.StyleCustomMode = true;
             this.txtguige.TabIndex = 3;
             this.txtguige.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtguige.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtguige.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txtpingming
@@ -537,15 +555,16 @@
             this.txtpingming.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtpingming.Location = new System.Drawing.Point(244, 25);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtpingming.Maximum = 2147483647D;
-            this.txtpingming.Minimum = -2147483648D;
             this.txtpingming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtpingming.ShowText = false;
             this.txtpingming.Size = new System.Drawing.Size(100, 23);
+            this.txtpingming.Style = Sunny.UI.UIStyle.Custom;
             this.txtpingming.StyleCustomMode = true;
             this.txtpingming.TabIndex = 2;
             this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtpingming.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // txthetonghao
@@ -557,15 +576,16 @@
             this.txthetonghao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txthetonghao.Location = new System.Drawing.Point(70, 25);
             this.txthetonghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txthetonghao.Maximum = 2147483647D;
-            this.txthetonghao.Minimum = -2147483648D;
             this.txthetonghao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txthetonghao.Name = "txthetonghao";
             this.txthetonghao.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txthetonghao.ShowText = false;
             this.txthetonghao.Size = new System.Drawing.Size(95, 23);
+            this.txthetonghao.Style = Sunny.UI.UIStyle.Custom;
             this.txthetonghao.StyleCustomMode = true;
             this.txthetonghao.TabIndex = 1;
             this.txthetonghao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txthetonghao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txthetonghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
             // labelX1
@@ -603,15 +623,16 @@
             this.保存样式ToolStripMenuItem,
             this.刷新ToolStripMenuItem1,
             this.打印报表ToolStripMenuItem,
-            this.查看开剪ToolStripMenuItem});
+            this.查看开剪ToolStripMenuItem,
+            this.修改成本ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 202);
             // 
             // 配置列ToolStripMenuItem
             // 
             this.配置列ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.reading_32x32;
             this.配置列ToolStripMenuItem.Name = "配置列ToolStripMenuItem";
-            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.配置列ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.配置列ToolStripMenuItem.Text = "配置列";
             this.配置列ToolStripMenuItem.Click += new System.EventHandler(this.配置列ToolStripMenuItem_Click);
             // 
@@ -619,7 +640,7 @@
             // 
             this.录入明细ToolStripMenuItem1.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
             this.录入明细ToolStripMenuItem1.Name = "录入明细ToolStripMenuItem1";
-            this.录入明细ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.录入明细ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.录入明细ToolStripMenuItem1.Text = "录入明细";
             this.录入明细ToolStripMenuItem1.Click += new System.EventHandler(this.录入明细ToolStripMenuItem_Click);
             // 
@@ -627,7 +648,7 @@
             // 
             this.清零选中库存ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Clear_32x32;
             this.清零选中库存ToolStripMenuItem.Name = "清零选中库存ToolStripMenuItem";
-            this.清零选中库存ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.清零选中库存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.清零选中库存ToolStripMenuItem.Text = "清零选中库存";
             this.清零选中库存ToolStripMenuItem.Click += new System.EventHandler(this.清零选择库存ToolStripMenuItem_Click);
             // 
@@ -635,7 +656,7 @@
             // 
             this.保存样式ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
             this.保存样式ToolStripMenuItem.Name = "保存样式ToolStripMenuItem";
-            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.保存样式ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.保存样式ToolStripMenuItem.Text = "保存样式";
             this.保存样式ToolStripMenuItem.Click += new System.EventHandler(this.保存样式ToolStripMenuItem_Click);
             // 
@@ -643,7 +664,7 @@
             // 
             this.刷新ToolStripMenuItem1.Image = global::纺织贸易管理系统.Properties.Resources.Refresh_32x32;
             this.刷新ToolStripMenuItem1.Name = "刷新ToolStripMenuItem1";
-            this.刷新ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.刷新ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.刷新ToolStripMenuItem1.Text = "刷新";
             this.刷新ToolStripMenuItem1.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
             // 
@@ -651,7 +672,7 @@
             // 
             this.打印报表ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ExportToXLS_32x32;
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印报表ToolStripMenuItem.Text = "导出报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.导出到EXCELToolStripMenuItem_Click);
             // 
@@ -659,7 +680,7 @@
             // 
             this.查看开剪ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Find_32x32;
             this.查看开剪ToolStripMenuItem.Name = "查看开剪ToolStripMenuItem";
-            this.查看开剪ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.查看开剪ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.查看开剪ToolStripMenuItem.Text = "查看开剪";
             this.查看开剪ToolStripMenuItem.Click += new System.EventHandler(this.查看开剪ToolStripMenuItem_Click);
             // 
@@ -726,6 +747,7 @@
             this.groupPanel2.TabIndex = 0;
             this.groupPanel2.Text = "可发卷";
             this.groupPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupPanel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // gridControl2
             // 
@@ -890,14 +912,13 @@
             this.expandableSplitter1.TabIndex = 10;
             this.expandableSplitter1.TabStop = false;
             // 
-            // 复检ToolStripMenuItem
+            // 修改成本ToolStripMenuItem
             // 
-            this.复检ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.UpdateTableOfContents_32x32;
-            this.复检ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.复检ToolStripMenuItem.Name = "复检ToolStripMenuItem";
-            this.复检ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
-            this.复检ToolStripMenuItem.Text = "复检";
-            this.复检ToolStripMenuItem.Click += new System.EventHandler(this.复检ToolStripMenuItem_Click);
+            this.修改成本ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.BO_Document;
+            this.修改成本ToolStripMenuItem.Name = "修改成本ToolStripMenuItem";
+            this.修改成本ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.修改成本ToolStripMenuItem.Text = "修改成本";
+            this.修改成本ToolStripMenuItem.Click += new System.EventHandler(this.修改成本ToolStripMenuItem_Click);
             // 
             // 库存报表
             // 
@@ -1018,5 +1039,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 登记库存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 复检ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改成本ToolStripMenuItem;
     }
 }

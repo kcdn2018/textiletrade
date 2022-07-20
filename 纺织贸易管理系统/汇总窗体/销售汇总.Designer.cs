@@ -321,7 +321,6 @@ namespace 纺织贸易管理系统.其他窗体
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewX1.RowHeight = 29;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataGridViewX1.RowsDefaultCellStyle = dataGridViewCellStyle10;
@@ -329,8 +328,6 @@ namespace 纺织贸易管理系统.其他窗体
             this.dataGridViewX1.RowTemplate.Height = 29;
             this.dataGridViewX1.SelectedIndex = -1;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.ShowGridLine = false;
-            this.dataGridViewX1.ShowRect = false;
             this.dataGridViewX1.Size = new System.Drawing.Size(1254, 239);
             this.dataGridViewX1.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dataGridViewX1.Style = Sunny.UI.UIStyle.Custom;

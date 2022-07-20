@@ -16,5 +16,10 @@ namespace Model
         public static string DanjubianhaoRule = "类型+年份+月份+日+累计编号";
         //业务员是否必填
         public static string IsNeedSaleMan = "否";
+        /// <summary>
+        /// 税率
+        /// </summary>
+        public static decimal Tax = 6;
+        public static string DefaultLabel = string.Empty;
     }
 }

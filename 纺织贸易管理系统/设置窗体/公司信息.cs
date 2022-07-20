@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tools;
 using 纺织贸易管理系统.其他窗体;
 using 纺织贸易管理系统.新增窗体;
 
@@ -21,6 +22,7 @@ namespace 纺织贸易管理系统.设置窗体
         public 公司信息()
         {
             InitializeComponent();
+            cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
             var gsinfo = infoService.Getinfolst()[0];
             cmbgongshimingcheng .DataSource = infoService.Getinfolst().Select (x=>x.gsmc ).ToList ();
             txtlxdh.Text = gsinfo.GHSMC;
@@ -37,6 +39,18 @@ namespace 纺织贸易管理系统.设置窗体
             numericUpDown1.Value = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "时间间隔", settingValue =numericUpDown1.Value.ToString() }).settingValue.ToInt  (0);
             cmbAutoPrice.Text = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "寄样自动价格", settingValue = cmbAutoPrice.Text }).settingValue ;
             cmbyangbubiaohao.Text = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "样布编号", settingValue = cmbyangbubiaohao .Text }).settingValue;
+          ///设定默认票签模板
+            if (string.IsNullOrWhiteSpace(QueryTime.DefaultLabel))
+            {
+                if (cmbMoban.Items.Count > 0)
+                {
+                    cmbMoban.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                cmbMoban.Text = QueryTime.DefaultLabel;
+            }
             GetAllPrinter();
             cmbprinters.Text = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "标签默认打印机", settingValue = cmbprinters .Text }).settingValue;
             var zhangqi= SettingService.GetSetting(x => x.settingname == "检查账期").settingValue;
@@ -48,6 +62,7 @@ namespace 纺织贸易管理系统.设置窗体
             cmbIsTax.Text = QueryTime.IsTax;
             cmbdanjubianhao.Text = QueryTime.DanjubianhaoRule;
             cmbNeedSaleMan.Text = QueryTime.IsNeedSaleMan;
+            taxNumInput.Value = QueryTime.Tax;
         }
         private void GetAllPrinter()
         {
@@ -83,11 +98,13 @@ namespace 纺织贸易管理系统.设置窗体
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "样布编号", settingValue = cmbyangbubiaohao.Text });
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "标签默认打印机", settingValue = cmbprinters .Text });
                 SettingService.Update(new Model.Setting() { formname = "", settingname = "数量小数位", settingValue = numericUpDown2 .Text });
+                SettingService.Update(new Model.Setting() { formname = "", settingname = "默认标签", settingValue = cmbMoban.Text });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "检查账期", settingValue = cmbzhangqi.Text });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "默认含税", settingValue = cmbIsTax .Text });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "采购类型", settingValue = cmbBuyStyle .Text });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "产品类型", settingValue = cmbFabricStyle .Text });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "报警缩率", settingValue = NumSuoLv.Value.ToString()  });
+                SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "税率", settingValue = taxNumInput .Value.ToString() });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "单据编号规则", settingValue =cmbdanjubianhao.Text  });
                 SettingService.UpdateSQLSERVER(new Model.Setting() { formname = "", settingname = "业务员必填", settingValue = cmbNeedSaleMan .Text });
                 QueryTime.间隔 =(int) numericUpDown1.Value;
@@ -98,6 +115,8 @@ namespace 纺织贸易管理系统.设置窗体
                 QueryTime.Suolv =(int) NumSuoLv.Value;
                 QueryTime.DanjubianhaoRule = cmbdanjubianhao.Text;
                 QueryTime.IsNeedSaleMan = cmbNeedSaleMan.Text;
+                QueryTime.Tax = taxNumInput.Value;
+                QueryTime.DefaultLabel = cmbMoban.Text;
                 AlterDlg.Show("保存完毕");
             }
             else
@@ -165,6 +184,21 @@ namespace 纺织贸易管理系统.设置窗体
         private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Task.Run(new Action(() => { UpdateService.IsNeedUpdate(this); }));
+        }
+
+        private void 刷新打印模板ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Sunny.UI.UIWaitFormService.ShowWaitForm("系统正在刷新所有打印模板，请等候。。。。");
+                Tools.ReportService.DownLoad(Application.StartupPath);
+                Sunny.UI.UIWaitFormService.HideWaitForm();
+                MessageBox.Show("刷新完成");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

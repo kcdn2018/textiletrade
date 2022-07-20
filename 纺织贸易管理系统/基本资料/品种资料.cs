@@ -1,4 +1,5 @@
 ﻿
+using DAL;
 using DevComponents.AdvTree;
 using DevExpress.XtraEditors;
 using Model;
@@ -29,10 +30,17 @@ namespace 纺织贸易管理系统.基本资料
         public 品种资料()
         {
             InitializeComponent();
-            cmbMoban .Items .AddRange ( Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray() );
-            if (cmbMoban.Items.Count > 0)
+            var mobans = Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels");
+            cmbMoban .Items .AddRange ( mobans.ToArray () );
+            if (mobans.Where (x=>x==QueryTime.DefaultLabel ).Count ()>0)
             {
-                cmbMoban.SelectedIndex = 0;
+                cmbMoban.Text  = QueryTime.DefaultLabel ;
+            }
+            else
+            {
+                MessageBox.Show("系统找不到默认标签模板！系统将把第一个模板设定为默认模板");
+                QueryTime.DefaultLabel = cmbMoban.Text;
+                SettingService.Update(new Model.Setting() { formname = "", settingname = "默认标签", settingValue = cmbMoban.Text });
             }
             CreateGrid.Create(this.Name, gridView1);
             gridView1.OptionsCustomization.AllowSort = true;
@@ -359,9 +367,26 @@ namespace 纺织贸易管理系统.基本资料
 
         private void 删除模板ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Tools.ReportService.Delete(new ReportTable { reportName = cmbMoban.Text, reportStyle = Tools.ReportService.标签 },Application.StartupPath );
-            cmbMoban.Items.Clear();
-            cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
+            try
+            {
+                if(QueryTime.DefaultLabel ==cmbMoban.Text )
+                {
+                    MessageBox.Show("该模板为默认标签模板！不能删除");
+                    return;
+                }
+                if (Sunny.UI.UIMessageBox.ShowAsk("您确定要删除改模板吗？"))
+                {
+                    Tools.ReportService.Delete(new ReportTable { reportName = cmbMoban.Text, reportStyle = Tools.ReportService.标签 }, Application.StartupPath);
+                    MessageBox.Show("删除成功！");
+                    cmbMoban.Items.Clear();
+                    cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
+                    cmbMoban.Text = QueryTime.DefaultLabel;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("删除失败"+ex.Message);
+            }
         }
 
         private void uiRadioButton1_ValueChanged(object sender, bool value)
@@ -409,22 +434,34 @@ namespace 纺织贸易管理系统.基本资料
         {
             try
             {
+                
                 string newname = string.Empty;
                 Sunny.UI.UIInputDialog.InputStringDialog(ref newname, true, "请输入新的模板名称");
                 string oldname = cmbMoban.Text;
-                ReportService.ReName(new ReportTable()
+                if (oldname == QueryTime.DefaultLabel)
                 {
-                    ReportFile = ReportTableService.GetOneReportTable(x => x.reportName == oldname && x.reportStyle == Tools.ReportService.标签).ReportFile,
-                    reportName = newname+".frx",
-                    reportStyle = Tools.ReportService.标签
-                }, Application.StartupPath, oldname);
-                cmbMoban.Items.Clear();
-                cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
-                cmbMoban.Text = newname;
+                   if( MessageBox.Show ("该模板为默认标签模板！您确定要修改该模板的名字吗？\r\n确定修改的话系统将会同步修改默认模板")==DialogResult.OK )
+                    {
+                        ReportService.ReName(new ReportTable()
+                        {
+                            ReportFile = ReportTableService.GetOneReportTable(x => x.reportName == oldname && x.reportStyle == Tools.ReportService.标签).ReportFile,
+                            reportName = newname + ".frx",
+                            reportStyle = Tools.ReportService.标签
+                        }, Application.StartupPath, oldname);
+                        cmbMoban.Items.Clear();
+                        cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
+                        cmbMoban.Text = newname;
+                        if (oldname == QueryTime.DefaultLabel)
+                        {
+                            SettingService.Update(new Model.Setting() { formname = "", settingname = "默认标签", settingValue = newname + ".frx" });
+                        }
+                    }
+                }
+               
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("修改模板名字发送错误："+ex.Message);
             }
         }
     }

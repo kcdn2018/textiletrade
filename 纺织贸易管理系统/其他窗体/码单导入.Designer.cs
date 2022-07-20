@@ -280,7 +280,6 @@ namespace 纺织贸易管理系统.其他窗体
             this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.uiDataGridView1.RowTemplate.Height = 23;
             this.uiDataGridView1.SelectedIndex = -1;
-            this.uiDataGridView1.ShowGridLine = true;
             this.uiDataGridView1.Size = new System.Drawing.Size(1184, 578);
             this.uiDataGridView1.TabIndex = 0;
             // 

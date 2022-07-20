@@ -147,14 +147,11 @@ namespace 纺织贸易管理系统.报表窗体
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.uiDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.uiDataGridView1.RowHeadersVisible = false;
-            this.uiDataGridView1.RowHeight = 0;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.uiDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.uiDataGridView1.RowTemplate.Height = 23;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiDataGridView1.ShowGridLine = true;
-            this.uiDataGridView1.ShowRect = false;
             this.uiDataGridView1.Size = new System.Drawing.Size(800, 314);
             this.uiDataGridView1.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiDataGridView1.TabIndex = 2;

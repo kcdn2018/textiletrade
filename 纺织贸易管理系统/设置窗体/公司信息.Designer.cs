@@ -59,6 +59,12 @@
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.txtEmail = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cmbMoban = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.taxNumInput = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cmbNeedSaleMan = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.cmbdanjubianhao = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.NumSuoLv = new System.Windows.Forms.NumericUpDown();
@@ -88,12 +94,12 @@
             this.cmbxianshi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorPickerDropDown1 = new DevComponents.DotNetBar.ColorPickerDropDown();
-            this.cmbNeedSaleMan = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.刷新打印模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.taxNumInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumSuoLv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -103,7 +109,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.保存ToolStripMenuItem,
-            this.检查更新ToolStripMenuItem});
+            this.检查更新ToolStripMenuItem,
+            this.刷新打印模板ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(570, 40);
@@ -496,6 +503,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmbMoban);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.taxNumInput);
+            this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.cmbNeedSaleMan);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.cmbdanjubianhao);
@@ -533,6 +544,66 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "系统设置";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cmbMoban
+            // 
+            this.cmbMoban.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoban.FormattingEnabled = true;
+            this.cmbMoban.Location = new System.Drawing.Point(383, 370);
+            this.cmbMoban.Name = "cmbMoban";
+            this.cmbMoban.Size = new System.Drawing.Size(121, 20);
+            this.cmbMoban.TabIndex = 35;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(287, 372);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "默认票签";
+            // 
+            // taxNumInput
+            // 
+            this.taxNumInput.Location = new System.Drawing.Point(382, 318);
+            this.taxNumInput.Name = "taxNumInput";
+            this.taxNumInput.Size = new System.Drawing.Size(120, 21);
+            this.taxNumInput.TabIndex = 33;
+            this.taxNumInput.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(287, 322);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 12);
+            this.label16.TabIndex = 32;
+            this.label16.Text = "税率";
+            // 
+            // cmbNeedSaleMan
+            // 
+            this.cmbNeedSaleMan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNeedSaleMan.FormattingEnabled = true;
+            this.cmbNeedSaleMan.Items.AddRange(new object[] {
+            "是",
+            "否"});
+            this.cmbNeedSaleMan.Location = new System.Drawing.Point(382, 268);
+            this.cmbNeedSaleMan.Name = "cmbNeedSaleMan";
+            this.cmbNeedSaleMan.Size = new System.Drawing.Size(121, 20);
+            this.cmbNeedSaleMan.TabIndex = 31;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(287, 271);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(65, 12);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "业务员必填";
             // 
             // cmbdanjubianhao
             // 
@@ -575,7 +646,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(276, 221);
+            this.label13.Location = new System.Drawing.Point(287, 220);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 26;
@@ -597,7 +668,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(276, 171);
+            this.label12.Location = new System.Drawing.Point(287, 170);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 24;
@@ -619,7 +690,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(275, 118);
+            this.label11.Location = new System.Drawing.Point(287, 117);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 22;
@@ -640,7 +711,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(276, 69);
+            this.label10.Location = new System.Drawing.Point(287, 68);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 20;
@@ -682,7 +753,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(276, 20);
+            this.label8.Location = new System.Drawing.Point(287, 19);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 16;
@@ -711,7 +782,7 @@
             this.cmbyangbubiaohao.Items.AddRange(new object[] {
             "累计新增",
             "区分后整"});
-            this.cmbyangbubiaohao.Location = new System.Drawing.Point(116, 319);
+            this.cmbyangbubiaohao.Location = new System.Drawing.Point(116, 318);
             this.cmbyangbubiaohao.Name = "cmbyangbubiaohao";
             this.cmbyangbubiaohao.Size = new System.Drawing.Size(121, 20);
             this.cmbyangbubiaohao.TabIndex = 11;
@@ -720,7 +791,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 320);
+            this.label6.Location = new System.Drawing.Point(9, 322);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 10;
@@ -841,26 +912,14 @@
             this.colorPickerDropDown1.Tooltip = "Custom color scheme is created based on currently selected color table. Try selec" +
     "ting Silver or Blue color table and then creating custom color scheme.";
             // 
-            // cmbNeedSaleMan
+            // 刷新打印模板ToolStripMenuItem
             // 
-            this.cmbNeedSaleMan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNeedSaleMan.FormattingEnabled = true;
-            this.cmbNeedSaleMan.Items.AddRange(new object[] {
-            "是",
-            "否"});
-            this.cmbNeedSaleMan.Location = new System.Drawing.Point(382, 268);
-            this.cmbNeedSaleMan.Name = "cmbNeedSaleMan";
-            this.cmbNeedSaleMan.Size = new System.Drawing.Size(121, 20);
-            this.cmbNeedSaleMan.TabIndex = 31;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(273, 272);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(65, 12);
-            this.label15.TabIndex = 30;
-            this.label15.Text = "业务员必填";
+            this.刷新打印模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Refresh_32x32;
+            this.刷新打印模板ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.刷新打印模板ToolStripMenuItem.Name = "刷新打印模板ToolStripMenuItem";
+            this.刷新打印模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.刷新打印模板ToolStripMenuItem.Text = "刷新打印模板";
+            this.刷新打印模板ToolStripMenuItem.Click += new System.EventHandler(this.刷新打印模板ToolStripMenuItem_Click);
             // 
             // 公司信息
             // 
@@ -882,6 +941,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.taxNumInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumSuoLv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -959,5 +1019,10 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmbNeedSaleMan;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown taxNumInput;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cmbMoban;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ToolStripMenuItem 刷新打印模板ToolStripMenuItem;
     }
 }

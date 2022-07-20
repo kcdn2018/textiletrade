@@ -34,7 +34,7 @@ namespace 纺织贸易管理系统.新增窗体
             cmbMoban.Items.AddRange (Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray ());
             if (cmbMoban.Items.Count > 0)
             {
-                cmbMoban.SelectedIndex = 0;
+                cmbMoban.Text = QueryTime.DefaultLabel;
             }
             dateEdit1.EditValue = DateTime.Now.ToShortDateString ();
             cmbLeibie.DataSource = (from lb in dbService.Getdblst() select lb.lb).ToList().Distinct<string>().ToList ();

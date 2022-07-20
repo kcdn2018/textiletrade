@@ -41,10 +41,26 @@ namespace Update
 					//columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "配桶登记单").ToList();
 					//columns.ForEach(x => x.UserID = yh.YHBH);
 					//Connect.CreatConnect().Insert<ColumnTable>(columns);
+					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "白坯销售列表", MenuName = "白坯销售单", UserID = yh.YHBH, Visitable = true });
+					 columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯销售列表").ToList();
+					columns.ForEach(x => x.UserID = yh.YHBH);
+					Connect.CreatConnect().Insert<ColumnTable>(columns);
+					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "白坯直销单", MenuName = "白坯直销单", UserID = yh.YHBH, Visitable = true });
+					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯直销单").ToList();
+					columns.ForEach(x => x.UserID = yh.YHBH);
+					Connect.CreatConnect().Insert<ColumnTable>(columns);
+					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "销售统计", MenuName = "销售统计", UserID = yh.YHBH, Visitable = true });
+					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯直销单").ToList();
+					columns.ForEach(x => x.UserID = yh.YHBH);
+					Connect.CreatConnect().Insert<ColumnTable>(columns);
 				}
 				var report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "委外通知单").ToList();
 				Connect.CreatConnect().Insert<ReportTable>(report);
 				report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "检验通知单").ToList();
+				Connect.CreatConnect().Insert<ReportTable>(report);
+				report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "CheckDoc").ToList();
+				Connect.CreatConnect().Insert<ReportTable>(report);
+				report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "销售退货单").ToList();
 				Connect.CreatConnect().Insert<ReportTable>(report);
 				Console.WriteLine("创建检验通知单菜单菜单成功");
 			}

@@ -100,7 +100,7 @@ namespace BLL
             DanjuTableService.UpdateDanjuTable("zhuangtai='已审核'", x => x.dh == danhao);
             来往明细BLL.增加来往记录(danju);
             财务BLL.增加应收款(danju);
-            财务BLL.增加应开发票(danjumingxitables, danju);
+            财务BLL.增加应开发票( danju);
             订单BLL.增加费用(danjumingxitables, danju);
             单据BLL.审核(danhao);
             订单进度BLL.新增进度(danjumingxitables, danju);
@@ -113,6 +113,7 @@ namespace BLL
             danju.ksmc = danju.ckmc;
             danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
             danju.je -= danju.Profit;
+            danju.Hanshui = danju.CaiGouHanshui;
             来往明细BLL.增加来往记录(danju);
             财务BLL.增加应付款(danju);
             财务BLL.增加应收发票(danju);
@@ -125,7 +126,7 @@ namespace BLL
             Connect.CreatConnect().Delete<FabricMadan>(x => x.Danhao == danhao);
             来往明细BLL.删除来往记录(danju);
             财务BLL.减少应收款(danju);
-            财务BLL.减少应开发票(danju, danjumingxitables);
+            财务BLL.减少应开发票(danju);
             订单BLL.减少费用(danjumingxitables, danju);
             单据BLL.未审核(danhao);
             订单进度BLL.删除进度(danju.dh);
@@ -138,6 +139,7 @@ namespace BLL
             danju.ksmc = danju.ckmc;
             danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
             danju.je -= danju.Profit;
+            danju.Hanshui = danju.CaiGouHanshui;
             来往明细BLL.删除来往记录 (danju);
             财务BLL.减少应付款 (danju);
             财务BLL.减少应收发票(danju);

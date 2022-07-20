@@ -352,19 +352,42 @@ namespace 纺织贸易管理系统.选择窗体
                 var stocks = new List<StockTable>();
                 foreach (var s in gridView1.GetSelectedRows() )
                 {
-                    var d = pingzhong.FirstOrDefault(x => x.ID == (int)gridView1.GetRowCellValue(s, "ID"));                   
-                    d.biaoqianmishu -=Connect.DbHelper().Queryable <JuanHaoTable >().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
-            && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Sum (x=>x.biaoqianmishu );
-                    d.yijianmishu  -= Connect.DbHelper().Queryable<JuanHaoTable>().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
-           && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Sum(x => x.MiShu );
-                    d.yijianjuanshu  -= Connect.DbHelper().Queryable<JuanHaoTable>().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
-             && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Count();
+                    var d = pingzhong.FirstOrDefault(x => x.ID == (int)gridView1.GetRowCellValue(s, "ID"));
+                    d.biaoqianmishu = 0;
+                    d.yijianjuanshu = 0;
+                    d.yijianmishu = 0;
+           //         d.biaoqianmishu -=Connect.DbHelper().Queryable <JuanHaoTable >().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
+           // && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Sum (x=>x.biaoqianmishu );
+           //         d.yijianmishu  -= Connect.DbHelper().Queryable<JuanHaoTable>().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
+           //&& x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Sum(x => x.MiShu );
+           //         d.yijianjuanshu  -= Connect.DbHelper().Queryable<JuanHaoTable>().Where(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
+           //  && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC).Count();
                     JuanHaoTableService.DeleteJuanHaoTable(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
                    && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao == "" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.Ckmc == d.CKMC);
                     stocks.Add(d);
                 }
                 Connect.DbHelper().Updateable<StockTable>(stocks).ExecuteCommand();
                 Sunny.UI.UIMessageDialog.ShowSuccessDialog(this, "复检完成");
+            }
+        }
+
+        private void 修改成本ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {              
+                double  agvprice = 0; 
+                var id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").TryToInt();
+                Sunny.UI.UIInputDialog.InputDoubleDialog(ref agvprice, 2, true, "请输入平均成本");
+                var stock = StockTableService.GetOneStockTable(x => x.ID == id);
+                stock.AvgPrice = (decimal)agvprice;
+                stock.TotalMoney = stock.AvgPrice * stock.MS;
+                Connect.DbHelper().Updateable(stock).ExecuteCommand();
+                pingzhong[gridView1.FocusedRowHandle].AvgPrice =(decimal ) agvprice;
+                gridControl1.RefreshDataSource();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("修改成本时发送了错误"+ex.Message);
             }
         }
     }

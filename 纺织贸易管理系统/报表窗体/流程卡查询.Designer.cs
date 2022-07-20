@@ -322,7 +322,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.uiDataGridView4.RowTemplate.Height = 23;
             this.uiDataGridView4.SelectedIndex = -1;
             this.uiDataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiDataGridView4.ShowGridLine = true;
             this.uiDataGridView4.Size = new System.Drawing.Size(707, 270);
             this.uiDataGridView4.TabIndex = 2;
             // 
@@ -474,7 +473,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.uiDataGridView3.RowTemplate.Height = 23;
             this.uiDataGridView3.SelectedIndex = -1;
             this.uiDataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiDataGridView3.ShowGridLine = true;
             this.uiDataGridView3.Size = new System.Drawing.Size(707, 277);
             this.uiDataGridView3.TabIndex = 2;
             // 
@@ -635,7 +633,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.uiDataGridView2.RowTemplate.Height = 23;
             this.uiDataGridView2.SelectedIndex = -1;
             this.uiDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiDataGridView2.ShowGridLine = true;
             this.uiDataGridView2.Size = new System.Drawing.Size(707, 138);
             this.uiDataGridView2.TabIndex = 1;
             // 
@@ -1028,7 +1025,6 @@ namespace 纺织贸易管理系统.报表窗体
             this.uiDataGridView1.RowTemplate.Height = 23;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiDataGridView1.ShowGridLine = true;
             this.uiDataGridView1.Size = new System.Drawing.Size(985, 753);
             this.uiDataGridView1.TabIndex = 0;
             this.uiDataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uiDataGridView1_CellClick);

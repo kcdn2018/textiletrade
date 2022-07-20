@@ -153,6 +153,7 @@ namespace 纺织贸易管理系统.新增窗体
             comhanshui.Text = danju.Hanshui;
             cmbqiankuan.Text = danju.Qiankuan;
             comleixing.Text = danju.jiagongleixing;
+            txtGengdan.Text = danju.Gengdanyuan;
             ColorTables =new BindingList<ShengchandanSeLaodu>(ShengchandanSeLaoduService.GetShengchandanSeLaodulst(x => x.shengchandanhao == danju.dh));   
             for(int i=ColorTables.Count;i<20;i++)
             {
@@ -335,6 +336,7 @@ namespace 纺织贸易管理系统.新增窗体
                 lianxiren = txtlianxiren.Text,
                 djlx = DanjuLeiXing.打样工艺单,
                 own = User.user.YHBH,
+                Gengdanyuan = txtGengdan.Text ,
                 ordernum = txtorder.Text,
                 //客户名称
                 SaleMan = Kehu.MC,
@@ -402,6 +404,7 @@ namespace 纺织贸易管理系统.新增窗体
                 djlx = DanjuLeiXing.打样工艺单,
                 own = User.user.YHBH,
                 ordernum = txtorder.Text,
+                Gengdanyuan =txtGengdan.Text ,
                 //客户名称
                 SaleMan = Kehu.MC,
                 //客户编号
@@ -500,7 +503,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             var fm = new 员工选择() { linkman = new YuanGongTable() { Xingming = "" } };
             fm.ShowDialog();
-            txtguangyue.Text = fm.linkman.Xingming;
+            txtGengdan.Text = fm.linkman.Xingming;
         }
     }
 }

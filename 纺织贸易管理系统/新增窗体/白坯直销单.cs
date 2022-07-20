@@ -204,8 +204,22 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji = danjumingxitables[gridView1.FocusedRowHandle].hanshuidanjia * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
                 danjumingxitables[gridView1.FocusedRowHandle].weishuiheji = danjumingxitables[gridView1.FocusedRowHandle].weishuidanjia * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
-                danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].weishuiheji ;
-                danjumingxitables[gridView1.FocusedRowHandle].Profit = danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji - danjumingxitables[gridView1.FocusedRowHandle].Cost;
+                if (cmbCaihouhansui.Text == "含税")
+                { danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].weishuiheji / (1 + QueryTime.Tax / 100); }
+                else
+                {
+                    danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].weishuiheji;
+                }
+                decimal xiaoshoue = 0;
+                if(cmbxiaoshouhanshui.Text =="含税")
+                {
+                    xiaoshoue = danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji / (1 + QueryTime.Tax / 100);
+                }
+                else
+                {
+                    xiaoshoue = danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji;
+                }
+                danjumingxitables[gridView1.FocusedRowHandle].Profit =xiaoshoue  - danjumingxitables[gridView1.FocusedRowHandle].Cost;
                 gridControl1.RefreshDataSource();
             }
             catch
@@ -226,7 +240,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.shouhuodizhi = txtShouhuodizhi.Text;
             danju.lianxiren = txtlianxiren.Text;
             danju.Hanshui  =cmbxiaoshouhanshui.Text ;
-            danju.Hanshui = QueryTime.IsTax;
+            danju.CaiGouHanshui  = cmbCaihouhansui.Text ;
             danju.je = danjumingxitables.Sum(x => x.hanshuiheji);
             danju.totaljuanshu = danjumingxitables.Sum(x => x.chengpingjuanshu);
             danju.TotalMishu = danjumingxitables.Sum(x => x.chengpingmishu);
@@ -426,7 +440,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtChachefei.Text = danju.ChaCheFei.ToString();
             dateEdit1.DateTime = danju.rq;
             txtyewuyuan.Text = danju.SaleMan;
-           
+            cmbCaihouhansui.Text = danju.CaiGouHanshui;
         }
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -631,6 +645,42 @@ namespace 纺织贸易管理系统.新增窗体
             danjumingxitables[0].chengpingmishu = TotalMishu;
             danjumingxitables[0].chengpingjuanshu = juanshu;
             gridControl1.RefreshDataSource();
+        }
+
+        private void cmbCaihouhansui_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (var m in danjumingxitables)
+                {
+                    if (m.hanshuiheji != 0 && m.weishuiheji != 0)
+                    {
+                        m.hanshuiheji = m.hanshuidanjia * m.chengpingmishu;
+                        m.weishuiheji = m.weishuidanjia * m.chengpingmishu;
+                        if (cmbCaihouhansui.Text == "含税")
+                        { m.Cost = m.weishuiheji / (1 + QueryTime.Tax / 100); }
+                        else
+                        {
+                            m.Cost = m.weishuiheji;
+                        }
+                        decimal xiaoshoue = 0;
+                        if (cmbxiaoshouhanshui.Text == "含税")
+                        {
+                            xiaoshoue = m.hanshuiheji / (1 + QueryTime.Tax / 100);
+                        }
+                        else
+                        {
+                            xiaoshoue = m.hanshuiheji;
+                        }
+                        m.Profit = xiaoshoue - m.Cost;
+                    }
+                    gridControl1.RefreshDataSource();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("请输入数字。计算错误");
+            }
         }
     }
 }

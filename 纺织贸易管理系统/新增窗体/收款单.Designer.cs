@@ -545,7 +545,6 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewX1.RowHeight = 29;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataGridViewX1.RowsDefaultCellStyle = dataGridViewCellStyle5;
@@ -679,13 +678,11 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewX2.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewX2.RowHeight = 29;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataGridViewX2.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewX2.RowTemplate.Height = 29;
             this.dataGridViewX2.SelectedIndex = -1;
-            this.dataGridViewX2.ShowGridLine = false;
             this.dataGridViewX2.Size = new System.Drawing.Size(741, 108);
             this.dataGridViewX2.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dataGridViewX2.Style = Sunny.UI.UIStyle.Custom;
@@ -819,7 +816,6 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewX3.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewX3.RowHeight = 29;
             dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataGridViewX3.RowsDefaultCellStyle = dataGridViewCellStyle15;

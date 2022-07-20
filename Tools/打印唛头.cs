@@ -70,7 +70,7 @@ namespace Tools
             dt.Rows[0]["门幅"]=juan.Menfu ;
             dt.Rows[0]["克重"]=juan.Kezhong ;
             dt.Rows[0]["颜色"]=juan.yanse ;
-            dt.Rows[0]["日期"]=juan.rq ;
+            dt.Rows[0]["日期"]=juan.rq;
             dt.Rows[0]["成分"]=buliao .cf ;
             dt.Rows[0]["单位"]=juan.Danwei ;
             dt.Rows[0]["缸卷"]=juan.PiHao ;
