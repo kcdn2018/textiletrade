@@ -31,7 +31,7 @@ namespace 纺织贸易管理系统.选择窗体
         private void Query()
         {
             dblist = Connect.DbHelper().Queryable <StockTable >().Where  (x =>x.BH.Contains (txtbianhao.Text )&& x.ContractNum .Contains(txthetonghao.Text) && x.PM .Contains(txtpingming.Text) && x.GG .Contains(txtguige.Text) && x.GH.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)&& x.CKMC.Contains(StockName )
-            &&x.CustomName.Contains (txtkehu.Text )&&x.orderNum.Contains (txtOrderNum.Text )&&x.YS.Contains (txtyanse.Text )&&x.houzhengli.Contains (txthouzhengli.Text ) ).ToList () .OrderByDescending(x=>x.ID ).ToList ();
+            &&x.CustomName.Contains (txtkehu.Text )&&x.orderNum.Contains (txtOrderNum.Text )&&x.YS.Contains (txtyanse.Text )&&x.houzhengli.Contains (txthouzhengli.Text )&&x.Huahao.Contains (txthuahao.Text )).ToList () .OrderByDescending(x=>x.ID ).ToList ();
             gridControl1.DataSource = dblist;
         }
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)

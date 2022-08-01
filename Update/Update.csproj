@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="2015.cs" />
     <Compile Include="1031 - 复制.cs" />
     <Compile Include="1031.cs" />
     <Compile Include="1030.cs" />
@@ -76,6 +77,8 @@
     <Compile Include="1027.cs" />
     <Compile Include="1026.cs" />
     <Compile Include="1025.cs" />
+    <Compile Include="AddColumn.cs" />
+    <Compile Include="AddNewMenu.cs" />
     <Compile Include="FixHanshui.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -29,7 +29,8 @@ namespace BLL
                 m.rkdh = m.ID.ToString ();
                 m.danhao = danju.dh;
                 m.houzhengli = danju.jiagongleixing;
-                m.PiBuChang = danju.ksmc;            
+                m.PiBuChang = danju.ksmc;
+                m.rq = danju.rq;
             }
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());
             if (SysInfo.GetInfo.own != string.Empty)
@@ -65,7 +66,8 @@ namespace BLL
             {
                 m.danhao = danju.dh;
                 m.houzhengli = danju.jiagongleixing;
-                m.PiBuChang = danju.ksmc;              
+                m.PiBuChang = danju.ksmc;
+                m.rq = danju.rq;
             }
             danjumingxitableService.Insertdanjumingxitablelst (danjumingxitables.Where(x => !string.IsNullOrWhiteSpace(x.Bianhao)).ToList());
             if (SysInfo.GetInfo.own != string.Empty)

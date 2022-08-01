@@ -37,7 +37,8 @@ namespace 纺织贸易管理系统.新增窗体
        private List<Bitmap> imgs = new List<Bitmap>();
         public 生成指示单()
         {
-            InitializeComponent();      
+            InitializeComponent();
+            cmbMoban.SelectedIndex = 0;
             CreateGrid.Create(this.Name, gridView1);
             CreateGrid.Create(this.Name, gridView4);
             CreateGrid.Create(this.Name, gridView3);
@@ -283,6 +284,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtJiagongdanwei.Text = shengchandan.Jiagongchang;
             txtxiadanyuan.Text = shengchandan.Xiadanyuan;
             cmbZhuangtai.Text = shengchandan.State;
+            txtkehu.Text = shengchandan.CustomerName;
             txtbeizhu.Text = "";
             shengchanBuliaoInfos = ShengchanBuliaoInfoService.GetShengchanBuliaoInfolst(x => x.ShengChanDanhao == shengchandan.shengchandanhao);
             gongyis = ShengchanHouzhengliService.GetShengchanHouzhenglilst(x => x.shengchandanhao == shengchandan.shengchandanhao);
@@ -326,6 +328,7 @@ namespace 纺织贸易管理系统.新增窗体
             shengchandan.own = User.user.YHBH;
             shengchandan.CustomerName = txtkehu.Text;
             shengchandan.State =cmbZhuangtai.Text ;
+            shengchandan.Remark = txtbeizhu.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -511,12 +514,12 @@ namespace 纺织贸易管理系统.新增窗体
             try
             {
                 fs.RegisterData(ds);
-                fs.Load(PrintPath.报表模板 + "shengchandan.frx");
+                fs.Load(PrintPath.报表模板 +(cmbMoban.SelectedIndex ==0? "shengchandan.frx":"生产流程表.frx"));
                 switch (useful )
                 {
                     case PrintModel.Design :
                         fs.Design();
-                        var path = PrintPath.报表模板 + "shengchandan.frx";
+                        var path = PrintPath.报表模板 + (cmbMoban.SelectedIndex == 0 ? "shengchandan.frx" : "生产流程表.frx");
                         var arr = path.Split('\\');
                         ReportTableService.DeleteReportTable(x => x.reportName == arr[arr.Length - 1] && x.reportStyle == ReportService.报表);
                         ReportService.LoadReport(path, new ReportTable { reportStyle = ReportService.报表, reportName = arr[arr.Length - 1] });

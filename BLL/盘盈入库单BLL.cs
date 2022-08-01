@@ -16,7 +16,8 @@ namespace BLL
             DanjuTableService.InsertDanjuTable(danju);
             foreach (var m in danjumingxitables.Where(x =>!string.IsNullOrWhiteSpace(x.Bianhao )).ToList())
             {
-                m.danhao = danju.dh;    
+                m.danhao = danju.dh;
+                m.rq = danju.rq;
             }   
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x=>!string.IsNullOrWhiteSpace(x.Bianhao)).ToList());       
             if (SysInfo.GetInfo.own != string.Empty )
@@ -45,7 +46,6 @@ namespace BLL
             {
                 单据反审核(danju.dh);
             }
-            Thread.Sleep(200);
             DanjuTableService.UpdateDanjuTable(danju, x => x.dh == danju.dh);
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh); 
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => x.Bianhao != null).ToList());         

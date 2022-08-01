@@ -339,15 +339,22 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InitDanju();
-            var madan = new Tools.打印成品码单()
+            if (DAL.GetAccess.IsCanPrintDesign)
             {
-                danjuTable = danju,
-                danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
-                danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
-                mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
-            };
-            madan.Print(PrintPath.报表模板 + "\\madan.frx", PrintModel.Design);
+                InitDanju();
+                var madan = new Tools.打印成品码单()
+                {
+                    danjuTable = danju,
+                    danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
+                    danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
+                    mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
+                };
+                madan.Print(PrintPath.报表模板 + "\\madan.frx", PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 直接打印ToolStripMenuItem1_Click(object sender, EventArgs e)

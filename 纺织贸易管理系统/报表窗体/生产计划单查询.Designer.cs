@@ -632,6 +632,7 @@
             this.uiGroupBox1.TabIndex = 10;
             this.uiGroupBox1.Text = "订单列表";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // gridControl1
             // 
@@ -698,6 +699,7 @@
             this.uiTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiTabControl1.Frame = null;
             this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 30);
             this.uiTabControl1.Location = new System.Drawing.Point(0, 0);
             this.uiTabControl1.MainPage = "";
@@ -707,6 +709,7 @@
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabIndex = 1;
             this.uiTabControl1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTabControl1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // tabPage2
             // 

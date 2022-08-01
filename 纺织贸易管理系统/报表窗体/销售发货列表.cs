@@ -43,6 +43,7 @@ namespace 纺织贸易管理系统.报表窗体
                       $"and danjumingxitable.ContractNum like '%{txthetonghao.Text }%' " +
                       $"and danjumingxitable.OrderNum like '%{txtordernum.Text }%' " +
                       $"and danjumingxitable.ganghao like '%{txtganghao.Text }%' " +
+                      $"and danjumingxitable.huahao like '%{txtHuahao.Text }%' " +
                       $"and danjutable.djlx='{DanjuLeiXing.销售出库单}' " +
                       $"and danjutable.dh=danjumingxitable.danhao ";
             if (User.user.access == "自己")
@@ -217,9 +218,17 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 销售汇总ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (AccessBLL.CheckAccess(this.Name) == true)
+            if (AccessBLL.CheckAccess("销售汇总") == true)
             {
                 MainForm.mainform.AddMidForm(new 销售汇总 () );
+            }
+        }
+
+        private void 生成报关单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AccessBLL.CheckAccess("报关单") == true)
+            {
+                MainForm.mainform.AddMidForm(new 新增报关单() { useful=FormUseful.新增 ,SaleDanhao= gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString() });
             }
         }
     }

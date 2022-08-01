@@ -51,6 +51,8 @@
             this.comboItem2 = new DevComponents.Editors.ComboItem();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTicheng = new Sunny.UI.UITextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -263,43 +265,76 @@
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(140, 299);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(142, 343);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Size = new System.Drawing.Size(100, 35);
             this.uiSymbolButton1.Symbol = 61639;
             this.uiSymbolButton1.TabIndex = 100;
             this.uiSymbolButton1.Text = "保存";
+            this.uiSymbolButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiSymbolButton1.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
             // uiSymbolButton2
             // 
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.uiSymbolButton2.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(127)))), ((int)(((byte)(128)))));
-            this.uiSymbolButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
-            this.uiSymbolButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
+            this.uiSymbolButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.uiSymbolButton2.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.uiSymbolButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiSymbolButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton2.Location = new System.Drawing.Point(263, 299);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(265, 343);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.uiSymbolButton2.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(127)))), ((int)(((byte)(128)))));
-            this.uiSymbolButton2.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
-            this.uiSymbolButton2.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
+            this.uiSymbolButton2.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.uiSymbolButton2.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiSymbolButton2.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiSymbolButton2.Size = new System.Drawing.Size(100, 35);
             this.uiSymbolButton2.Style = Sunny.UI.UIStyle.Red;
             this.uiSymbolButton2.StyleCustomMode = true;
             this.uiSymbolButton2.Symbol = 61453;
             this.uiSymbolButton2.TabIndex = 101;
             this.uiSymbolButton2.Text = "取消";
+            this.uiSymbolButton2.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButton2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiSymbolButton2.Click += new System.EventHandler(this.uiSymbolButton2_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(13, 288);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.TabIndex = 102;
+            this.label6.Text = "销售提成";
+            // 
+            // txtTicheng
+            // 
+            this.txtTicheng.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTicheng.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtTicheng.Location = new System.Drawing.Point(84, 284);
+            this.txtTicheng.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTicheng.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtTicheng.Name = "txtTicheng";
+            this.txtTicheng.ShowText = false;
+            this.txtTicheng.Size = new System.Drawing.Size(150, 29);
+            this.txtTicheng.TabIndex = 103;
+            this.txtTicheng.Text = "0.00";
+            this.txtTicheng.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtTicheng.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtTicheng.Watermark = "";
+            this.txtTicheng.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // 新增员工
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 347);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(502, 394);
+            this.Controls.Add(this.txtTicheng);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.uiSymbolButton2);
             this.Controls.Add(this.uiSymbolButton1);
             this.Controls.Add(this.cmbXingbie);
@@ -324,6 +359,7 @@
             this.Name = "新增员工";
             this.Text = "新增员工";
             this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 502, 347);
             this.Load += new System.EventHandler(this.新增品种_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -351,5 +387,7 @@
         private DevComponents.Editors.ComboItem comboItem2;
         private Sunny.UI.UISymbolButton uiSymbolButton1;
         private Sunny.UI.UISymbolButton uiSymbolButton2;
+        private System.Windows.Forms.Label label6;
+        private Sunny.UI.UITextBox txtTicheng;
     }
 }

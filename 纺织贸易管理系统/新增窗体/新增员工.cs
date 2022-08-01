@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Model;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +61,8 @@ namespace 纺织贸易管理系统.新增窗体
             txtyinghangzhanghao.Text = LinkMan.BankCard ;
             txtkaihuyinghang.Text = LinkMan.BankName ;
             txtpingming.Text = LinkMan.Xingming ;
-            cmbXingbie .Text = LinkMan.SEX .ToString();           
+            cmbXingbie .Text = LinkMan.SEX .ToString();
+            txtTicheng.Text = LinkMan.TiCheng.ToString();
         }
         private void InitPingzhong()
         {
@@ -72,6 +74,7 @@ namespace 纺织贸易管理系统.新增窗体
             LinkMan.BankName  = txtkaihuyinghang.Text;
             LinkMan.Xingming  = txtpingming.Text;
             LinkMan.SEX = cmbXingbie .Text ;
+            LinkMan.TiCheng = txtTicheng.Text.ToDecimal();
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {

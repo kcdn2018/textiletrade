@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
+using System.IO;
+
 namespace 纺织贸易管理系统
 {
     public static class MadanPictureService
@@ -34,5 +36,23 @@ namespace 纺织贸易管理系统
          {
               Connect.CreatConnect().Delete<MadanPicture>(func);
          }
+        public static byte[] ExcelToByte(string filename)
+        {
+            try
+            {
+                using (FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read))
+                {
+                    byte[] infbytes = new byte[(int)fs.Length];
+                    fs.Read(infbytes, 0, infbytes.Length);
+                    fs.Close();
+                    return infbytes;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+
+        }
     }
 }

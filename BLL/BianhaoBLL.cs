@@ -412,7 +412,7 @@ namespace BLL
         }
         public static string CreatWuliuBianhao()
         {
-            var dt = Connect.DbHelper().Queryable<WuliuTable>().ToList().OrderByDescending(x => x.id).ToList(); ;
+            var dt = Connect.DbHelper().Queryable<WuliuTable>().ToList().OrderByDescending(x => x.Id).ToList(); ;
             if (dt.Count  == 0)
             {
                 return "WL100001";

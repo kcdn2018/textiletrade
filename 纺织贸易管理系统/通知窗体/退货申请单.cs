@@ -184,6 +184,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.yunfei = (decimal )txtyunfei.Value;
             danju.lianxidianhua = txtlianxidianhua.Text;
             danju.own = User.user.YHBH;
+            danju.remarker = txttuihuoyuanying.Text;
             if (useful == FormUseful.新增)
             {
                 单据BLL.单据保存 (danju, danjumingxitables.Where (x=>x.Bianhao !=null).ToList ());
@@ -264,6 +265,7 @@ namespace 纺织贸易管理系统.新增窗体
             cmbqiankuan.Text = danju.Qiankuan;
             comhanshui.Text = danju.Hanshui;
            dateEdit1.DateTime=danju.rq;
+            txttuihuoyuanying.Text = danju.remarker;
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danju.dh);
             var length = danjumingxitables.Count;
             for (int i = 0; i < 30 - length; i++)
@@ -292,6 +294,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.wuliugongsi = txtwuliu.Text;
             danju.yunfei = (decimal)txtyunfei.Value;
             danju.lianxidianhua = txtlianxidianhua.Text;
+            danju.remarker = txttuihuoyuanying.Text;
         }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {

@@ -42,5 +42,9 @@ namespace 纺织贸易管理系统
         /// 客户名称
         /// </summary>
         public string CustomerName { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
     }
 }

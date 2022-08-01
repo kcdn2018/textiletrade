@@ -329,7 +329,14 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Print(PrintModel.Design);
+            if (DAL.GetAccess.IsCanPrintDesign)
+            {
+                Print(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
         private void Print(int printModel)
         {

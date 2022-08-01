@@ -241,10 +241,17 @@ namespace 纺织贸易管理系统.其他窗体
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gridView1.CloseEditor();
-            var fm = new 打印设置窗体();
-            //fm.ShowDialog();
-            new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Design , moban = PrintPath.唛头模板 + cmbmaitou.Text, juan = CreatJuan() }.打印 ();
+            if (DAL.GetAccess.IsCanPrintDesign)
+            {
+                gridView1.CloseEditor();
+                var fm = new 打印设置窗体();
+                //fm.ShowDialog();
+                new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Design, moban = PrintPath.唛头模板 + cmbmaitou.Text, juan = CreatJuan() }.打印();
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 码单预览ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -266,7 +273,14 @@ namespace 纺织贸易管理系统.其他窗体
 
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrintStock(PrintModel.Design);
+            if (DAL.GetAccess.IsCanPrintDesign)
+            {
+                PrintStock(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
         private void PrintStock(int printstyle)
         {

@@ -1,3 +1,4 @@
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,5 +44,46 @@ namespace 纺织贸易管理系统
          {
               Connect.CreatConnect().Delete<danjumingxitable>(func);
          }
+        public static StockTable ToStockTable(danjumingxitable mingxi,DanjuTable danjuTable )
+        {
+            StockTable stock = new StockTable();
+            stock.AvgPrice = mingxi.hanshuidanjia;
+            stock.BH = mingxi.Bianhao;
+            stock.biaoqianmishu = 0;
+            stock.CF = mingxi.chengfeng;
+            stock.CKMC = danjuTable.ckmc;
+            stock.ContractNum = mingxi.ContractNum;
+            stock.CustomName = mingxi.CustomName;
+            stock.GG = mingxi.guige;
+            stock.GH = mingxi.ganghao;
+            stock.houzhengli = mingxi.houzhengli;
+            stock.JS = mingxi.chengpingjuanshu;
+            stock.kaijianmishu = 0;
+            stock.kuanhao = mingxi.kuanhao;
+            stock.Kuwei = mingxi.Kuwei;
+            stock.KZ = mingxi.kezhong;
+            stock.MF = mingxi.menfu;
+            stock.MS = mingxi.chengpingmishu;
+            stock.orderNum = mingxi.OrderNum;
+            stock.own = danjuTable.own;
+            stock.PM = mingxi.pingming;
+            stock.RKDH = danjuTable.ksmc;
+            stock.RQ = danjuTable.rq;
+            stock.TotalMoney = mingxi.chengpingmishu * stock.AvgPrice;
+            stock.YS = mingxi.yanse;
+            stock.Huahao = mingxi.Huahao;
+            stock.ColorNum = mingxi.ColorNum;
+            stock.CustomerColorNum = mingxi.CustomerColorNum;
+            stock.CustomerPingMing = mingxi.CustomerPingMing;
+            stock.RukuNum = mingxi.chengpingmishu;
+            stock.Rangchang = mingxi.Rangchang;
+            stock.PibuChang = mingxi.PiBuChang;
+            stock.Pihao = mingxi.Pihao;
+            stock.LiuzhuanCard = danjuTable.LiuzhuanCard;
+            stock.Remarkers = mingxi.beizhu;
+            stock.FrabicWidth = mingxi.FrabicWidth;
+            stock.EnglishName = mingxi.EnglishName;
+            return stock;
+        }
     }
 }

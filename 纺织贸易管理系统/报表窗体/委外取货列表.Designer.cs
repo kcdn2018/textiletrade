@@ -39,6 +39,8 @@
             this.单据反审ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new Sunny.UI.UIGroupBox();
+            this.txtganghao = new System.Windows.Forms.TextBox();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.txthetonghao = new Sunny.UI.UITextBox();
             this.txtbianhao = new System.Windows.Forms.TextBox();
             this.txtyanse = new System.Windows.Forms.TextBox();
@@ -75,8 +77,8 @@
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtganghao = new System.Windows.Forms.TextBox();
-            this.labelX12 = new DevComponents.DotNetBar.LabelX();
+            this.txtHuahao = new System.Windows.Forms.TextBox();
+            this.labelX13 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -101,7 +103,7 @@
             this.刷新ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(970, 40);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -180,6 +182,8 @@
             // groupPanel1
             // 
             this.groupPanel1.BackColor = System.Drawing.Color.White;
+            this.groupPanel1.Controls.Add(this.txtHuahao);
+            this.groupPanel1.Controls.Add(this.labelX13);
             this.groupPanel1.Controls.Add(this.txtganghao);
             this.groupPanel1.Controls.Add(this.labelX12);
             this.groupPanel1.Controls.Add(this.txthetonghao);
@@ -212,12 +216,37 @@
             this.groupPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.groupPanel1.Size = new System.Drawing.Size(800, 156);
+            this.groupPanel1.Size = new System.Drawing.Size(970, 156);
             this.groupPanel1.Style = Sunny.UI.UIStyle.Custom;
             this.groupPanel1.TabIndex = 5;
             this.groupPanel1.Text = "查询条件";
             this.groupPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.groupPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtganghao
+            // 
+            this.txtganghao.BackColor = System.Drawing.Color.White;
+            this.txtganghao.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtganghao.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtganghao.Location = new System.Drawing.Point(649, 37);
+            this.txtganghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtganghao.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtganghao.Name = "txtganghao";
+            this.txtganghao.Size = new System.Drawing.Size(112, 23);
+            this.txtganghao.TabIndex = 60;
+            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX12
+            // 
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Location = new System.Drawing.Point(581, 37);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(61, 23);
+            this.labelX12.TabIndex = 59;
+            this.labelX12.Text = "缸号";
             // 
             // txthetonghao
             // 
@@ -421,7 +450,7 @@
             // 
             // txtksmc
             // 
-            this.txtksmc.Location = new System.Drawing.Point(450, 36);
+            this.txtksmc.Location = new System.Drawing.Point(450, 38);
             this.txtksmc.Name = "txtksmc";
             this.txtksmc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -435,7 +464,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(389, 35);
+            this.labelX3.Location = new System.Drawing.Point(389, 37);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(59, 23);
             this.labelX3.TabIndex = 35;
@@ -444,7 +473,7 @@
             // dateEdit2
             // 
             this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(262, 36);
+            this.dateEdit2.Location = new System.Drawing.Point(262, 38);
             this.dateEdit2.Name = "dateEdit2";
             this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -459,7 +488,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(201, 35);
+            this.labelX2.Location = new System.Drawing.Point(201, 37);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(55, 23);
             this.labelX2.TabIndex = 33;
@@ -468,7 +497,7 @@
             // dateEdit1
             // 
             this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(73, 36);
+            this.dateEdit1.Location = new System.Drawing.Point(73, 38);
             this.dateEdit1.Name = "dateEdit1";
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -483,7 +512,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(12, 35);
+            this.labelX1.Location = new System.Drawing.Point(12, 37);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(55, 23);
             this.labelX1.TabIndex = 31;
@@ -499,7 +528,7 @@
             this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel2.Location = new System.Drawing.Point(0, 196);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(800, 254);
+            this.groupPanel2.Size = new System.Drawing.Size(970, 254);
             // 
             // 
             // 
@@ -538,7 +567,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(794, 230);
+            this.gridControl1.Size = new System.Drawing.Size(964, 230);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -653,36 +682,36 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // txtganghao
+            // txtHuahao
             // 
-            this.txtganghao.BackColor = System.Drawing.Color.White;
-            this.txtganghao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtganghao.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtganghao.Location = new System.Drawing.Point(649, 35);
-            this.txtganghao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtganghao.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtganghao.Name = "txtganghao";
-            this.txtganghao.Size = new System.Drawing.Size(112, 23);
-            this.txtganghao.TabIndex = 60;
-            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            this.txtHuahao.BackColor = System.Drawing.Color.White;
+            this.txtHuahao.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtHuahao.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtHuahao.Location = new System.Drawing.Point(845, 37);
+            this.txtHuahao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtHuahao.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtHuahao.Name = "txtHuahao";
+            this.txtHuahao.Size = new System.Drawing.Size(112, 23);
+            this.txtHuahao.TabIndex = 62;
+            this.txtHuahao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
-            // labelX12
-            // 
-            // 
+            // labelX13
             // 
             // 
-            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(581, 35);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(61, 23);
-            this.labelX12.TabIndex = 59;
-            this.labelX12.Text = "缸号";
+            // 
+            // 
+            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX13.Location = new System.Drawing.Point(777, 37);
+            this.labelX13.Name = "labelX13";
+            this.labelX13.Size = new System.Drawing.Size(61, 23);
+            this.labelX13.TabIndex = 61;
+            this.labelX13.Text = "花号";
             // 
             // 委外取货列表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(970, 450);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.menuStrip1);
@@ -756,5 +785,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.TextBox txtganghao;
         private DevComponents.DotNetBar.LabelX labelX12;
+        private System.Windows.Forms.TextBox txtHuahao;
+        private DevComponents.DotNetBar.LabelX labelX13;
     }
 }

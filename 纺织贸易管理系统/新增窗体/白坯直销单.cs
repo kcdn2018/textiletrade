@@ -445,7 +445,14 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            打印码单(PrintModel.Design);
+            if (DAL.GetAccess.IsCanPrintDesign)
+            {
+                打印码单(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
         private void 打印码单(int use)
         {
@@ -491,18 +498,25 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (CheckAllField() == false)
+            if (DAL.GetAccess.IsCanPrintDesign)
             {
-                return;
+                if (CheckAllField() == false)
+                {
+                    return;
+                }
+                InitDanju();
+                new Tools.打印发货单()
+                {
+                    danjuTable = danju,
+                    danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
+                    danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
+                    mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
+                }.Print(PrintPath.报表模板 + "发货单.frx", PrintModel.Design);
             }
-            InitDanju();
-            new Tools.打印发货单()
+            else
             {
-                danjuTable = danju,
-                danjumingxitables = danjumingxitables.Where(x => x.Bianhao != null).ToList(),
-                danjuinfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = gridView1.Name },
-                mingxiinfo = new Tools.FormInfo() { FormName = this.Name, GridviewName = gridView1.Name }
-            }.Print(PrintPath.报表模板 + "发货单.frx", PrintModel.Design);
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 直接打印ToolStripMenuItem_Click(object sender, EventArgs e)

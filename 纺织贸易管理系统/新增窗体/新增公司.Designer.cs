@@ -52,15 +52,15 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.pnlBtm.Location = new System.Drawing.Point(1, 249);
             this.pnlBtm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlBtm.Size = new System.Drawing.Size(292, 45);
+            this.pnlBtm.Size = new System.Drawing.Size(605, 45);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(164, 12);
+            this.btnCancel.Location = new System.Drawing.Point(477, 12);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(49, 12);
+            this.btnOK.Location = new System.Drawing.Point(362, 12);
             // 
             // labelX9
             // 
@@ -70,7 +70,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX9.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.labelX9.Location = new System.Drawing.Point(19, 207);
-            this.labelX9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX9.Margin = new System.Windows.Forms.Padding(2);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(66, 19);
             this.labelX9.TabIndex = 36;
@@ -88,10 +88,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtBankNum.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtBankNum.ForeColor = System.Drawing.Color.Black;
             this.txtBankNum.Location = new System.Drawing.Point(89, 207);
-            this.txtBankNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBankNum.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankNum.Name = "txtBankNum";
             this.txtBankNum.PreventEnterBeep = true;
-            this.txtBankNum.Size = new System.Drawing.Size(175, 23);
+            this.txtBankNum.Size = new System.Drawing.Size(502, 23);
             this.txtBankNum.TabIndex = 37;
             // 
             // labelX8
@@ -102,7 +102,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX8.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.labelX8.Location = new System.Drawing.Point(19, 180);
-            this.labelX8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX8.Margin = new System.Windows.Forms.Padding(2);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(66, 19);
             this.labelX8.TabIndex = 34;
@@ -120,10 +120,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtbankname.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbankname.ForeColor = System.Drawing.Color.Black;
             this.txtbankname.Location = new System.Drawing.Point(89, 180);
-            this.txtbankname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbankname.Margin = new System.Windows.Forms.Padding(2);
             this.txtbankname.Name = "txtbankname";
             this.txtbankname.PreventEnterBeep = true;
-            this.txtbankname.Size = new System.Drawing.Size(175, 23);
+            this.txtbankname.Size = new System.Drawing.Size(502, 23);
             this.txtbankname.TabIndex = 35;
             // 
             // labelX4
@@ -134,7 +134,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.labelX4.Location = new System.Drawing.Point(19, 153);
-            this.labelX4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX4.Margin = new System.Windows.Forms.Padding(2);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(66, 19);
             this.labelX4.TabIndex = 32;
@@ -152,10 +152,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.txttaxNum.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txttaxNum.ForeColor = System.Drawing.Color.Black;
             this.txttaxNum.Location = new System.Drawing.Point(89, 153);
-            this.txttaxNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txttaxNum.Margin = new System.Windows.Forms.Padding(2);
             this.txttaxNum.Name = "txttaxNum";
             this.txttaxNum.PreventEnterBeep = true;
-            this.txttaxNum.Size = new System.Drawing.Size(175, 23);
+            this.txttaxNum.Size = new System.Drawing.Size(502, 23);
             this.txttaxNum.TabIndex = 33;
             // 
             // labelX7
@@ -166,7 +166,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX7.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.labelX7.Location = new System.Drawing.Point(19, 126);
-            this.labelX7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX7.Margin = new System.Windows.Forms.Padding(2);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(66, 19);
             this.labelX7.TabIndex = 30;
@@ -184,10 +184,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtaddress.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtaddress.ForeColor = System.Drawing.Color.Black;
             this.txtaddress.Location = new System.Drawing.Point(89, 126);
-            this.txtaddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtaddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.PreventEnterBeep = true;
-            this.txtaddress.Size = new System.Drawing.Size(175, 23);
+            this.txtaddress.Size = new System.Drawing.Size(502, 23);
             this.txtaddress.TabIndex = 31;
             // 
             // labelX6
@@ -198,7 +198,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX6.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.labelX6.Location = new System.Drawing.Point(19, 97);
-            this.labelX6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX6.Margin = new System.Windows.Forms.Padding(2);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(66, 19);
             this.labelX6.TabIndex = 28;
@@ -216,10 +216,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtEmail.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.Location = new System.Drawing.Point(89, 97);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PreventEnterBeep = true;
-            this.txtEmail.Size = new System.Drawing.Size(175, 23);
+            this.txtEmail.Size = new System.Drawing.Size(502, 23);
             this.txtEmail.TabIndex = 29;
             // 
             // labelX1
@@ -230,7 +230,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.labelX1.Location = new System.Drawing.Point(19, 43);
-            this.labelX1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(2);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(66, 19);
             this.labelX1.TabIndex = 24;
@@ -244,7 +244,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.labelX2.Location = new System.Drawing.Point(19, 70);
-            this.labelX2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelX2.Margin = new System.Windows.Forms.Padding(2);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(66, 19);
             this.labelX2.TabIndex = 25;
@@ -262,10 +262,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtgsmc.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtgsmc.ForeColor = System.Drawing.Color.Black;
             this.txtgsmc.Location = new System.Drawing.Point(89, 43);
-            this.txtgsmc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtgsmc.Margin = new System.Windows.Forms.Padding(2);
             this.txtgsmc.Name = "txtgsmc";
             this.txtgsmc.PreventEnterBeep = true;
-            this.txtgsmc.Size = new System.Drawing.Size(175, 23);
+            this.txtgsmc.Size = new System.Drawing.Size(502, 23);
             this.txtgsmc.TabIndex = 26;
             // 
             // txtlxdh
@@ -280,17 +280,16 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtlxdh.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtlxdh.ForeColor = System.Drawing.Color.Black;
             this.txtlxdh.Location = new System.Drawing.Point(89, 70);
-            this.txtlxdh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtlxdh.Margin = new System.Windows.Forms.Padding(2);
             this.txtlxdh.Name = "txtlxdh";
             this.txtlxdh.PreventEnterBeep = true;
-            this.txtlxdh.Size = new System.Drawing.Size(175, 23);
+            this.txtlxdh.Size = new System.Drawing.Size(502, 23);
             this.txtlxdh.TabIndex = 27;
             // 
             // 新增公司
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 296);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(607, 296);
             this.Controls.Add(this.labelX9);
             this.Controls.Add(this.txtBankNum);
             this.Controls.Add(this.labelX8);
@@ -306,12 +305,13 @@ namespace 纺织贸易管理系统.新增窗体
             this.Controls.Add(this.txtgsmc);
             this.Controls.Add(this.txtlxdh);
             this.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1344, 842);
             this.Name = "新增公司";
             this.Padding = new System.Windows.Forms.Padding(1, 28, 1, 2);
             this.Text = "新增公司";
             this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 294, 296);
             this.ButtonOkClick += new System.EventHandler(this.新增公司_ButtonOkClick);
             this.Load += new System.EventHandler(this.新增公司_Load);
             this.Controls.SetChildIndex(this.pnlBtm, 0);

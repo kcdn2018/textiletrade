@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 纺织贸易管理系统.其他窗体;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -79,69 +80,14 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void ButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 品种选择();
-            fm.ShowDialog();
-            var i = gridView1.FocusedRowHandle;
-            foreach (var pingzhong in fm.pingzhong)
-            {
-                danjumingxitables[i].bizhong = "人民币￥";
-                danjumingxitables[i].Bianhao  = pingzhong.bh;
-                danjumingxitables[i].guige = pingzhong.gg;
-                danjumingxitables[i].chengfeng = pingzhong.cf;
-                danjumingxitables[i].pingming  = pingzhong.pm;
-                danjumingxitables[i].kezhong  = pingzhong.kz;          
-                danjumingxitables[i].menfu  = pingzhong.mf;
-                danjumingxitables[i].menfu =pingzhong.mf ;
-                danjumingxitables[i].danwei  = "米";
-                danjumingxitables[i].offerid = pingzhong.GonghuoShangBianHao;
-                i++;
-                if (i == danjumingxitables.Count - 1)
-                    for (int j = 0; j < 30; j++)
-                    {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime});
-                    }
-            }
-            fm.Dispose();
+            SelectProductHelper.Select(gridView1, danjumingxitables);
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
         }
 
         private void ButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 订单号选择() { UseFul = 1 };
-            fm.ShowDialog();
-            var row = gridView1.FocusedRowHandle;
-            foreach (var d in fm.returnDatas)
-            {
-                danjumingxitables[row].OrderNum = d.order.OrderNum;
-                danjumingxitables[row].ContractNum = d.order.ContractNum;
-                danjumingxitables[row].CustomName = d.order.CustomerName;
-                danjumingxitables[row].bizhong = "人民币￥";
-                danjumingxitables[row].Bianhao = d.orderDetail.sampleNum;
-                danjumingxitables[row].guige = d.orderDetail.Specifications;
-                danjumingxitables[row].chengfeng = d.orderDetail.Component;
-                danjumingxitables[row].pingming = d.orderDetail.sampleName;
-                danjumingxitables[row].kezhong = d.orderDetail.weight;
-                danjumingxitables[row].menfu = d.orderDetail.width;
-                danjumingxitables[row].FrabicWidth = d.orderDetail.width;
-                danjumingxitables[row].danwei = "米";
-                danjumingxitables[row].OrderNum = d.orderDetail.OrderNum;
-                danjumingxitables[row].kuanhao = d.orderDetail.Kuanhao;
-                danjumingxitables[row].yanse = d.orderDetail.color;
-                danjumingxitables[row].chengpingmishu = d.orderDetail.YutouMishu  - d.orderDetail.Yitoumishu ;
-                danjumingxitables[row].Huahao = d.orderDetail.Huahao;
-                danjumingxitables[row].ColorNum = d.orderDetail.ColorNum;
-                danjumingxitables[row].CustomerColorNum = d.orderDetail.CustomerColorNum;
-                danjumingxitables[row].CustomerPingMing = d.orderDetail.CustomerPingMing;
-                var id = d.orderDetail.sampleNum.ToInt();
-                danjumingxitables[row].offerid  =dbService.GetOnedb (x=>x.ID==id ).GonghuoShangBianHao ;
-                row++;
-                if (row == danjumingxitables.Count - 1)
-                    for (int j = 0; j < 30; j++)
-                    {
-                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
-                    }
-            }
+            OrderDetailSelect.SelectDetail(gridView1, danjumingxitables);
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
         }

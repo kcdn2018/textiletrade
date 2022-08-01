@@ -83,6 +83,9 @@
             this.ButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmddanwei = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txttuihuoyuanying = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -98,6 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmddanwei)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -593,14 +598,14 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 247);
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ButtonEdit1,
             this.ButtonEdit2,
             this.cmddanwei});
-            this.gridControl1.Size = new System.Drawing.Size(1115, 203);
+            this.gridControl1.Size = new System.Drawing.Size(1115, 302);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -721,12 +726,42 @@
             this.cmddanwei.Name = "cmddanwei";
             this.cmddanwei.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txttuihuoyuanying);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Location = new System.Drawing.Point(0, 549);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1115, 100);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "退货原因";
+            // 
+            // txttuihuoyuanying
+            // 
+            this.txttuihuoyuanying.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txttuihuoyuanying.Location = new System.Drawing.Point(3, 17);
+            this.txttuihuoyuanying.Multiline = true;
+            this.txttuihuoyuanying.Name = "txttuihuoyuanying";
+            this.txttuihuoyuanying.Size = new System.Drawing.Size(1109, 80);
+            this.txttuihuoyuanying.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gridControl1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 247);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1115, 302);
+            this.panel1.TabIndex = 12;
+            // 
             // 退货申请单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 450);
-            this.Controls.Add(this.gridControl1);
+            this.ClientSize = new System.Drawing.Size(1115, 649);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "退货申请单";
@@ -749,6 +784,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmddanwei)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -810,5 +848,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem 直接打印ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txttuihuoyuanying;
     }
 }

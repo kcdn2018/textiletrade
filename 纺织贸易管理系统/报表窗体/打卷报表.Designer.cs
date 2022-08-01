@@ -86,6 +86,8 @@
             this.repositoryItemButtonEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.txthuahao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
@@ -200,8 +202,11 @@
             // 
             // groupPanel1
             // 
+            this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txthuahao);
+            this.groupPanel1.Controls.Add(this.labelX3);
             this.groupPanel1.Controls.Add(this.txtkehu);
             this.groupPanel1.Controls.Add(this.labelX7);
             this.groupPanel1.Controls.Add(this.labelX8);
@@ -637,6 +642,8 @@
             this.uiTabControl1.Size = new System.Drawing.Size(1004, 280);
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabIndex = 13;
+            this.uiTabControl1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTabControl1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // tabPage1
             // 
@@ -833,6 +840,35 @@
             this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
             this.repositoryItemComboBox3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
+            // txthuahao
+            // 
+            this.txthuahao.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txthuahao.Border.Class = "TextBoxBorder";
+            this.txthuahao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthuahao.DisabledBackColor = System.Drawing.Color.White;
+            this.txthuahao.ForeColor = System.Drawing.Color.Black;
+            this.txthuahao.Location = new System.Drawing.Point(410, 17);
+            this.txthuahao.Name = "txthuahao";
+            this.txthuahao.PreventEnterBeep = true;
+            this.txthuahao.Size = new System.Drawing.Size(100, 21);
+            this.txthuahao.TabIndex = 38;
+            this.txthuahao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpingming_KeyDown);
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(345, 16);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(59, 23);
+            this.labelX3.TabIndex = 37;
+            this.labelX3.Text = "花号：";
+            // 
             // 打卷报表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -937,5 +973,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit5;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit6;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox3;
+        private DevComponents.DotNetBar.Controls.TextBoxX txthuahao;
+        private DevComponents.DotNetBar.LabelX labelX3;
     }
 }

@@ -18,7 +18,7 @@ namespace 纺织贸易管理系统
         public static OrderDetailTable GetOneOrderDetailTable(Expression<Func<OrderDetailTable, bool>> func)
          {
             
-            var detail=  Connect.DbHelper ().Queryable <OrderDetailTable>().First (func);
+            var detail=  Connect.CreatConnect().QueryOneResult <OrderDetailTable>(func);
             return detail != null ? detail : new OrderDetailTable();
          }
         public static void InsertOrderDetailTablelst(List<OrderDetailTable> OrderDetailTableObjs)

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 纺织贸易管理系统.其他窗体;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -76,38 +77,12 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void ButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 品种选择();
-            fm.ShowDialog();
-            var i = gridView1.FocusedRowHandle;
-            foreach (var pingzhong in fm.pingzhong)
-            {
-                danjumingxitables[i].bizhong = "人民币￥";
-                danjumingxitables[i].Bianhao  = pingzhong.bh;
-                danjumingxitables[i].guige = pingzhong.gg;
-                danjumingxitables[i].chengfeng = pingzhong.cf;
-                danjumingxitables[i].pingming  = pingzhong.pm;
-                danjumingxitables[i].kezhong  = pingzhong.kz;          
-                danjumingxitables[i].menfu  = pingzhong.mf;
-                danjumingxitables[i].danwei  = "米";
-                i++;
-                if (i == danjumingxitables.Count - 1)
-                    for (int j = 0; j < 30; j++)
-                    {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime});
-                    }
-            }
-            fm.Dispose();
-            gridControl1.RefreshDataSource();
-            gridView1.CloseEditor();
+            SelectProductHelper.Select(gridView1, danjumingxitables);
         }
 
         private void ButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 订单号选择 ();
-            fm.ShowDialog();
-            danjumingxitables[gridView1.FocusedRowHandle].OrderNum = fm.Order.OrderNum;
-            danjumingxitables[gridView1.FocusedRowHandle].CustomName  = fm.Order.CustomerName ;
-            danjumingxitables[gridView1.FocusedRowHandle].ContractNum  = fm.Order.ContractNum ;
+            OrderDetailSelect.SelectDetail(gridView1, danjumingxitables);
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
         }

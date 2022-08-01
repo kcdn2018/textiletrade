@@ -133,8 +133,9 @@ namespace Tools
                         juandt.Rows[index]["备注"] += cidian.ChiDianName;
                     }
                     col++;
-                    if (col > 18)
+                    if (col == 18)
                     {
+                        index++;
                         AddNewRow(juandt, juan,jianyanriqi );
                         col = 0;
                     }

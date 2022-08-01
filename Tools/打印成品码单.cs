@@ -56,7 +56,7 @@ namespace Tools
         //表格增加17行
         private void AddRow(DataTable dt)
         {
-            for (int i = 0; i < 17; i++)
+            for (int i = 0; i < 15; i++)
             {
                 dt.Rows.Add();
             }
@@ -92,11 +92,39 @@ namespace Tools
             dt.Columns.Add("款号3");
             dt.Columns.Add("后整理3");
             dt.Columns.Add("长度3", typeof(decimal));
+            dt.Columns.Add("卷号4");
+            dt.Columns.Add("缸号4");
+            dt.Columns.Add("缸卷号4");
+            dt.Columns.Add("颜色4");
+            dt.Columns.Add("款号4");
+            dt.Columns.Add("后整理4");
+            dt.Columns.Add("长度4", typeof(decimal));
+            dt.Columns.Add("卷号5");
+            dt.Columns.Add("缸号5");
+            dt.Columns.Add("缸卷号5");
+            dt.Columns.Add("颜色5");
+            dt.Columns.Add("款号5");
+            dt.Columns.Add("后整理5");
+            dt.Columns.Add("长度5", typeof(decimal));
+            dt.Columns.Add("卷号6");
+            dt.Columns.Add("缸号6");
+            dt.Columns.Add("缸卷号6");
+            dt.Columns.Add("颜色6");
+            dt.Columns.Add("款号6");
+            dt.Columns.Add("后整理6");
+            dt.Columns.Add("长度6", typeof(decimal));
+            dt.Columns.Add("卷号7");
+            dt.Columns.Add("缸号7");
+            dt.Columns.Add("缸卷号7");
+            dt.Columns.Add("颜色7");
+            dt.Columns.Add("款号7");
+            dt.Columns.Add("后整理7");
+            dt.Columns.Add("长度7", typeof(decimal));
             dt.Columns.Add("合计长度", typeof(decimal));
             dt.Columns.Add("合计卷数", typeof(decimal));
             return dt;
         }
-        private DataTable CreatMadanDetail(danjumingxitable mx)
+        public  DataTable CreatMadanDetail(danjumingxitable mx)
         {
 
             DataTable totaldt = new DataTable("合计信息");
@@ -131,18 +159,18 @@ namespace Tools
                         {
                             curCol++;
                         }
-                        if (curCol > 3)
+                        if (curCol > 7)
                         {
                             curpage++;
-                            curCol = 0;
+                            curCol =0;
                             AddRow(dt);
                         }
                         ganghao = j.GangHao;
                         houzhengli = j.Houzhengli;
                         yanse = j.yanse;
-                        currow = 17 * (curpage - 1);
+                        currow = 15 * (curpage - 1);
                     }
-                    if (currow % 17 ==0)
+                    if (currow % 15 ==0)
                     {
                         dt.Rows[currow][$"卷号{curCol }"] = j.JuanHao;
                         dt.Rows[currow][$"缸号{curCol }"] = j.GangHao;                        
@@ -153,18 +181,18 @@ namespace Tools
                     dt.Rows[currow][$"缸卷号{curCol }"] = j.PiHao;
                     dt.Rows[currow][$"长度{curCol }"] = j.biaoqianmishu;
                     currow++;
-                    if (currow >= 17 * curpage)
+                    if (currow >= 15 * curpage)
                     {
                         curCol++;
                         //已经是第4列了 就新建一页
-                        if (curCol > 3)
+                        if (curCol > 7)
                         {
                             curCol = 0;
-                            currow = 17 * curpage;
+                            currow = 15 * curpage;
                             decimal heji = 0;
-                            for (int i = 17 * (curpage - 1); i < 17 * curpage; i++)
+                            for (int i = 15 * (curpage - 1); i < 15 * curpage; i++)
                             {
-                                for (int c = 0; c < 4; c++)
+                                for (int c = 0; c < 8; c++)
                                 {
                                     if (!string.IsNullOrEmpty(dt.Rows[i][$"长度{c }"].ToString()))
                                     {
@@ -178,7 +206,7 @@ namespace Tools
                         }
                         else
                         {
-                            currow = 17 * (curpage - 1);
+                            currow = 15 * (curpage - 1);
                         }
                     }
                     //    else
@@ -210,7 +238,7 @@ namespace Tools
             {
                 decimal heji = 0;
                 decimal juan=0;
-                for(var c=0;c<4;c++)
+                for(var c=0;c<8;c++)
                 { 
                     if( dt.Rows[i][$"长度{c}"].GetType().ToString ()!="System.DBNull") 
                     {

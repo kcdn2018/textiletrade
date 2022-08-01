@@ -14,5 +14,9 @@ namespace 纺织贸易管理系统
         public string identityCard { get; set; }
         public string BankCard { get; set; }
         public string BankName { get; set; }
+        /// <summary>
+        /// 提成
+        /// </summary>
+        public decimal  TiCheng { get; set; }
      }
 }

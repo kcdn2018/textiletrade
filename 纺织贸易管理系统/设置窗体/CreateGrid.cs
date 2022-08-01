@@ -23,9 +23,7 @@ namespace 纺织贸易管理系统.设置窗体
         /// </summary>
         /// <param name="formname"></param>
         /// <param name="gridview"></param>
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIDataGridView”(是否缺少程序集引用?)
         public static void CreateDatagridview(string formname,Sunny.UI.UIDataGridView gridview)
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIDataGridView”(是否缺少程序集引用?)
         {
             gridview.AutoGenerateColumns = false;
             gridview.Columns.Clear();

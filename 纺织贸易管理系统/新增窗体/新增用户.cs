@@ -150,12 +150,15 @@ namespace 纺织贸易管理系统.新增窗体
         {
             FatherMenuTableService.DeleteFatherMenuTable(x => x.UserID == txtBianhao.Text);
             MenuTableService.DeleteMenuTable(x => x.UserID == txtBianhao.Text);
+            fatherMenuTables.ForEach(x => x.UserID = txtBianhao.Text);
+            menuTables.ForEach(x => x.UserID = txtBianhao.Text);
             FatherMenuTableService.InsertFatherMenuTablelst(fatherMenuTables);
             MenuTableService.InsertMenuTablelst(menuTables);
         }
         private void SaveAccess()
         {
             AccessTableService.DeleteAccessTable(x => x.UserID == txtBianhao.Text);
+            accessTables.ForEach(x => x.UserID = txtBianhao.Text);
             AccessTableService.InsertAccessTablelst(accessTables);
         }
         private void SaveColumn()

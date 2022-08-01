@@ -79,7 +79,7 @@ namespace 纺织贸易管理系统.报表窗体
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
             juanlist = JuanHaoTableService.GetJuanHaoTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime.Date.AddDays(1) && x.SampleName.Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)
-             && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
+             && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text)&&x.Huahao.Contains (txthuahao.Text ));
             gridControl2.DataSource = juanlist;
             gridControl1.DataSource = KaijianTableService.GetKaijianTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime.Date.AddDays(1) && x.SampleName.Contains(txtpingming.Text) && x.Guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text)
             && x.Yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
@@ -170,5 +170,6 @@ namespace 纺织贸易管理系统.报表窗体
                 }
             }
         }
+
     }
 }

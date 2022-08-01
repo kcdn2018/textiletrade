@@ -12,10 +12,10 @@ namespace Tools
     {
         public OrderTable orderTable { get; set; }
         public List<OrderDetailTable> orderDetailTables { get; set; }
-        public void Print(string path,int model)
+        public void Print(string path,int model,string CompanyName)
         {
 			DataSet ds = new DataSet();
-			ds.Tables.Add(CreateDanjuDatatable.CreateTable(orderTable , new FormInfo() { FormName ="销售计划单查询", GridviewName="gridView1"}, "单据信息",""));
+			ds.Tables.Add(CreateDanjuDatatable.CreateTable(orderTable , new FormInfo() { FormName ="销售计划单查询", GridviewName="gridView1"}, "单据信息", CompanyName));
 			ds.Tables.Add(CreateDanjuDatatable.CreateTable(orderDetailTables, new FormInfo() { FormName = "销售计划单", GridviewName = "gridView1" }, "单据明细"));
 			var fs = new FastReport.Report();
 			fs.RegisterData(ds);

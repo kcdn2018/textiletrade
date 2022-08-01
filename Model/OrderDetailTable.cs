@@ -145,5 +145,9 @@ namespace 纺织贸易管理系统
         /// 后整理厂库存
         /// </summary>
         public decimal HouzhengliStockNum { get; set; }
+        /// <summary>
+        /// 要求
+        /// </summary>
+        public decimal Require { get; set; }
     }
 }

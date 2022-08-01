@@ -120,6 +120,7 @@
             this.uiSymbolButton3 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
+            this.cmbMoban = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -171,7 +172,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.保存ToolStripMenuItem,
             this.打印寄样标签ToolStripMenuItem,
-            this.工艺名称维护ToolStripMenuItem});
+            this.工艺名称维护ToolStripMenuItem,
+            this.cmbMoban});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1015, 40);
@@ -402,6 +404,7 @@
             this.cmbZhuangtai.TabIndex = 59;
             this.cmbZhuangtai.Text = "未完成";
             this.cmbZhuangtai.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbZhuangtai.Watermark = "";
             this.cmbZhuangtai.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiLabel1
@@ -442,6 +445,7 @@
             this.txtkehu.Size = new System.Drawing.Size(122, 21);
             this.txtkehu.TabIndex = 57;
             this.txtkehu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtkehu.Watermark = "";
             this.txtkehu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX10
@@ -607,6 +611,7 @@
             this.txtbeizhu.Size = new System.Drawing.Size(591, 21);
             this.txtbeizhu.TabIndex = 27;
             this.txtbeizhu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbeizhu.Watermark = "";
             this.txtbeizhu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtdanhao
@@ -624,6 +629,7 @@
             this.txtdanhao.Size = new System.Drawing.Size(171, 21);
             this.txtdanhao.TabIndex = 21;
             this.txtdanhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtdanhao.Watermark = "";
             this.txtdanhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX8
@@ -652,6 +658,7 @@
             this.txthetonghao.Size = new System.Drawing.Size(122, 21);
             this.txthetonghao.TabIndex = 41;
             this.txthetonghao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txthetonghao.Watermark = "";
             this.txthetonghao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX4
@@ -714,6 +721,7 @@
             this.uiTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiTabControl1.Frame = null;
             this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 30);
             this.uiTabControl1.Location = new System.Drawing.Point(0, 228);
             this.uiTabControl1.MainPage = "";
@@ -1228,6 +1236,15 @@
             this.uiSymbolButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiSymbolButton1.Click += new System.EventHandler(this.uiSymbolButton1_Click);
             // 
+            // cmbMoban
+            // 
+            this.cmbMoban.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoban.Items.AddRange(new object[] {
+            "生产指示单",
+            "生产流程表"});
+            this.cmbMoban.Name = "cmbMoban";
+            this.cmbMoban.Size = new System.Drawing.Size(121, 36);
+            // 
             // 生成指示单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1395,5 +1412,6 @@
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UISymbolButton uiSymbolButton7;
         private Sunny.UI.UISymbolButton uiSymbolButton6;
+        private System.Windows.Forms.ToolStripComboBox cmbMoban;
     }
 }

@@ -48,5 +48,25 @@ namespace 纺织贸易管理系统
         /// 美元
         /// </summary>
         public decimal  USD { get; set; }
+        /// <summary>
+        /// 全称
+        /// </summary>
+        public string FullName { get; set; }
+        /// <summary>
+        /// 传真
+        /// </summary>
+        public string FAX { get; set; }
+        /// <summary>
+        /// 免税代码
+        /// </summary>
+        public string TexCode { get; set; }
+        /// <summary>
+        /// 邮政编码
+        /// </summary>
+        public string ZIPCODE { get; set; }
+        /// <summary>
+        /// 海防港港口
+        /// </summary>
+        public string HAIPHONGPORT { get; set; }
     }
 }

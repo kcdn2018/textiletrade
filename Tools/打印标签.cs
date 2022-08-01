@@ -38,6 +38,14 @@ namespace Tools
             dt.Rows[0]["款号"] = jiYangBaoJia.Kuanhao;
             dt.Rows[0]["单位"] = jiYangBaoJia.Danwei;
             dt.Rows[0]["特点说明"] = pingzhong.Characteristic;
+            try
+            {
+                dt.Rows[0]["日期"] = pingzhong.rq.ToString("d");
+            }
+            catch 
+            {
+               
+            }
             var gongyidt = new DataTable("后整理信息");
             gongyidt.Columns.Add("加工单位");
             gongyidt.Columns.Add("加工工艺");

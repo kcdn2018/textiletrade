@@ -38,7 +38,7 @@ namespace 纺织贸易管理系统.新增窗体
             }
             else
             {
-                infoService.Updateinfo(gsinfo,x=>x.gsmc==oldinfo.gsmc );
+                infoService.Updateinfo(gsinfo,x=>x.ID==oldinfo.ID );
             }
             this.Close();
         }

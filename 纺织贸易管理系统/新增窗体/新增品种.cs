@@ -5,7 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Reflection;
@@ -40,6 +42,10 @@ namespace 纺织贸易管理系统.新增窗体
             cmbLeibie.DataSource = (from lb in dbService.Getdblst() select lb.lb).ToList().Distinct<string>().ToList ();
             Useful = 1;
             pictureBox1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseWheel);
+            if (!AccessBLL.CheckAccess("坯布信息可见",false ))
+            { tabPage4.Parent =null ; }
+            if (!AccessBLL.CheckAccess("工艺信息可见",false ))
+            { tabPage2.Parent =null; }
         }
         int zoomStep = 50;
         private void pictureBox1_MouseWheel(object sender, MouseEventArgs e)
@@ -154,6 +160,15 @@ namespace 纺织贸易管理系统.新增窗体
             txtbeizhu.Text = Pingzhong.bz;
             txtTeDian.Text = Pingzhong.Characteristic;
             txtDescript.Text = Pingzhong.Descript;
+            txtpibuname.Text = Pingzhong.PibuName;
+            txtshangjimenfu.Text = Pingzhong.ShangjiWidth;
+            txtxiajimenfu.Text = Pingzhong.XiajiWidth;
+            txtjinsha .Text = Pingzhong.Jinsha ;
+            txtjinshschangjia.Text = Pingzhong.JinshaSupplier ;
+            txtjinshapihao.Text = Pingzhong.JinshaPihao ;
+            txtweisha.Text = Pingzhong.Weisha ;
+            txtweishachangjia.Text = Pingzhong.WeishaSupplier;
+            txtweishapihao.Text = Pingzhong.WeishaPihao;
             try
             {
                 if (Pingzhong.rq != null)
@@ -206,6 +221,8 @@ namespace 纺织贸易管理系统.新增窗体
                 }
                 gridControl1.DataSource = gongyilist;
             }
+            txtBianhao.ReadOnly = false;
+            uiDataGridView1.DataSource = PriceTableService.GetPriceTablelst(x => x.bianhao == Pingzhong.bh);
         }
 
         private void 新增品种_Load(object sender, EventArgs e)
@@ -220,6 +237,17 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "改编号已经存在！请重新输入编号");
                     return false ;
+                }
+            }
+            else
+            {
+                if (dbService.GetOnedb(x => x.bh == txtBianhao.Text.Trim(' ')).ID != 0)
+                {
+                    if (dbService.GetOnedb(x => x.bh == txtBianhao.Text.Trim(' ')).ID != Pingzhong.ID)
+                    {
+                        Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "改编号已经存在！请重新输入编号");
+                        return false;
+                    }
                 }
             }
             Pingzhong.bh = txtBianhao.Text.Trim ();
@@ -266,6 +294,16 @@ namespace 纺织贸易管理系统.新增窗体
             Pingzhong.bz = txtbeizhu.Text;
             Pingzhong.Characteristic = txtTeDian.Text;
             Pingzhong.Descript = txtDescript.Text;
+            Pingzhong.PibuName = txtpibuname.Text;
+            Pingzhong.ShangjiWidth = txtshangjimenfu.Text;
+            Pingzhong.XiajiWidth = txtxiajimenfu.Text;
+            Pingzhong.Jinsha = txtjinsha.Text;
+            Pingzhong.JinshaSupplier = txtjinshschangjia.Text ;
+            Pingzhong.JinshaPihao = txtjinshapihao.Text;
+            Pingzhong.Weisha = txtweisha.Text;
+            Pingzhong.WeishaPihao = txtweishapihao.Text;
+            Pingzhong.WeishaSupplier = txtweishachangjia.Text;
+            uiDataGridView1.DataSource = PriceTableService.GetPriceTablelst(x => x.bianhao == txtBianhao.Text);
             return true;
         }
         private List<ShengChengGongYi > CreateGongyi()
@@ -291,6 +329,8 @@ namespace 纺织贸易管理系统.新增窗体
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "编号不能为空,请输入布料编号！n\\保存失败");
                 return;
             }
+         var old = Pingzhong.bh;//获取之前没修改的时候的编号
+           
             if (InitPingzhong() == false)
             { return; }
             if (Useful == FormUseful.新增)
@@ -313,6 +353,7 @@ namespace 纺织贸易管理系统.新增窗体
                 else
                 {                   
                     dbService.Updatedb(Pingzhong, x => x.ID  ==oldbianhao);
+                        Connect.CreatConnect ().DoSQL ("Update PriceTable set bianhao='" + txtBianhao.Text + "' where bianhao='" + old+"'");
                     if (MadanPictureService.GetMadanPicturelst(x => x.ckdh == Pingzhong.bh).Count > 0)
                     {
                         MadanPictureService.DeleteMadanPicture ( x => x.ckdh == Pingzhong.bh);
@@ -342,8 +383,15 @@ namespace 纺织贸易管理系统.新增窗体
        
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InitPingzhong();
-            Tools.打印标签.打印(0, Pingzhong , new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, PrintNum = 1, Printmodel =PrintModel.Design  }, CreateGongyi(), new JiYangBaoJia());
+            if (DAL.GetAccess.IsCanPrintDesign)
+            {
+                InitPingzhong();
+                Tools.打印标签.打印(0, Pingzhong, new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, PrintNum = 1, Printmodel = PrintModel.Design }, CreateGongyi(), new JiYangBaoJia());
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -367,6 +415,10 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 新增品种_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (Useful == FormUseful.新增)
+            {
+                MadanPictureService.DeleteMadanPicture(x => x.khbh == txtBianhao.Text);
+            }
             SettingService.Update(new Setting() { formname = this.Name, settingname = "自动编号", settingValue = cmbzhidongbianhao.Text });
             var f = LetterTableService.GetOneLetterTable(x => x.own == User.user.YHBH);
             if (f.FirstLetter == string.Empty)
@@ -502,6 +554,143 @@ namespace 纺织贸易管理系统.新增窗体
             b.RotateFlip(RotateFlipType.Rotate90FlipXY);//旋转90度
             //b.RotateFlip(RotateFlipType.Rotate90FlipNone);//不进行翻转的旋转
             pictureBox1 .Image = b;
+        }
+
+        private void 上传织造工艺单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtBianhao.Text))
+                {
+                    MessageBox.Show("编号不能为空！请填填写编号！");
+                    return;
+                }
+                if (Sunny.UI.UIMessageBox.ShowAsk("上传后编号将不能修改！是否确定要上传？"))
+                {
+                    txtBianhao.ReadOnly = true;
+                    var filedlg = new OpenFileDialog();
+                    filedlg.Filter = "(*.xls)|*.xls|(*.xlsx)|*.xlsx";
+                    filedlg.ShowDialog();
+                    if (!string.IsNullOrWhiteSpace(filedlg.FileName))
+                    {
+                        MadanPictureService.DeleteMadanPicture(x => x.khbh == txtBianhao.Text);
+                        var arr = filedlg.FileName.Split('\\');
+                        Connect.DbHelper().Insertable<MadanPicture>(new MadanPicture() { ckdh = arr[arr.Length - 1], khbh = txtBianhao.Text, picture = MadanPictureService.ExcelToByte(filedlg.FileName), rq = DateTime.Now }).ExecuteCommand();
+                    }
+                    MessageBox.Show("保存成功");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void 下载织造工艺单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = MadanPictureService .GetOneMadanPicture(x => x.khbh  == txtBianhao.Text  );
+            if (!string.IsNullOrEmpty(report.ckdh))
+            {
+                if(!System.IO.Directory.Exists(Application.StartupPath +"\\Temp"))
+                {
+                    System.IO.Directory.CreateDirectory(Application.StartupPath + "\\Temp");
+                }
+                var filepath = Application.StartupPath + "\\Temp\\" + report.ckdh ;
+                using (FileStream fs = new FileStream(filepath, FileMode.Create, FileAccess.Write))
+                {
+                    fs.Write(report.picture , 0, report.picture .Length);
+                    fs.Close();
+                    Process.Start(Application.StartupPath + "\\Temp\\" + report.ckdh);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(uiDataGridView1.CurrentRow!=null)
+                {
+                    if (MessageBox.Show("您确定要删除该价格信息吗？", "提示",MessageBoxButtons.YesNo)==DialogResult.Yes)
+                    {
+                        PriceTableService.DeletePriceTable(x => x.Id == uiDataGridView1.CurrentRow.Cells[CID.Name].Value.TryToInt (0));
+                        uiDataGridView1.DataSource =Useful==FormUseful.新增 ? PriceTableService.GetPriceTablelst(x => x.bianhao == txtBianhao.Text): PriceTableService.GetPriceTablelst(x => x.bianhao ==Pingzhong.bh );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("删除价格的时候发生错误！" + ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty (txtBianhao.Text ))
+            {
+                MessageBox.Show("请先填写编号！");
+                return;
+            }
+            else
+            {
+                if (txtBianhao.ReadOnly == false)
+                {
+                    if (MessageBox.Show("登记价格后编号将不能修改！是否继续？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (Useful == FormUseful.新增)
+                        {
+                            if (Connect.DbHelper().Queryable<db>().First(x => x.bh == txtBianhao.Text) != null)
+                            {
+                                MessageBox.Show("该编号已经存在！不能启用该编号！");
+                                return;
+                            }
+                            else
+                            {
+                                txtBianhao.ReadOnly = true;
+                            }
+                        }
+                        else
+                        {
+                            if (Connect.DbHelper().Queryable<db>().First(x => x.ID==Pingzhong.ID ) != null)
+                            {
+                                if (Connect.DbHelper().Queryable<db>().First(x => x.bh == txtBianhao.Text).ID != Pingzhong.ID)
+                                {
+                                    MessageBox.Show("该编号已经存在！不能启用该编号！");
+                                    return;
+                                }
+                                else
+                                {
+                                    txtBianhao.ReadOnly = true;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("该编号的布料信息已被删除！不能新增价格信息！");
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            new 新增价格() { Useful=FormUseful.新增,Bianhao =Useful==FormUseful.新增 ?  txtBianhao.Text .ToString ():Pingzhong.bh  }.ShowDialog();
+            uiDataGridView1.DataSource = Useful == FormUseful.新增 ?PriceTableService.GetPriceTablelst (x=>x.bianhao ==txtBianhao.Text  ): PriceTableService.GetPriceTablelst(x => x.bianhao == Pingzhong.bh);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (uiDataGridView1.CurrentRow != null)
+                {
+                    var price= PriceTableService.GetOnePriceTable (x => x.Id == uiDataGridView1.CurrentRow.Cells[CID.Name].Value.TryToInt(0));
+                    new 新增价格() { Useful = FormUseful.修改, Bianhao = price.bianhao, ID = price.Id }.ShowDialog();
+                    uiDataGridView1.DataSource = Useful == FormUseful.新增 ? PriceTableService.GetPriceTablelst(x => x.bianhao == txtBianhao.Text) : PriceTableService.GetPriceTablelst(x => x.bianhao == Pingzhong.bh);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("修改价格的时候发生错误！" + ex.Message);
+            }
         }
     }
     internal static class ImgHelp

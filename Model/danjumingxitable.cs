@@ -112,5 +112,13 @@ namespace 纺织贸易管理系统
         /// 汇率
         /// </summary>
         public decimal Rate { get; set; }
+        /// <summary>
+        /// 英文名
+        /// </summary>
+        public string EnglishName { get; set; }
+        /// <summary>
+        /// 坯布名称
+        /// </summary>
+        public string PibuName { get; set; }
     }
 }

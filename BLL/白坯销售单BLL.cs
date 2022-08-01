@@ -30,6 +30,7 @@ namespace BLL
             {
                 d.danhao = danju.dh;
                 d.bizhong = danju.Bizhong;
+                d.rq = danju.rq;
             }
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());
             ///保存卷号
@@ -61,6 +62,7 @@ namespace BLL
             danju.Profit = danjumingxitables.Sum(x => x.Profit);
             DanjuTableService.UpdateDanjuTable(danju, x => x.dh == danju.dh);
             danjumingxitables.ForEach(x => x.bizhong = danju.Bizhong);
+            danjumingxitables.ForEach(x => x.rq = danju.rq);
             ///  
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());
             Connect.CreatConnect().Insert<FabricMadan>(juanHaoTables);

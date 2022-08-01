@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -46,6 +47,7 @@ namespace 纺织贸易管理系统
             //创建菜单
             CreatFatherMenu();
             Task.Run(new Action(() => { GetAccess.GetUserAccess(User.user.YHBH); }));
+             GetAccess.IsCanPrintDesign =  AccessBLL.CheckAccess("打印编辑");
             uiTitlePanel1.Text = "欢迎" + User.user.YHMC;
             Task.Run(new Action(() =>
             {
@@ -64,9 +66,8 @@ namespace 纺织贸易管理系统
                 QueryTime .DefaultLabel  = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "默认标签", settingValue = string.Empty  }).settingValue;
                 if(string.IsNullOrWhiteSpace ( QueryTime .DefaultLabel) )
                 {
-                    QueryTime.DefaultLabel = Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels")[0];
+                    QueryTime.DefaultLabel = Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").Count >0? Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels")[0]:string.Empty ;
                 }
-
                 QueryTime.Suolv = string.IsNullOrWhiteSpace(SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue) ? 100 : SettingService.GetSetting(x => x.settingname == "报警缩率").settingValue.TryToInt(0);
             }));
         }
@@ -118,7 +119,7 @@ namespace 纺织贸易管理系统
                 }
                 this.navBarControl1.Groups.Add(group);
                 //group.Expanded = true;
-                CreatMenu(f.FatherMenuName ,group );
+                Task.Run(() => { CreatMenu(f.FatherMenuName ,group );});              
             }
         }
         //创建子菜单
@@ -442,7 +443,10 @@ namespace 纺织贸易管理系统
                     case "白坯直销单":
                         CheckTab(new 白坯直销列表());
                         break;
-                 
+                    case "报关单列表":
+                        CheckTab(new 报关单列表 ());
+                        break;
+
                     case "销售统计":
                         if (AccessBLL.CheckAccess("销售统计") == true)
                         {
@@ -501,8 +505,27 @@ namespace 纺织贸易管理系统
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Dispose();
-            Application.ExitThread();
+            try
+            {
+                if (Directory.Exists(Application.StartupPath + "\\Temp\\"))
+                {
+                    var dir = new DirectoryInfo(Application.StartupPath + "\\Temp\\");
+                    var files = dir.GetFiles();
+                    foreach (var item in files)
+                    {
+                        File.Delete(item.FullName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.Dispose();
+                Application.ExitThread();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

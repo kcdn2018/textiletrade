@@ -1,4 +1,5 @@
 ﻿using DevExpress.LookAndFeel;
+using System.Windows.Forms;
 
 namespace 纺织贸易管理系统
 {
@@ -19,7 +20,13 @@ namespace 纺织贸易管理系统
             {
                 components.Dispose();
             }
-            base.Dispose(disposing);
+            try
+            {
+                base.Dispose(disposing);
+            }catch
+            {
+                Application.ExitThread();
+            }
         }
 
         #region Windows 窗体设计器生成的代码

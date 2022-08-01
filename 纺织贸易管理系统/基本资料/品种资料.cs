@@ -121,8 +121,15 @@ namespace 纺织贸易管理系统.基本资料
         }
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var printset = new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = PrintModel.Design };
-            Tools.打印标签.打印(0, dblist.First(x => x.bh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), printset,  ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()),new JiYangBaoJia ());
+            if (GetAccess.IsCanPrintDesign)
+            {
+                var printset = new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = PrintModel.Design };
+                Tools.打印标签.打印(0, dblist.First(x => x.bh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), printset, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), new JiYangBaoJia());
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -203,6 +210,7 @@ namespace 纺织贸易管理系统.基本资料
                         {
                             dbService.Deletedb(x => x.bh == $"{gridView1.GetRowCellValue(i, "bh")}");
                             MadanPictureService.DeleteMadanPicture(x => x.ckdh == $"{gridView1.GetRowCellValue(i, "bh")}");
+                            PriceTableService.DeletePriceTable(x => x.bianhao == $"{gridView1.GetRowCellValue(i, "bh")}");
                         }
                         AlterDlg.Show("删除成功！");
                         Query();
@@ -433,8 +441,7 @@ namespace 纺织贸易管理系统.基本资料
         private void 重命名ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
-            {
-                
+            {              
                 string newname = string.Empty;
                 Sunny.UI.UIInputDialog.InputStringDialog(ref newname, true, "请输入新的模板名称");
                 string oldname = cmbMoban.Text;
@@ -442,12 +449,14 @@ namespace 纺织贸易管理系统.基本资料
                 {
                    if( MessageBox.Show ("该模板为默认标签模板！您确定要修改该模板的名字吗？\r\n确定修改的话系统将会同步修改默认模板")==DialogResult.OK )
                     {
+                        var report = ReportTableService.GetOneReportTable(x => x.reportName == oldname && x.reportStyle == Tools.ReportService.标签);
                         ReportService.ReName(new ReportTable()
                         {
-                            ReportFile = ReportTableService.GetOneReportTable(x => x.reportName == oldname && x.reportStyle == Tools.ReportService.标签).ReportFile,
+                            ReportFile = report.ReportFile,
                             reportName = newname + ".frx",
-                            reportStyle = Tools.ReportService.标签
-                        }, Application.StartupPath, oldname);
+                            reportStyle = Tools.ReportService.标签,
+                            ID = report.ID
+                        }, Application.StartupPath, oldname) ;
                         cmbMoban.Items.Clear();
                         cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());
                         cmbMoban.Text = newname;

@@ -42,8 +42,9 @@ namespace 纺织贸易管理系统.报表窗体
                     $"and danjumingxitable.ContractNum like '%{txthetonghao.Text }%' " +
                     $"and danjumingxitable.OrderNum like '%{txtordernum.Text }%' " +
                      $"and danjumingxitable.ganghao like '%{txtganghao.Text }%' " +
-                    $"and danjumingxitable.FrabicWidth like '%{txtChengpingmenfu .Text }%' " +
-                     $"and danjumingxitable.menfu like '%{TxtPibumenfu .Text }%' " +
+                    $"and danjumingxitable.FrabicWidth like '%{txtChengpingmenfu.Text }%' " +
+                     $"and danjumingxitable.menfu like '%{TxtPibumenfu.Text }%' " +
+                      $"and danjumingxitable.huahao like '%{txtHuahao.Text }%' " +
                     $"and danjutable.djlx='{DanjuLeiXing.委外取货单   }' " +
                     $"and danjutable.dh=danjumingxitable.danhao ";
             if (User.user.access == "自己")

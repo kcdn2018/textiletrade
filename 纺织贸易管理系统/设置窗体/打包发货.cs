@@ -112,20 +112,27 @@ namespace 纺织贸易管理系统.设置窗体
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
+            if (DAL.GetAccess.IsCanPrintDesign)
             {
-                if (Yidabaolist.Count > 0)
+                try
                 {
-                    new Tools.打印包装码单() { danju = danju, juanhaolist = Yidabaolist, formInfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = "gridView1" } }.打印(PrintModel.Design, PrintPath.报表模板 + "\\打包码单.frx");
+                    if (Yidabaolist.Count > 0)
+                    {
+                        new Tools.打印包装码单() { danju = danju, juanhaolist = Yidabaolist, formInfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = "gridView1" } }.打印(PrintModel.Design, PrintPath.报表模板 + "\\打包码单.frx");
+                    }
+                    else
+                    {
+                        MessageBox.Show("没有任何包装信息！打印失败", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("没有任何包装信息！打印失败", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
             }
         }
 

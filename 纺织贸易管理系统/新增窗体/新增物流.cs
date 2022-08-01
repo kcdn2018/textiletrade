@@ -47,7 +47,6 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 EditText();
             }
-
         }
         private void EditText()
         {
@@ -55,7 +54,9 @@ namespace 纺织贸易管理系统.新增窗体
             txtcheliangleixing.Text = infoTable.CarLeixing  ;
             txtchepai.Text = infoTable.CarNum ;           
             txtname.Text = infoTable.name   ;
-           
+            txtLinkMan.Text = infoTable.LinkMan;
+            txtyinghangzhanghao.Text = infoTable.Yinghangzhanghao;
+            txtkaihuyinghang.Text = infoTable.Kaihuyinghang;
         }
         private void InitPingzhong()
         {
@@ -63,7 +64,9 @@ namespace 纺织贸易管理系统.新增窗体
             infoTable.CarLeixing   = txtcheliangleixing.Text;
             infoTable.CarNum    = txtchepai.Text;
             infoTable.name    = txtname.Text;
-            
+            infoTable.Yinghangzhanghao = txtyinghangzhanghao.Text;
+            infoTable.Kaihuyinghang = txtkaihuyinghang.Text;
+            infoTable.LinkMan = txtLinkMan.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {

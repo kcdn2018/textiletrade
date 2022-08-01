@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using 纺织贸易管理系统;
 
 namespace Tools
@@ -80,13 +81,7 @@ namespace Tools
 
                 }
             }
-            dt.Columns.Add("用户公司名称");
-            dt.Columns.Add("用户公司电话");
-            dt.Columns.Add("公司税号");
-            dt.Columns.Add("公司地址");
-            dt.Columns.Add("开户银行");
-            dt.Columns.Add("银行账号");
-            dt.Columns.Add("电子邮箱");
+           
             dt.Rows.Add();
             try
             {
@@ -95,29 +90,51 @@ namespace Tools
                     var prolist = pros.Where(x => x.Name.ToLower() == c.DataProperty.ToLower ()).ToList ();
                     if (prolist.Count > 0)
                     {
-                        dt.Rows[0][c.ColumnText] = prolist[0].GetValue(danjuTable, null);
+                        if (prolist[0].PropertyType.Name=="DateTime")
+                        {
+                            dt.Rows[0][c.ColumnText] =DateTime.Parse ( prolist[0].GetValue(danjuTable, null).ToString ()).ToShortDateString ();
+                        }
+                        else
+                        {
+                            dt.Rows[0][c.ColumnText] = prolist[0].GetValue(danjuTable, null);
+                        }
                     }
                 }
             }
-            catch
-            { }
-            info gsinfo = new info();
-            if(string.IsNullOrEmpty (gsmc))
+            catch(Exception ex)
             {
-                gsinfo = infoService.Getinfolst()[0];
+                MessageBox.Show(ex.Message);
             }
-            else
+            try
             {
-                 gsinfo = infoService.GetOneinfo(x => x.gsmc == gsmc);
+                dt.Columns.Add("用户公司名称");
+                dt.Columns.Add("用户公司电话");
+                dt.Columns.Add("公司税号");
+                dt.Columns.Add("公司地址");
+                dt.Columns.Add("开户银行");
+                dt.Columns.Add("银行账号");
+                dt.Columns.Add("电子邮箱");
+                info gsinfo = new info();
+                if (string.IsNullOrEmpty(gsmc))
+                {
+                    gsinfo = infoService.Getinfolst()[0];
+                }
+                else
+                {
+                    gsinfo = infoService.GetOneinfo(x => x.gsmc == gsmc);
+                }
+
+                dt.Rows[0]["用户公司名称"] = gsinfo.gsmc;
+                dt.Rows[0]["用户公司电话"] = gsinfo.GHSMC;
+                dt.Rows[0]["公司税号"] = gsinfo.TaxNum;
+                dt.Rows[0]["公司地址"] = gsinfo.Address;
+                dt.Rows[0]["开户银行"] = gsinfo.BankName;
+                dt.Rows[0]["银行账号"] = gsinfo.BankNum;
+                dt.Rows[0]["电子邮箱"] = gsinfo.Email;
+            }catch(Exception ex)
+            {
+                MessageBox.Show("获取公司信息的时候发送错误" + ex.Message);
             }
-            
-            dt.Rows[0]["用户公司名称"] = gsinfo.gsmc;
-            dt.Rows[0]["用户公司电话"] = gsinfo.GHSMC ;
-            dt.Rows[0]["公司税号"] = gsinfo.TaxNum ;
-            dt.Rows[0]["公司地址"] = gsinfo.Address;
-            dt.Rows[0]["开户银行"] = gsinfo.BankName ;
-            dt.Rows[0]["银行账号"] = gsinfo.BankNum ;
-            dt.Rows[0]["电子邮箱"] = gsinfo.Email;
             return dt;
         }
         /// <summary>

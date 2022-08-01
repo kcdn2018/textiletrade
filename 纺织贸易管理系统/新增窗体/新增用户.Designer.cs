@@ -143,6 +143,7 @@
             this.uiLabel1.TabIndex = 13;
             this.uiLabel1.Text = "uiLabel1";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // cmbUser
             // 
@@ -159,6 +160,8 @@
             this.cmbUser.TabIndex = 12;
             this.cmbUser.Text = "10001";
             this.cmbUser.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbUser.Watermark = "";
+            this.cmbUser.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.cmbUser.SelectedIndexChanged += new System.EventHandler(this.cmbUser_SelectedIndexChanged);
             // 
             // label1
@@ -183,11 +186,14 @@
             // 
             // txtbz
             // 
+            this.txtbz.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtbz.Border.Class = "TextBoxBorder";
             this.txtbz.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtbz.DisabledBackColor = System.Drawing.Color.White;
+            this.txtbz.ForeColor = System.Drawing.Color.Black;
             this.txtbz.Location = new System.Drawing.Point(73, 100);
             this.txtbz.Name = "txtbz";
             this.txtbz.PreventEnterBeep = true;
@@ -196,11 +202,14 @@
             // 
             // txtmm
             // 
+            this.txtmm.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtmm.Border.Class = "TextBoxBorder";
             this.txtmm.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtmm.DisabledBackColor = System.Drawing.Color.White;
+            this.txtmm.ForeColor = System.Drawing.Color.Black;
             this.txtmm.Location = new System.Drawing.Point(442, 43);
             this.txtmm.Name = "txtmm";
             this.txtmm.PasswordChar = '*';
@@ -210,11 +219,14 @@
             // 
             // txtyhmc
             // 
+            this.txtyhmc.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtyhmc.Border.Class = "TextBoxBorder";
             this.txtyhmc.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtyhmc.DisabledBackColor = System.Drawing.Color.White;
+            this.txtyhmc.ForeColor = System.Drawing.Color.Black;
             this.txtyhmc.Location = new System.Drawing.Point(277, 43);
             this.txtyhmc.Name = "txtyhmc";
             this.txtyhmc.PreventEnterBeep = true;
@@ -223,15 +235,17 @@
             // 
             // txtBianhao
             // 
+            this.txtBianhao.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
             this.txtBianhao.Border.Class = "TextBoxBorder";
             this.txtBianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtBianhao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtBianhao.ForeColor = System.Drawing.Color.Black;
             this.txtBianhao.Location = new System.Drawing.Point(73, 43);
             this.txtBianhao.Name = "txtBianhao";
             this.txtBianhao.PreventEnterBeep = true;
-            this.txtBianhao.ReadOnly = true;
             this.txtBianhao.Size = new System.Drawing.Size(121, 22);
             this.txtBianhao.TabIndex = 6;
             // 
@@ -240,6 +254,7 @@
             this.comboBoxEx1.DisplayMember = "Text";
             this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxEx1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEx1.ForeColor = System.Drawing.Color.Black;
             this.comboBoxEx1.FormattingEnabled = true;
             this.comboBoxEx1.ItemHeight = 17;
             this.comboBoxEx1.Items.AddRange(new object[] {

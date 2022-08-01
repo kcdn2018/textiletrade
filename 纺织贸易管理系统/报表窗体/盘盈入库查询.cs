@@ -82,6 +82,7 @@ namespace 纺织贸易管理系统.报表窗体
                     $"and danjumingxitable.ContractNum like '%{txthetonghao.Text }%' " +
                     $"and danjumingxitable.OrderNum like '%{txtordernum.Text }%' " +
                     $"and danjumingxitable.ganghao like '%{txtganghao.Text }%'"+
+                    $"and danjumingxitable.huahao like '%{txthuahao.Text }%'" +
                     $"and danjutable.djlx='{DanjuLeiXing.盘盈入库单 }' " +
                     $"and danjutable.dh=danjumingxitable.danhao ";                    
             if (User.user.access == "自己")

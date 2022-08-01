@@ -14,6 +14,7 @@ namespace Tools
         public const string 报表 = "Report";
         public const string 唛头 = "唛头模板";
         public const string 标签 = "Labels";
+        public const string 织造工艺单 = "织造工艺单";
         public  static void  LoadReport(string filename,ReportTable report)
         {
             try
@@ -45,6 +46,7 @@ namespace Tools
                 {
                     File.Delete(item.FullName);
                 }
+              
                 var reportlist = ReportTableService.GetReportTablelst();
             foreach (var r in reportlist )
             {

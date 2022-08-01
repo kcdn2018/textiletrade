@@ -29,23 +29,28 @@ namespace 纺织贸易管理系统.其他窗体
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.txtticheng = new Sunny.UI.UITextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dataGridViewX1 = new Sunny.UI.UIDataGridView();
+            this.Cyewuyuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cbencixiaoshoushu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cbencixiaoshoue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cbencilirun = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CZanbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTichengbili = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cticheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             this.txtshouru = new Sunny.UI.UITextBox();
             this.uiLabel9 = new Sunny.UI.UILabel();
@@ -65,12 +70,6 @@ namespace 纺织贸易管理系统.其他窗体
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.txtxiaoshoue = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.Cyewuyuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cbencixiaoshoushu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cbencixiaoshoue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cbencilirun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CZanbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cticheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
@@ -115,8 +114,6 @@ namespace 纺织贸易管理系统.其他窗体
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
-            this.groupPanel1.Controls.Add(this.txtticheng);
-            this.groupPanel1.Controls.Add(this.label1);
             this.groupPanel1.Controls.Add(this.dateEdit2);
             this.groupPanel1.Controls.Add(this.labelX11);
             this.groupPanel1.Controls.Add(this.dateEdit1);
@@ -155,33 +152,6 @@ namespace 纺织贸易管理系统.其他窗体
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 27;
             this.groupPanel1.Text = "查询条件";
-            // 
-            // txtticheng
-            // 
-            this.txtticheng.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtticheng.DoubleValue = 30D;
-            this.txtticheng.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtticheng.IntValue = 30;
-            this.txtticheng.Location = new System.Drawing.Point(446, 17);
-            this.txtticheng.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtticheng.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtticheng.Name = "txtticheng";
-            this.txtticheng.ShowText = false;
-            this.txtticheng.Size = new System.Drawing.Size(81, 23);
-            this.txtticheng.TabIndex = 18;
-            this.txtticheng.Text = "30";
-            this.txtticheng.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtticheng.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtticheng.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(386, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "提成比例";
             // 
             // dateEdit2
             // 
@@ -233,6 +203,7 @@ namespace 纺织贸易管理系统.其他窗体
             // 
             // groupPanel2
             // 
+            this.groupPanel2.BackColor = System.Drawing.Color.White;
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.dataGridViewX1);
@@ -277,19 +248,19 @@ namespace 纺织贸易管理系统.其他窗体
             // 
             this.dataGridViewX1.AllowUserToAddRows = false;
             this.dataGridViewX1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dataGridViewX1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dataGridViewX1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewX1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridViewX1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 9F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.ColumnHeadersHeight = 32;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -298,326 +269,43 @@ namespace 纺织贸易管理系统.其他窗体
             this.Cbencixiaoshoue,
             this.Cbencilirun,
             this.CZanbi,
+            this.CTichengbili,
             this.Cticheng});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewX1.EnableHeadersVisualStyles = false;
-            this.dataGridViewX1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewX1.Name = "dataGridViewX1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 9F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridViewX1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridViewX1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewX1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataGridViewX1.RowTemplate.Height = 29;
+            this.dataGridViewX1.ScrollBarRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dataGridViewX1.SelectedIndex = -1;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(1254, 239);
+            this.dataGridViewX1.Size = new System.Drawing.Size(1254, 288);
             this.dataGridViewX1.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dataGridViewX1.Style = Sunny.UI.UIStyle.Custom;
             this.dataGridViewX1.TabIndex = 2;
             this.dataGridViewX1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiGroupBox1
-            // 
-            this.uiGroupBox1.Controls.Add(this.txtshouru);
-            this.uiGroupBox1.Controls.Add(this.uiLabel9);
-            this.uiGroupBox1.Controls.Add(this.txtzhichu);
-            this.uiGroupBox1.Controls.Add(this.uiLabel8);
-            this.uiGroupBox1.Controls.Add(this.txtjiagong);
-            this.uiGroupBox1.Controls.Add(this.uiLabel7);
-            this.uiGroupBox1.Controls.Add(this.txtyouhui);
-            this.uiGroupBox1.Controls.Add(this.uiLabel6);
-            this.uiGroupBox1.Controls.Add(this.txtcaigou);
-            this.uiGroupBox1.Controls.Add(this.uiLabel5);
-            this.uiGroupBox1.Controls.Add(this.txtstock);
-            this.uiGroupBox1.Controls.Add(this.uiLabel4);
-            this.uiGroupBox1.Controls.Add(this.txtlilun);
-            this.uiGroupBox1.Controls.Add(this.uiLabel3);
-            this.uiGroupBox1.Controls.Add(this.txtfeiyong);
-            this.uiGroupBox1.Controls.Add(this.uiLabel2);
-            this.uiGroupBox1.Controls.Add(this.txtxiaoshoue);
-            this.uiGroupBox1.Controls.Add(this.uiLabel1);
-            this.uiGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiGroupBox1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiGroupBox1.Location = new System.Drawing.Point(0, 239);
-            this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiGroupBox1.Name = "uiGroupBox1";
-            this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox1.Size = new System.Drawing.Size(1254, 170);
-            this.uiGroupBox1.TabIndex = 1;
-            this.uiGroupBox1.Text = "合计";
-            this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtshouru
-            // 
-            this.txtshouru.ButtonSymbol = 61761;
-            this.txtshouru.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtshouru.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtshouru.Location = new System.Drawing.Point(1038, 87);
-            this.txtshouru.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtshouru.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtshouru.Name = "txtshouru";
-            this.txtshouru.ShowText = false;
-            this.txtshouru.Size = new System.Drawing.Size(131, 29);
-            this.txtshouru.TabIndex = 17;
-            this.txtshouru.Text = "0.00";
-            this.txtshouru.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtshouru.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtshouru.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel9
-            // 
-            this.uiLabel9.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel9.Location = new System.Drawing.Point(958, 90);
-            this.uiLabel9.Name = "uiLabel9";
-            this.uiLabel9.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel9.TabIndex = 16;
-            this.uiLabel9.Text = "其他收入：";
-            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel9.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtzhichu
-            // 
-            this.txtzhichu.ButtonSymbol = 61761;
-            this.txtzhichu.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtzhichu.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtzhichu.Location = new System.Drawing.Point(808, 87);
-            this.txtzhichu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtzhichu.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtzhichu.Name = "txtzhichu";
-            this.txtzhichu.ShowText = false;
-            this.txtzhichu.Size = new System.Drawing.Size(131, 29);
-            this.txtzhichu.TabIndex = 15;
-            this.txtzhichu.Text = "0.00";
-            this.txtzhichu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtzhichu.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtzhichu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel8
-            // 
-            this.uiLabel8.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel8.Location = new System.Drawing.Point(728, 90);
-            this.uiLabel8.Name = "uiLabel8";
-            this.uiLabel8.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel8.TabIndex = 14;
-            this.uiLabel8.Text = "其他支出：";
-            this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel8.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtjiagong
-            // 
-            this.txtjiagong.ButtonSymbol = 61761;
-            this.txtjiagong.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtjiagong.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtjiagong.Location = new System.Drawing.Point(576, 87);
-            this.txtjiagong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtjiagong.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtjiagong.Name = "txtjiagong";
-            this.txtjiagong.ShowText = false;
-            this.txtjiagong.Size = new System.Drawing.Size(131, 29);
-            this.txtjiagong.TabIndex = 13;
-            this.txtjiagong.Text = "0.00";
-            this.txtjiagong.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtjiagong.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtjiagong.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel7
-            // 
-            this.uiLabel7.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel7.Location = new System.Drawing.Point(496, 90);
-            this.uiLabel7.Name = "uiLabel7";
-            this.uiLabel7.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel7.TabIndex = 12;
-            this.uiLabel7.Text = "加工费用：";
-            this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel7.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtyouhui
-            // 
-            this.txtyouhui.ButtonSymbol = 61761;
-            this.txtyouhui.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtyouhui.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtyouhui.Location = new System.Drawing.Point(808, 29);
-            this.txtyouhui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtyouhui.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtyouhui.Name = "txtyouhui";
-            this.txtyouhui.ShowText = false;
-            this.txtyouhui.Size = new System.Drawing.Size(131, 29);
-            this.txtyouhui.TabIndex = 11;
-            this.txtyouhui.Text = "0.00";
-            this.txtyouhui.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtyouhui.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtyouhui.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel6
-            // 
-            this.uiLabel6.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel6.Location = new System.Drawing.Point(728, 32);
-            this.uiLabel6.Name = "uiLabel6";
-            this.uiLabel6.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel6.TabIndex = 10;
-            this.uiLabel6.Text = "优惠金额：";
-            this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel6.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtcaigou
-            // 
-            this.txtcaigou.ButtonSymbol = 61761;
-            this.txtcaigou.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtcaigou.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtcaigou.Location = new System.Drawing.Point(335, 87);
-            this.txtcaigou.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtcaigou.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtcaigou.Name = "txtcaigou";
-            this.txtcaigou.ShowText = false;
-            this.txtcaigou.Size = new System.Drawing.Size(131, 29);
-            this.txtcaigou.TabIndex = 9;
-            this.txtcaigou.Text = "0.00";
-            this.txtcaigou.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtcaigou.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtcaigou.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel5
-            // 
-            this.uiLabel5.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel5.Location = new System.Drawing.Point(255, 90);
-            this.uiLabel5.Name = "uiLabel5";
-            this.uiLabel5.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel5.TabIndex = 8;
-            this.uiLabel5.Text = "采购金额：";
-            this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel5.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtstock
-            // 
-            this.txtstock.ButtonSymbol = 61761;
-            this.txtstock.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtstock.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtstock.Location = new System.Drawing.Point(89, 87);
-            this.txtstock.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtstock.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtstock.Name = "txtstock";
-            this.txtstock.ShowText = false;
-            this.txtstock.Size = new System.Drawing.Size(131, 29);
-            this.txtstock.TabIndex = 7;
-            this.txtstock.Text = "0.00";
-            this.txtstock.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtstock.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtstock.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel4
-            // 
-            this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel4.Location = new System.Drawing.Point(9, 90);
-            this.uiLabel4.Name = "uiLabel4";
-            this.uiLabel4.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel4.TabIndex = 6;
-            this.uiLabel4.Text = "库存金额：";
-            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel4.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtlilun
-            // 
-            this.txtlilun.ButtonSymbol = 61761;
-            this.txtlilun.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtlilun.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtlilun.Location = new System.Drawing.Point(576, 32);
-            this.txtlilun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtlilun.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtlilun.Name = "txtlilun";
-            this.txtlilun.ShowText = false;
-            this.txtlilun.Size = new System.Drawing.Size(131, 29);
-            this.txtlilun.TabIndex = 5;
-            this.txtlilun.Text = "0.00";
-            this.txtlilun.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtlilun.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtlilun.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel3
-            // 
-            this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel3.Location = new System.Drawing.Point(496, 35);
-            this.uiLabel3.Name = "uiLabel3";
-            this.uiLabel3.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel3.TabIndex = 4;
-            this.uiLabel3.Text = "合计利润：";
-            this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtfeiyong
-            // 
-            this.txtfeiyong.ButtonSymbol = 61761;
-            this.txtfeiyong.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtfeiyong.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtfeiyong.Location = new System.Drawing.Point(335, 32);
-            this.txtfeiyong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtfeiyong.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtfeiyong.Name = "txtfeiyong";
-            this.txtfeiyong.ShowText = false;
-            this.txtfeiyong.Size = new System.Drawing.Size(131, 29);
-            this.txtfeiyong.TabIndex = 3;
-            this.txtfeiyong.Text = "0.00";
-            this.txtfeiyong.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtfeiyong.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtfeiyong.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel2
-            // 
-            this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel2.Location = new System.Drawing.Point(255, 35);
-            this.uiLabel2.Name = "uiLabel2";
-            this.uiLabel2.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel2.TabIndex = 2;
-            this.uiLabel2.Text = "合计费用：";
-            this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtxiaoshoue
-            // 
-            this.txtxiaoshoue.ButtonSymbol = 61761;
-            this.txtxiaoshoue.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtxiaoshoue.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.txtxiaoshoue.Location = new System.Drawing.Point(89, 32);
-            this.txtxiaoshoue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtxiaoshoue.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtxiaoshoue.Name = "txtxiaoshoue";
-            this.txtxiaoshoue.ShowText = false;
-            this.txtxiaoshoue.Size = new System.Drawing.Size(131, 29);
-            this.txtxiaoshoue.TabIndex = 1;
-            this.txtxiaoshoue.Text = "0.00";
-            this.txtxiaoshoue.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtxiaoshoue.Type = Sunny.UI.UITextBox.UIEditType.Double;
-            this.txtxiaoshoue.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel1.Location = new System.Drawing.Point(9, 35);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(84, 23);
-            this.uiLabel1.TabIndex = 0;
-            this.uiLabel1.Text = "合计销售额：";
-            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.dataGridViewX1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellEndEdit);
             // 
             // Cyewuyuan
             // 
@@ -646,6 +334,7 @@ namespace 纺织贸易管理系统.其他窗体
             this.Cbencilirun.HeaderText = "本期利润";
             this.Cbencilirun.Name = "Cbencilirun";
             this.Cbencilirun.ReadOnly = true;
+            this.Cbencilirun.Visible = false;
             // 
             // CZanbi
             // 
@@ -653,11 +342,310 @@ namespace 纺织贸易管理系统.其他窗体
             this.CZanbi.Name = "CZanbi";
             this.CZanbi.ReadOnly = true;
             // 
+            // CTichengbili
+            // 
+            this.CTichengbili.HeaderText = "提成比例";
+            this.CTichengbili.Name = "CTichengbili";
+            // 
             // Cticheng
             // 
             this.Cticheng.HeaderText = "提成金额";
             this.Cticheng.Name = "Cticheng";
             this.Cticheng.ReadOnly = true;
+            // 
+            // uiGroupBox1
+            // 
+            this.uiGroupBox1.Controls.Add(this.txtshouru);
+            this.uiGroupBox1.Controls.Add(this.uiLabel9);
+            this.uiGroupBox1.Controls.Add(this.txtzhichu);
+            this.uiGroupBox1.Controls.Add(this.uiLabel8);
+            this.uiGroupBox1.Controls.Add(this.txtjiagong);
+            this.uiGroupBox1.Controls.Add(this.uiLabel7);
+            this.uiGroupBox1.Controls.Add(this.txtyouhui);
+            this.uiGroupBox1.Controls.Add(this.uiLabel6);
+            this.uiGroupBox1.Controls.Add(this.txtcaigou);
+            this.uiGroupBox1.Controls.Add(this.uiLabel5);
+            this.uiGroupBox1.Controls.Add(this.txtstock);
+            this.uiGroupBox1.Controls.Add(this.uiLabel4);
+            this.uiGroupBox1.Controls.Add(this.txtlilun);
+            this.uiGroupBox1.Controls.Add(this.uiLabel3);
+            this.uiGroupBox1.Controls.Add(this.txtfeiyong);
+            this.uiGroupBox1.Controls.Add(this.uiLabel2);
+            this.uiGroupBox1.Controls.Add(this.txtxiaoshoue);
+            this.uiGroupBox1.Controls.Add(this.uiLabel1);
+            this.uiGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiGroupBox1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiGroupBox1.Location = new System.Drawing.Point(0, 288);
+            this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiGroupBox1.Name = "uiGroupBox1";
+            this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiGroupBox1.Size = new System.Drawing.Size(1254, 121);
+            this.uiGroupBox1.TabIndex = 1;
+            this.uiGroupBox1.Text = "合计";
+            this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtshouru
+            // 
+            this.txtshouru.ButtonSymbol = 61761;
+            this.txtshouru.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtshouru.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtshouru.Location = new System.Drawing.Point(308, 78);
+            this.txtshouru.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtshouru.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtshouru.Name = "txtshouru";
+            this.txtshouru.ShowText = false;
+            this.txtshouru.Size = new System.Drawing.Size(131, 29);
+            this.txtshouru.TabIndex = 17;
+            this.txtshouru.Text = "0.00";
+            this.txtshouru.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtshouru.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtshouru.Watermark = "";
+            this.txtshouru.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel9
+            // 
+            this.uiLabel9.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel9.Location = new System.Drawing.Point(228, 81);
+            this.uiLabel9.Name = "uiLabel9";
+            this.uiLabel9.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel9.TabIndex = 16;
+            this.uiLabel9.Text = "其他收入：";
+            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel9.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtzhichu
+            // 
+            this.txtzhichu.ButtonSymbol = 61761;
+            this.txtzhichu.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtzhichu.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtzhichu.Location = new System.Drawing.Point(89, 78);
+            this.txtzhichu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtzhichu.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtzhichu.Name = "txtzhichu";
+            this.txtzhichu.ShowText = false;
+            this.txtzhichu.Size = new System.Drawing.Size(131, 29);
+            this.txtzhichu.TabIndex = 15;
+            this.txtzhichu.Text = "0.00";
+            this.txtzhichu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtzhichu.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtzhichu.Watermark = "";
+            this.txtzhichu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel8
+            // 
+            this.uiLabel8.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel8.Location = new System.Drawing.Point(9, 81);
+            this.uiLabel8.Name = "uiLabel8";
+            this.uiLabel8.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel8.TabIndex = 14;
+            this.uiLabel8.Text = "其他支出：";
+            this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel8.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtjiagong
+            // 
+            this.txtjiagong.ButtonSymbol = 61761;
+            this.txtjiagong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtjiagong.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtjiagong.Location = new System.Drawing.Point(988, 32);
+            this.txtjiagong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtjiagong.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtjiagong.Name = "txtjiagong";
+            this.txtjiagong.ShowText = false;
+            this.txtjiagong.Size = new System.Drawing.Size(131, 29);
+            this.txtjiagong.TabIndex = 13;
+            this.txtjiagong.Text = "0.00";
+            this.txtjiagong.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtjiagong.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtjiagong.Watermark = "";
+            this.txtjiagong.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel7
+            // 
+            this.uiLabel7.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel7.Location = new System.Drawing.Point(908, 35);
+            this.uiLabel7.Name = "uiLabel7";
+            this.uiLabel7.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel7.TabIndex = 12;
+            this.uiLabel7.Text = "加工费用：";
+            this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel7.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtyouhui
+            // 
+            this.txtyouhui.ButtonSymbol = 61761;
+            this.txtyouhui.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtyouhui.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtyouhui.Location = new System.Drawing.Point(534, 78);
+            this.txtyouhui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtyouhui.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtyouhui.Name = "txtyouhui";
+            this.txtyouhui.ShowText = false;
+            this.txtyouhui.Size = new System.Drawing.Size(131, 29);
+            this.txtyouhui.TabIndex = 11;
+            this.txtyouhui.Text = "0.00";
+            this.txtyouhui.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtyouhui.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtyouhui.Watermark = "";
+            this.txtyouhui.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel6
+            // 
+            this.uiLabel6.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel6.Location = new System.Drawing.Point(454, 81);
+            this.uiLabel6.Name = "uiLabel6";
+            this.uiLabel6.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel6.TabIndex = 10;
+            this.uiLabel6.Text = "优惠金额：";
+            this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel6.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtcaigou
+            // 
+            this.txtcaigou.ButtonSymbol = 61761;
+            this.txtcaigou.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtcaigou.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtcaigou.Location = new System.Drawing.Point(534, 32);
+            this.txtcaigou.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtcaigou.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtcaigou.Name = "txtcaigou";
+            this.txtcaigou.ShowText = false;
+            this.txtcaigou.Size = new System.Drawing.Size(131, 29);
+            this.txtcaigou.TabIndex = 9;
+            this.txtcaigou.Text = "0.00";
+            this.txtcaigou.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtcaigou.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtcaigou.Watermark = "";
+            this.txtcaigou.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel5
+            // 
+            this.uiLabel5.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel5.Location = new System.Drawing.Point(454, 35);
+            this.uiLabel5.Name = "uiLabel5";
+            this.uiLabel5.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel5.TabIndex = 8;
+            this.uiLabel5.Text = "采购金额：";
+            this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel5.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtstock
+            // 
+            this.txtstock.ButtonSymbol = 61761;
+            this.txtstock.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtstock.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtstock.Location = new System.Drawing.Point(308, 32);
+            this.txtstock.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtstock.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtstock.Name = "txtstock";
+            this.txtstock.ShowText = false;
+            this.txtstock.Size = new System.Drawing.Size(131, 29);
+            this.txtstock.TabIndex = 7;
+            this.txtstock.Text = "0.00";
+            this.txtstock.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtstock.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtstock.Watermark = "";
+            this.txtstock.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel4
+            // 
+            this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel4.Location = new System.Drawing.Point(228, 35);
+            this.uiLabel4.Name = "uiLabel4";
+            this.uiLabel4.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel4.TabIndex = 6;
+            this.uiLabel4.Text = "库存金额：";
+            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel4.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtlilun
+            // 
+            this.txtlilun.ButtonSymbol = 61761;
+            this.txtlilun.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtlilun.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtlilun.Location = new System.Drawing.Point(760, 78);
+            this.txtlilun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtlilun.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtlilun.Name = "txtlilun";
+            this.txtlilun.ShowText = false;
+            this.txtlilun.Size = new System.Drawing.Size(131, 29);
+            this.txtlilun.TabIndex = 5;
+            this.txtlilun.Text = "0.00";
+            this.txtlilun.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtlilun.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtlilun.Watermark = "";
+            this.txtlilun.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel3
+            // 
+            this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel3.Location = new System.Drawing.Point(680, 81);
+            this.uiLabel3.Name = "uiLabel3";
+            this.uiLabel3.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel3.TabIndex = 4;
+            this.uiLabel3.Text = "合计利润：";
+            this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtfeiyong
+            // 
+            this.txtfeiyong.ButtonSymbol = 61761;
+            this.txtfeiyong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtfeiyong.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtfeiyong.Location = new System.Drawing.Point(760, 32);
+            this.txtfeiyong.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtfeiyong.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtfeiyong.Name = "txtfeiyong";
+            this.txtfeiyong.ShowText = false;
+            this.txtfeiyong.Size = new System.Drawing.Size(131, 29);
+            this.txtfeiyong.TabIndex = 3;
+            this.txtfeiyong.Text = "0.00";
+            this.txtfeiyong.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtfeiyong.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtfeiyong.Watermark = "";
+            this.txtfeiyong.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel2
+            // 
+            this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel2.Location = new System.Drawing.Point(680, 35);
+            this.uiLabel2.Name = "uiLabel2";
+            this.uiLabel2.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel2.TabIndex = 2;
+            this.uiLabel2.Text = "合计费用：";
+            this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtxiaoshoue
+            // 
+            this.txtxiaoshoue.ButtonSymbol = 61761;
+            this.txtxiaoshoue.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtxiaoshoue.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtxiaoshoue.Location = new System.Drawing.Point(89, 32);
+            this.txtxiaoshoue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtxiaoshoue.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtxiaoshoue.Name = "txtxiaoshoue";
+            this.txtxiaoshoue.ShowText = false;
+            this.txtxiaoshoue.Size = new System.Drawing.Size(131, 29);
+            this.txtxiaoshoue.TabIndex = 1;
+            this.txtxiaoshoue.Text = "0.00";
+            this.txtxiaoshoue.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtxiaoshoue.Type = Sunny.UI.UITextBox.UIEditType.Double;
+            this.txtxiaoshoue.Watermark = "";
+            this.txtxiaoshoue.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel1.Location = new System.Drawing.Point(9, 35);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(84, 23);
+            this.uiLabel1.TabIndex = 0;
+            this.uiLabel1.Text = "合计销售额：";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // 销售汇总
             // 
@@ -673,7 +661,6 @@ namespace 纺织贸易管理系统.其他窗体
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
-            this.groupPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
@@ -717,13 +704,12 @@ namespace 纺织贸易管理系统.其他窗体
         private Sunny.UI.UILabel uiLabel9;
         private Sunny.UI.UITextBox txtzhichu;
         private Sunny.UI.UILabel uiLabel8;
-        private Sunny.UI.UITextBox txtticheng;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cyewuyuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cbencixiaoshoushu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cbencixiaoshoue;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cbencilirun;
         private System.Windows.Forms.DataGridViewTextBoxColumn CZanbi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTichengbili;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cticheng;
     }
 }

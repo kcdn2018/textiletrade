@@ -89,6 +89,7 @@ namespace 纺织贸易管理系统.报表窗体
                 $"and OrderTable.ContractNum like '%{txthetonghao.Text }%' " +
                 $"and OrderDetailTable.CustomerPingMing like '%{txtCustomerPingming .Text }%' " +
                 $"and OrderDetailTable.CustomerColorNum like '%{txtCustomerColorNum .Text }%' " +
+                 $"and OrderDetailTable.Huahao like '%{txthuahao.Text }%' " +
                 $"and OrderTable.OrderNum=Orderdetailtable.Ordernum";
             if(rdweiwancheng .Checked==true  )
             {

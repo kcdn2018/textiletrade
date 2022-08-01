@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(库存选择));
             this.groupPanel1 = new Sunny.UI.UIPanel();
+            this.txthouzhengli = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.uiLabel1 = new Sunny.UI.UILabel();
+            this.txtyanse = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.txtbianhao = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -54,10 +58,8 @@
             this.配置列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txthouzhengli = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.uiLabel1 = new Sunny.UI.UILabel();
-            this.txtyanse = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.uiLabel2 = new Sunny.UI.UILabel();
+            this.txthuahao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.uiLabel3 = new Sunny.UI.UILabel();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -67,6 +69,8 @@
             // groupPanel1
             // 
             this.groupPanel1.BackColor = System.Drawing.Color.White;
+            this.groupPanel1.Controls.Add(this.txthuahao);
+            this.groupPanel1.Controls.Add(this.uiLabel3);
             this.groupPanel1.Controls.Add(this.txthouzhengli);
             this.groupPanel1.Controls.Add(this.uiLabel1);
             this.groupPanel1.Controls.Add(this.txtyanse);
@@ -99,13 +103,73 @@
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Padding = new System.Windows.Forms.Padding(0, 23, 0, 0);
             this.groupPanel1.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
-            this.groupPanel1.Size = new System.Drawing.Size(911, 72);
+            this.groupPanel1.Size = new System.Drawing.Size(911, 109);
             this.groupPanel1.Style = Sunny.UI.UIStyle.Custom;
             this.groupPanel1.StyleCustomMode = true;
             this.groupPanel1.TabIndex = 3;
             this.groupPanel1.Text = null;
             this.groupPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.groupPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txthouzhengli
+            // 
+            this.txthouzhengli.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txthouzhengli.Border.Class = "TextBoxBorder";
+            this.txthouzhengli.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthouzhengli.DisabledBackColor = System.Drawing.Color.White;
+            this.txthouzhengli.ForeColor = System.Drawing.Color.Black;
+            this.txthouzhengli.Location = new System.Drawing.Point(729, 39);
+            this.txthouzhengli.Name = "txthouzhengli";
+            this.txthouzhengli.PreventEnterBeep = true;
+            this.txthouzhengli.Size = new System.Drawing.Size(100, 23);
+            this.txthouzhengli.TabIndex = 29;
+            this.txthouzhengli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel1.Location = new System.Drawing.Point(668, 39);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(55, 23);
+            this.uiLabel1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel1.TabIndex = 28;
+            this.uiLabel1.Text = "后整理";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtyanse
+            // 
+            this.txtyanse.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtyanse.Border.Class = "TextBoxBorder";
+            this.txtyanse.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtyanse.DisabledBackColor = System.Drawing.Color.White;
+            this.txtyanse.ForeColor = System.Drawing.Color.Black;
+            this.txtyanse.Location = new System.Drawing.Point(729, 12);
+            this.txtyanse.Name = "txtyanse";
+            this.txtyanse.PreventEnterBeep = true;
+            this.txtyanse.Size = new System.Drawing.Size(100, 23);
+            this.txtyanse.TabIndex = 27;
+            this.txtyanse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // uiLabel2
+            // 
+            this.uiLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel2.Location = new System.Drawing.Point(668, 12);
+            this.uiLabel2.Name = "uiLabel2";
+            this.uiLabel2.Size = new System.Drawing.Size(55, 23);
+            this.uiLabel2.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel2.TabIndex = 26;
+            this.uiLabel2.Text = "颜色：";
+            this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiSymbolButton2
             // 
@@ -382,10 +446,10 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 103);
+            this.gridControl1.Location = new System.Drawing.Point(0, 140);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(911, 347);
+            this.gridControl1.Size = new System.Drawing.Size(911, 415);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -433,70 +497,39 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
-            // txthouzhengli
+            // txthuahao
             // 
-            this.txthouzhengli.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txthouzhengli.Border.Class = "TextBoxBorder";
-            this.txthouzhengli.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txthouzhengli.DisabledBackColor = System.Drawing.Color.White;
-            this.txthouzhengli.ForeColor = System.Drawing.Color.Black;
-            this.txthouzhengli.Location = new System.Drawing.Point(729, 39);
-            this.txthouzhengli.Name = "txthouzhengli";
-            this.txthouzhengli.PreventEnterBeep = true;
-            this.txthouzhengli.Size = new System.Drawing.Size(100, 23);
-            this.txthouzhengli.TabIndex = 29;
-            this.txthouzhengli.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
-            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel1.Location = new System.Drawing.Point(668, 39);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(55, 23);
-            this.uiLabel1.Style = Sunny.UI.UIStyle.Custom;
-            this.uiLabel1.TabIndex = 28;
-            this.uiLabel1.Text = "后整理";
-            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtyanse
-            // 
-            this.txtyanse.BackColor = System.Drawing.Color.White;
+            this.txthuahao.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.txtyanse.Border.Class = "TextBoxBorder";
-            this.txtyanse.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtyanse.DisabledBackColor = System.Drawing.Color.White;
-            this.txtyanse.ForeColor = System.Drawing.Color.Black;
-            this.txtyanse.Location = new System.Drawing.Point(729, 12);
-            this.txtyanse.Name = "txtyanse";
-            this.txtyanse.PreventEnterBeep = true;
-            this.txtyanse.Size = new System.Drawing.Size(100, 23);
-            this.txtyanse.TabIndex = 27;
-            this.txtyanse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            this.txthuahao.Border.Class = "TextBoxBorder";
+            this.txthuahao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthuahao.DisabledBackColor = System.Drawing.Color.White;
+            this.txthuahao.ForeColor = System.Drawing.Color.Black;
+            this.txthuahao.Location = new System.Drawing.Point(67, 70);
+            this.txthuahao.Name = "txthuahao";
+            this.txthuahao.PreventEnterBeep = true;
+            this.txthuahao.Size = new System.Drawing.Size(95, 23);
+            this.txthuahao.TabIndex = 31;
             // 
-            // uiLabel2
+            // uiLabel3
             // 
-            this.uiLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
-            this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiLabel2.Location = new System.Drawing.Point(668, 12);
-            this.uiLabel2.Name = "uiLabel2";
-            this.uiLabel2.Size = new System.Drawing.Size(55, 23);
-            this.uiLabel2.Style = Sunny.UI.UIStyle.Custom;
-            this.uiLabel2.TabIndex = 26;
-            this.uiLabel2.Text = "颜色：";
-            this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiLabel3.Location = new System.Drawing.Point(6, 70);
+            this.uiLabel3.Name = "uiLabel3";
+            this.uiLabel3.Size = new System.Drawing.Size(55, 23);
+            this.uiLabel3.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel3.TabIndex = 30;
+            this.uiLabel3.Text = "花号";
+            this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // 库存选择
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(911, 450);
+            this.ClientSize = new System.Drawing.Size(911, 555);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -547,5 +580,7 @@
         private Sunny.UI.UILabel uiLabel1;
         private DevComponents.DotNetBar.Controls.TextBoxX txtyanse;
         private Sunny.UI.UILabel uiLabel2;
+        private DevComponents.DotNetBar.Controls.TextBoxX txthuahao;
+        private Sunny.UI.UILabel uiLabel3;
     }
 }

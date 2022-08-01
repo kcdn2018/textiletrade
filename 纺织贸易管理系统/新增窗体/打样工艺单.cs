@@ -31,6 +31,7 @@ namespace 纺织贸易管理系统.新增窗体
             InitializeComponent();
             CreateGrid.Create(this.Name, gridView1);
             gridView1.Columns["Yaoqiu"].ColumnEdit = colorbtn;
+            cmbMoban.SelectedIndex = 0;
         }
 
         private void txtjiagongc_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -154,6 +155,7 @@ namespace 纺织贸易管理系统.新增窗体
             cmbqiankuan.Text = danju.Qiankuan;
             comleixing.Text = danju.jiagongleixing;
             txtGengdan.Text = danju.Gengdanyuan;
+            txtGongchandanhao.Text = danju.LiuzhuanCard;
             ColorTables =new BindingList<ShengchandanSeLaodu>(ShengchandanSeLaoduService.GetShengchandanSeLaodulst(x => x.shengchandanhao == danju.dh));   
             for(int i=ColorTables.Count;i<20;i++)
             {
@@ -364,7 +366,7 @@ namespace 纺织贸易管理系统.新增窗体
                 Weight = txtkezhong.Text,
                 //布料来源
                 fromDanhao = txtBuliaoSource.Text,
-                 
+                LiuzhuanCard =txtGongchandanhao.Text ,
             };
             var listhouzhenli = new List<ShengchandanHouzhengli>();
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "A", Value = checkBoxX1.Checked });
@@ -389,7 +391,14 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Print(PrintModel.Design );
+            if (DAL.GetAccess.IsCanPrintDesign)
+            {
+                Print(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
         private void Print(int c)
         {
@@ -424,7 +433,8 @@ namespace 纺织贸易管理系统.新增窗体
                 zhuangtai = "未审核",
                 Weight = txtkezhong.Text,
                   //布料来源
-                fromDanhao = txtBuliaoSource.Text
+                fromDanhao = txtBuliaoSource.Text,
+                LiuzhuanCard =txtGongchandanhao.Text 
             };
             var listhouzhenli = new List<ShengchandanHouzhengli>();
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "A", Value = checkBoxX1.Checked });
@@ -436,7 +446,7 @@ namespace 纺织贸易管理系统.新增窗体
             yaoqius.Add(new ShengChanDanHouZhengLiYaoQiu() { ShengChanDanHao = txtdanhao.Text, HouZhengLiYaoQiu = "尺寸要求", YaoQiu = txtcicun.Text });
             danju.TotalMishu = ColorTables.Where(x => x.Yaoqiu  != null).ToList().Count();
             var result = new Tools.打印打样单() {  colorTables = ColorTables.Where(x => x.Yaoqiu  != null).ToList() ,formInfo= new FormInfo() {  FormName ="打样工艺单查询" , GridviewName="gridView1" }, DanjuTable=danju ,  houzhenglis=listhouzhenli ,yaoqius=yaoqius};
-            result.打印(PrintPath.报表模板+"打样工艺单.frx",c );
+            result.打印(cmbMoban.SelectedIndex ==0? PrintPath.报表模板+"打样工艺单.frx":PrintPath.报表模板 +"打样客户单.frx",c );
         }
 
         private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)

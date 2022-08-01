@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Model;
 using Sunny.UI;
 using System;
@@ -66,7 +67,7 @@ namespace 纺织贸易管理系统.选择窗体
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
             pingzhong = Connect.DbHelper().Queryable <StockTable >().Where (x => x.ContractNum.Contains(txthetonghao.Text) && x.PM.Contains(txtpingming.Text) && x.GG.Contains(txtguige.Text) && x.GH.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text) && x.CKMC.Contains(StockName)
-          && x.YS .Contains(txtsehao.Text) && x.CustomName.Contains(txtkehu.Text) && x.BH.Contains(txtBianhao.Text) && x.orderNum.Contains(txtOrderNum.Text) && x.CKMC != "色卡仓库"  ).OrderBy(x => x.RQ).ToList();
+          && x.YS .Contains(txtsehao.Text) && x.CustomName.Contains(txtkehu.Text) && x.BH.Contains(txtBianhao.Text) && x.orderNum.Contains(txtOrderNum.Text) && x.CKMC != "色卡仓库" &&x.Huahao.Contains (txthuahao.Text)  ).OrderBy(x => x.RQ).ToList();
             gridControl1.DataSource = pingzhong;
             UIWaitFormService.HideWaitForm();
         }
@@ -169,15 +170,22 @@ namespace 纺织贸易管理系统.选择窗体
 
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fm = new 打印设置窗体();
-            //fm.ShowDialog();
-            var juanlist = gridControl2.DataSource as DataTable;
-            var moban = MaitouService.GetOneMaitou(x => x.khbh == (String)juanlist.Rows[gridView2.FocusedRowHandle]["CustomerName"]).path;
-            if (!string.IsNullOrWhiteSpace(moban))
+            if (DAL.GetAccess.IsCanPrintDesign)
             {
-                moban = cmbmaitou.Text;
+                var fm = new 打印设置窗体();
+                //fm.ShowDialog();
+                var juanlist = gridControl2.DataSource as DataTable;
+                var moban = MaitouService.GetOneMaitou(x => x.khbh == (String)juanlist.Rows[gridView2.FocusedRowHandle]["CustomerName"]).path;
+                if (!string.IsNullOrWhiteSpace(moban))
+                {
+                    moban = cmbmaitou.Text;
+                }
+                new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Design, moban = PrintPath.唛头模板 + moban, juan = JuanHaoTableService.GetOneJuanHaoTable(x => x.JuanHao == (string)gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "JuanHao")) }.打印();
             }
-            new Tools.打印唛头() { copyies = fm.copyies, PrinterName = fm.printer, userful = PrintModel.Design, moban = PrintPath.唛头模板 + moban, juan = JuanHaoTableService.GetOneJuanHaoTable(x => x.JuanHao == (string)gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "JuanHao")) }.打印();
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 保存样式ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -286,15 +294,26 @@ namespace 纺织贸易管理系统.选择窗体
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (gridView1.FocusedRowHandle >= 0)
+            try
             {
-                var remarkers = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Remarkers").ToString();
-                Sunny.UI.UIInputDialog.InputStringDialog(this, ref remarkers,true ,"请输入该库存的完成备注");
-                gridView1.SetRowCellValue(gridView1.FocusedRowHandle, "Remarkers", remarkers);
-                int id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").TryToInt ();
-                StockTable stock = StockTableService.GetOneStockTable (x => x.ID ==id);
-                stock.Remarkers = remarkers;
-                Connect.DbHelper().Updateable<StockTable >(stock).ExecuteCommandAsync();
+                if (gridView1.SelectedRowsCount >= 0)
+                {
+                    string remarkers = string.Empty;
+                    Sunny.UI.UIInputDialog.InputStringDialog(this, ref remarkers, true, "请输入该布料的打卷要求");
+                    if (!string.IsNullOrWhiteSpace(remarkers))
+                    {
+                        List<StockTable> selectstocks = new List<StockTable>();
+                        foreach (var row in gridView1.GetSelectedRows())
+                        { selectstocks.Add(pingzhong.First(x => x.ID == gridView1.GetRowCellValue(row, "ID").TryToInt())); }
+                        selectstocks.ForEach(x => x.Remarkers = remarkers);
+                        Connect.DbHelper().Updateable<StockTable>(selectstocks).ExecuteCommandAsync();
+                        gridControl1.RefreshDataSource();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

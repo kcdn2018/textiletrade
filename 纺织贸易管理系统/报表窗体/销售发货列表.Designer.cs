@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(销售发货列表));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +41,10 @@
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打包发货ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.销售汇总ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成报关单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txtganghao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.txtordernum = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.txtGuige = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -72,8 +76,8 @@
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txtganghao = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.txtHuahao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -97,10 +101,11 @@
             this.单据审核ToolStripMenuItem,
             this.刷新ToolStripMenuItem,
             this.打包发货ToolStripMenuItem,
-            this.销售汇总ToolStripMenuItem});
+            this.销售汇总ToolStripMenuItem,
+            this.生成报关单ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1214, 40);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -195,11 +200,22 @@
             this.销售汇总ToolStripMenuItem.Text = "销售汇总";
             this.销售汇总ToolStripMenuItem.Click += new System.EventHandler(this.销售汇总ToolStripMenuItem_Click);
             // 
+            // 生成报关单ToolStripMenuItem
+            // 
+            this.生成报关单ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("生成报关单ToolStripMenuItem.Image")));
+            this.生成报关单ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.生成报关单ToolStripMenuItem.Name = "生成报关单ToolStripMenuItem";
+            this.生成报关单ToolStripMenuItem.Size = new System.Drawing.Size(112, 36);
+            this.生成报关单ToolStripMenuItem.Text = "生成报关单";
+            this.生成报关单ToolStripMenuItem.Click += new System.EventHandler(this.生成报关单ToolStripMenuItem_Click);
+            // 
             // groupPanel1
             // 
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txtHuahao);
+            this.groupPanel1.Controls.Add(this.labelX11);
             this.groupPanel1.Controls.Add(this.txtganghao);
             this.groupPanel1.Controls.Add(this.labelX10);
             this.groupPanel1.Controls.Add(this.txtordernum);
@@ -224,7 +240,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPanel1.Location = new System.Drawing.Point(0, 40);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(800, 156);
+            this.groupPanel1.Size = new System.Drawing.Size(1214, 156);
             // 
             // 
             // 
@@ -254,6 +270,35 @@
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 5;
             this.groupPanel1.Text = "查询条件";
+            // 
+            // txtganghao
+            // 
+            this.txtganghao.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtganghao.Border.Class = "TextBoxBorder";
+            this.txtganghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtganghao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtganghao.ForeColor = System.Drawing.Color.Black;
+            this.txtganghao.Location = new System.Drawing.Point(634, 57);
+            this.txtganghao.Name = "txtganghao";
+            this.txtganghao.PreventEnterBeep = true;
+            this.txtganghao.Size = new System.Drawing.Size(121, 21);
+            this.txtganghao.TabIndex = 52;
+            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(573, 56);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(59, 21);
+            this.labelX10.TabIndex = 51;
+            this.labelX10.Text = "缸号";
             // 
             // txtordernum
             // 
@@ -509,7 +554,7 @@
             this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel2.Location = new System.Drawing.Point(0, 196);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(800, 254);
+            this.groupPanel2.Size = new System.Drawing.Size(1214, 254);
             // 
             // 
             // 
@@ -548,7 +593,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(794, 230);
+            this.gridControl1.Size = new System.Drawing.Size(1208, 230);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -658,40 +703,40 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
-            // txtganghao
+            // txtHuahao
             // 
-            this.txtganghao.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtganghao.Border.Class = "TextBoxBorder";
-            this.txtganghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtganghao.DisabledBackColor = System.Drawing.Color.White;
-            this.txtganghao.ForeColor = System.Drawing.Color.Black;
-            this.txtganghao.Location = new System.Drawing.Point(634, 57);
-            this.txtganghao.Name = "txtganghao";
-            this.txtganghao.PreventEnterBeep = true;
-            this.txtganghao.Size = new System.Drawing.Size(121, 21);
-            this.txtganghao.TabIndex = 52;
-            this.txtganghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
-            // 
-            // labelX10
+            this.txtHuahao.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
+            this.txtHuahao.Border.Class = "TextBoxBorder";
+            this.txtHuahao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtHuahao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtHuahao.ForeColor = System.Drawing.Color.Black;
+            this.txtHuahao.Location = new System.Drawing.Point(634, 97);
+            this.txtHuahao.Name = "txtHuahao";
+            this.txtHuahao.PreventEnterBeep = true;
+            this.txtHuahao.Size = new System.Drawing.Size(121, 21);
+            this.txtHuahao.TabIndex = 54;
+            this.txtHuahao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(573, 56);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(59, 21);
-            this.labelX10.TabIndex = 51;
-            this.labelX10.Text = "缸号";
+            // labelX11
+            // 
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Location = new System.Drawing.Point(573, 96);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(59, 21);
+            this.labelX11.TabIndex = 53;
+            this.labelX11.Text = "花号";
             // 
             // 销售发货列表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1214, 450);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.menuStrip1);
@@ -761,5 +806,8 @@
         private System.Windows.Forms.ToolStripMenuItem 销售汇总ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.TextBoxX txtganghao;
         private DevComponents.DotNetBar.LabelX labelX10;
+        private System.Windows.Forms.ToolStripMenuItem 生成报关单ToolStripMenuItem;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtHuahao;
+        private DevComponents.DotNetBar.LabelX labelX11;
     }
 }

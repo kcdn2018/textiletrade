@@ -55,5 +55,6 @@ namespace 纺织贸易管理系统
         /// 剩余米数
         /// </summary>
         public decimal RemainingMetres { get; set; }
+        public string EnglishName { get; set; }
     }
 }

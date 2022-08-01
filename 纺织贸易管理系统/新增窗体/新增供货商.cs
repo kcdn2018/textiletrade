@@ -32,23 +32,23 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void InitText()
         {
-          
-                foreach (Control  c in this.Controls )
+
+            foreach (Control c in this.Controls)
+            {
+                if (c is DevComponents.DotNetBar.Controls.TextBoxX)
                 {
-                    if(c is DevComponents.DotNetBar.Controls .TextBoxX )
-                    {
-                        c.Text = "";
-                    }
-                }    
-                LinkMan.BH  = BianhaoBLL.CreatBianhao("GHS");
-                LinkMan.LX  = "供货商";
-                LinkMan.sxed  = 0;
-                LinkMan.fp  = 0;
-                LinkMan.JE = 0;
-                txtBianhao.Text = LinkMan.BH;
-                txtqichu.Text = "0";
-                txtyingkaifapiao.Text = "0";
-                            
+                    c.Text = "";
+                }
+            }
+            LinkMan.BH = BianhaoBLL.CreatBianhao("GHS");
+            LinkMan.LX = "供货商";
+            LinkMan.sxed = 0;
+            LinkMan.fp = 0;
+            LinkMan.JE = 0;
+            txtBianhao.Text = LinkMan.BH;
+            txtqichu.Text = "0";
+            txtyingkaifapiao.Text = "0";
+            txtFullName.Text = string.Empty;
         }
 
         private void 新增品种_Load(object sender, EventArgs e)
@@ -84,6 +84,7 @@ namespace 纺织贸易管理系统.新增窗体
             cmbleixing.Text = LinkMan.Leixing;
             cmbzhuangtai.Text = LinkMan.Zhuangtai;
             txtkejiagong.Text = LinkMan.Kezuojiagong;
+            txtFullName.Text = LinkMan.FullName;
         }
         private void InitPingzhong()
         {
@@ -107,6 +108,7 @@ namespace 纺织贸易管理系统.新增窗体
             LinkMan.Zhuangtai = cmbzhuangtai.Text;
             LinkMan.Leixing = cmbleixing.Text;
             LinkMan.Kezuojiagong = txtkejiagong.Text;
+            LinkMan.FullName = txtFullName.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {

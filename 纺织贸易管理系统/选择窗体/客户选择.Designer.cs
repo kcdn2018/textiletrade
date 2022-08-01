@@ -89,7 +89,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 75);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(800, 89);
+            this.groupControl1.Size = new System.Drawing.Size(800, 54);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "查询条件";
             // 
@@ -103,7 +103,7 @@
             this.txtMingcheng.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMingcheng.DisabledBackColor = System.Drawing.Color.White;
             this.txtMingcheng.ForeColor = System.Drawing.Color.Black;
-            this.txtMingcheng.Location = new System.Drawing.Point(308, 44);
+            this.txtMingcheng.Location = new System.Drawing.Point(308, 26);
             this.txtMingcheng.Name = "txtMingcheng";
             this.txtMingcheng.PreventEnterBeep = true;
             this.txtMingcheng.Size = new System.Drawing.Size(166, 22);
@@ -116,7 +116,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(251, 44);
+            this.labelX2.Location = new System.Drawing.Point(251, 26);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(60, 23);
             this.labelX2.TabIndex = 2;
@@ -132,7 +132,7 @@
             this.txtzhujici.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtzhujici.DisabledBackColor = System.Drawing.Color.White;
             this.txtzhujici.ForeColor = System.Drawing.Color.Black;
-            this.txtzhujici.Location = new System.Drawing.Point(69, 44);
+            this.txtzhujici.Location = new System.Drawing.Point(69, 26);
             this.txtzhujici.Name = "txtzhujici";
             this.txtzhujici.PreventEnterBeep = true;
             this.txtzhujici.Size = new System.Drawing.Size(166, 22);
@@ -145,7 +145,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(12, 44);
+            this.labelX1.Location = new System.Drawing.Point(12, 26);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(60, 23);
             this.labelX1.TabIndex = 0;
@@ -155,10 +155,10 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 164);
+            this.gridControl1.Location = new System.Drawing.Point(0, 129);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(800, 286);
+            this.gridControl1.Size = new System.Drawing.Size(800, 445);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -207,9 +207,8 @@
             // 
             // 客户选择
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(800, 574);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
@@ -220,6 +219,7 @@
             this.Name = "客户选择";
             this.Text = "客户选择";
             this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 800, 450);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.客户选择_FormClosed);
             this.Load += new System.EventHandler(this.客户选择_Load);
             this.menuStrip1.ResumeLayout(false);

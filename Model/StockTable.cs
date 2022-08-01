@@ -87,5 +87,9 @@ namespace 纺织贸易管理系统
         /// 坯布门幅
         /// </summary>
         public string FrabicWidth { get; set; }
+        /// <summary>
+        /// 英文名
+        /// </summary>
+        public string EnglishName { get; set; }
     }
 }

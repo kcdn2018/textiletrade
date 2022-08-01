@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessTable.cs" />
+    <Compile Include="BaoGuanTable.cs" />
     <Compile Include="ChangliangTable.cs" />
     <Compile Include="CheckTable.cs" />
     <Compile Include="ChiDianTable.cs" />

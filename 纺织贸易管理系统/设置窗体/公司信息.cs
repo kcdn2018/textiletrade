@@ -129,12 +129,16 @@ namespace 纺织贸易管理系统.设置窗体
         {
             var fm = new 新增公司() { UseFul=FormUseful.新增 };
             fm.ShowDialog();
+            var gsinfo = infoService.Getinfolst()[0];
+            cmbgongshimingcheng.DataSource = infoService.Getinfolst().Select(x => x.gsmc).ToList();
         }
 
         private void uiSymbolButton2_Click(object sender, EventArgs e)
         {
             var fm = new 新增公司() { UseFul=FormUseful.修改 ,oldinfo =infoService.GetOneinfo (x=>x.gsmc == cmbgongshimingcheng.Text )};        
             fm.ShowDialog();
+            var gsinfo = infoService.Getinfolst()[0];
+            cmbgongshimingcheng.DataSource = infoService.Getinfolst().Select(x => x.gsmc).ToList();
         }
 
         private void cmbgongshimingcheng_SelectedIndexChanged(object sender, EventArgs e)

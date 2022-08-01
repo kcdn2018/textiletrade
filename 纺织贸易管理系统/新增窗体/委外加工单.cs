@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tools;
 using 纺织贸易管理系统.其他窗体;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -100,51 +102,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void ButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if(txtckmc.Text =="")
-            {
-                MessageBox.Show("请先选择仓库名称","错误",MessageBoxButtons.OK );
-                return;
-            }
-            var fm = new 库存选择() { StockName=txtckmc.Text };
-            fm.ShowDialog();
-            var i = gridView1.FocusedRowHandle;
-            foreach (var pingzhong in fm.pingzhong)
-            {
-                danjumingxitables[i].bizhong = "人民币￥";
-                danjumingxitables[i].Bianhao  = pingzhong.BH ;
-                danjumingxitables[i].guige = pingzhong.GG;
-                danjumingxitables[i].chengfeng = pingzhong.CF;
-                danjumingxitables[i].pingming  = pingzhong.PM;
-                danjumingxitables[i].kezhong  = pingzhong.KZ;          
-                danjumingxitables[i].menfu  = pingzhong.MF;
-                danjumingxitables[i].FrabicWidth = pingzhong.MF;
-                danjumingxitables[i].danwei  = "米";
-                danjumingxitables[i].ContractNum  = pingzhong.ContractNum ;
-                danjumingxitables[i].CustomName = pingzhong.CustomName ;
-                danjumingxitables[i].OrderNum  = pingzhong.orderNum ;
-                danjumingxitables[i].kuanhao  = pingzhong.kuanhao ;
-                danjumingxitables[i].houzhengli  = pingzhong.houzhengli ;
-                danjumingxitables[i].yanse  = pingzhong.YS ;
-                danjumingxitables[i].ganghao  = pingzhong.GH;
-                danjumingxitables[i].chengpingjuanshu = pingzhong.JS ;
-                danjumingxitables[i].chengpingmishu  = pingzhong.MS ;
-                danjumingxitables[i].Kuwei  = pingzhong.Kuwei;
-                danjumingxitables[i].Huahao = pingzhong.Huahao;
-                danjumingxitables[i].ColorNum = pingzhong.ColorNum;
-                danjumingxitables[i].CustomerColorNum = pingzhong.CustomerColorNum;
-                danjumingxitables[i].CustomerPingMing = pingzhong.CustomerPingMing;
-                danjumingxitables[i].AveragePrice = pingzhong.AvgPrice;
-                danjumingxitables[i].Rangchang = pingzhong.Rangchang;
-                danjumingxitables[i].PiBuChang  = pingzhong.PibuChang ;
-                danjumingxitables[i].Pihao  = pingzhong.Pihao ;
-                danjumingxitables[i].suilv   = pingzhong.ID.ToString ();
-                i++;
-                if (i == danjumingxitables.Count - 1)
-                    for (int j = 0; j < 30; j++)
-                    {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime});
-                    }
-            }
+            SelectStockHelper.Select(txtckmc ,gridView1, danjumingxitables);
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
             加载卷();
@@ -176,6 +134,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             gridView1.DeleteRow(gridView1.FocusedRowHandle);
             加载卷();
+            gridView2.ClearSelection();
         }
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -428,7 +387,14 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            打印码单(PrintModel.Design);
+            if (GetAccess.IsCanPrintDesign)
+            {
+                打印码单(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 直接打印ToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -479,7 +445,7 @@ namespace 纺织贸易管理系统.新增窗体
                                 var mx = danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).Select(x => x.Bianhao).Distinct();
                                 foreach (var m in mx)
                                 {
-                                    new Tools.打印横版码单() { gsmc = cmbFahuogongsi.Text, danju = danju, juanhaolist = Yidabaolist.Where(x => x.SampleNum == m).ToList(), formInfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = "gridView1" } }.打印(use, PrintPath.报表模板 + "\\A4纸.frx");
+                                    new Tools.打印横版码单() { danjumingxitables = danjumingxitables, gsmc = cmbFahuogongsi.Text, danju = danju, juanhaolist = Yidabaolist.Where(x => x.SampleNum == m).ToList(), formInfo = new Tools.FormInfo() { FormName = "销售发货单查询", GridviewName = "gridView1" } }.打印(use, PrintPath.报表模板 + "\\A4纸.frx");
                                 }
                             }
                             else
@@ -595,7 +561,14 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            打印单据(PrintModel.Design);
+            if (GetAccess.IsCanPrintDesign)
+            {
+                打印单据(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
         private void 打印单据(int use)
         {

@@ -15,6 +15,7 @@ namespace Tools
         public List<JuanHaoTable> juanhaolist { get; set; }
         public FormInfo formInfo { get; set; }
         public string gsmc { get; set; }
+        public List<danjumingxitable > danjumingxitables { get; set; }
         /// <summary>
 		/// 创建单据DataTable
 		/// </summary>
@@ -56,9 +57,11 @@ namespace Tools
             dt.Columns.Add("匹数", typeof(decimal));
             dt.Columns.Add("合计数量", typeof(decimal));
             dt.Columns.Add("缸合计");
+            dt.Columns.Add("单价", typeof(decimal));
+            dt.Columns.Add("合计金额", typeof(decimal));
             return dt;
         }
-        private void 赋值一行(DataTable dt, int row, JuanHaoTable juanHao)
+        private void 赋值一行(DataTable dt, int row, JuanHaoTable juanHao,decimal Price)
         {
             dt.Rows.Add();
             var clist = Connect.GetColumntable("打包发货", "gridView1", "10001");
@@ -90,6 +93,7 @@ namespace Tools
                 }
             }
             dt.Rows[row]["1"] = juanHao.biaoqianmishu.ToString("0.##");
+            dt.Rows[row]["单价"] =Price ;
         }
         private DataTable 初始化明细()
         {
@@ -105,7 +109,9 @@ namespace Tools
                 {
                     if (row == 0)
                     {
-                        赋值一行(mingxiti, row, juan);
+                        var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                        decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                        赋值一行(mingxiti, row, juan, price);
                         prejuan = juan;
                         row++;
                         n = 1;
@@ -114,7 +120,9 @@ namespace Tools
                     {
                         if (juan.state != prejuan.state)
                         {
-                            赋值一行(mingxiti, row, juan);
+                            var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                            decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                            赋值一行(mingxiti, row, juan,price );
                             prejuan = juan;
                             row++;
                             n = 1;
@@ -123,7 +131,9 @@ namespace Tools
                         {
                             if (juan.OrderNum != prejuan.OrderNum)
                             {
-                                赋值一行(mingxiti, row, juan);
+                                var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                                decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                                赋值一行(mingxiti, row, juan, price );
                                 prejuan = juan;
                                 row++;
                                 n = 1;
@@ -132,7 +142,9 @@ namespace Tools
                             {
                                 if (juan.SampleNum != prejuan.SampleNum)
                                 {
-                                    赋值一行(mingxiti, row, juan);
+                                    var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                                    decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                                    赋值一行(mingxiti, row, juan, price );
                                     prejuan = juan;
                                     row++;
                                     n = 1;
@@ -141,7 +153,9 @@ namespace Tools
                                 {
                                     if (juan.yanse  != prejuan.yanse )
                                     {
-                                        赋值一行(mingxiti, row, juan);
+                                        var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                                        decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                                        赋值一行(mingxiti, row, juan,price );
                                         prejuan = juan;
                                         row++;
                                         n = 1;
@@ -150,7 +164,9 @@ namespace Tools
                                     {
                                         if (juan.GangHao != prejuan.GangHao)
                                         {
-                                            赋值一行(mingxiti, row, juan);
+                                            var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                                            decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                                            赋值一行(mingxiti, row, juan, price );
                                             prejuan = juan;
                                             row++;
                                             n = 1;
@@ -159,7 +175,9 @@ namespace Tools
                                         {
                                             if (juan.Huahao != prejuan.Huahao)
                                             {
-                                                赋值一行(mingxiti, row, juan);
+                                                var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                                                decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                                                赋值一行(mingxiti, row, juan, price );
                                                 prejuan = juan;
                                                 row++;
                                                 n = 1;
@@ -169,7 +187,9 @@ namespace Tools
                                                 n++;
                                                 if (n == 11)
                                                 {
-                                                    赋值一行(mingxiti, row, juan);
+                                                    var mingxi = danjumingxitables.First(x => x.ganghao == juan.GangHao);
+                                                    decimal price = mingxi == null ? 0 : mingxi.hanshuidanjia;
+                                                    赋值一行(mingxiti, row, juan,price );
                                                     prejuan = juan;
                                                     row++;
                                                     n = 1;
@@ -218,6 +238,7 @@ namespace Tools
                 }
                 mingxiti.Rows[r]["缸合计"] = juanhaolist.Where(x => x.GangHao == (string)mingxiti.Rows[r]["缸号"]).ToList().Sum(x => x.biaoqianmishu);
                 mingxiti.Rows[r]["合计数量"] = num;
+                mingxiti.Rows[r]["合计金额"] = num* mingxiti.Rows[r]["单价"].TryToDecmial ();
                 mingxiti.Rows[r]["匹数"] = pishu;
             }
             return mingxiti;

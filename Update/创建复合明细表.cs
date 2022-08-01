@@ -10,59 +10,124 @@ namespace Update
 {
   public   class 创建复合明细表
     {
+		public static string version = "1.0.2.14";
+		public static void 修改客户归属()
+        {	
+			var verinfo = infoService.Getinfolst()[0];
+			try
+			{			
+				if (Version.Parse(verinfo.Version) < Version.Parse(version))
+				{
+					var yhs = YhbService.GetYhblst();
+					var Customers = LXRService.GetLXRlst(x => x.Leixing == "客户");
+					var Employers = YuanGongTableService.GetYuanGongTablelst();
+					foreach (var customer in Customers)
+					{
+						var yh = yhs.First(x => x.YHBH == customer.own);
+						if (yh != null)
+						{
+							if (yh.YHMC == "管理员")
+							{
+								customer.own = Employers.Count > 0 ? Employers[0].Xingming : "管理员";
+							}
+							else
+							{
+								customer.own = yh.YHMC;
+							}
+						}
+						else
+						{
+							customer.own = Employers.Count > 0 ? Employers[0].Xingming : "管理员";
+						}
+					}
+					Connect.DbHelper().Updateable<LXR>(Customers).ExecuteCommand();
+					var danjuTables = DanjuTableService.GetDanjuTablelst(x => x.djlx == "销售出库单");
+					foreach (var d in danjuTables)
+					{
+						var yh = yhs.First(x => x.YHBH == d.SaleMan);
+						if (yh != null)
+						{
+							if (yh.YHMC == "管理员")
+							{
+								d.SaleMan = Employers.Count > 0 ? Employers[0].Xingming : "管理员";
+							}
+							else
+							{
+								d.own = yh.YHMC;
+							}
+						}
+
+					}
+					Connect.DbHelper().Updateable(danjuTables).ExecuteCommand();
+				}
+			}
+			catch 
+			{ }
+            finally
+            {
+				verinfo.Version = "1.0.2.14";
+				更新数据库版本.UpdateInfo(verinfo);
+			}
+		}
 		/// <summary>
 		/// 创建点色和配桶信息单
 		/// </summary>
 		public static void CreatDuanTongZhiMenu()
 		{
-			var dbhelper = Connect.SoftkcDBHelper();
+			var verinfo = infoService.Getinfolst()[0];
+			if (Version.Parse(verinfo.Version) < Version.Parse("1.0.2.12"))
+			{ 
+				var dbhelper = Connect.SoftkcDBHelper();
 			var dt = Connect.DbHelper().Queryable<MenuTable>().Where(x => x.FormName == "检验通知单").ToList();
-			if (dt.Count == 0)
-			{
-				Console.WriteLine("正在创建检验通知单菜单功能，请等待。。。。。。");
-				var yhs = Connect.CreatConnect().Query<Yhb>();
-				foreach (var yh in yhs)
+				if (dt.Count == 0)
 				{
-					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "生产管理", FormName = "检验通知单", MenuName = "检验通知单", UserID = yh.YHBH, Visitable = true });
-					var columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "检验通知单").ToList();
-					columns.ForEach(x => x.UserID = yh.YHBH);
-					Connect.CreatConnect().Insert<ColumnTable>(columns);
-					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "委外通知单").ToList();
-					columns.ForEach(x => x.UserID = yh.YHBH);
-					Connect.CreatConnect().Insert<ColumnTable>(columns);
-					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "生产管理", FormName = "委外通知单", MenuName = "委外通知单", UserID = yh.YHBH, Visitable = true });
-					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "细码库存").ToList();
-					columns.ForEach(x => x.UserID = yh.YHBH);
-					Connect.CreatConnect().Insert<ColumnTable>(columns);
-					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "库存管理", FormName = "细码库存", MenuName = "细码库存", UserID = yh.YHBH, Visitable = true });
-					//columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "配桶登记列表").ToList();
-					//columns.ForEach(x => x.UserID = yh.YHBH);
-					//Connect.CreatConnect().Insert<ColumnTable>(columns);
-					//columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "配桶登记单").ToList();
-					//columns.ForEach(x => x.UserID = yh.YHBH);
-					//Connect.CreatConnect().Insert<ColumnTable>(columns);
-					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "白坯销售列表", MenuName = "白坯销售单", UserID = yh.YHBH, Visitable = true });
-					 columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯销售列表").ToList();
-					columns.ForEach(x => x.UserID = yh.YHBH);
-					Connect.CreatConnect().Insert<ColumnTable>(columns);
-					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "白坯直销单", MenuName = "白坯直销单", UserID = yh.YHBH, Visitable = true });
-					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯直销单").ToList();
-					columns.ForEach(x => x.UserID = yh.YHBH);
-					Connect.CreatConnect().Insert<ColumnTable>(columns);
-					Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "销售统计", MenuName = "销售统计", UserID = yh.YHBH, Visitable = true });
-					columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯直销单").ToList();
-					columns.ForEach(x => x.UserID = yh.YHBH);
-					Connect.CreatConnect().Insert<ColumnTable>(columns);
+					Console.WriteLine("正在创建检验通知单菜单功能，请等待。。。。。。");
+					var yhs = Connect.CreatConnect().Query<Yhb>();
+					foreach (var yh in yhs)
+					{
+						Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "生产管理", FormName = "检验通知单", MenuName = "检验通知单", UserID = yh.YHBH, Visitable = true });
+						var columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "检验通知单").ToList();
+						columns.ForEach(x => x.UserID = yh.YHBH);
+						Connect.CreatConnect().Insert<ColumnTable>(columns);
+						columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "委外通知单").ToList();
+						columns.ForEach(x => x.UserID = yh.YHBH);
+						Connect.CreatConnect().Insert<ColumnTable>(columns);
+						Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "生产管理", FormName = "委外通知单", MenuName = "委外通知单", UserID = yh.YHBH, Visitable = true });
+						columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "细码库存").ToList();
+						columns.ForEach(x => x.UserID = yh.YHBH);
+						Connect.CreatConnect().Insert<ColumnTable>(columns);
+						Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "库存管理", FormName = "细码库存", MenuName = "细码库存", UserID = yh.YHBH, Visitable = true });
+						//columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "配桶登记列表").ToList();
+						//columns.ForEach(x => x.UserID = yh.YHBH);
+						//Connect.CreatConnect().Insert<ColumnTable>(columns);
+						//columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "配桶登记单").ToList();
+						//columns.ForEach(x => x.UserID = yh.YHBH);
+						//Connect.CreatConnect().Insert<ColumnTable>(columns);
+						Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "白坯销售列表", MenuName = "白坯销售单", UserID = yh.YHBH, Visitable = true });
+						columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯销售列表").ToList();
+						columns.ForEach(x => x.UserID = yh.YHBH);
+						Connect.CreatConnect().Insert<ColumnTable>(columns);
+						Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "白坯直销单", MenuName = "白坯直销单", UserID = yh.YHBH, Visitable = true });
+						columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯直销单").ToList();
+						columns.ForEach(x => x.UserID = yh.YHBH);
+						Connect.CreatConnect().Insert<ColumnTable>(columns);
+						Connect.CreatConnect().Insert<MenuTable>(new MenuTable() { FatherMenu = "销售管理", FormName = "销售统计", MenuName = "销售统计", UserID = yh.YHBH, Visitable = true });
+						columns = dbhelper.Queryable<ColumnTable>().Where(x => x.FormName == "白坯直销单").ToList();
+						columns.ForEach(x => x.UserID = yh.YHBH);
+						Connect.CreatConnect().Insert<ColumnTable>(columns);
+					}
+					var report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "委外通知单").ToList();
+					Connect.CreatConnect().Insert<ReportTable>(report);
+					report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "检验通知单").ToList();
+					Connect.CreatConnect().Insert<ReportTable>(report);
+					report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "CheckDoc").ToList();
+					Connect.CreatConnect().Insert<ReportTable>(report);
+					report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "销售退货单").ToList();
+					Connect.CreatConnect().Insert<ReportTable>(report);
+					verinfo.Version = "1.0.2.13";
+					更新数据库版本.UpdateInfo(verinfo);
+					Console.WriteLine("创建检验通知单菜单菜单成功");
 				}
-				var report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "委外通知单").ToList();
-				Connect.CreatConnect().Insert<ReportTable>(report);
-				report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "检验通知单").ToList();
-				Connect.CreatConnect().Insert<ReportTable>(report);
-				report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "CheckDoc").ToList();
-				Connect.CreatConnect().Insert<ReportTable>(report);
-				report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "销售退货单").ToList();
-				Connect.CreatConnect().Insert<ReportTable>(report);
-				Console.WriteLine("创建检验通知单菜单菜单成功");
 			}
 		}
 		/// <summary>

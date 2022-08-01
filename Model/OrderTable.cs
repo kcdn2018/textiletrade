@@ -91,5 +91,33 @@ namespace 纺织贸易管理系统
         /// 结汇汇率
         /// </summary>
         public decimal Rate { get; set; }
+        /// <summary>
+        /// 范围起始
+        /// </summary>
+        public int Scopefrom { get; set; }
+        /// <summary>
+        /// 范围截止
+        /// </summary>
+        public int ScopeEnd { get; set; }
+        /// <summary>
+        /// 装船日期
+        /// </summary>
+        public DateTime ShipmentTime { get; set; }
+        /// <summary>
+        /// 出海缸号
+        /// </summary>
+        public string  LoadingPort { get; set; }
+        /// <summary>
+        /// 签约公司
+        /// </summary>
+        public string SignCompany  { get; set; }
+        /// <summary>
+        /// 客户全称
+        /// </summary>
+        public string CustomerFullName { get; set; }
+        /// <summary>
+        /// FOB
+        /// </summary>
+        public string FOB { get; set; }
     }
 }

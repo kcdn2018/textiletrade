@@ -209,6 +209,7 @@ namespace 纺织贸易管理系统
         /// 跟单员
         /// </summary>
         public String Gengdanyuan { get; set; }
+
         public  DanjuTable()
         {
             dh = string.Empty;

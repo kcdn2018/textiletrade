@@ -58,5 +58,42 @@ namespace 纺织贸易管理系统
             /// 英文描述
             /// </summary>
         public string Descript { get; set; }
+        /// <summary>
+        /// 坯布名称
+        /// </summary>
+        public string PibuName { get; set; }
+        /// <summary>
+        /// 上机门幅
+        /// </summary>
+        public string ShangjiWidth { get; set; }
+        /// <summary>
+        /// 下机门幅
+        /// </summary>
+        public string XiajiWidth { get; set; }
+        /// <summary>
+        /// 经纱
+        /// </summary>
+        public string Jinsha { get; set; }
+        /// <summary>
+        /// 经纱厂家
+        /// </summary>
+        public string JinshaSupplier { get; set; }
+        /// <summary>
+        /// 经纱批号
+        /// </summary>
+        public string JinshaPihao { get; set; }
+        /// <summary>
+        /// 纬纱
+        /// </summary>
+        public string Weisha { get; set; }
+        /// <summary>
+        /// 纬纱厂家
+        /// </summary>
+        public string WeishaSupplier { get; set; }
+        /// <summary>
+        /// 纬纱批号
+        /// </summary>
+        public string WeishaPihao { get; set; }
+
     }
 }

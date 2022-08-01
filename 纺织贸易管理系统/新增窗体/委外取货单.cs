@@ -436,6 +436,8 @@ namespace 纺织贸易管理系统.新增窗体
                     danjumingxitables[i].menfu = pingzhong.mf;
                     danjumingxitables[i].FrabicWidth = pingzhong.mf;
                     danjumingxitables[i].danwei = "米";
+                    danjumingxitables[i].PibuName = pingzhong.PibuName;
+                    danjumingxitables[i].EnglishName = pingzhong.EnglishName;
                     var mx = ToupiList.Where(x => x.SampleNum == pingzhong.bh  && x.OrderNum == x.OrderNum && x.color == x.color).ToList();
                     if (mx.Count > 0)
                     {

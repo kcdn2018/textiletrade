@@ -445,7 +445,14 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            打印码单(PrintModel.Design);
+            if (GetAccess.IsCanPrintDesign)
+            {
+                打印码单(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
         private void 打印码单(int use)
         {
@@ -477,7 +484,14 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 打印编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PrintDanju(PrintModel.Design);
+            if (GetAccess.IsCanPrintDesign)
+            {
+                PrintDanju(PrintModel.Design);
+            }
+            else
+            {
+                Sunny.UI.UIMessageDialog.ShowWarningDialog(this, "对不起！您没有打印编辑的权限！\r\n请联系管理员开通");
+            }
         }
 
         private void 直接打印ToolStripMenuItem_Click(object sender, EventArgs e)

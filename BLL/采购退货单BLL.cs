@@ -31,8 +31,8 @@ namespace BLL
                       d.chengpingjuanshu = 0 - d.chengpingjuanshu;
                       d.hanshuidanjia = 0 - d.hanshuidanjia;
                       d.hanshuiheji = 0 - d.hanshuiheji;
-                     
-                  } 
+                     d.rq = danju.rq;
+            } 
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => x.Bianhao != null).ToList());
             ////
             List<FahuoDan> fahuoDans = new List<FahuoDan>();
@@ -101,7 +101,7 @@ namespace BLL
                 m.chengpingjuanshu = 0 - m.chengpingjuanshu;
                 m.hanshuidanjia = 0 - m.hanshuidanjia;
                 m.hanshuiheji = 0 - m.hanshuiheji;
-                
+                m.rq = danju.rq;
             }
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => x.Bianhao != null).ToList());
             ////

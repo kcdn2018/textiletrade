@@ -88,6 +88,8 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txthuahao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -244,6 +246,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txthuahao);
+            this.groupPanel1.Controls.Add(this.labelX12);
             this.groupPanel1.Controls.Add(this.txtCustomerColorNum);
             this.groupPanel1.Controls.Add(this.labelX11);
             this.groupPanel1.Controls.Add(this.txtCustomerPingming);
@@ -374,6 +378,7 @@
             this.uiLabel1.TabIndex = 56;
             this.uiLabel1.Text = "共计订单数：";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // checkBox2
             // 
@@ -864,6 +869,35 @@
             this.groupPanel2.TabIndex = 5;
             this.groupPanel2.Text = "订单清单";
             // 
+            // txthuahao
+            // 
+            this.txthuahao.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txthuahao.Border.Class = "TextBoxBorder";
+            this.txthuahao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthuahao.DisabledBackColor = System.Drawing.Color.White;
+            this.txthuahao.ForeColor = System.Drawing.Color.Black;
+            this.txthuahao.Location = new System.Drawing.Point(631, 19);
+            this.txthuahao.Name = "txthuahao";
+            this.txthuahao.PreventEnterBeep = true;
+            this.txthuahao.Size = new System.Drawing.Size(121, 21);
+            this.txthuahao.TabIndex = 62;
+            this.txthuahao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX12
+            // 
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Location = new System.Drawing.Point(568, 18);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(55, 23);
+            this.labelX12.TabIndex = 61;
+            this.labelX12.Text = "花号";
+            // 
             // 销售订单查询
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -954,5 +988,7 @@
         private DevComponents.DotNetBar.LabelX labelX11;
         private DevComponents.DotNetBar.Controls.TextBoxX txtCustomerPingming;
         private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.Controls.TextBoxX txthuahao;
+        private DevComponents.DotNetBar.LabelX labelX12;
     }
 }

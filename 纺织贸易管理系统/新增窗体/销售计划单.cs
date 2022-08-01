@@ -29,6 +29,9 @@ namespace 纺织贸易管理系统.新增窗体
         {
             InitializeComponent();
             CreateGrid.Create(this.Name, gridView1);
+            dateTimePicker1.Value = DateTime.Now;
+            cmbMoban.SelectedIndex = 0;
+            cmbFahuogongsi.DataSource = infoService.Getinfolst().Select(x => x.gsmc).ToList();
             checkBoxX1.Checked = Convert.ToBoolean(SettingService.GetSetting(new Setting() { formname = this.Name, settingname = "自动订单号编号", settingValue = "True" }).settingValue);
             try
             {
@@ -59,7 +62,7 @@ namespace 纺织贸易管理系统.新增窗体
             order.CustomerNum  = fm.linkman.BH;
             order.CustomerName = fm.linkman.MC;
             txtkehu.Text = fm.linkman.MC;
-            txtkehu.Text = fm.linkman.MC;
+            txtfullname.Text = fm.linkman.FullName;
             txtaddEamil.Text = fm.linkman.YX;
             txtaddress.Text = fm.linkman.dz;
             txtCustomerAddress.Text = fm.linkman.dz;
@@ -148,6 +151,9 @@ namespace 纺织贸易管理系统.新增窗体
             txtCustomerAddress.Text = "";
             txtaddress.Text = "";
             txtjiesuanfangshi.Text = "";
+            txtLoadingPort.Text = string.Empty;
+            txtfullname.Text = string.Empty;
+            txtFOB.Text = string.Empty;
             var yuangonglist = YuanGongTableService.GetYuanGongTablelst(x => x.Xingming.Contains(""));
             txtyewuyuan.Text = yuangonglist.Count > 0 ? yuangonglist[0].Xingming : "";
             orderDetailTables.Clear();
@@ -182,6 +188,13 @@ namespace 纺织贸易管理系统.新增窗体
             order.CustomerAddress = txtCustomerAddress.Text;
             order.HavePingColor = txtHavePingse.Text;
             order.SuppertEmail = txtsupemail.Text;
+            order.SignCompany = cmbFahuogongsi.Text;
+            order.Scopefrom =(int) nump1.Value;
+            order.ScopeEnd = (int)nump2.Value;
+            order.LoadingPort  = txtLoadingPort.Text ;
+            order.ShipmentTime = dateTimePicker1.Value;
+            order.CustomerFullName = txtfullname.Text;
+            order.FOB = txtFOB.Text;
         }
 
      
@@ -335,6 +348,13 @@ namespace 纺织贸易管理系统.新增窗体
             txtaddress.Text = order.JiaohuoAddress;
             txtjiesuanfangshi.Text = order.JiesuanStyle;
             combizhong .Text = order.MoneyType;
+            cmbFahuogongsi.Text = order.SignCompany;
+            txtLoadingPort.Text = order.LoadingPort;
+            dateTimePicker1.Value = order.ShipmentTime;
+            txtfullname.Text = order.CustomerFullName;
+            txtFOB.Text = order.FOB;
+            nump1.Value = order.Scopefrom;
+            nump2.Value = order.ScopeEnd;
             if (order.Rax == true)
             {
                 comhanshui.Text = "含税";
@@ -362,13 +382,15 @@ namespace 纺织贸易管理系统.新增窗体
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             赋值Order();
-            new Tools.打印合同() { orderTable = order, orderDetailTables = orderDetailTables.Where(x => x.sampleNum != null).ToList(),  }.Print(PrintPath.报表模板 + "销售合同.frx", PrintModel.Privew);
+            var moban = cmbMoban.SelectedIndex == 0 ? "销售合同.frx" : "EnglishContract.frx";
+            new Tools.打印合同() { orderTable = order, orderDetailTables = orderDetailTables.Where(x => x.sampleNum != null).ToList(),  }.Print(PrintPath.报表模板 + moban, PrintModel.Privew,cmbFahuogongsi.Text );
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             赋值Order();
-            new Tools.打印合同() { orderTable = order, orderDetailTables = orderDetailTables.Where(x => x.sampleNum != null).ToList() }.Print(PrintPath.报表模板 + "销售合同.frx", PrintModel.Design);
+            var moban = cmbMoban.SelectedIndex == 0 ? "销售合同.frx" : "EnglishContract.frx";
+            new Tools.打印合同() { orderTable = order, orderDetailTables = orderDetailTables.Where(x => x.sampleNum != null).ToList() }.Print(PrintPath.报表模板 + moban, PrintModel.Design,cmbFahuogongsi.Text );
         }
 
         private void txtkehu_KeyDown(object sender, KeyEventArgs e)

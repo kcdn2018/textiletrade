@@ -45,7 +45,13 @@ namespace BLL
                     kuanhao = jiyangdan.Kuanhao ,
                     houzhengli=jiyangdan.GHSMC,
                     Kuwei =jiyangdan.Kuwei ,
-                    chengpingmishu=jiyangdan.sl 
+                    chengpingmishu=jiyangdan.sl ,
+                    Huahao=string.Empty ,
+                    ColorNum=string.Empty,
+                    CustomName=string.Empty ,
+                    PiBuChang=string.Empty ,
+                    Pihao =string.Empty ,
+                    menfu=jiyangdan.mf ,
                 }) ;
             } 
             库存BLL .减少库存 (danjumingxitables,danju );
@@ -65,7 +71,13 @@ namespace BLL
                     kuanhao = jiyangdan.Kuanhao,
                     houzhengli = jiyangdan.GHSMC,
                     Kuwei=jiyangdan.Kuwei,
-                    chengpingmishu=jiyangdan.sl 
+                    chengpingmishu=jiyangdan.sl,
+                     Huahao = string.Empty,
+                    ColorNum = string.Empty,
+                    CustomName = string.Empty,
+                    PiBuChang = string.Empty,
+                    Pihao = string.Empty,
+                    menfu=jiyangdan.mf ,
                 });
             }
             库存BLL.增加库存 (danjumingxitables, danju);

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tools;
 using 纺织贸易管理系统.其他窗体;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -81,59 +82,20 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void ButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            if (txtckmc.Text == "")
+            if (!SelectStockHelper.Select(txtckmc, gridView1, danjumingxitables))
             {
-                MessageBox.Show("请先选择仓库名称", "错误", MessageBoxButtons.OK);
-                return;
+                gridControl1.RefreshDataSource();
+                gridView1.CloseEditor();
+                加载卷();
             }
-            var fm = new 库存选择() { StockName = txtckmc.Text };
-            fm.ShowDialog();
-            var i = gridView1.FocusedRowHandle;
-            foreach (var pingzhong in fm.pingzhong)
-            {
-                danjumingxitables[i].bizhong = "人民币￥";
-                danjumingxitables[i].Bianhao = pingzhong.BH;
-                danjumingxitables[i].guige = pingzhong.GG;
-                danjumingxitables[i].chengfeng = pingzhong.CF;
-                danjumingxitables[i].pingming = pingzhong.PM;
-                danjumingxitables[i].kezhong = pingzhong.KZ;
-                danjumingxitables[i].menfu = pingzhong.MF;
-                danjumingxitables[i].danwei = "米";
-                danjumingxitables[i].ContractNum = pingzhong.ContractNum;
-                danjumingxitables[i].CustomName = pingzhong.CustomName;
-                danjumingxitables[i].OrderNum = pingzhong.orderNum;
-                danjumingxitables[i].kuanhao = pingzhong.kuanhao;
-                danjumingxitables[i].houzhengli = pingzhong.houzhengli;
-                danjumingxitables[i].yanse = pingzhong.YS;
-                danjumingxitables[i].ganghao = pingzhong.GH;
-                danjumingxitables[i].chengpingjuanshu = pingzhong.JS;
-                danjumingxitables[i].chengpingmishu = pingzhong.MS;
-                danjumingxitables[i].Kuwei = pingzhong.Kuwei;
-                danjumingxitables[i].Huahao = pingzhong.Huahao;
-                danjumingxitables[i].ColorNum = pingzhong.ColorNum;
-                danjumingxitables[i].CustomerColorNum = pingzhong.CustomerColorNum;
-                danjumingxitables[i].CustomerPingMing = pingzhong.CustomerPingMing;
-                danjumingxitables[i].PiBuChang = pingzhong.PibuChang;
-                danjumingxitables[i].Pihao = pingzhong.Pihao;
-                danjumingxitables[i].Rangchang = pingzhong.Rangchang;
-                danjumingxitables[i].suilv = pingzhong.ID.ToString();
-                i++;
-                if (i == danjumingxitables.Count - 1)
-                    for (int j = 0; j < 30; j++)
-                    {
-                        danjumingxitables.Add(new danjumingxitable() { danhao = txtdanhao.Text, rq = dateEdit1.DateTime });
-                    }
-            }
-            fm.Dispose();
-            gridControl1.RefreshDataSource();
-            gridView1.CloseEditor();
-            加载卷();
         }
 
 
         private void 删除行ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gridView1.DeleteRow(gridView1.FocusedRowHandle);
+            加载卷();
+            gridView2.ClearSelection();
         }
 
         private void 添加行ToolStripMenuItem_Click(object sender, EventArgs e)

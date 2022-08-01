@@ -32,5 +32,30 @@ namespace BLL
                 return acc.Access;
             }
         }
+        /// <summary>
+        /// 检查是否有权限
+        /// </summary>
+        /// <param name="formname"></param>
+        /// <returns>有权限返回True,否则返回False</returns>
+        public static bool CheckAccess(string formname,bool ShowMessage)
+        {
+            var acc = AccessTableService.GetOneAccessTable(x => x.AccessName == formname && x.UserID == userid);
+            if (acc.AccessName == string.Empty)
+            {
+                AccessTableService.InsertAccessTable(new AccessTable() { Access = true, AccessName = formname, UserID = userid });
+                return true;
+            }
+            else
+            {
+                if (!acc.Access)
+                {
+                    if (ShowMessage == true)
+                    {
+                        MessageBox.Show($"您没有{formname }的权限，请联系管理员开通", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                return acc.Access;
+            }
+        }
     }
 }

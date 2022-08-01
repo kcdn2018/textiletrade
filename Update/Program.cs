@@ -12,7 +12,47 @@ namespace Update
         static void Main(string[] args)
         {
             Connect.Environmen = "公司";
-            创建复合明细表.CreatDuanTongZhiMenu();
+            try
+            {
+                创建复合明细表.CreatDuanTongZhiMenu();
+            }catch
+            { }
+            try
+            {
+                创建复合明细表.修改客户归属();
+            }
+            catch
+            { }
+            try
+            {
+                V2015.UpdateToV2015();
+            }
+            catch
+            { }
+            try
+            {
+                V2015.UpdateToV2016();
+            }
+            catch
+            { }
+            try
+            {
+                V2015.UpdateToV2017();
+            }
+            catch
+            { }
+            try
+            {
+                V2015.UpdateToV2018();
+            }
+            catch
+            { }
+            try
+            {
+                V2015.UpdateToV2018();
+            }
+            catch
+            { }
             //创建复合明细表.CreateDBId();
             //创建复合明细表.CreatTable();
             //创建复合明细表.AddLiuzhunka();

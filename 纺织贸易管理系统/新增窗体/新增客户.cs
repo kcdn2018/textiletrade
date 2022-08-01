@@ -25,11 +25,10 @@ namespace 纺织贸易管理系统.新增窗体
         {
             InitializeComponent();
             cmbMaitou.DataSource = Tools.获取模板.获取所有模板 (PrintPath.唛头模板);
-            cmbOwn.Text = User.user.YHBH;
-            var yonghulist = YhbService.GetYhblst();
+            var yonghulist = YuanGongTableService .GetYuanGongTablelst();
             foreach (var yonghu in yonghulist )
             {
-                cmbOwn.Items.Add(yonghu.YHBH + "/" + yonghu.YHMC);
+                cmbOwn.Items.Add( yonghu.Xingming );
             }
         }
 
@@ -91,6 +90,12 @@ namespace 纺织贸易管理系统.新增窗体
             txtusd.Text = LinkMan.USD.ToString();
             cmbOwn.Text = LinkMan.own;
             cmbMaitou.Text= MaitouService.GetOneMaitou(x=>x.khbh==LinkMan.BH ).path ;
+            txtusd.Text= LinkMan.USD.ToString ("F2");
+            txtFAX.Text=LinkMan.FAX  ;
+             txtTexCode.Text=LinkMan.TexCode ;
+             txtHAIPHONGPORT.Text=LinkMan.HAIPHONGPORT ;
+            txtZIPCODE.Text=LinkMan.ZIPCODE  ;
+             txtFullName.Text=LinkMan.FullName ;
         }
         private void InitPingzhong()
         {
@@ -101,7 +106,7 @@ namespace 纺织贸易管理系统.新增窗体
             LinkMan.Lxr  = txtlianxiren.Text;
             LinkMan.fp = txtyingkaifapiao.Text.ToDecimal(0);
             LinkMan.YingKaifapiao = txtyingkaifapiao.Text.ToDecimal(0);
-            LinkMan.own = cmbOwn.Text.Split ('/')[0];
+            LinkMan.own = cmbOwn.Text;
             LinkMan.YX = txtyouxiang.Text;
             LinkMan.QQ = txtqq.Text;
             LinkMan.ZhangQi = txtzhangqi.Text.ToInt ();
@@ -114,6 +119,11 @@ namespace 纺织贸易管理系统.新增窗体
             LinkMan.MC  = txtpingming.Text;
             LinkMan.sxed = txtedu.Text.ToDecimal(0);
             LinkMan.USD = txtusd.Text.TryToDecmial();
+            LinkMan.FAX = txtFAX.Text;
+            LinkMan.TexCode = txtTexCode.Text;
+            LinkMan.HAIPHONGPORT = txtHAIPHONGPORT.Text;
+            LinkMan.ZIPCODE = txtZIPCODE.Text;
+            LinkMan.FullName = txtFullName.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -122,7 +132,11 @@ namespace 纺织贸易管理系统.新增窗体
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请输入客户名称！客户名称不能为空");
                 return;
             }
-           
+            if (string.IsNullOrWhiteSpace(cmbOwn .Text))
+            {
+                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请选择该客户归属的业务员！归属业务员不能为空");
+                return;
+            }
             InitPingzhong();
             if (Useful == FormUseful.新增)
             {

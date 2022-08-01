@@ -86,6 +86,9 @@
             this.ButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmddanwei = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colorbtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txttuihuoyuanying = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -101,6 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmddanwei)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -137,14 +142,14 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.toolStripMenuItem1.Text = "打印编辑";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
             this.toolStripMenuItem2.Text = "打印预览";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -666,7 +671,7 @@
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 226);
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -674,7 +679,7 @@
             this.ButtonEdit2,
             this.cmddanwei,
             this.colorbtn});
-            this.gridControl1.Size = new System.Drawing.Size(1202, 224);
+            this.gridControl1.Size = new System.Drawing.Size(1202, 124);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -792,12 +797,42 @@
             this.colorbtn.Name = "colorbtn";
             this.colorbtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colorbtn_ButtonClick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txttuihuoyuanying);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Location = new System.Drawing.Point(0, 350);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1202, 100);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "退货原因";
+            // 
+            // txttuihuoyuanying
+            // 
+            this.txttuihuoyuanying.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txttuihuoyuanying.Location = new System.Drawing.Point(3, 17);
+            this.txttuihuoyuanying.Multiline = true;
+            this.txttuihuoyuanying.Name = "txttuihuoyuanying";
+            this.txttuihuoyuanying.Size = new System.Drawing.Size(1196, 80);
+            this.txttuihuoyuanying.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gridControl1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 226);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1202, 124);
+            this.panel1.TabIndex = 12;
+            // 
             // 销售退货单
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 450);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "销售退货单";
@@ -820,6 +855,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmddanwei)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorbtn)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -884,5 +922,8 @@
         private Sunny.UI.UITextBox txtChachefei;
         private DevComponents.DotNetBar.LabelX labelX19;
         private Sunny.UI.UITextBox txtyunfei;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txttuihuoyuanying;
+        private System.Windows.Forms.Panel panel1;
     }
 }

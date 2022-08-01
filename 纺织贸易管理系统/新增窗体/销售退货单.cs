@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tools;
 using 纺织贸易管理系统.其他窗体;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -40,8 +41,7 @@ namespace 纺织贸易管理系统.新增窗体
             gridView1.Columns["chengpingjuanshu"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
             gridView1.Columns["chengpingjuanshu"].SummaryItem.FieldName = "chengpingjuanshu";
             gridView1.Columns["chengpingjuanshu"].SummaryItem.DisplayFormat = "{0:0.##}";
-            gridView1.IndicatorWidth = 30;
-           
+            gridView1.IndicatorWidth = 30;           
         }
 
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,28 +92,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void ButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 品种选择();
-            fm.ShowDialog();
-            var i = gridView1.FocusedRowHandle;
-            foreach (var pingzhong in fm.pingzhong)
-            {
-                danjumingxitables[i].bizhong = "人民币￥";
-                danjumingxitables[i].Bianhao  = pingzhong.bh;
-                danjumingxitables[i].guige = pingzhong.gg;
-                danjumingxitables[i].chengfeng = pingzhong.cf;
-                danjumingxitables[i].pingming  = pingzhong.pm;
-                danjumingxitables[i].kezhong  = pingzhong.kz;          
-                danjumingxitables[i].menfu  = pingzhong.mf;
-                danjumingxitables[i].FrabicWidth = pingzhong.mf ;
-                danjumingxitables[i].danwei  = "米";
-                i++;
-                if (i == danjumingxitables.Count - 1)
-                    for (int j = 0; j < 30; j++)
-                    {
-                        danjumingxitables.Add(new danjumingxitable () { danhao  = txtdanhao.Text, rq = dateEdit1.DateTime});
-                    }
-            }
-            fm.Dispose();
+            SelectProductHelper.Select(gridView1, danjumingxitables);
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
         }
@@ -191,6 +170,7 @@ namespace 纺织贸易管理系统.新增窗体
             danju.ChaCheFei = txtChachefei.Text.TryToDecmial();
             danju.ZhuangXieFei = txtzhuangxiefei.Text.TryToDecmial();
             danju.own = User.user.YHBH;
+            danju.remarker = txttuihuoyuanying.Text;
             if (useful == FormUseful.新增)
             {
                 销售退货单BLL .保存单据(danju, danjumingxitables);
@@ -278,6 +258,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtzhuangxiefei.Text = danju.ZhuangXieFei.ToString();
             txtChachefei.Text = danju.ChaCheFei.ToString();
            dateEdit1.DateTime=danju.rq;
+            txttuihuoyuanying.Text = danju.remarker;
             danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == txtdanhao.Text);
             var length = danjumingxitables.Count;
            foreach(var d in danjumingxitables )
@@ -342,8 +323,30 @@ namespace 纺织贸易管理系统.新增窗体
         {
             PrintDanju(PrintModel.Design);
         }
+        private void 赋值单据()
+        {
+            danju.bz = txtbeizhu.Text;
+            danju.CarLeixing = txtQicheleixing.Text;
+            danju.CarNum = txtchepai.Text;
+            danju.ckmc = cmbcunfang.Text;
+            danju.dh = txtdanhao.Text;
+            danju.djlx = DanjuLeiXing.退货申请单;
+            danju.rq = dateEdit1.DateTime;
+            danju.shouhuodizhi = txtckmc.Text;
+            danju.lianxiren = txtlianxiren.Text;
+            danju.Qiankuan = cmbqiankuan.Text;
+            danju.Hanshui = comhanshui.Text;
+            danju.je = danjumingxitables.Sum(x => x.hanshuiheji);
+            danju.totaljuanshu = danjumingxitables.Sum(x => x.chengpingjuanshu);
+            danju.TotalMishu = danjumingxitables.Sum(x => x.hanshuiheji);
+            danju.wuliugongsi = txtwuliu.Text;
+            danju.yunfei =txtyunfei.Text.TryToDecmial ();
+            danju.lianxidianhua = txtlianxidianhua.Text;
+            danju.remarker = txttuihuoyuanying.Text;
+        }
         private void PrintDanju(int useful)
         {
+            赋值单据();
             new Tools.打印销售退货单()
             {
                 danjuTable = danju,

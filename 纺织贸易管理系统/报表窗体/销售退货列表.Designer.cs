@@ -70,6 +70,8 @@
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txthuahao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtksmc.Properties)).BeginInit();
@@ -175,6 +177,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.txthuahao);
+            this.groupPanel1.Controls.Add(this.labelX10);
             this.groupPanel1.Controls.Add(this.txtordernum);
             this.groupPanel1.Controls.Add(this.labelX6);
             this.groupPanel1.Controls.Add(this.txtGuige);
@@ -630,6 +634,35 @@
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
+            // txthuahao
+            // 
+            this.txthuahao.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txthuahao.Border.Class = "TextBoxBorder";
+            this.txthuahao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthuahao.DisabledBackColor = System.Drawing.Color.White;
+            this.txthuahao.ForeColor = System.Drawing.Color.Black;
+            this.txthuahao.Location = new System.Drawing.Point(643, 17);
+            this.txthuahao.Name = "txthuahao";
+            this.txthuahao.PreventEnterBeep = true;
+            this.txthuahao.Size = new System.Drawing.Size(121, 21);
+            this.txthuahao.TabIndex = 52;
+            this.txthuahao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(582, 16);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(55, 23);
+            this.labelX10.TabIndex = 51;
+            this.labelX10.Text = "花号";
+            // 
             // 销售退货列表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -700,5 +733,7 @@
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.TextBoxX txtordernum;
         private DevComponents.DotNetBar.LabelX labelX6;
+        private DevComponents.DotNetBar.Controls.TextBoxX txthuahao;
+        private DevComponents.DotNetBar.LabelX labelX10;
     }
 }

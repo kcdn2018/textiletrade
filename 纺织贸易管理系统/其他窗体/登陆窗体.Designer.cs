@@ -100,7 +100,7 @@
             this.linkLabel2.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel2.ForeColor = System.Drawing.Color.Black;
             this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(106, 214);
+            this.linkLabel2.Location = new System.Drawing.Point(120, 247);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(136, 16);
@@ -116,7 +116,7 @@
             this.linkLabel1.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linkLabel1.ForeColor = System.Drawing.Color.Black;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(28, 214);
+            this.linkLabel1.Location = new System.Drawing.Point(42, 247);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(56, 16);
@@ -142,15 +142,17 @@
             this.checkBoxX1.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxX1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxX1.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Bold);
-            this.checkBoxX1.Location = new System.Drawing.Point(45, 130);
+            this.checkBoxX1.Location = new System.Drawing.Point(37, 137);
             this.checkBoxX1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.checkBoxX1.MinimumSize = new System.Drawing.Size(1, 1);
             this.checkBoxX1.Name = "checkBoxX1";
             this.checkBoxX1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.checkBoxX1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.checkBoxX1.Size = new System.Drawing.Size(194, 29);
+            this.checkBoxX1.Style = Sunny.UI.UIStyle.Custom;
             this.checkBoxX1.TabIndex = 17;
             this.checkBoxX1.Text = "记住用户名和密码";
+            this.checkBoxX1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.checkBoxX1.ValueChanged += new Sunny.UI.UICheckBox.OnValueChanged(this.uiCheckBox1_ValueChanged);
             // 
             // btnLogin
@@ -158,16 +160,18 @@
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnLogin.ForeSelectedColor = System.Drawing.Color.Empty;
-            this.btnLogin.Location = new System.Drawing.Point(29, 165);
+            this.btnLogin.Location = new System.Drawing.Point(37, 184);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLogin.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.RectSelectedColor = System.Drawing.Color.Empty;
-            this.btnLogin.Size = new System.Drawing.Size(106, 31);
+            this.btnLogin.Size = new System.Drawing.Size(106, 40);
+            this.btnLogin.Style = Sunny.UI.UIStyle.Custom;
             this.btnLogin.StyleCustomMode = true;
             this.btnLogin.TabIndex = 22;
             this.btnLogin.Text = "登陆";
             this.btnLogin.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLogin.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnCancel
@@ -179,20 +183,21 @@
             this.btnCancel.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
             this.btnCancel.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
             this.btnCancel.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.Location = new System.Drawing.Point(152, 165);
+            this.btnCancel.Location = new System.Drawing.Point(160, 184);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(127)))), ((int)(((byte)(128)))));
             this.btnCancel.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
             this.btnCancel.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(87)))), ((int)(((byte)(89)))));
-            this.btnCancel.Size = new System.Drawing.Size(106, 31);
+            this.btnCancel.Size = new System.Drawing.Size(106, 40);
             this.btnCancel.Style = Sunny.UI.UIStyle.Custom;
             this.btnCancel.StyleCustomMode = true;
             this.btnCancel.Symbol = 61453;
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "取消";
             this.btnCancel.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCancel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ComboBoxX1
@@ -209,9 +214,12 @@
             this.ComboBoxX1.MinimumSize = new System.Drawing.Size(62, 0);
             this.ComboBoxX1.Name = "ComboBoxX1";
             this.ComboBoxX1.Padding = new System.Windows.Forms.Padding(0, 0, 38, 3);
-            this.ComboBoxX1.Size = new System.Drawing.Size(161, 27);
+            this.ComboBoxX1.Size = new System.Drawing.Size(161, 36);
+            this.ComboBoxX1.Style = Sunny.UI.UIStyle.Custom;
             this.ComboBoxX1.TabIndex = 14;
             this.ComboBoxX1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ComboBoxX1.Watermark = "";
+            this.ComboBoxX1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.ComboBoxX1.SelectedIndexChanged += new System.EventHandler(this.ComboBoxX1_SelectedIndexChanged);
             // 
             // txtUser
@@ -222,16 +230,17 @@
             this.txtUser.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.txtUser.Location = new System.Drawing.Point(97, 51);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtUser.Maximum = 2147483647D;
-            this.txtUser.Minimum = -2147483648D;
             this.txtUser.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtUser.Name = "txtUser";
             this.txtUser.Padding = new System.Windows.Forms.Padding(5);
-            this.txtUser.Size = new System.Drawing.Size(161, 26);
+            this.txtUser.ShowText = false;
+            this.txtUser.Size = new System.Drawing.Size(161, 35);
+            this.txtUser.Style = Sunny.UI.UIStyle.Custom;
             this.txtUser.Symbol = 61447;
             this.txtUser.TabIndex = 15;
             this.txtUser.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtUser.Watermark = "用户名";
+            this.txtUser.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtpwd
             // 
@@ -241,17 +250,18 @@
             this.txtpwd.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
             this.txtpwd.Location = new System.Drawing.Point(97, 96);
             this.txtpwd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtpwd.Maximum = 2147483647D;
-            this.txtpwd.Minimum = -2147483648D;
             this.txtpwd.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpwd.Name = "txtpwd";
             this.txtpwd.Padding = new System.Windows.Forms.Padding(5);
             this.txtpwd.PasswordChar = '*';
-            this.txtpwd.Size = new System.Drawing.Size(161, 26);
+            this.txtpwd.ShowText = false;
+            this.txtpwd.Size = new System.Drawing.Size(161, 33);
+            this.txtpwd.Style = Sunny.UI.UIStyle.Custom;
             this.txtpwd.Symbol = 61475;
             this.txtpwd.TabIndex = 16;
             this.txtpwd.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtpwd.Watermark = "密码";
+            this.txtpwd.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // pictureBox1
             // 
@@ -283,14 +293,13 @@
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Location = new System.Drawing.Point(471, 129);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(276, 242);
+            this.panel1.Size = new System.Drawing.Size(276, 281);
             this.panel1.TabIndex = 25;
             // 
             // 登陆窗体
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(788, 500);
@@ -320,6 +329,7 @@
             this.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(137)))), ((int)(((byte)(4)))));
             this.TitleHeight = 31;
             this.TopMost = true;
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 788, 500);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.登陆窗体_FormClosed);
             this.Load += new System.EventHandler(this.登陆窗体_Load);
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();

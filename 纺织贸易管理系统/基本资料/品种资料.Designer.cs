@@ -44,6 +44,7 @@
             this.直接打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新增模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbMoban = new System.Windows.Forms.ToolStripComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.打印标签ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +99,6 @@
             this.txtguige = new Sunny.UI.UITextBox();
             this.txthuohao = new Sunny.UI.UITextBox();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
-            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.uiRadioButtonGroup1.SuspendLayout();
@@ -212,7 +212,7 @@
             // 
             this.打印编辑ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
             this.打印编辑ToolStripMenuItem.Name = "打印编辑ToolStripMenuItem";
-            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.打印编辑ToolStripMenuItem.Text = "打印编辑";
             this.打印编辑ToolStripMenuItem.Click += new System.EventHandler(this.打印编辑ToolStripMenuItem_Click);
             // 
@@ -220,7 +220,7 @@
             // 
             this.打印预览ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
-            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.打印预览ToolStripMenuItem.Text = "打印预览";
             this.打印预览ToolStripMenuItem.Click += new System.EventHandler(this.打印预览ToolStripMenuItem_Click);
             // 
@@ -228,7 +228,7 @@
             // 
             this.直接打印ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.直接打印ToolStripMenuItem.Name = "直接打印ToolStripMenuItem";
-            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.直接打印ToolStripMenuItem.Text = "直接打印";
             this.直接打印ToolStripMenuItem.Click += new System.EventHandler(this.直接打印ToolStripMenuItem_Click);
             // 
@@ -236,7 +236,7 @@
             // 
             this.新增模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
             this.新增模板ToolStripMenuItem.Name = "新增模板ToolStripMenuItem";
-            this.新增模板ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.新增模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.新增模板ToolStripMenuItem.Text = "新增模板";
             this.新增模板ToolStripMenuItem.Click += new System.EventHandler(this.buttonX1_Click);
             // 
@@ -244,9 +244,17 @@
             // 
             this.删除模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
             this.删除模板ToolStripMenuItem.Name = "删除模板ToolStripMenuItem";
-            this.删除模板ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除模板ToolStripMenuItem.Text = "删除模板";
             this.删除模板ToolStripMenuItem.Click += new System.EventHandler(this.删除模板ToolStripMenuItem_Click);
+            // 
+            // 重命名ToolStripMenuItem
+            // 
+            this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
+            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
+            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.重命名ToolStripMenuItem.Text = "重命名";
+            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
             // 
             // cmbMoban
             // 
@@ -524,6 +532,8 @@
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.EnableAppearanceHideSelection = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -734,31 +744,31 @@
             // 
             // expandableSplitter1
             // 
-            this.expandableSplitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+            this.expandableSplitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.expandableSplitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
             this.expandableSplitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandableSplitter1.ExpandableControl = this.treeView1;
-            this.expandableSplitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+            this.expandableSplitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.expandableSplitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.expandableSplitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.expandableSplitter1.ExpandLineColor = System.Drawing.Color.Black;
             this.expandableSplitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
             this.expandableSplitter1.ForeColor = System.Drawing.Color.Black;
-            this.expandableSplitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.expandableSplitter1.GripDarkColor = System.Drawing.Color.Black;
             this.expandableSplitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.expandableSplitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.expandableSplitter1.GripLightColor = System.Drawing.Color.White;
             this.expandableSplitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.expandableSplitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
-            this.expandableSplitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
+            this.expandableSplitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.expandableSplitter1.HotBackColor2 = System.Drawing.Color.Empty;
             this.expandableSplitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
             this.expandableSplitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-            this.expandableSplitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+            this.expandableSplitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.expandableSplitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.expandableSplitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.expandableSplitter1.HotExpandLineColor = System.Drawing.Color.Black;
             this.expandableSplitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.expandableSplitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+            this.expandableSplitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.expandableSplitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.White;
             this.expandableSplitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.expandableSplitter1.Location = new System.Drawing.Point(127, 0);
             this.expandableSplitter1.Name = "expandableSplitter1";
@@ -781,6 +791,7 @@
             this.txtbianhao.Size = new System.Drawing.Size(96, 23);
             this.txtbianhao.TabIndex = 32;
             this.txtbianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbianhao.Watermark = "";
             this.txtbianhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtbianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -798,6 +809,7 @@
             this.txtGHSBH.Size = new System.Drawing.Size(96, 23);
             this.txtGHSBH.TabIndex = 33;
             this.txtGHSBH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtGHSBH.Watermark = "";
             this.txtGHSBH.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtGHSBH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -815,6 +827,7 @@
             this.txtFengge.Size = new System.Drawing.Size(96, 23);
             this.txtFengge.TabIndex = 34;
             this.txtFengge.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtFengge.Watermark = "";
             this.txtFengge.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtFengge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -832,6 +845,7 @@
             this.txtpingming.Size = new System.Drawing.Size(96, 23);
             this.txtpingming.TabIndex = 34;
             this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtpingming.Watermark = "";
             this.txtpingming.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -849,6 +863,7 @@
             this.txtGonghuoshang.Size = new System.Drawing.Size(96, 23);
             this.txtGonghuoshang.TabIndex = 34;
             this.txtGonghuoshang.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtGonghuoshang.Watermark = "";
             this.txtGonghuoshang.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtGonghuoshang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -866,6 +881,7 @@
             this.txtyingwenming.Size = new System.Drawing.Size(96, 23);
             this.txtyingwenming.TabIndex = 34;
             this.txtyingwenming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtyingwenming.Watermark = "";
             this.txtyingwenming.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtyingwenming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -883,6 +899,7 @@
             this.txtYongtu.Size = new System.Drawing.Size(96, 23);
             this.txtYongtu.TabIndex = 34;
             this.txtYongtu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtYongtu.Watermark = "";
             this.txtYongtu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtYongtu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -900,6 +917,7 @@
             this.txtguige.Size = new System.Drawing.Size(96, 23);
             this.txtguige.TabIndex = 34;
             this.txtguige.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtguige.Watermark = "";
             this.txtguige.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtguige.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -917,6 +935,7 @@
             this.txthuohao.Size = new System.Drawing.Size(96, 23);
             this.txthuohao.TabIndex = 34;
             this.txthuohao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txthuohao.Watermark = "";
             this.txthuohao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txthuohao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbianhao_KeyDown);
             // 
@@ -953,14 +972,6 @@
             this.uiGroupBox1.Text = "查询条件";
             this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiGroupBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // 重命名ToolStripMenuItem
-            // 
-            this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
-            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
-            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.重命名ToolStripMenuItem.Text = "重命名";
-            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
             // 
             // 品种资料
             // 
