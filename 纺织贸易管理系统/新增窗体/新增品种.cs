@@ -171,7 +171,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtweishapihao.Text = Pingzhong.WeishaPihao;
             try
             {
-                if (Pingzhong.rq != null)
+                if ( Pingzhong.rq != null&&Pingzhong.rq >DateTime.Parse ("0001-01-01 00:00:00"))
                 {
                     dateEdit1.DateTime = Convert.ToDateTime(Pingzhong.rq);
                 }else
@@ -197,6 +197,10 @@ namespace 纺织贸易管理系统.新增窗体
             try
             {
                 pictureBox1.Image = Tools.ImgHelp.BytesToImage(MadanPictureService.GetOneMadanPicture(x => x.ckdh == Pingzhong.bh).picture);
+                if(pictureBox1.Image !=null )
+                {
+                    label22.Visible = false;
+                }
                 pictureBox2.Image = pictureBox1.Image;
             }
             catch
@@ -336,8 +340,11 @@ namespace 纺织贸易管理系统.新增窗体
             if (Useful == FormUseful.新增)
             {
                 dbService.Insertdb(Pingzhong);
-                var madan = new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image),rq=DateTime.Now  };
-                MadanPictureService.InsertMadanPicture(madan );
+                if (pictureBox1.Image != null)
+                {
+                    var madan = new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now };
+                    MadanPictureService.InsertMadanPicture(madan);
+                }
                 ShengChengGongYiService.DeleteShengChengGongYi(x => x.SPBH == Pingzhong.bh);
                 ShengChengGongYiService.InsertShengChengGongYilst(CreateGongyi());
             }
@@ -346,30 +353,31 @@ namespace 纺织贸易管理系统.新增窗体
                 if (Useful == FormUseful.复制)
                 {                   
                     dbService.Insertdb(Pingzhong);
-                    MadanPictureService.InsertMadanPicture(new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now });
+                    if (pictureBox1.Image != null)
+                    {
+                        MadanPictureService.InsertMadanPicture(new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now });
+                    }
                     ShengChengGongYiService.DeleteShengChengGongYi(x => x.SPBH == Pingzhong.bh);
                     ShengChengGongYiService.InsertShengChengGongYilst(CreateGongyi());
                 }
                 else
                 {                   
-                    dbService.Updatedb(Pingzhong, x => x.ID  ==oldbianhao);
+                       dbService.Updatedb(Pingzhong, x => x.ID  ==oldbianhao);
                         Connect.CreatConnect ().DoSQL ("Update PriceTable set bianhao='" + txtBianhao.Text + "' where bianhao='" + old+"'");
                     if (MadanPictureService.GetMadanPicturelst(x => x.ckdh == Pingzhong.bh).Count > 0)
                     {
                         MadanPictureService.DeleteMadanPicture ( x => x.ckdh == Pingzhong.bh);
-                        //var madan = new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image) };
-                        //var fm = new 图片显示();
-                        //fm.Image = Tools.ImgHelp.BytesToImage(madan.picture);
-                        //fm.ShowDialog();
-                        MadanPictureService.InsertMadanPicture(new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now });
+                        if (pictureBox1.Image != null)
+                        {
+                            MadanPictureService.InsertMadanPicture(new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now });
+                        }
                     }
                     else
                     {
-                        //var madan = new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image) };
-                        //var fm = new 图片显示();
-                        //fm.Image = Tools.ImgHelp.BytesToImage(madan.picture);
-                        //fm.ShowDialog();
-                        MadanPictureService.InsertMadanPicture(new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now });
+                        if (pictureBox1.Image != null)
+                        {
+                            MadanPictureService.InsertMadanPicture(new MadanPicture { ckdh = Pingzhong.bh, picture = Tools.ImgHelp.ImageToBytes(pictureBox1.Image), rq = DateTime.Now });
+                        }
                     }
                     ShengChengGongYiService.DeleteShengChengGongYi(x => x.SPBH == Pingzhong.bh);
                     ShengChengGongYiService.InsertShengChengGongYilst(CreateGongyi());
@@ -417,7 +425,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             if (Useful == FormUseful.新增)
             {
-                MadanPictureService.DeleteMadanPicture(x => x.khbh == txtBianhao.Text);
+                MadanPictureService.DeleteMadanPicture(x => x.ckdh == txtBianhao.Text);
             }
             SettingService.Update(new Setting() { formname = this.Name, settingname = "自动编号", settingValue = cmbzhidongbianhao.Text });
             var f = LetterTableService.GetOneLetterTable(x => x.own == User.user.YHBH);
@@ -536,10 +544,59 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 粘贴ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IDataObject iData = Clipboard.GetDataObject();
-            if (iData.GetDataPresent(DataFormats.Bitmap))
+            try
             {
-                pictureBox1.Image = (Bitmap)iData.GetData(DataFormats.Bitmap );
+                IDataObject iData = Clipboard.GetDataObject();
+                if (iData.GetDataPresent(DataFormats.MetafilePict))
+                {
+                    var img = Clipboard.GetImage();
+                    pictureBox1.Tag = Guid.NewGuid();
+                    pictureBox1.Image = img;
+                }
+                else if (iData.GetDataPresent(DataFormats.FileDrop))
+                {
+                    var files = Clipboard.GetFileDropList();
+                    if (files.Count == 0) { return; }
+                    pictureBox1.Tag = Guid.NewGuid();
+                    pictureBox1.Image = Image.FromFile(files[0]);
+                }
+
+                else if (iData.GetDataPresent(DataFormats.Text))
+                {
+                    var path = (String)iData.GetData(DataFormats.Text);
+                    var chars = Path.GetInvalidPathChars();
+                    if (path.IndexOfAny(chars) >= 0)
+                    {
+                        MessageBox.Show("路径中包含非法字符！");
+                        return;
+                    }
+                    if (System.IO.File.Exists(path))
+                    {
+                        var name = Path.GetFileNameWithoutExtension(path);
+                        var extension = path.Substring(path.LastIndexOf("."));
+                        string imgType = ".png|.jpg|.jpeg";
+                        if (imgType.Contains(extension.ToLower()))
+                        {
+                            pictureBox1.Image = Image.FromFile(path);
+                            pictureBox1.Tag = Guid.NewGuid();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("格式错误！");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("文件不存在！");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("粘贴图片失败" + ex.Message);
+                return;
             }
         }
 

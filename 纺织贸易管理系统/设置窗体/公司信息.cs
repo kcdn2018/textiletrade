@@ -33,6 +33,7 @@ namespace 纺织贸易管理系统.设置窗体
             txtBankNum.Text = gsinfo.BankNum;
             txtEmail.Text = gsinfo.Email;
             txttaxNum.Text = gsinfo.TaxNum;
+            txtBankNo.Text = gsinfo.BankNo;
             cmbbianhao.Text = SettingService.GetSetting (new Model.Setting() { formname = "", settingname = "编号规则", settingValue = cmbcaigou.Text }).settingValue ;
             cmbcaigou.Text = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "采购显示订单明细", settingValue = cmbcaigou.Text }).settingValue ;
             cmbxianshi .Text = SettingService.GetSetting(new Model.Setting() { formname = "", settingname = "订单显示样式", settingValue = cmbcaigou.Text }).settingValue ;

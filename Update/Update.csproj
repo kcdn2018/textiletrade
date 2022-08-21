@@ -79,10 +79,13 @@
     <Compile Include="1025.cs" />
     <Compile Include="AddColumn.cs" />
     <Compile Include="AddNewMenu.cs" />
+    <Compile Include="CheckDB.cs" />
+    <Compile Include="DBName.cs" />
     <Compile Include="FixHanshui.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rukutableAddId.cs" />
+    <Compile Include="TableStructure.cs" />
     <Compile Include="创建复合明细表.cs" />
     <Compile Include="更新数据库版本.cs" />
   </ItemGroup>

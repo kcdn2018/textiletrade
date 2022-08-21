@@ -203,12 +203,12 @@ namespace 纺织贸易管理系统.新增窗体
             try
             {
                 danjumingxitables[gridView1.FocusedRowHandle].hanshuiheji = danjumingxitables[gridView1.FocusedRowHandle].hanshuidanjia * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
-                danjumingxitables[gridView1.FocusedRowHandle].weishuiheji = danjumingxitables[gridView1.FocusedRowHandle].weishuidanjia * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
+                danjumingxitables[gridView1.FocusedRowHandle].TotalBuy  = danjumingxitables[gridView1.FocusedRowHandle].BuyPrice  * danjumingxitables[gridView1.FocusedRowHandle].chengpingmishu;
                 if (cmbCaihouhansui.Text == "含税")
-                { danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].weishuiheji / (1 + QueryTime.Tax / 100); }
+                { danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].TotalBuy  / (1 + QueryTime.Tax / 100); }
                 else
                 {
-                    danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].weishuiheji;
+                    danjumingxitables[gridView1.FocusedRowHandle].Cost = danjumingxitables[gridView1.FocusedRowHandle].TotalBuy;
                 }
                 decimal xiaoshoue = 0;
                 if(cmbxiaoshouhanshui.Text =="含税")
@@ -546,8 +546,6 @@ namespace 纺织贸易管理系统.新增窗体
                 txtkehu.Text = danju.ksmc;
             }
         }
-
-
         private void 保存样式ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateGrid.SaveGridview(this.Name, gridView1);
@@ -570,25 +568,6 @@ namespace 纺织贸易管理系统.新增窗体
             var fm = new 供货商选择();
             fm.ShowDialog();
             txtjiagongchang.Text = fm.linkman.MC;
-        }
-
-        private void ckshifa_ValueChanged(object sender, bool value)
-        {
-            if (value)
-            {
-                foreach (var d in danjumingxitables)
-                {
-                    d.hanshuiheji = d.hanshuidanjia * d.toupimishu;
-                }
-            }
-            else
-            {
-                foreach (var d in danjumingxitables)
-                {
-                    d.hanshuiheji = d.hanshuidanjia * d.chengpingmishu;
-                }
-            }
-            gridControl1.RefreshDataSource();
         }
 
         private void txtyewuyuan_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -670,12 +649,12 @@ namespace 纺织贸易管理系统.新增窗体
                     if (m.hanshuiheji != 0 && m.weishuiheji != 0)
                     {
                         m.hanshuiheji = m.hanshuidanjia * m.chengpingmishu;
-                        m.weishuiheji = m.weishuidanjia * m.chengpingmishu;
+                        m.TotalBuy  = m.BuyPrice  * m.chengpingmishu;
                         if (cmbCaihouhansui.Text == "含税")
-                        { m.Cost = m.weishuiheji / (1 + QueryTime.Tax / 100); }
+                        { m.Cost = m.TotalBuy  / (1 + QueryTime.Tax / 100); }
                         else
                         {
-                            m.Cost = m.weishuiheji;
+                            m.Cost = m.TotalBuy ;
                         }
                         decimal xiaoshoue = 0;
                         if (cmbxiaoshouhanshui.Text == "含税")

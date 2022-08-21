@@ -35,6 +35,7 @@
             this.打印预览ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.直接打印ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmbMoban = new System.Windows.Forms.ToolStripComboBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtGongchandanhao = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX22 = new DevComponents.DotNetBar.LabelX();
@@ -108,7 +109,8 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colorbtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.cmbMoban = new System.Windows.Forms.ToolStripComboBox();
+            this.txtkuanhao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX23 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -168,7 +170,7 @@
             // 
             this.打印预览ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
-            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印预览ToolStripMenuItem.Text = "打印预览";
             this.打印预览ToolStripMenuItem.Click += new System.EventHandler(this.打印预览ToolStripMenuItem_Click);
             // 
@@ -176,7 +178,7 @@
             // 
             this.打印编辑ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
             this.打印编辑ToolStripMenuItem.Name = "打印编辑ToolStripMenuItem";
-            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印编辑ToolStripMenuItem.Text = "打印编辑";
             this.打印编辑ToolStripMenuItem.Click += new System.EventHandler(this.打印编辑ToolStripMenuItem_Click);
             // 
@@ -184,12 +186,23 @@
             // 
             this.直接打印ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.直接打印ToolStripMenuItem.Name = "直接打印ToolStripMenuItem";
-            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.直接打印ToolStripMenuItem.Text = "直接打印";
             this.直接打印ToolStripMenuItem.Click += new System.EventHandler(this.直接打印ToolStripMenuItem_Click);
             // 
+            // cmbMoban
+            // 
+            this.cmbMoban.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoban.Items.AddRange(new object[] {
+            "工厂单据",
+            "客户单据"});
+            this.cmbMoban.Name = "cmbMoban";
+            this.cmbMoban.Size = new System.Drawing.Size(121, 36);
+            // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtkuanhao);
+            this.groupControl1.Controls.Add(this.labelX23);
             this.groupControl1.Controls.Add(this.txtGongchandanhao);
             this.groupControl1.Controls.Add(this.labelX22);
             this.groupControl1.Controls.Add(this.labelX21);
@@ -275,7 +288,7 @@
             // 
             // 
             this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX21.Location = new System.Drawing.Point(704, 176);
+            this.labelX21.Location = new System.Drawing.Point(704, 213);
             this.labelX21.Name = "labelX21";
             this.labelX21.Size = new System.Drawing.Size(65, 23);
             this.labelX21.TabIndex = 105;
@@ -283,7 +296,7 @@
             // 
             // txtGengdan
             // 
-            this.txtGengdan.Location = new System.Drawing.Point(769, 178);
+            this.txtGengdan.Location = new System.Drawing.Point(769, 215);
             this.txtGengdan.Name = "txtGengdan";
             this.txtGengdan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -297,7 +310,7 @@
             // 
             // 
             this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX20.Location = new System.Drawing.Point(704, 140);
+            this.labelX20.Location = new System.Drawing.Point(704, 174);
             this.labelX20.Name = "labelX20";
             this.labelX20.Size = new System.Drawing.Size(65, 23);
             this.labelX20.TabIndex = 103;
@@ -305,7 +318,7 @@
             // 
             // txtBuliaoSource
             // 
-            this.txtBuliaoSource.Location = new System.Drawing.Point(769, 142);
+            this.txtBuliaoSource.Location = new System.Drawing.Point(769, 176);
             this.txtBuliaoSource.Name = "txtBuliaoSource";
             this.txtBuliaoSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -752,7 +765,7 @@
             this.txtbeizhu.Location = new System.Drawing.Point(77, 251);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.PreventEnterBeep = true;
-            this.txtbeizhu.Size = new System.Drawing.Size(603, 22);
+            this.txtbeizhu.Size = new System.Drawing.Size(839, 22);
             this.txtbeizhu.TabIndex = 56;
             // 
             // labelX4
@@ -1089,14 +1102,33 @@
             this.colorbtn.Name = "colorbtn";
             this.colorbtn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colorbtn_ButtonClick);
             // 
-            // cmbMoban
+            // txtkuanhao
             // 
-            this.cmbMoban.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMoban.Items.AddRange(new object[] {
-            "工厂单据",
-            "客户单据"});
-            this.cmbMoban.Name = "cmbMoban";
-            this.cmbMoban.Size = new System.Drawing.Size(121, 36);
+            this.txtkuanhao.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtkuanhao.Border.Class = "TextBoxBorder";
+            this.txtkuanhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtkuanhao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtkuanhao.ForeColor = System.Drawing.Color.Black;
+            this.txtkuanhao.Location = new System.Drawing.Point(769, 139);
+            this.txtkuanhao.Name = "txtkuanhao";
+            this.txtkuanhao.PreventEnterBeep = true;
+            this.txtkuanhao.Size = new System.Drawing.Size(147, 22);
+            this.txtkuanhao.TabIndex = 109;
+            // 
+            // labelX23
+            // 
+            // 
+            // 
+            // 
+            this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX23.Location = new System.Drawing.Point(704, 139);
+            this.labelX23.Name = "labelX23";
+            this.labelX23.Size = new System.Drawing.Size(65, 23);
+            this.labelX23.TabIndex = 108;
+            this.labelX23.Text = "款号";
             // 
             // 打样工艺单
             // 
@@ -1219,5 +1251,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtGongchandanhao;
         private DevComponents.DotNetBar.LabelX labelX22;
         private System.Windows.Forms.ToolStripComboBox cmbMoban;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtkuanhao;
+        private DevComponents.DotNetBar.LabelX labelX23;
     }
 }

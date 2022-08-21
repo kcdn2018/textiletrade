@@ -10,15 +10,15 @@ namespace Update
 {
   public   class 创建复合明细表
     {
-		public static string version = "1.0.2.14";
 		public static void 修改客户归属()
-        {	
-			var verinfo = infoService.Getinfolst()[0];
-			try
-			{			
-				if (Version.Parse(verinfo.Version) < Version.Parse(version))
+        {
+			var verinfo = versionService.GetOneversion(x => x.own == "2.20");		
+				if (Version.Parse(verinfo.Version) < Version.Parse("1.0.2.14"))
 				{
-					var yhs = YhbService.GetYhblst();
+				verinfo.Version = "1.0.2.14";
+				更新数据库版本.UpdateInfo(verinfo);
+				Console.WriteLine($"更新版本到{verinfo.Version }");
+				var yhs = YhbService.GetYhblst();
 					var Customers = LXRService.GetLXRlst(x => x.Leixing == "客户");
 					var Employers = YuanGongTableService.GetYuanGongTablelst();
 					foreach (var customer in Customers)
@@ -60,23 +60,18 @@ namespace Update
 					}
 					Connect.DbHelper().Updateable(danjuTables).ExecuteCommand();
 				}
-			}
-			catch 
-			{ }
-            finally
-            {
-				verinfo.Version = "1.0.2.14";
-				更新数据库版本.UpdateInfo(verinfo);
-			}
 		}
 		/// <summary>
 		/// 创建点色和配桶信息单
 		/// </summary>
 		public static void CreatDuanTongZhiMenu()
 		{
-			var verinfo = infoService.Getinfolst()[0];
+			var verinfo = versionService.GetOneversion(x => x.own == "2.20");
 			if (Version.Parse(verinfo.Version) < Version.Parse("1.0.2.12"))
-			{ 
+			{ 	
+				verinfo.Version = "1.0.2.13";
+					更新数据库版本.UpdateInfo(verinfo);
+				Console.WriteLine($"更新版本到{verinfo.Version }");
 				var dbhelper = Connect.SoftkcDBHelper();
 			var dt = Connect.DbHelper().Queryable<MenuTable>().Where(x => x.FormName == "检验通知单").ToList();
 				if (dt.Count == 0)
@@ -124,8 +119,7 @@ namespace Update
 					Connect.CreatConnect().Insert<ReportTable>(report);
 					report = dbhelper.Queryable<ReportTable>().Where(x => x.reportName == "销售退货单").ToList();
 					Connect.CreatConnect().Insert<ReportTable>(report);
-					verinfo.Version = "1.0.2.13";
-					更新数据库版本.UpdateInfo(verinfo);
+				
 					Console.WriteLine("创建检验通知单菜单菜单成功");
 				}
 			}
@@ -230,7 +224,7 @@ namespace Update
 		{
 			try
 			{
-				var verinfo = infoService.Getinfolst()[0];
+				var verinfo = versionService.GetOneversion(x => x.own == "2.20");
 				if (Version.Parse(verinfo.Version) < Version.Parse("1.0.2.56"))
 				{
 					string Create = "alter table RangShequpiTable alter column  AveragePrice  decimal(18, 2)";
@@ -256,7 +250,7 @@ namespace Update
 		{
 			try
 			{
-				var verinfo = infoService.Getinfolst()[0];
+				var verinfo = versionService.GetOneversion(x => x.own == "2.20");
 				if (Version.Parse(verinfo.Version) < Version.Parse("1.0.2.59"))
 				{
 					string Create = "alter table RangShequpiTable  add FrabicWidth nvarchar(200)";

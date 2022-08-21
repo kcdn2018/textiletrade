@@ -12,7 +12,7 @@ namespace Update
         public static void UpdateToV1026()
         {
             Connect.Environmen = "公司";
-            var verinfo = infoService.Getinfolst()[0];
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
             if (Version.Parse(verinfo.Version ) == Version.Parse("1.0.2.5"))
             {
                 Connect.CreatConnect().Insert<ColumnTable>(new ColumnTable()

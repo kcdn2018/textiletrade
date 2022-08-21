@@ -38,6 +38,10 @@ namespace Tools
                     {
                         image.Save(ms, ImageFormat.Icon);
                     }
+                    else
+                    {
+                        image.Save(ms, ImageFormat.Jpeg);
+                    }
                     byte[] buffer = new byte[ms.Length];
                     //Image.Save()会改变MemoryStream的Position，需要重新Seek到Begin
                     ms.Seek(0, SeekOrigin.Begin);

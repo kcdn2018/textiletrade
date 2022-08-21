@@ -12,7 +12,7 @@ namespace Update
     {
         public static void UpdateToV1028()
         {
-            var verinfo = infoService.Getinfolst()[0];
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
             if (Version.Parse(verinfo.Version ) == Version.Parse("1.0.2.7"))
             {
                 //增加色号菜单

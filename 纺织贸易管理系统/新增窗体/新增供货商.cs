@@ -117,7 +117,18 @@ namespace 纺织贸易管理系统.新增窗体
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请输入供货商名称！供货商名称不能为空");
                 return;
             }
-         
+            //防止仓库名不一样
+           if(Useful==FormUseful.修改 )
+            {
+                if(!string.IsNullOrWhiteSpace ( StockTableService.GetOneStockTable (x=>x.CKMC ==LinkMan.MC ).BH))
+                {
+                  if(  LinkMan.MC !=txtpingming.Text )
+                    {
+                        MessageBox.Show("修改失败！\r\n该供货商的存在库存！修改的简称必须与之前的一样！");
+                        return;
+                    }
+                }
+            }
             InitPingzhong();
             if (Useful == FormUseful.新增)
             { 
@@ -130,6 +141,7 @@ namespace 纺织贸易管理系统.新增窗体
             }
             else
             {
+
                 LXRService .UpdateLXR (LinkMan, x=>x.BH ==LinkMan.BH );
             }
             LinkMan = new LXR() { LX="供货商"};

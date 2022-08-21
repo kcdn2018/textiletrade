@@ -240,6 +240,16 @@ namespace 纺织贸易管理系统
                             CheckTab(new 委外加工查询());
                         }
                             break;
+                    case "外检直销单":
+                        if (系统设定.GetSet(new Model.Setting() { formname = "", settingname = "订单显示样式", settingValue = "列表样式" }).settingValue == "清单样式")
+                        {
+                            CheckTab(new 外检直销列表() { Text = menu.MenuName + "列表" });
+                        }
+                        else
+                        {
+                            CheckTab(new 外检直销列表());
+                        }
+                        break;
                     case "委外取货单":
                         if (系统设定.GetSet(new Model.Setting() { formname = "", settingname = "订单显示样式", settingValue = "列表样式" }).settingValue == "清单样式")
                         { CheckTab(new 委外取货列表() { Text = menu.MenuName + "列表" }); }

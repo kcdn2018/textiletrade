@@ -143,7 +143,6 @@ namespace BLL
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
                 订单BLL.增加已发货数量(danjumingxitables);
-                var juanhaos = JuanHaoTableService.GetJuanHaoTablelst(x => x.Danhao == danhao);
                 DanjuTableService.UpdateDanjuTable("zhuangtai='已审核'", x => x.dh == danhao);
                 来往明细BLL.增加来往记录(danju);
                 财务BLL.增加应收款(danju);
@@ -163,7 +162,6 @@ namespace BLL
         {
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
-                var juanhaos = JuanHaoTableService.GetJuanHaoTablelst(x => x.Danhao == danhao);
                 DanjuTableService.UpdateDanjuTable("zhuangtai='未审核'", x => x.dh == danhao);
                 可发卷BLL.卷入库(danhao);
                 来往明细BLL.删除来往记录(danju);

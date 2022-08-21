@@ -85,7 +85,8 @@ namespace 纺织贸易管理系统.报表窗体
                 $"and OrderDetailTable.sampleNum like '%{txtbianhao.Text }%' " +
                 $"and OrderDetailTable.sampleName like '%{txtpingming.Text }%' " +
                 $"and OrderDetailTable.Specifications like '%{txtGuige.Text }%' " +
-                $"and OrderDetailTable.ColorNum like '%{txtyanse.Text }%' " +
+                $"and OrderDetailTable.ColorNum like '%{txtsehao.Text }%' " +
+                 $"and OrderDetailTable.color like '%{txtyanse .Text }%' " +
                 $"and OrderTable.ContractNum like '%{txthetonghao.Text }%' " +
                 $"and OrderDetailTable.CustomerPingMing like '%{txtCustomerPingming .Text }%' " +
                 $"and OrderDetailTable.CustomerColorNum like '%{txtCustomerColorNum .Text }%' " +

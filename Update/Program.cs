@@ -12,6 +12,19 @@ namespace Update
         static void Main(string[] args)
         {
             Connect.Environmen = "公司";
+            var vs=  Connect.CreatConnect().Query<version>();
+            if(vs.Count ==2)
+            {
+                Connect.CreatConnect().Insert<version>(new version() { Version = "1.0.2.20",  own ="2.20"});
+            }
+            try
+            {
+                CheckDB.dbcompar ();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("比较表的时候发生错误" + ex.Message);
+            }
             try
             {
                 创建复合明细表.CreatDuanTongZhiMenu();
@@ -49,7 +62,19 @@ namespace Update
             { }
             try
             {
-                V2015.UpdateToV2018();
+                V2015.UpdateToV2019();
+            }
+            catch
+            { }
+            try
+            {
+                V2015.UpdateToV2020();
+            }
+            catch
+            { }
+            try
+            {
+                V2015.UpdateToV2021();
             }
             catch
             { }

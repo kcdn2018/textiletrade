@@ -165,7 +165,8 @@ namespace BLL
            
         }
         public static void 删除(string danhao)
-        { 
+        {
+            danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danhao);
             //减少费用
             var olddanju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao );
             if (olddanju.ordernum != "")

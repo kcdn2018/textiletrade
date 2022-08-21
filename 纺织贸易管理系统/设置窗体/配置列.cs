@@ -325,7 +325,16 @@ namespace 纺织贸易管理系统.设置窗体
 
         private void 调用窗体ToolStripMenuItem_SelectedValueChanged(object sender, EventArgs e)
         {
-            cmbGridName.DataSource = Connect.GetGridName(调用窗体ToolStripMenuItem.Text);
+            cmbGridName.Items.Clear();
+            var dt = Connect.GetGridName(调用窗体ToolStripMenuItem.Text);
+            for (int row = 0; row < dt.Rows.Count; row++)
+            {
+               cmbGridName.Items.Add (dt.Rows[row][0].ToString ()) ; 
+            }
+            if(cmbGridName.Items.Count >0)
+            {
+                cmbGridName.SelectedIndex = 0;
+            }
         }
 
         private void uiButton3_Click(object sender, EventArgs e)

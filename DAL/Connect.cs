@@ -14,6 +14,7 @@ namespace 纺织贸易管理系统
     public static class Connect
     {
         public static string Environmen ;
+        public static string DBName = string.Empty;
         public static void SetDefault(string LabelName)
         {
             var sqliteconn = CreatSqlite();
@@ -118,6 +119,7 @@ namespace 纺织贸易管理系统
             dp.Fill(dt);
             if (dt.Rows.Count >0)
             {
+                DBName = dt.Rows[0]["database"].ToString();
                return $"server={dt.Rows[0]["server"]},{dt.Rows[0]["port"]};uid={dt.Rows[0]["username"]};pwd={dt.Rows[0]["PWD"]};database={dt.Rows[0]["database"]}";
             }
             else

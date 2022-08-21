@@ -120,5 +120,13 @@ namespace 纺织贸易管理系统
         /// 坯布名称
         /// </summary>
         public string PibuName { get; set; }
+        /// <summary>
+        /// 采购或者加工单价
+        /// </summary>
+        public decimal BuyPrice { get; set; }
+        /// <summary>
+        /// 采购或者加工合计
+        /// </summary>
+        public decimal TotalBuy { get; set; }
     }
 }

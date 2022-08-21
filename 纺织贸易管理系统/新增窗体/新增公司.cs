@@ -30,7 +30,8 @@ namespace 纺织贸易管理系统.新增窗体
                 BankName = txtbankname.Text,
                 BankNum = txtBankNum.Text,
                 Email = txtEmail.Text,
-                TaxNum = txttaxNum.Text
+                TaxNum = txttaxNum.Text,
+                BankNo =txtBankNo.Text 
             };
            if(UseFul==FormUseful.新增 )
             {
@@ -56,6 +57,7 @@ namespace 纺织贸易管理系统.新增窗体
                     txtgsmc.Text = oldinfo.gsmc;
                     txtlxdh.Text = oldinfo.GHSMC;
                     txttaxNum.Text = oldinfo.TaxNum;
+                    txtBankNo.Text = oldinfo.BankNo;
                 }
             }
         }

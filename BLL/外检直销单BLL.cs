@@ -3,15 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using 纺织贸易管理系统;
 
 namespace BLL
 {
-  public   class 白坯直销单BLL
+   public  class 外检直销单BLL
     {
-        public static void 保存单据(DanjuTable danju, List<danjumingxitable> danjumingxitables, List<FabricMadan> juanHaoTables)
+        public static void 保存单据(DanjuTable danju, List<danjumingxitable> danjumingxitables, List<JuanHaoTable > juanHaoTables)
         {
             if (SysInfo.GetInfo.own != "审核制")
             {
@@ -34,7 +33,29 @@ namespace BLL
             }
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());
             ///保存卷号
-            Connect.CreatConnect().Insert<FabricMadan>(juanHaoTables);
+            List<FahuoDan> fahuoDans = new List<FahuoDan>();
+            foreach (var j in juanHaoTables)
+            {
+                fahuoDans.Add(new FahuoDan()
+                {
+                    bh = j.SampleNum,
+                    pm = j.SampleName,
+                    GG = j.guige,
+                    gh = j.GangHao,
+                    ys = j.yanse,
+                    jh = j.JuanHao,
+                    mis = j.biaoqianmishu.ToString(),
+                    color = j.yanse,
+                    Gangjuanhao = j.PiHao.ToString(),
+                    dh = danju.dh,
+                    rq = danju.rq,
+                });
+                j.Danhao = danju.dh;
+                j.state = 1;
+            }
+            FahuoDanService.InsertFahuoDanlst(fahuoDans);
+            Connect.DbHelper().Updateable(juanHaoTables).ExecuteCommand();
+            ////
             if (SysInfo.GetInfo.own != string.Empty)
             {
                 if (SysInfo.GetInfo.own != "审核制")
@@ -44,7 +65,7 @@ namespace BLL
                 }
             }
         }
-        public static void 修改单据(DanjuTable danju, List<danjumingxitable> danjumingxitables, List<FabricMadan> juanHaoTables)
+        public static void 修改单据(DanjuTable danju, List<danjumingxitable> danjumingxitables, List<JuanHaoTable > juanHaoTables)
         {
             //删除信息
             if (SysInfo.GetInfo.own != string.Empty)
@@ -55,7 +76,6 @@ namespace BLL
                     单据反审核(danhao);
                 }
             }
-            Thread.Sleep(200);
             Connect.CreatConnect().Delete<FabricMadan>(x => x.Danhao == danju.dh);
             ///删除信息
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
@@ -65,7 +85,29 @@ namespace BLL
             danjumingxitables.ForEach(x => x.rq = danju.rq);
             ///  
             danjumingxitableService.Insertdanjumingxitablelst(danjumingxitables.Where(x => !string.IsNullOrEmpty(x.Bianhao)).ToList());
-            Connect.CreatConnect().Insert<FabricMadan>(juanHaoTables);
+            List<FahuoDan> fahuoDans = new List<FahuoDan>();
+            foreach (var j in juanHaoTables)
+            {
+                fahuoDans.Add(new FahuoDan()
+                {
+                    bh = j.SampleNum,
+                    pm = j.SampleName,
+                    GG = j.guige,
+                    gh = j.GangHao,
+                    ys = j.yanse,
+                    jh = j.JuanHao,
+                    mis = j.biaoqianmishu.ToString(),
+                    color = j.yanse,
+                    Gangjuanhao = j.PiHao.ToString(),
+                    dh = danju.dh,
+                    rq = danju.rq,
+                });
+                j.Danhao = danju.dh;
+                j.state = 1;
+            }
+            FahuoDanService.InsertFahuoDanlst(fahuoDans);
+            Connect.DbHelper().Updateable(juanHaoTables).ExecuteCommand();
+            ////
             /////         
             if (SysInfo.GetInfo.own != string.Empty)
             {
@@ -102,7 +144,7 @@ namespace BLL
             DanjuTableService.UpdateDanjuTable("zhuangtai='已审核'", x => x.dh == danhao);
             来往明细BLL.增加来往记录(danju);
             财务BLL.增加应收款(danju);
-            财务BLL.增加应开发票( danju);
+            财务BLL.增加应开发票(danju);
             订单BLL.增加费用(danjumingxitables, danju);
             单据BLL.审核(danhao);
             订单进度BLL.新增进度(danjumingxitables, danju);
@@ -111,24 +153,26 @@ namespace BLL
             订单BLL.增加剩余金额(danjumingxitables);
             财务BLL.减少剩余额度(danju.ksbh, danju.je);
             库存BLL.增加发货数量(danju, danjumingxitables);
+            库存BLL.减少库存(danjumingxitables, danju);
             //return "审核成功";
             danju.ksmc = danju.ckmc;
             danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
-            danju.je -= danjumingxitables.Sum(x=>x.TotalBuy );
+            danju.je = danjumingxitables.Sum (x=>x.TotalBuy );
             danju.Hanshui = danju.CaiGouHanshui;
-            来往明细BLL.增加来往记录(danju);
+            
             财务BLL.增加应付款(danju);
             财务BLL.增加应收发票(danju);
+            来往明细BLL.增加来往记录(danju);
         }
         public static void 单据反审核(string danhao)
         {
             var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
             var danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
             DanjuTableService.UpdateDanjuTable("zhuangtai='未审核'", x => x.dh == danhao);
-            Connect.CreatConnect().Delete<FabricMadan>(x => x.Danhao == danhao);
-            来往明细BLL.删除来往记录(danju);
+            可发卷BLL.卷入库(danhao);          
             财务BLL.减少应收款(danju);
             财务BLL.减少应开发票(danju);
+            来往明细BLL.删除来往记录(danju);
             订单BLL.减少费用(danjumingxitables, danju);
             单据BLL.未审核(danhao);
             订单进度BLL.删除进度(danju.dh);
@@ -137,14 +181,15 @@ namespace BLL
             订单BLL.减少剩余金额(danjumingxitables);
             财务BLL.增加剩余额度(danju.ksbh, danju.je);
             库存BLL.减少发货数量(danju, danjumingxitables);
+            库存BLL.增加库存(danjumingxitables, danju);
             ///
             danju.ksmc = danju.ckmc;
             danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
-            danju.je -= danjumingxitables.Sum(x=>x.TotalBuy );
-            danju.Hanshui = danju.CaiGouHanshui;
-            来往明细BLL.删除来往记录 (danju);
-            财务BLL.减少应付款 (danju);
+            danju.je = danjumingxitables.Sum(x=>x.TotalBuy );
+            danju.Hanshui = danju.CaiGouHanshui;           
+            财务BLL.减少应付款(danju);
             财务BLL.减少应收发票(danju);
+            来往明细BLL.删除来往记录(danju);
         }
     }
 }
