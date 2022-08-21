@@ -61,7 +61,7 @@ namespace 纺织贸易管理系统.设置窗体
                     if (columnTable.ColumnText.Contains("价") || columnTable.ColumnText.Contains("含税") || columnTable.ColumnText.Contains("金额"))
                     {
                         gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                        gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatString = "C2";                     
+                        gridView.Columns[columnTable.DataProperty].DisplayFormat.FormatString = "N2";                     
                     }
                     else
                     {

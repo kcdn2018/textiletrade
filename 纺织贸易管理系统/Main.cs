@@ -125,11 +125,18 @@ namespace 纺织贸易管理系统
         //创建子菜单
       private void CreatMenu(string fathermenu,NavBarGroup group)
         {
-            foreach (MenuTable m in menuTables.Where<MenuTable >(x=>x.FatherMenu==fathermenu&&x.Visitable==true &&x.UserID==User.user.YHBH  ) )
+            try
             {
-                var item = new NavBarItem() { Caption = m.MenuName, Name = m.FormName };
-                item.ImageOptions.SmallImage = global::纺织贸易管理系统.Properties.Resources.菜单;
-                group.ItemLinks.Add(new NavBarItemLink(item));
+                foreach (MenuTable m in menuTables.Where<MenuTable>(x => x.FatherMenu == fathermenu && x.Visitable == true && x.UserID == User.user.YHBH))
+                {
+                    var item = new NavBarItem() { Caption = m.MenuName, Name = m.FormName };
+                    item.ImageOptions.SmallImage = global::纺织贸易管理系统.Properties.Resources.菜单;
+                    group.ItemLinks.Add(new NavBarItemLink(item));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("生成菜单的时候发送错误" + ex.Message);
             }
         }
         
@@ -153,6 +160,9 @@ namespace 纺织贸易管理系统
                         break;
                     case "账户管理":
                         CheckTab(new 账户资料 ());
+                        break;
+                    case "来样登记查询":
+                        CheckTab(new 来样登记查询 ());
                         break;
                     case "细码库存":
                         CheckTab(new 细码库存());
@@ -240,6 +250,16 @@ namespace 纺织贸易管理系统
                             CheckTab(new 委外加工查询());
                         }
                             break;
+                    case "外检直销单":
+                        if (系统设定.GetSet(new Model.Setting() { formname = "", settingname = "订单显示样式", settingValue = "列表样式" }).settingValue == "清单样式")
+                        {
+                            CheckTab(new 外检直销列表() { Text = menu.MenuName + "列表" });
+                        }
+                        else
+                        {
+                            CheckTab(new 外检直销列表());
+                        }
+                        break;
                     case "委外取货单":
                         if (系统设定.GetSet(new Model.Setting() { formname = "", settingname = "订单显示样式", settingValue = "列表样式" }).settingValue == "清单样式")
                         { CheckTab(new 委外取货列表() { Text = menu.MenuName + "列表" }); }
@@ -442,6 +462,9 @@ namespace 纺织贸易管理系统
                         break;
                     case "白坯直销单":
                         CheckTab(new 白坯直销列表());
+                        break;
+                    case "外检入库单列表":
+                        CheckTab(new 外检入库单列表 ());
                         break;
                     case "报关单列表":
                         CheckTab(new 报关单列表 ());

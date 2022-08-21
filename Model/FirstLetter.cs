@@ -44,5 +44,8 @@ namespace Model
         public const string 白坯发货单 = "BP";
         public const string 委外通知单 = "WT";
         public const string 白坯直销单 = "ZX";
+        public const string 外检直销单 = "WX";
+        public const string 外检入库单 = "WR";
+        public const string 来样登记单 = "LY";
     }
 }

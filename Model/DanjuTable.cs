@@ -160,6 +160,9 @@ namespace 纺织贸易管理系统
         /// 实际发货地址
         /// </summary>
         //public string Fahuodizhi { get; set; }
+        /// <summary>
+        /// 含税
+        /// </summary>
         public string Hanshui { get; set; }
         /// <summary>
         /// 业务员
@@ -209,6 +212,18 @@ namespace 纺织贸易管理系统
         /// 跟单员
         /// </summary>
         public String Gengdanyuan { get; set; }
+        /// <summary>
+        /// 唛头模板
+        /// </summary>
+        public String ShippingMark { get; set; }
+        /// <summary>
+        /// 货运港口
+        /// </summary>
+        public String Port { get; set; }
+        /// <summary>
+        /// 结算方式
+        /// </summary>
+        public String Payment { get; set; }
 
         public  DanjuTable()
         {

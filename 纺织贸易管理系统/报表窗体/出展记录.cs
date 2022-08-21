@@ -21,22 +21,29 @@ namespace 纺织贸易管理系统.报表窗体
         {
             InitializeComponent();
             dateEdit1.DateTime = DateTime.Now.AddDays(-QueryTime.间隔);
+            dateEdit2.DateTime = DateTime.Now;
             CreateGrid.Create(this.Name, gridView1);
             Query();          
             gridView1.OptionsCustomization.AllowSort = true;
         }
         public virtual void Query()
         {
-            UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
-            var querystring = $"select distinct danjutable.* from danjutable, ZhanhuiDetail where danjutable.rq >= '{ dateEdit1.DateTime.Date }' " +
-                    $"and ZhanhuiDetail.YangbuBianhao like '%{txtbianhao.Text }%' " +
-                    $"and ZhanhuiDetail.PM like '%{txtpingming.Text }%' " +
-                    $"and ZhanhuiDetail.GG like '%{txtGuige.Text }%' " +
-                    $"and danjutable.djlx='{DanjuLeiXing.展会  }' " +
-                    $"and danjutable.dh=ZhanhuiDetail.danhao";
-            querystring += " order by danjutable.id desc";
-            CreateGrid.Query(gridControl1, querystring);
-            UIWaitFormService.HideWaitForm();
+            try
+            {
+                UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
+                var querystring = $"select distinct  danjutable.* from danjutable join zhanhuidetail on danjutable.dh=ZhanhuiDetail.danhao where danjutable.rq between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}'" +
+                        $"and ZhanhuiDetail.YangbuBianhao like '%{txtbianhao.Text }%' " +
+                        $"and ZhanhuiDetail.PM like '%{txtpingming.Text }%' " +
+                        $"and ZhanhuiDetail.GG like '%{txtGuige.Text }%' " +
+                        $"and danjutable.djlx='{DanjuLeiXing.展会  }' ";
+                querystring += " order by danjutable.id desc";
+                CreateGrid.Query(gridControl1, querystring);
+                UIWaitFormService.HideWaitForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

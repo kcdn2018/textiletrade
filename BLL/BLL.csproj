@@ -100,6 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dye-WorkBLL.cs" />
+    <Compile Include="外检直销单BLL.cs" />
+    <Compile Include="外检入库单BLL.cs" />
     <Compile Include="流转单BLL.cs" />
     <Compile Include="生产退卷单BLL.cs" />
     <Compile Include="生产入库单BLL.cs" />

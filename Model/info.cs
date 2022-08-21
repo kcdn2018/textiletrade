@@ -12,6 +12,9 @@ namespace 纺织贸易管理系统
         /// </summary>
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int ID { get; set; }
+        /// <summary>
+        /// 公司名称
+        /// </summary>
         public string gsmc { get; set; }
         public string GHSMC { get; set; }
         public string own { get; set; }
@@ -37,5 +40,9 @@ namespace 纺织贸易管理系统
         ///电子邮箱
         /// </summary>
         public string Email { get; set; }
+        /// <summary>
+        ///银行行号
+        /// </summary>
+        public string BankNo { get; set; }
     }
 }

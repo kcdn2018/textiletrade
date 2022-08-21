@@ -38,6 +38,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmbBaoxiao = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cmbShengqingren = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txthetonghao = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbshouzhi = new System.Windows.Forms.ComboBox();
@@ -136,6 +140,10 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cmbBaoxiao);
+            this.groupControl1.Controls.Add(this.label12);
+            this.groupControl1.Controls.Add(this.cmbShengqingren);
+            this.groupControl1.Controls.Add(this.label11);
             this.groupControl1.Controls.Add(this.txthetonghao);
             this.groupControl1.Controls.Add(this.label10);
             this.groupControl1.Controls.Add(this.cmbshouzhi);
@@ -165,9 +173,47 @@ namespace 纺织贸易管理系统.新增窗体
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 40);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(820, 211);
+            this.groupControl1.Size = new System.Drawing.Size(820, 243);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "单据信息";
+            // 
+            // cmbBaoxiao
+            // 
+            this.cmbBaoxiao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBaoxiao.FormattingEnabled = true;
+            this.cmbBaoxiao.Items.AddRange(new object[] {
+            "已审核",
+            "未审核"});
+            this.cmbBaoxiao.Location = new System.Drawing.Point(283, 121);
+            this.cmbBaoxiao.Name = "cmbBaoxiao";
+            this.cmbBaoxiao.Size = new System.Drawing.Size(121, 22);
+            this.cmbBaoxiao.TabIndex = 71;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(226, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 14);
+            this.label12.TabIndex = 70;
+            this.label12.Text = "状态";
+            // 
+            // cmbShengqingren
+            // 
+            this.cmbShengqingren.FormattingEnabled = true;
+            this.cmbShengqingren.Location = new System.Drawing.Point(82, 121);
+            this.cmbShengqingren.Name = "cmbShengqingren";
+            this.cmbShengqingren.Size = new System.Drawing.Size(125, 22);
+            this.cmbShengqingren.TabIndex = 69;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 123);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 14);
+            this.label11.TabIndex = 68;
+            this.label11.Text = "费用申请人";
             // 
             // txthetonghao
             // 
@@ -254,7 +300,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtjine.Location = new System.Drawing.Point(82, 90);
             this.txtjine.Name = "txtjine";
             this.txtjine.PreventEnterBeep = true;
-            this.txtjine.Size = new System.Drawing.Size(123, 22);
+            this.txtjine.Size = new System.Drawing.Size(125, 22);
             this.txtjine.TabIndex = 60;
             // 
             // txtzaiyao
@@ -267,11 +313,11 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtzaiyao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtzaiyao.DisabledBackColor = System.Drawing.Color.White;
             this.txtzaiyao.ForeColor = System.Drawing.Color.Black;
-            this.txtzaiyao.Location = new System.Drawing.Point(80, 118);
+            this.txtzaiyao.Location = new System.Drawing.Point(80, 154);
             this.txtzaiyao.Multiline = true;
             this.txtzaiyao.Name = "txtzaiyao";
             this.txtzaiyao.PreventEnterBeep = true;
-            this.txtzaiyao.Size = new System.Drawing.Size(704, 77);
+            this.txtzaiyao.Size = new System.Drawing.Size(702, 77);
             this.txtzaiyao.TabIndex = 59;
             // 
             // txtfahuodanhao
@@ -307,13 +353,13 @@ namespace 纺织贸易管理系统.新增窗体
             "销售费用"});
             this.cmbfeiyongleixing.Location = new System.Drawing.Point(82, 61);
             this.cmbfeiyongleixing.Name = "cmbfeiyongleixing";
-            this.cmbfeiyongleixing.Size = new System.Drawing.Size(121, 22);
+            this.cmbfeiyongleixing.Size = new System.Drawing.Size(125, 22);
             this.cmbfeiyongleixing.TabIndex = 56;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 118);
+            this.label8.Location = new System.Drawing.Point(19, 183);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 14);
             this.label8.TabIndex = 54;
@@ -358,7 +404,7 @@ namespace 纺织贸易管理系统.新增窗体
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(232, 65);
+            this.label3.Location = new System.Drawing.Point(226, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 14);
             this.label3.TabIndex = 49;
@@ -376,7 +422,7 @@ namespace 纺织贸易管理系统.新增窗体
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 37);
+            this.label1.Location = new System.Drawing.Point(226, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 14);
             this.label1.TabIndex = 47;
@@ -394,7 +440,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.comboItem6});
             this.cmbqiankuan.Location = new System.Drawing.Point(283, 90);
             this.cmbqiankuan.Name = "cmbqiankuan";
-            this.cmbqiankuan.Size = new System.Drawing.Size(123, 23);
+            this.cmbqiankuan.Size = new System.Drawing.Size(121, 23);
             this.cmbqiankuan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbqiankuan.TabIndex = 42;
             this.cmbqiankuan.Text = "现金预付";
@@ -413,7 +459,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(229, 90);
+            this.labelX12.Location = new System.Drawing.Point(226, 90);
             this.labelX12.Name = "labelX12";
             this.labelX12.Size = new System.Drawing.Size(34, 23);
             this.labelX12.TabIndex = 41;
@@ -458,7 +504,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtdanhao.Name = "txtdanhao";
             this.txtdanhao.PreventEnterBeep = true;
             this.txtdanhao.ReadOnly = true;
-            this.txtdanhao.Size = new System.Drawing.Size(121, 22);
+            this.txtdanhao.Size = new System.Drawing.Size(125, 22);
             this.txtdanhao.TabIndex = 21;
             // 
             // labelX1
@@ -477,17 +523,18 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.uiTitlePanel1.Controls.Add(this.gridControl1);
             this.uiTitlePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiTitlePanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiTitlePanel1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiTitlePanel1.Location = new System.Drawing.Point(0, 251);
+            this.uiTitlePanel1.Location = new System.Drawing.Point(0, 283);
             this.uiTitlePanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTitlePanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTitlePanel1.Name = "uiTitlePanel1";
             this.uiTitlePanel1.Padding = new System.Windows.Forms.Padding(0, 35, 0, 0);
-            this.uiTitlePanel1.Size = new System.Drawing.Size(820, 339);
+            this.uiTitlePanel1.ShowText = false;
+            this.uiTitlePanel1.Size = new System.Drawing.Size(820, 307);
             this.uiTitlePanel1.TabIndex = 5;
             this.uiTitlePanel1.Text = "费用明细";
             this.uiTitlePanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiTitlePanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // gridControl1
             // 
@@ -502,7 +549,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.cmddanwei,
             this.colorbtn,
             this.TextEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(820, 304);
+            this.gridControl1.Size = new System.Drawing.Size(820, 272);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -580,8 +627,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 费用申请单
             // 
             this.AllowShowTitle = false;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(820, 590);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.uiTitlePanel1);
@@ -594,6 +640,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.Padding = new System.Windows.Forms.Padding(0);
             this.ShowTitle = false;
             this.Text = "费用单";
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 820, 590);
             this.Load += new System.EventHandler(this.费用申请单_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -663,5 +710,9 @@ namespace 纺织贸易管理系统.新增窗体
         private DevComponents.DotNetBar.Controls.TextBoxX txthetonghao;
         private System.Windows.Forms.Label label10;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit TextEdit1;
+        private System.Windows.Forms.ComboBox cmbBaoxiao;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cmbShengqingren;
+        private System.Windows.Forms.Label label11;
     }
 }

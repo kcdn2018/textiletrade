@@ -16,11 +16,17 @@ namespace BLL
             LwDetail lwDetail = new LwDetail();
             switch (danju.djlx )
             {
+                case DanjuLeiXing.外检直销单 :
+                    lwDetail = LXRService.GetOneLXR(x => x.MC == danju.ksmc).LX == "客户" ? 销售单(danju) : 白坯直销单(danju);
+                    break;
                 case DanjuLeiXing.白坯直销单 :
-                    lwDetail =LXRService.GetOneLXR (x=>x.MC==danju.ksmc ).Leixing =="客户"? 销售单(danju):白坯直销单(danju);
+                    lwDetail =LXRService.GetOneLXR (x=>x.MC==danju.ksmc ).LX =="客户"? 销售单(danju):白坯直销单(danju);
                     break;
                 case DanjuLeiXing.白坯销售单 :
                     lwDetail = 销售单(danju);
+                    break;
+                case DanjuLeiXing.外检入库单 :
+                    lwDetail = 采购单(danju);
                     break;
                 case DanjuLeiXing.销售出库单:             
                      lwDetail = 销售单(danju);                  
@@ -138,7 +144,7 @@ namespace BLL
             {
                 lw.FapiaoJine = 0;
             }
-            var lxr = LXRService.GetOneLXR(x => x.BH == danju.ksbh);
+            var lxr = LXRService.GetOneLXR(x => x.MC == danju.ksmc );
             lw.QichuJine = lxr.JE +lxr.USD  ;
             lw.QiMojine = lw.QichuJine + danju.je;
             lw.own = danju.own;
@@ -526,8 +532,14 @@ namespace BLL
             LwDetail lwDetail = new LwDetail();
             switch (danju.djlx)
             {
-                case DanjuLeiXing.白坯销售单:
-                    lwDetail = 销售单(danju);
+                case DanjuLeiXing.外检直销单 :
+                    lwDetail = LXRService.GetOneLXR(x => x.MC == danju.ksmc).LX == "客户" ? 销售单(danju) : 白坯直销单(danju);
+                    break;
+                case DanjuLeiXing.白坯直销单:
+                    lwDetail = LXRService.GetOneLXR(x => x.MC == danju.ksmc).LX == "客户" ? 销售单(danju) : 白坯直销单(danju);
+                    break;
+                case DanjuLeiXing.外检入库单:
+                    lwDetail = 采购单(danju);
                     break;
                 case DanjuLeiXing.销售出库单:
                     lwDetail = 销售单(danju);

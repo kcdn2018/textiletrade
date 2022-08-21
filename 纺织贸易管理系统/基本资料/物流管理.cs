@@ -35,7 +35,7 @@ namespace 纺织贸易管理系统.基本资料
 
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fm = new 配置列(gridView1) { formname = this.Name };
+            var fm = new 配置列(gridView1) { formname = this.Name,Obj=new WuliuTable () };
             fm.ShowDialog();
         }
 

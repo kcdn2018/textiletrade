@@ -48,10 +48,6 @@
             this.comboItem5 = new DevComponents.Editors.ComboItem();
             this.comboItem6 = new DevComponents.Editors.ComboItem();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
-            this.comhanshui = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItem3 = new DevComponents.Editors.ComboItem();
-            this.comboItem4 = new DevComponents.Editors.ComboItem();
-            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.cmbcunfang = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem1 = new DevComponents.Editors.ComboItem();
             this.comboItem2 = new DevComponents.Editors.ComboItem();
@@ -166,8 +162,6 @@
             this.groupControl1.Controls.Add(this.labelX13);
             this.groupControl1.Controls.Add(this.cmbqiankuan);
             this.groupControl1.Controls.Add(this.labelX12);
-            this.groupControl1.Controls.Add(this.comhanshui);
-            this.groupControl1.Controls.Add(this.labelX11);
             this.groupControl1.Controls.Add(this.cmbcunfang);
             this.groupControl1.Controls.Add(this.txtlianxiren);
             this.groupControl1.Controls.Add(this.labelX10);
@@ -213,6 +207,7 @@
             this.txtyunfei.Text = "0";
             this.txtyunfei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtyunfei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtyunfei.Watermark = "";
             this.txtyunfei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtzhuangxiefei
@@ -234,6 +229,7 @@
             this.txtzhuangxiefei.Text = "0";
             this.txtzhuangxiefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtzhuangxiefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtzhuangxiefei.Watermark = "";
             this.txtzhuangxiefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX20
@@ -267,6 +263,7 @@
             this.txtChachefei.Text = "0";
             this.txtChachefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtChachefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtChachefei.Watermark = "";
             this.txtChachefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX19
@@ -373,43 +370,6 @@
             this.labelX12.Size = new System.Drawing.Size(49, 23);
             this.labelX12.TabIndex = 41;
             this.labelX12.Text = "欠款";
-            // 
-            // comhanshui
-            // 
-            this.comhanshui.DisplayMember = "Text";
-            this.comhanshui.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comhanshui.ForeColor = System.Drawing.Color.Black;
-            this.comhanshui.FormattingEnabled = true;
-            this.comhanshui.ItemHeight = 17;
-            this.comhanshui.Items.AddRange(new object[] {
-            this.comboItem3,
-            this.comboItem4});
-            this.comhanshui.Location = new System.Drawing.Point(546, 107);
-            this.comhanshui.Name = "comhanshui";
-            this.comhanshui.Size = new System.Drawing.Size(147, 23);
-            this.comhanshui.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comhanshui.TabIndex = 40;
-            this.comhanshui.Text = "含税";
-            // 
-            // comboItem3
-            // 
-            this.comboItem3.Text = "含税";
-            // 
-            // comboItem4
-            // 
-            this.comboItem4.Text = "不含税";
-            // 
-            // labelX11
-            // 
-            // 
-            // 
-            // 
-            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(477, 107);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(72, 23);
-            this.labelX11.TabIndex = 39;
-            this.labelX11.Text = "含税";
             // 
             // cmbcunfang
             // 
@@ -883,10 +843,6 @@
         private DevComponents.Editors.ComboItem comboItem5;
         private DevComponents.Editors.ComboItem comboItem6;
         private DevComponents.DotNetBar.LabelX labelX12;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comhanshui;
-        private DevComponents.Editors.ComboItem comboItem3;
-        private DevComponents.Editors.ComboItem comboItem4;
-        private DevComponents.DotNetBar.LabelX labelX11;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbcunfang;
         private DevComponents.Editors.ComboItem comboItem1;
         private DevComponents.Editors.ComboItem comboItem2;

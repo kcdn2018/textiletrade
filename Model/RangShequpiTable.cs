@@ -1,10 +1,11 @@
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 namespace 纺织贸易管理系统
 {
-    public class RangShequpiTable
+    public class RangShequpiTable:MingxiCommon
      {
         public string DocumentNum { get; set; }
         public string SampleNum { get; set; }
@@ -55,6 +56,6 @@ namespace 纺织贸易管理系统
         /// 剩余米数
         /// </summary>
         public decimal RemainingMetres { get; set; }
-        public string EnglishName { get; set; }
+
     }
 }

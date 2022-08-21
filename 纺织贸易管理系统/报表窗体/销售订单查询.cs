@@ -80,17 +80,18 @@ namespace 纺织贸易管理系统.报表窗体
         }
         private  void Query()
         {
-            string querystring = $"select * from orderTable,orderdetailTable where OrderTable.orderdate between '{ dateEdit1.DateTime}' and '{dateEdit2.DateTime.Date.AddDays(1)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
+            string querystring = $"select * from orderTable,orderdetailTable where OrderTable.orderdate between '{ dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date.AddDays(1)}' and orderTable.CustomerName like '%{txtksmc.Text}%' " +
                 $"and OrderTable.OrderNum like '%{txtOrdernum.Text }%'" +
                 $"and OrderDetailTable.sampleNum like '%{txtbianhao.Text }%' " +
                 $"and OrderDetailTable.sampleName like '%{txtpingming.Text }%' " +
                 $"and OrderDetailTable.Specifications like '%{txtGuige.Text }%' " +
-                $"and OrderDetailTable.ColorNum like '%{txtyanse.Text }%' " +
+                $"and OrderDetailTable.ColorNum like '%{txtsehao.Text }%' " +
+                 $"and OrderDetailTable.color like '%{txtyanse .Text }%' " +
                 $"and OrderTable.ContractNum like '%{txthetonghao.Text }%' " +
                 $"and OrderDetailTable.CustomerPingMing like '%{txtCustomerPingming .Text }%' " +
                 $"and OrderDetailTable.CustomerColorNum like '%{txtCustomerColorNum .Text }%' " +
                  $"and OrderDetailTable.Huahao like '%{txthuahao.Text }%' " +
-                $"and OrderTable.OrderNum=Orderdetailtable.Ordernum";
+                $"and OrderTable.OrderNum=Orderdetailtable.Ordernum and OrderTable.MoneyType like '%{combizhong.Text}%'";
             if(rdweiwancheng .Checked==true  )
             {
                 querystring += " and OrderTable.state!='已完成'";

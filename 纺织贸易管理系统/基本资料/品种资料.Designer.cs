@@ -212,7 +212,7 @@
             // 
             this.打印编辑ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
             this.打印编辑ToolStripMenuItem.Name = "打印编辑ToolStripMenuItem";
-            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印编辑ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印编辑ToolStripMenuItem.Text = "打印编辑";
             this.打印编辑ToolStripMenuItem.Click += new System.EventHandler(this.打印编辑ToolStripMenuItem_Click);
             // 
@@ -220,7 +220,7 @@
             // 
             this.打印预览ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.打印预览ToolStripMenuItem.Name = "打印预览ToolStripMenuItem";
-            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印预览ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.打印预览ToolStripMenuItem.Text = "打印预览";
             this.打印预览ToolStripMenuItem.Click += new System.EventHandler(this.打印预览ToolStripMenuItem_Click);
             // 
@@ -228,7 +228,7 @@
             // 
             this.直接打印ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.直接打印ToolStripMenuItem.Name = "直接打印ToolStripMenuItem";
-            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.直接打印ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.直接打印ToolStripMenuItem.Text = "直接打印";
             this.直接打印ToolStripMenuItem.Click += new System.EventHandler(this.直接打印ToolStripMenuItem_Click);
             // 
@@ -236,7 +236,7 @@
             // 
             this.新增模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
             this.新增模板ToolStripMenuItem.Name = "新增模板ToolStripMenuItem";
-            this.新增模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.新增模板ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新增模板ToolStripMenuItem.Text = "新增模板";
             this.新增模板ToolStripMenuItem.Click += new System.EventHandler(this.buttonX1_Click);
             // 
@@ -244,7 +244,7 @@
             // 
             this.删除模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
             this.删除模板ToolStripMenuItem.Name = "删除模板ToolStripMenuItem";
-            this.删除模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除模板ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除模板ToolStripMenuItem.Text = "删除模板";
             this.删除模板ToolStripMenuItem.Click += new System.EventHandler(this.删除模板ToolStripMenuItem_Click);
             // 
@@ -252,7 +252,7 @@
             // 
             this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
             this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
-            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.重命名ToolStripMenuItem.Text = "重命名";
             this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
             // 
@@ -281,7 +281,7 @@
             this.打印标签ToolStripMenuItem1.Name = "打印标签ToolStripMenuItem1";
             this.打印标签ToolStripMenuItem1.Size = new System.Drawing.Size(184, 22);
             this.打印标签ToolStripMenuItem1.Text = "打印标签";
-            this.打印标签ToolStripMenuItem1.Click += new System.EventHandler(this.打印标签ToolStripMenuItem1_Click);
+            this.打印标签ToolStripMenuItem1.Click += new System.EventHandler(this.直接打印ToolStripMenuItem_Click);
             // 
             // 配置列ToolStripMenuItem
             // 
@@ -744,31 +744,31 @@
             // 
             // expandableSplitter1
             // 
-            this.expandableSplitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.expandableSplitter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
             this.expandableSplitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
             this.expandableSplitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandableSplitter1.ExpandableControl = this.treeView1;
-            this.expandableSplitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.expandableSplitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
             this.expandableSplitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.expandableSplitter1.ExpandLineColor = System.Drawing.Color.Black;
+            this.expandableSplitter1.ExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.expandableSplitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
             this.expandableSplitter1.ForeColor = System.Drawing.Color.Black;
-            this.expandableSplitter1.GripDarkColor = System.Drawing.Color.Black;
+            this.expandableSplitter1.GripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.expandableSplitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.expandableSplitter1.GripLightColor = System.Drawing.Color.White;
+            this.expandableSplitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
             this.expandableSplitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.expandableSplitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.expandableSplitter1.HotBackColor2 = System.Drawing.Color.Empty;
+            this.expandableSplitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(151)))), ((int)(((byte)(61)))));
+            this.expandableSplitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(94)))));
             this.expandableSplitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
             this.expandableSplitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
-            this.expandableSplitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.expandableSplitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
             this.expandableSplitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.expandableSplitter1.HotExpandLineColor = System.Drawing.Color.Black;
+            this.expandableSplitter1.HotExpandLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.expandableSplitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.expandableSplitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.expandableSplitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
             this.expandableSplitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.White;
+            this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
             this.expandableSplitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.expandableSplitter1.Location = new System.Drawing.Point(127, 0);
             this.expandableSplitter1.Name = "expandableSplitter1";

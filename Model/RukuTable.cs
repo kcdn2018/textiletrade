@@ -27,5 +27,48 @@ namespace 纺织贸易管理系统
         public string Houzhengli { get; set; }
         public string offerid { get; set; }
         public string orderNum { get; set; }
-     }
+        public string ColorNum { get; set; }
+        public string CustomerPingMing { get; set; }
+        /// <summary>
+        /// 染厂
+        /// </summary>
+        public string Rangchang { get; set; }
+        /// <summary>
+        /// 客户色号
+        /// </summary>
+        public string CustomerColorNum { get; set; }
+        /// <summary>
+        /// 流转卡卡号
+        /// </summary>
+        public string LiuzhuanCard { get; set; }
+        /// <summary>
+        /// 入库米数
+        /// </summary>
+        public System.Decimal RukuNum { get; set; }
+        /// <summary>
+        /// 已发货数量
+        /// </summary>
+        public System.Decimal YiFaNum { get; set; }
+        /// <summary>
+        /// 是否检验完毕
+        /// </summary>
+        public System.String IsCheckDone { get; set; }
+        /// <summary>
+        /// 批号
+        /// </summary>
+        public System.String Pihao { get; set; }
+        /// <summary>
+        /// 坯布厂
+        /// </summary>
+        public System.String PibuChang { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public System.String Remarkers { get; set; }
+        /// <summary>
+        /// 坯布门幅
+        /// </summary>
+        public string FrabicWidth { get; set; }
+
+    }
 }

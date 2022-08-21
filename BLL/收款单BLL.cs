@@ -63,8 +63,8 @@ namespace BLL
             {
                 sk.Zhanghuyue += danju.je;
                 SKFSService.UpdateSKFS($"Zhanghuyue='{sk.Zhanghuyue }'", x => x.BH == sk.BH);
-            }      
-         
+                Connect.DbHelper().Updateable<DanjuTable>(danju ).ExecuteCommand();
+            }              
         }
         public  static void 减少账号余额(DanjuTable danju)
         {
@@ -73,6 +73,8 @@ namespace BLL
             {
                 sk.Zhanghuyue -= danju.je;
                 SKFSService.UpdateSKFS($"Zhanghuyue='{sk.Zhanghuyue }'", x => x.BH == sk.BH);
+                danju.RemainMoney = sk.Zhanghuyue;
+                Connect.DbHelper().Updateable<DanjuTable>(danju ).ExecuteCommand();
             }
         }
         public static   void 修改(DanjuTable danju, List<ProcessTable> orderTables, List<skmx> skmxes)

@@ -107,7 +107,7 @@ namespace 纺织贸易管理系统.选择窗体
             var id = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID").TryToInt();
             var d = StockTableService.GetOneStockTable (x=>x.ID ==id);        
              gridControl2.DataSource = JuanHaoTableService.GetJuanHaoTablelst(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
-              && x.GangHao == d.GH && x.SampleNum == d.BH && x.Danhao =="" && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum&&x.Ckmc==d.CKMC ).OrderBy (x=>x.PiHao);          
+              && x.GangHao == d.GH && x.SampleNum == d.BH && x.state==0 && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum&&x.Ckmc==d.CKMC ).OrderBy (x=>x.PiHao);          
         }
 
         private void 清零选择库存ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace 纺织贸易管理系统.选择窗体
                 {
                     var s = pingzhong.Where(x => x.ID == (int)gridView1.GetRowCellValue(index, "ID")).ToList()[0];
                     stocks.Add(s);
-                    RukuTableService.InsertRukuTable(new RukuTable()
+                    var ruku = new RukuTable()
                     {
                         BH = s.BH,
                         CF = s.CF,
@@ -141,8 +141,10 @@ namespace 纺织贸易管理系统.选择窗体
                         YS = s.YS,
                         offerid = s.RKDH,
                         LX = "删除库存",
-                        bz = string.Empty
-                    });
+                        bz = string.Empty,
+                    };
+                    ruku = SQLHelper.MapperHelper.Mapper(s, ruku);
+                    RukuTableService.InsertRukuTable(ruku);
                 }
                 库存BLL.清零库存(stocks);
             }
@@ -298,17 +300,13 @@ namespace 纺织贸易管理系统.选择窗体
             {
                 if (gridView1.SelectedRowsCount >= 0)
                 {
-                    string remarkers = string.Empty;
-                    Sunny.UI.UIInputDialog.InputStringDialog(this, ref remarkers, true, "请输入该布料的打卷要求");
-                    if (!string.IsNullOrWhiteSpace(remarkers))
-                    {
-                        List<StockTable> selectstocks = new List<StockTable>();
-                        foreach (var row in gridView1.GetSelectedRows())
-                        { selectstocks.Add(pingzhong.First(x => x.ID == gridView1.GetRowCellValue(row, "ID").TryToInt())); }
-                        selectstocks.ForEach(x => x.Remarkers = remarkers);
-                        Connect.DbHelper().Updateable<StockTable>(selectstocks).ExecuteCommandAsync();
-                        gridControl1.RefreshDataSource();
-                    }
+
+                    List<StockTable> selectstocks = new List<StockTable>();
+                    foreach (var row in gridView1.GetSelectedRows())
+                    { selectstocks.Add(pingzhong.First(x => x.ID == gridView1.GetRowCellValue(row, "ID").TryToInt())); }
+                    var fm = new 检验要求() { Stocks = selectstocks };
+                    fm.ShowDialog();
+                    gridControl1.RefreshDataSource();
                 }
             }
             catch(Exception ex)

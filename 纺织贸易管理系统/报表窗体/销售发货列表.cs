@@ -117,13 +117,20 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 审核通过ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //// F220704103
+            //var danjus = Connect.DbHelper().Queryable<DanjuTable>().Where(x => x.id >= 20364&&x.djlx ==DanjuLeiXing.销售出库单 ).ToList();
+            //foreach(var d in danjus)
+            //{
+            //    销售发货单BLL.单据审核(d.dh);
+            //}
+            //MessageBox.Show("全部审核完毕");
             if (AccessBLL.CheckAccess("审核销售发货单"))
             {
                 if (单据BLL.检查是否已经审核(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) == false)
                 {
-                    销售发货单BLL.单据审核  (gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
+                    销售发货单BLL.单据审核(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
                     AlterDlg.Show("审核成功！");
-                    检测状态.检测(danjumingxitableService.Getdanjumingxitablelst (x=>x.danhao == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()));
+                    检测状态.检测(danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()));
                     Query();
                 }
                 else
@@ -211,10 +218,6 @@ namespace 纺织贸易管理系统.报表窗体
             }
         }
 
-        private void 单据审核ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void 销售汇总ToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -119,5 +119,9 @@ namespace 纺织贸易管理系统
         /// FOB
         /// </summary>
         public string FOB { get; set; }
+        /// <summary>
+        /// 签约地址
+        /// </summary>
+        public string SignAddress { get; set; }
     }
 }

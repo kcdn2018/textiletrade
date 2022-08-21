@@ -65,7 +65,8 @@ namespace 纺织贸易管理系统.新增窗体
         /// </summary>
       private void jiazaijingshouren()
         {
-            cmbjinshouren.DataSource = YuanGongTableService.GetYuanGongTablelst(x => x.Xingming.Contains("")).Select(x => x.Xingming).ToList(); ;
+            cmbjinshouren.DataSource = YuanGongTableService.GetYuanGongTablelst(x => x.Xingming.Contains("")).Select(x => x.Xingming).ToList();
+            cmbShengqingren.DataSource = cmbjinshouren.DataSource;
         }
             
         private void 费用申请单_FormClosing(object sender, FormClosingEventArgs e)
@@ -90,6 +91,7 @@ namespace 纺织贸易管理系统.新增窗体
             {
                 danjumingxis.Add(new danjumingxitable() { danwei = "米" });
             }
+            cmbBaoxiao.SelectedIndex = 0;
             gridControl1.DataSource = danjumingxis;
             gridControl1.RefreshDataSource();
         }
@@ -142,6 +144,7 @@ namespace 纺织贸易管理系统.新增窗体
             cmbshouzhi.Text = danju.yaoqiu;
            dateEdit1.DateTime=danju.rq;
             txthetonghao.Text = danju.HetongHao;
+            cmbBaoxiao.Text = danju.zhuangtai;
             if(danju.yaoqiu =="收入")
             {
                 txtjine.Text = danju.totalmoney.ToString ();
@@ -180,9 +183,12 @@ namespace 纺织贸易管理系统.新增窗体
             danju.yaoqiu = cmbshouzhi.Text;
             danju.HetongHao = txthetonghao.Text;
             danju.own = User.user.YHBH;
+            danju.zhuangtai = cmbBaoxiao.Text;
+            danju.SaleMan = cmbShengqingren.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            gridView1.CloseEditor();
             if(txtjine.Text =="0.00")
             {                
                     Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请填写金额,保存失败！");

@@ -46,6 +46,8 @@
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.txtdaihao = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtEnglishname = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -63,7 +65,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label29.Location = new System.Drawing.Point(13, 135);
+            this.label29.Location = new System.Drawing.Point(13, 175);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(29, 12);
@@ -74,7 +76,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(13, 98);
+            this.label30.Location = new System.Drawing.Point(13, 137);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(29, 12);
@@ -111,7 +113,7 @@
             this.txtkoufeng.DisabledBackColor = System.Drawing.Color.White;
             this.txtkoufeng.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtkoufeng.ForeColor = System.Drawing.Color.Black;
-            this.txtkoufeng.Location = new System.Drawing.Point(73, 131);
+            this.txtkoufeng.Location = new System.Drawing.Point(73, 173);
             this.txtkoufeng.Margin = new System.Windows.Forms.Padding(2);
             this.txtkoufeng.Name = "txtkoufeng";
             this.txtkoufeng.PreventEnterBeep = true;
@@ -129,7 +131,7 @@
             this.txtKoumi.DisabledBackColor = System.Drawing.Color.White;
             this.txtKoumi.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtKoumi.ForeColor = System.Drawing.Color.Black;
-            this.txtKoumi.Location = new System.Drawing.Point(73, 94);
+            this.txtKoumi.Location = new System.Drawing.Point(73, 135);
             this.txtKoumi.Margin = new System.Windows.Forms.Padding(2);
             this.txtKoumi.Name = "txtKoumi";
             this.txtKoumi.PreventEnterBeep = true;
@@ -140,7 +142,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(11, 208);
+            this.label10.Location = new System.Drawing.Point(11, 254);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
@@ -159,7 +161,7 @@
             this.comboItem1,
             this.comboItem2,
             this.comboItem3});
-            this.cmbWenti.Location = new System.Drawing.Point(71, 204);
+            this.cmbWenti.Location = new System.Drawing.Point(71, 249);
             this.cmbWenti.Margin = new System.Windows.Forms.Padding(2);
             this.cmbWenti.Name = "cmbWenti";
             this.cmbWenti.Size = new System.Drawing.Size(171, 22);
@@ -188,7 +190,7 @@
             this.uiSymbolButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiSymbolButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton2.Location = new System.Drawing.Point(142, 255);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(147, 292);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -209,7 +211,7 @@
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(19, 255);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(24, 292);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Size = new System.Drawing.Size(100, 35);
@@ -231,7 +233,7 @@
             this.txtdaihao.DisabledBackColor = System.Drawing.Color.White;
             this.txtdaihao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtdaihao.ForeColor = System.Drawing.Color.Black;
-            this.txtdaihao.Location = new System.Drawing.Point(73, 168);
+            this.txtdaihao.Location = new System.Drawing.Point(73, 211);
             this.txtdaihao.Margin = new System.Windows.Forms.Padding(2);
             this.txtdaihao.Name = "txtdaihao";
             this.txtdaihao.PreventEnterBeep = true;
@@ -242,17 +244,49 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(13, 172);
+            this.label1.Location = new System.Drawing.Point(13, 213);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 104;
             this.label1.Text = "代号";
             // 
+            // txtEnglishname
+            // 
+            this.txtEnglishname.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtEnglishname.Border.Class = "TextBoxBorder";
+            this.txtEnglishname.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtEnglishname.DisabledBackColor = System.Drawing.Color.White;
+            this.txtEnglishname.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtEnglishname.ForeColor = System.Drawing.Color.Black;
+            this.txtEnglishname.Location = new System.Drawing.Point(73, 97);
+            this.txtEnglishname.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEnglishname.Name = "txtEnglishname";
+            this.txtEnglishname.PreventEnterBeep = true;
+            this.txtEnglishname.Size = new System.Drawing.Size(169, 21);
+            this.txtEnglishname.TabIndex = 106;
+            this.txtEnglishname.WatermarkText = "英文名字";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(13, 101);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "英文名称";
+            // 
             // 新增疵点
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(264, 313);
+            this.ClientSize = new System.Drawing.Size(264, 343);
+            this.Controls.Add(this.txtEnglishname);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtdaihao);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uiSymbolButton2);
@@ -297,5 +331,7 @@
         private Sunny.UI.UISymbolButton uiSymbolButton1;
         private DevComponents.DotNetBar.Controls.TextBoxX txtdaihao;
         private System.Windows.Forms.Label label1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtEnglishname;
+        private System.Windows.Forms.Label label3;
     }
 }

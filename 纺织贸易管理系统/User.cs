@@ -10,6 +10,6 @@ namespace 纺织贸易管理系统
      {
         public static Yhb user = new Yhb { YHBH = "10001", YHMC = "管理员" };
         public static Sunny.UI.UIStyleManager styleManager = new Sunny.UI.UIStyleManager();
-        public static System.Version  version = new System.Version ();
+        public static Version  version = new Version ();
      }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -34,6 +35,7 @@ namespace 纺织贸易管理系统.新增窗体
             CreateGrid.Create(this.Name  ,gridView1);
             CreateGrid.Create(this.Name , gridView2);
             cmbFahuogongsi .DataSource = infoService.Getinfolst().Select(x => x.gsmc).ToList();
+            cmbMoban.DataSource = Tools.获取模板.获取所有模板(PrintPath.唛头模板);
             try
             {
                 gridView1.Columns["Bianhao"].ColumnEdit = ButtonEdit1;
@@ -223,6 +225,9 @@ namespace 纺织贸易管理系统.新增窗体
             danju.SaleMan = txtyewuyuan.Text;
             danju.ChaCheFei = txtChachefei.Text.TryToDecmial();
             danju.ZhuangXieFei = txtzhuangxiefei.Text.TryToDecmial();
+            danju.Port = txtPort.Text;
+            danju.Payment = txtpayment.Text;
+            danju.ShippingMark = cmbMoban.Text;
             //danju.Fahuodizhi = txtjiagongchang.Text;
         }
         private List <JuanHaoTable > CreatJuanhao()
@@ -381,54 +386,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void gridView2_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
-            foreach (var d in danjumingxitables )
-            {
-                d.chengpingmishu = 0;
-                d.chengpingjuanshu = 0;
-            }
-            foreach (var i in gridView2.GetSelectedRows())
-            {
-                var juan = new JuanHaoTable();
-                juan = juanList.First(x => x.ID ==(int) gridView2.GetRowCellValue(i, "ID")); 
-                var d= danjumingxitables.Where(x => x.OrderNum == juan.OrderNum   && x.Bianhao==juan .SampleNum &&x.ganghao==juan .GangHao &&x.kuanhao ==juan.kuanhao 
-                &&x.houzhengli==juan.Houzhengli &&x.yanse==juan.yanse&&x.Huahao ==juan.Huahao&&x.ColorNum==juan.ColorNum ).ToList ();
-                if(d.Count>0)
-                {
-                    if (d[0].danwei == "米" && juan.Danwei == "米")
-                    {
-                        d[0].chengpingmishu += juan.biaoqianmishu ;
-                        d[0].toupimishu  =juan.MaShu !=0? d[0].chengpingmishu /(100+(100- juan.MaShu) /100) : d[0].chengpingmishu;
-                    }
-                    else
-                    {
-                        if (d[0].danwei == "米" && juan.Danwei == "码")
-                        {
-                            d[0].chengpingmishu += juan.biaoqianmishu*(decimal)0.9144;
-                            d[0].toupimishu = juan.MaShu != 0 ? d[0].chengpingmishu / (100 + (100 - juan.MaShu) / 100) : d[0].chengpingmishu;
-                        }
-                        else
-                        {
-                            if (d[0].danwei == "码" && juan.Danwei == "码")
-                            {
-                                d[0].chengpingmishu += juan.biaoqianmishu ;
-                                d[0].toupimishu = juan.MaShu != 0 ? d[0].chengpingmishu / (100 + (100 - juan.MaShu) / 100) : d[0].chengpingmishu;
-                            }
-                            else
-                            {
-                                d[0].chengpingmishu += juan.biaoqianmishu / (decimal)0.9144;
-                                d[0].toupimishu = juan.MaShu != 0 ? d[0].chengpingmishu / (100 + (100 - juan.MaShu) / 100) : d[0].chengpingmishu;
-                            }
-                        }
-                    }
-                   string s= juan.biaoqianmishu.ToString() +"  "+d[0].chengpingmishu .ToString () ;
-                    d[0].chengpingjuanshu++;
-                }
-            }
-            foreach (var d in danjumingxitables)
-            {
-                d.hanshuiheji = d.hanshuidanjia * d.chengpingmishu;
-            }
-            gridControl1.RefreshDataSource();
+            SelectJuanHelper.SelectJuan(gridControl1, gridView2, juanList, danjumingxitables);
         }
 
         private void 销售发货单_Load(object sender, EventArgs e)
@@ -474,6 +432,9 @@ namespace 纺织贸易管理系统.新增窗体
             dateEdit1.DateTime = danju.rq;
             txtyewuyuan.Text = danju.SaleMan;
             cmbbizhong.Text = danju.Bizhong;
+            txtPort.Text = danju.Port;
+            cmbMoban.Text = danju.ShippingMark;
+            txtpayment.Text = danju.Payment;
         }
 
         private void 码单编辑ToolStripMenuItem_Click(object sender, EventArgs e)

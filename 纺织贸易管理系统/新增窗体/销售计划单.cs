@@ -195,6 +195,7 @@ namespace 纺织贸易管理系统.新增窗体
             order.ShipmentTime = dateTimePicker1.Value;
             order.CustomerFullName = txtfullname.Text;
             order.FOB = txtFOB.Text;
+            order.SignAddress = txtqianyuedidian.Text;
         }
 
      
@@ -355,6 +356,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtFOB.Text = order.FOB;
             nump1.Value = order.Scopefrom;
             nump2.Value = order.ScopeEnd;
+            txtqianyuedidian.Text = order.SignAddress;
             if (order.Rax == true)
             {
                 comhanshui.Text = "含税";

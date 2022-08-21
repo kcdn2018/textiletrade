@@ -28,7 +28,11 @@ namespace 纺织贸易管理系统.报表窗体
             CreateGrid.Create(this.Name, gridView5);
             dateEdit2.DateTime = DateTime.Now;
             dateEdit1.DateTime = dateEdit2.DateTime.AddDays(-QueryTime.间隔);
- 
+           foreach (var yuangong in YuanGongTableService .GetYuanGongTablelst ())
+            {
+                cmbzhidanren.Items.Add(yuangong.Xingming );
+            }
+            cmbzhidanren.Text = string.Empty;
         }
 
         private void 生产计划单查询_Load(object sender, EventArgs e)
@@ -43,12 +47,12 @@ namespace 纺织贸易管理系统.报表窗体
                    $"and ShengchanBuliaoInfo.BuliaoPingming like '%{txtpingming.Text }%' " +
                    $"and ShengchanBuliaoInfo.ColorNum like '%{txtyanse.Text }%' " +
                    $"and ShengChanDanTable.Hetonghao like '%{txthetonghao.Text }%' " +
-                   $"and ShengChanDanTable.OrderNum like '%{txtordernum.Text }%'  and ShengChanDanTable.SampleFrom like '%{txtksmc.Text}%' ";
+                   $"and ShengChanDanTable.OrderNum like '%{txtordernum.Text }%'  and ShengChanDanTable.SampleFrom like '%{txtksmc.Text}%' and ShengChanDanTable.Xiadanyuan like '%{cmbzhidanren.Text }%' ";
             //$" order by  desc"
             if (User.user.access == "自己")
             {
                 querystring += $" and ShengChanDanTable.own='{User.user.YHBH }'";
-            }
+            }  
             querystring += " order by ShengChanDanTable.riqi desc";
             //CreateGrid.Query<ShengChanDanTable>(gridControl1, ShengChanDanTableService.GetShengChanDanTablelst(x => x.riqi >= dateEdit1.DateTime && x.riqi <= dateEdit2.DateTime && x.OrderNum.Contains(txtordernum.Text) && x.SampleFrom.Contains(txtksmc.Text)));
             CreateGrid.Query(gridControl1,querystring );
@@ -210,6 +214,21 @@ namespace 纺织贸易管理系统.报表窗体
             fm.ShowDialog();
             txtjiagongchang.Text = fm.linkman.MC;
             Query();
+        }
+
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                if (gridView1.FocusedColumn.FieldName == "ShippingDate" || gridView1.FocusedColumn.FieldName == "SellDate" || gridView1.FocusedColumn.FieldName == "OrderState" || gridView1.FocusedColumn.FieldName == "ProduceSate")
+                {
+                    Connect.CreatConnect().Update<ShengchanBuliaoInfo>(gridView1.FocusedColumn.FieldName +"='"+ gridView1.GetFocusedValue()+"'", x => x.ID == (int)gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ID"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("同步到数据库的时候发送了错误!" + ex.Message);
+            }
         }
     }
 }

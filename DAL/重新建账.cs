@@ -25,6 +25,7 @@ namespace DAL
             DB.Update("truncate table RangShequpiTable ");
             DB.Update("UPDATE LXR SET JE=0");
             DB.Update("UPDATE LXR SET fp=0");
+            DB.Update("UPDATE LXR SET USD=0");
             DB.Update("UPDATE LXR SET YingKaifapiao=0");
             DB.Update("UPDATE LXR SET YingShouFapiao=0");
             DB.Update("truncate table juanhaotable");

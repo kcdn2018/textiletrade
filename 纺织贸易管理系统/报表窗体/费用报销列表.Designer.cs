@@ -39,6 +39,10 @@
             this.单据反审ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cmbjinshouren = new System.Windows.Forms.ComboBox();
+            this.cmbzhuangtai = new System.Windows.Forms.ComboBox();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.txtzhaiyao = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.cmbleixing = new System.Windows.Forms.ComboBox();
@@ -136,22 +140,22 @@
             this.单据审核ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.单据审核ToolStripMenuItem.Name = "单据审核ToolStripMenuItem";
             this.单据审核ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
-            this.单据审核ToolStripMenuItem.Text = "单据审核";
+            this.单据审核ToolStripMenuItem.Text = "报销审核";
             // 
             // 审核通过ToolStripMenuItem
             // 
             this.审核通过ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Apply_32x32;
             this.审核通过ToolStripMenuItem.Name = "审核通过ToolStripMenuItem";
-            this.审核通过ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.审核通过ToolStripMenuItem.Text = "审核通过";
+            this.审核通过ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.审核通过ToolStripMenuItem.Text = "报销通过";
             this.审核通过ToolStripMenuItem.Click += new System.EventHandler(this.审核通过ToolStripMenuItem_Click);
             // 
             // 单据反审ToolStripMenuItem
             // 
             this.单据反审ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Cancel_32x32;
             this.单据反审ToolStripMenuItem.Name = "单据反审ToolStripMenuItem";
-            this.单据反审ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.单据反审ToolStripMenuItem.Text = "单据反审";
+            this.单据反审ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.单据反审ToolStripMenuItem.Text = "取消报销";
             this.单据反审ToolStripMenuItem.Click += new System.EventHandler(this.单据反审ToolStripMenuItem_Click);
             // 
             // 刷新ToolStripMenuItem
@@ -168,6 +172,10 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.cmbjinshouren);
+            this.groupPanel1.Controls.Add(this.cmbzhuangtai);
+            this.groupPanel1.Controls.Add(this.labelX8);
+            this.groupPanel1.Controls.Add(this.labelX7);
             this.groupPanel1.Controls.Add(this.txtzhaiyao);
             this.groupPanel1.Controls.Add(this.labelX5);
             this.groupPanel1.Controls.Add(this.cmbleixing);
@@ -215,6 +223,49 @@
             this.groupPanel1.TabIndex = 5;
             this.groupPanel1.Text = "查询条件";
             // 
+            // cmbjinshouren
+            // 
+            this.cmbjinshouren.FormattingEnabled = true;
+            this.cmbjinshouren.Location = new System.Drawing.Point(664, 59);
+            this.cmbjinshouren.Name = "cmbjinshouren";
+            this.cmbjinshouren.Size = new System.Drawing.Size(121, 20);
+            this.cmbjinshouren.TabIndex = 60;
+            // 
+            // cmbzhuangtai
+            // 
+            this.cmbzhuangtai.FormattingEnabled = true;
+            this.cmbzhuangtai.Items.AddRange(new object[] {
+            "已审核",
+            "未审核"});
+            this.cmbzhuangtai.Location = new System.Drawing.Point(664, 20);
+            this.cmbzhuangtai.Name = "cmbzhuangtai";
+            this.cmbzhuangtai.Size = new System.Drawing.Size(121, 20);
+            this.cmbzhuangtai.TabIndex = 59;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(580, 19);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(78, 23);
+            this.labelX8.TabIndex = 58;
+            this.labelX8.Text = "报销状态";
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(580, 58);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(78, 23);
+            this.labelX7.TabIndex = 56;
+            this.labelX7.Text = "费用申请人";
+            // 
             // txtzhaiyao
             // 
             this.txtzhaiyao.BackColor = System.Drawing.Color.White;
@@ -225,7 +276,7 @@
             this.txtzhaiyao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtzhaiyao.DisabledBackColor = System.Drawing.Color.White;
             this.txtzhaiyao.ForeColor = System.Drawing.Color.Black;
-            this.txtzhaiyao.Location = new System.Drawing.Point(444, 60);
+            this.txtzhaiyao.Location = new System.Drawing.Point(444, 59);
             this.txtzhaiyao.Name = "txtzhaiyao";
             this.txtzhaiyao.PreventEnterBeep = true;
             this.txtzhaiyao.Size = new System.Drawing.Size(121, 21);
@@ -237,7 +288,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(383, 59);
+            this.labelX5.Location = new System.Drawing.Point(383, 58);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(55, 23);
             this.labelX5.TabIndex = 54;
@@ -246,7 +297,7 @@
             // cmbleixing
             // 
             this.cmbleixing.FormattingEnabled = true;
-            this.cmbleixing.Location = new System.Drawing.Point(67, 60);
+            this.cmbleixing.Location = new System.Drawing.Point(67, 59);
             this.cmbleixing.Name = "cmbleixing";
             this.cmbleixing.Size = new System.Drawing.Size(121, 20);
             this.cmbleixing.TabIndex = 53;
@@ -257,7 +308,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(6, 59);
+            this.labelX4.Location = new System.Drawing.Point(6, 58);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(59, 23);
             this.labelX4.TabIndex = 52;
@@ -281,7 +332,7 @@
             this.txtordernum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtordernum.DisabledBackColor = System.Drawing.Color.White;
             this.txtordernum.ForeColor = System.Drawing.Color.Black;
-            this.txtordernum.Location = new System.Drawing.Point(256, 60);
+            this.txtordernum.Location = new System.Drawing.Point(256, 59);
             this.txtordernum.Name = "txtordernum";
             this.txtordernum.PreventEnterBeep = true;
             this.txtordernum.Size = new System.Drawing.Size(121, 21);
@@ -293,7 +344,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(195, 59);
+            this.labelX6.Location = new System.Drawing.Point(195, 58);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(55, 23);
             this.labelX6.TabIndex = 49;
@@ -513,6 +564,8 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
@@ -580,5 +633,9 @@
         private System.Windows.Forms.ComboBox cmbfukuanfangshi;
         private DevComponents.DotNetBar.Controls.TextBoxX txtzhaiyao;
         private DevComponents.DotNetBar.LabelX labelX5;
+        private System.Windows.Forms.ComboBox cmbjinshouren;
+        private System.Windows.Forms.ComboBox cmbzhuangtai;
+        private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.DotNetBar.LabelX labelX7;
     }
 }

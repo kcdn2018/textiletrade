@@ -28,8 +28,7 @@ namespace 纺织贸易管理系统.新增窗体
             InitializeComponent();
             uiDatePicker1.Value = DateTime.Now;
             CreateGrid.Create(this.Name, gridView1);
-            var conMenu = new ContexMenuEX() { formName = this.Name, gridControl = gridControl1, gridView = gridView1, menuStrip = contextMenuStrip1 };
-            conMenu.Init();
+            gridView1.OptionsCustomization.AllowSort = true;
             try
             {
                 gridView1.Columns["YangbuBianhao"].ColumnEdit = ButtonEdit1;
@@ -41,7 +40,7 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void 配置列ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fm = new 配置列(gridView1) { formname = this.Name, Obj = new danjumingxitable() };
+            var fm = new 配置列(gridView1) { formname = this.Name, Obj = new ZhanhuiDetail () };
             fm.ShowDialog();
         }
         private void ButtonEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -74,6 +73,7 @@ namespace 纺织贸易管理系统.新增窗体
                             Danhao = txtdanhao.Text,
                             bz = string.Empty
                         };
+                    Mapper.MapperTo(pingzhong, zhanhuiDetails[i]);
                         i++;
                         if (i == zhanhuiDetails.Count - 1)
                             for (int j = 0; j < 30; j++)
@@ -89,7 +89,9 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void 展会管理_Load(object sender, EventArgs e)
         {
-            if(Userful ==FormUseful.新增 )
+            var conMenu = new ContexMenuEX() { formName = this.Name, gridControl = gridControl1, gridView = gridView1, menuStrip = contextMenuStrip1, obj = new ZhanhuiDetail() };
+            conMenu.Init();
+            if (Userful ==FormUseful.新增 )
             {
                 新增();
             }
@@ -108,7 +110,7 @@ namespace 纺织贸易管理系统.新增窗体
         {
             if(!string.IsNullOrWhiteSpace (Danhao ))
             {
-                zhanhuiDetails = ZhanhuiDetailService.GetZhanhuiDetaillst(x => x.Danhao == Danhao);
+                zhanhuiDetails = ZhanhuiDetailService.GetZhanhuiDetaillst(x => x.Danhao == Danhao).GroupBy(x => x.YangbuBianhao).Select(y => y.First()).ToList ();
             }
             var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == Danhao);
             txtdanhao.Text = danju.dh;
@@ -116,7 +118,9 @@ namespace 纺织贸易管理系统.新增窗体
             txtweizhi.Text = danju.StockName;
             uiDatePicker1.Value = danju.rq;
             txtName.Text = danju.ksmc;
-            zhanhuiDetails.AddRange(new ZhanhuiDetail[100 - zhanhuiDetails.Count]);
+            if (zhanhuiDetails.Count < 100)
+            { zhanhuiDetails.AddRange(new ZhanhuiDetail[100 - zhanhuiDetails.Count]); }
+            
             gridControl1.DataSource  =zhanhuiDetails;
         }
 
@@ -142,7 +146,7 @@ namespace 纺织贸易管理系统.新增窗体
                 DanjuTableService.UpdateDanjuTable(x => x.ksmc == txtName.Text && x.ckmc == txtAddress.Text && x.StockName == txtweizhi.Text && x.rq == uiDatePicker1.Value.Date, y => y.dh == txtdanhao.Text);
                 ZhanhuiDetailService.DeleteZhanhuiDetail(x => x.Danhao == txtdanhao.Text);
                 UIWaitFormService.ShowWaitForm("正在保存。。。。。。。请等待");
-                var res = zhanhuiDetails.Where(x =>x!=null&& !string.IsNullOrEmpty(x.YangbuBianhao)).ToList();
+                var res = zhanhuiDetails.Where(x =>x!=null&& !string.IsNullOrEmpty(x.YangbuBianhao)).Distinct().ToList();
                 ZhanhuiDetailService.InsertZhanhuiDetaillst(res);
                 UIWaitFormService.HideWaitForm();
             }

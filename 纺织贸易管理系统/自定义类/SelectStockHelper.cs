@@ -60,6 +60,7 @@ namespace 纺织贸易管理系统.自定义类
                 danjumingxitables[i].Pihao = pingzhong.Pihao;
                 danjumingxitables[i].IsHanshui = QueryTime.IsTax;
                 danjumingxitables[i].AveragePrice = pingzhong.AvgPrice;
+                danjumingxitables[i].CustomerLotNo = pingzhong.CustomerLotNo;
                 danjumingxitables[i].hanshuidanjia = OrderDetailTableService.GetOneOrderDetailTable(x => x.OrderNum == pingzhong.orderNum && x.sampleNum == pingzhong.BH && x.Kuanhao == pingzhong.kuanhao
                 && x.ColorNum == pingzhong.ColorNum && x.color == pingzhong.YS && x.Huahao == pingzhong.Huahao).price;
                 danjumingxitables[i].hanshuiheji = danjumingxitables[i].hanshuidanjia * pingzhong.MS;

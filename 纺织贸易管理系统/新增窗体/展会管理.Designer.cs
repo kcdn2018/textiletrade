@@ -118,70 +118,70 @@
             // 
             this.txtweizhi.ButtonSymbol = 61761;
             this.txtweizhi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtweizhi.FillColor = System.Drawing.Color.White;
             this.txtweizhi.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtweizhi.Location = new System.Drawing.Point(618, 77);
             this.txtweizhi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtweizhi.Maximum = 2147483647D;
-            this.txtweizhi.Minimum = -2147483648D;
             this.txtweizhi.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtweizhi.Name = "txtweizhi";
             this.txtweizhi.Padding = new System.Windows.Forms.Padding(5);
+            this.txtweizhi.ShowText = false;
             this.txtweizhi.Size = new System.Drawing.Size(138, 23);
             this.txtweizhi.TabIndex = 17;
             this.txtweizhi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtweizhi.Watermark = "";
+            this.txtweizhi.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtName
             // 
             this.txtName.ButtonSymbol = 61761;
             this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.FillColor = System.Drawing.Color.White;
             this.txtName.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtName.Location = new System.Drawing.Point(269, 77);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtName.Maximum = 2147483647D;
-            this.txtName.Minimum = -2147483648D;
             this.txtName.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtName.Name = "txtName";
             this.txtName.Padding = new System.Windows.Forms.Padding(5);
+            this.txtName.ShowText = false;
             this.txtName.Size = new System.Drawing.Size(261, 23);
             this.txtName.TabIndex = 16;
             this.txtName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtName.Watermark = "";
+            this.txtName.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtAddress
             // 
             this.txtAddress.ButtonSymbol = 61761;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtAddress.FillColor = System.Drawing.Color.White;
             this.txtAddress.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtAddress.Location = new System.Drawing.Point(269, 38);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtAddress.Maximum = 2147483647D;
-            this.txtAddress.Minimum = -2147483648D;
             this.txtAddress.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Padding = new System.Windows.Forms.Padding(5);
+            this.txtAddress.ShowText = false;
             this.txtAddress.Size = new System.Drawing.Size(261, 23);
             this.txtAddress.TabIndex = 15;
             this.txtAddress.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtAddress.Watermark = "";
+            this.txtAddress.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtdanhao
             // 
             this.txtdanhao.ButtonSymbol = 61761;
             this.txtdanhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtdanhao.FillColor = System.Drawing.Color.White;
             this.txtdanhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtdanhao.Location = new System.Drawing.Point(55, 38);
             this.txtdanhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtdanhao.Maximum = 2147483647D;
-            this.txtdanhao.Minimum = -2147483648D;
             this.txtdanhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtdanhao.Name = "txtdanhao";
             this.txtdanhao.Padding = new System.Windows.Forms.Padding(5);
             this.txtdanhao.ReadOnly = true;
+            this.txtdanhao.ShowText = false;
             this.txtdanhao.Size = new System.Drawing.Size(125, 23);
             this.txtdanhao.TabIndex = 14;
             this.txtdanhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtdanhao.Watermark = "";
+            this.txtdanhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiDatePicker1
             // 
@@ -200,6 +200,8 @@
             this.uiDatePicker1.Text = "2021-06-29";
             this.uiDatePicker1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiDatePicker1.Value = new System.DateTime(2021, 6, 29, 19, 55, 7, 0);
+            this.uiDatePicker1.Watermark = "";
+            this.uiDatePicker1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX6
             // 
@@ -292,7 +294,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
             // 
             // gridView1
             // 

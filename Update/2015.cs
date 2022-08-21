@@ -11,11 +11,82 @@ namespace Update
    public  class V2015
 
     {
+        public static void UpdateToV2024()
+        {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version == "1.0.2.23")
+            {
+                verinfo.Version = "1.0.2.24";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
+                Console.WriteLine("更新库存英文名");
+                Connect.CreatConnect().DoSQL("update stocktable set EnglishName=(select top(1) EnglishName from db where db.bh=stocktable.BH )");
+            }
+        }
+        public static void UpdateToV2023()
+        {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version == "1.0.2.22")
+            {
+                verinfo.Version = "1.0.2.23";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
+                Console.WriteLine("增加来样登记功能");
+                Connect.CreatConnect().DoSQL("alter table db alter column rq date");
+                AddNewMenu.Add(new MenuTable() { FatherMenu = "样品管理", FormName = "来样登记查询", MenuName = "来样登记单", UserID = "10001", Visitable = false });
+                AddNewMenu.AddNewForm("来样登记单");
+                AddNewMenu.AddNewForm("来样登记查询");
+            }
+        }
+        public static void UpdateToV2022()
+        {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version == "1.0.2.21")
+            {
+                verinfo.Version = "1.0.2.22";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
+                Console.WriteLine("增加外检入库功能");
+                AddNewMenu.Add(new MenuTable() { FatherMenu = "生产管理", FormName = "外检入库单列表", MenuName = "外检入库单", UserID = "10001", Visitable = false });
+                AddNewMenu.AddNewForm("外检入库单");
+                AddNewMenu.AddNewForm("外检入库单列表");
+            }
+        }
+        public static void UpdateToV2021()
+        {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version == "1.0.2.20")
+            {
+                verinfo.Version = "1.0.2.21";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
+                Console.WriteLine("增加外检直销功能");
+                AddNewMenu.Add(new MenuTable() {  FatherMenu ="销售管理", FormName = "外检直销单" , MenuName = "外检直销单", UserID ="10001", Visitable =false  });
+                AddNewMenu.AddNewForm("外检直销单");
+                AddNewMenu.AddNewForm("外检直销单列表");
+            }
+        }
+        public static void UpdateToV2020()
+        {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version== "1.0.2.19")
+            {         
+                verinfo.Version = "1.0.2.20";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
+                Console.WriteLine("增加公司信息");
+                AddColumn.AddNewColumn("info", "BankNo", "nvarchar(250)", string.Empty);
+
+            }
+        }
         public static void UpdateToV2019()
         {
-            var verinfo = infoService.Getinfolst()[0];
-            if (Version.Parse(verinfo.Version) == Version.Parse("1.0.2.18"))
-            {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version == "1.0.2.18")
+            {        
+                verinfo.Version = "1.0.2.19";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
                 Console.WriteLine("增加订单信息");
                 AddColumn.AddNewColumn("OrderTable", "Scopefrom", "nvarchar(250)", string.Empty);
                 AddColumn.AddNewColumn("OrderTable", "ScopeEnd", "nvarchar(250)", string.Empty);
@@ -24,26 +95,28 @@ namespace Update
                 AddColumn.AddNewColumn("OrderTable", "SignCompany", "nvarchar(250)", string.Empty);
                 AddColumn.AddNewColumn("OrderTable", "CustomerFullName", "nvarchar(250)", string.Empty);
                 AddColumn.AddNewColumn("OrderTable", "FOB", "nvarchar(250)", string.Empty);
-                verinfo.Version = "1.0.2.19";
-                更新数据库版本.UpdateInfo(verinfo);
+
             }
         }
         public static void UpdateToV2018()
         {
-            var verinfo = infoService.Getinfolst()[0];
-            if (Version.Parse(verinfo.Version) == Version.Parse("1.0.2.17"))
-            {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version.Trim(' ') == "1.0.2.17")
+            {  verinfo.Version = "1.0.2.18";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
                 Connect.CreatConnect().DoSQL("alter table OrderDetailTable add  Require nvarchar(250)");
                 Connect.CreatConnect().DoSQL("updateOrderDetailTable set  Require =''");
-                verinfo.Version = "1.0.2.18";
-                更新数据库版本.UpdateInfo(verinfo);
+              
             }
         }
         public static void UpdateToV2017()
         {
-            var verinfo = infoService.Getinfolst()[0];
-            if (Version.Parse(verinfo.Version) == Version.Parse("1.0.2.16"))
-            {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version.Trim(' ') == "1.0.2.16")
+            { verinfo.Version = "1.0.2.17";
+                更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
                 Connect.CreatConnect().DoSQL("alter table YuanGongTable add  TiCheng decimal(18,2)");
                 Connect.CreatConnect().DoSQL("update YuanGongTable set  TiCheng =33.33");
                 Connect.CreatConnect().DoSQL("alter table PriceTable alter column hanshui decimal(18,2)");
@@ -56,19 +129,20 @@ namespace Update
                 Connect.CreatConnect().DoSQL("update WuliuTable set  Kaihuyinghang =''");
                 Connect.CreatConnect().DoSQL("alter table WuliuTable add  LinkMan nvarchar(250)");
                 Connect.CreatConnect().DoSQL("update WuliuTable set  LinkMan =''");
-                verinfo.Version = "1.0.2.17";
-                更新数据库版本.UpdateInfo(verinfo);
+               
             }
         }
         public static void UpdateToV2016()
         {
-            var verinfo = infoService.Getinfolst()[0];
-            if (Version.Parse(verinfo.Version) == Version.Parse("1.0.2.15"))
-            {
-                增加联系人信息();
-                Console.WriteLine("增加联系人信息");
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version.Trim(' ') == "1.0.2.15")
+            { 
                 verinfo.Version = "1.0.2.16";
                 更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
+                增加联系人信息();
+                Console.WriteLine("增加联系人信息");
+               
             }
         }
         private static void 增加联系人信息()
@@ -108,13 +182,14 @@ namespace Update
         }
         public static void UpdateToV2015()
         {
-            var verinfo = infoService.Getinfolst()[0];
-            if (Version.Parse(verinfo.Version ) == Version.Parse("1.0.2.14"))
-            {
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
+            if (verinfo.Version == "1.0.2.14")
+            {  verinfo.Version = "1.0.2.15";
+               更新数据库版本.UpdateInfo(verinfo);
+                Console.WriteLine($"更新版本到{verinfo.Version }");
                 修改长度();
                 Console.WriteLine("修改长度成功");
-                verinfo.Version = "1.0.2.15";
-               更新数据库版本.UpdateInfo(verinfo);
+              
             }
         }
         private  static void 修改长度()

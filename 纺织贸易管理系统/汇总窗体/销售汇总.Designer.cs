@@ -35,8 +35,6 @@ namespace 纺织贸易管理系统.其他窗体
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
@@ -70,6 +68,9 @@ namespace 纺织贸易管理系统.其他窗体
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.txtxiaoshoue = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
+            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.提成领用ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
@@ -85,29 +86,13 @@ namespace 纺织贸易管理系统.其他窗体
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.导出ToolStripMenuItem,
-            this.刷新ToolStripMenuItem});
+            this.刷新ToolStripMenuItem,
+            this.提成领用ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1260, 40);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 导出ToolStripMenuItem
-            // 
-            this.导出ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ExportToXLS_32x32;
-            this.导出ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
-            this.导出ToolStripMenuItem.Text = "导出";
-            // 
-            // 刷新ToolStripMenuItem
-            // 
-            this.刷新ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Refresh_32x32;
-            this.刷新ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
-            this.刷新ToolStripMenuItem.Text = "刷新";
-            this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
             // 
             // groupPanel1
             // 
@@ -281,6 +266,7 @@ namespace 纺织贸易管理系统.其他窗体
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewX1.EnableHeadersVisualStyles = false;
+            this.dataGridViewX1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewX1.Name = "dataGridViewX1";
@@ -647,6 +633,32 @@ namespace 纺织贸易管理系统.其他窗体
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
+            // 导出ToolStripMenuItem
+            // 
+            this.导出ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ExportToXLS_32x32;
+            this.导出ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
+            this.导出ToolStripMenuItem.Text = "导出";
+            // 
+            // 刷新ToolStripMenuItem
+            // 
+            this.刷新ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Refresh_32x32;
+            this.刷新ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(76, 36);
+            this.刷新ToolStripMenuItem.Text = "刷新";
+            this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
+            // 
+            // 提成领用ToolStripMenuItem
+            // 
+            this.提成领用ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.BO_Document_32x32;
+            this.提成领用ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.提成领用ToolStripMenuItem.Name = "提成领用ToolStripMenuItem";
+            this.提成领用ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.提成领用ToolStripMenuItem.Text = "提成领用";
+            this.提成领用ToolStripMenuItem.Click += new System.EventHandler(this.提成领用ToolStripMenuItem_Click);
+            // 
             // 销售汇总
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -711,5 +723,6 @@ namespace 纺织贸易管理系统.其他窗体
         private System.Windows.Forms.DataGridViewTextBoxColumn CZanbi;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTichengbili;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cticheng;
+        private System.Windows.Forms.ToolStripMenuItem 提成领用ToolStripMenuItem;
     }
 }

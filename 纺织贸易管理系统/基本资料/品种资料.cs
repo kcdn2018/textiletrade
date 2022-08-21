@@ -123,8 +123,7 @@ namespace 纺织贸易管理系统.基本资料
         {
             if (GetAccess.IsCanPrintDesign)
             {
-                var printset = new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = PrintModel.Design };
-                Tools.打印标签.打印(0, dblist.First(x => x.bh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), printset, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), new JiYangBaoJia());
+                PrintLabels(PrintModel.Design);
             }
             else
             {
@@ -134,38 +133,44 @@ namespace 纺织贸易管理系统.基本资料
 
         private void 打印预览ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var printset = new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = PrintModel.Privew };
-            Tools.打印标签.打印(0, dblist.First (x => x.bh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), printset, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), new JiYangBaoJia());
+            PrintLabels(PrintModel.Privew );
         }
 
         private void 直接打印ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fm = new 打印设置窗体 ();
-            fm.ShowDialog();
-            if (!fm.printerSettings.IsCancelPrint)
-            {
-                var printset = fm.printerSettings;
-                printset.Path = PrintPath.标签模板 + cmbMoban.Text;
-                printset.Printmodel = PrintModel.Print;
-                foreach (int i in gridView1.GetSelectedRows())
-                {
-                    Tools.打印标签.打印(0, dblist.First(x => x.bh == gridView1.GetRowCellValue(i, "bh").ToString()), printset, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), new JiYangBaoJia());
-                }
-            }
+            PrintLabels(PrintModel.Print);
         }
-
-        private void 打印标签ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void PrintLabels(int Useful)
         {
-            var fm = new 打印设置窗体();
-            fm.ShowDialog();
-            if (!fm.printerSettings.IsCancelPrint)
+            string printer = string.Empty;
+            decimal num = 1;
+            Boolean IsContinuation = false;
+            if (Useful == PrintModel.Print)
             {
-                var printset = fm.printerSettings;
-                printset.Path = PrintPath.标签模板 + cmbMoban.Text;
-                printset.Printmodel = PrintModel.Print;
-                Tools.打印标签.打印(0, dblist.First(x => x.bh == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), printset, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), new JiYangBaoJia());
+                var fm = new 打印设置窗体();
+                fm.ShowDialog();
+                printer = fm.printer;
+                num = fm.copyies;
+                IsContinuation = fm.Continuation;
             }
-        }
+            if (IsContinuation == false)
+            {
+                List<LabelExtend> labels = new List<LabelExtend>();
+                foreach (var i in gridView1.GetSelectedRows())
+                {
+                    labels.Add(SQLHelper.MapperHelper.Mapper<db, LabelExtend>(dblist.First(x => x.bh == gridView1.GetRowCellValue(i, "bh").ToString()), new LabelExtend()));
+                }
+                Tools.打印标签.打印寄样票签(labels, new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = Useful, PrintName = printer, PrintNum = (int)num });
+            }
+            else
+            {
+                    foreach (int i in gridView1.GetSelectedRows())
+                    {
+                        Tools.打印标签.打印(0, dblist.First(x => x.bh == gridView1.GetRowCellValue(i, "bh").ToString()), new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = Useful , PrintName = printer, PrintNum = (int)num }, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "bh").ToString()), new JiYangBaoJia());
+                    }             
+            }
+         }
+
 
         private void 新增ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -241,7 +246,7 @@ namespace 纺织贸易管理系统.基本资料
             fm.ShowDialog();
             if (fm.内容 != "")
             {
-                Tools.获取模板.新增模板(PrintPath.标签模板, fm.内容,fm.参考模板);
+                Tools.获取模板.新增模板(PrintPath.标签模板, fm.内容,fm.参考模板,ReportService.标签 );
             }
             cmbMoban.Items.Clear();
             cmbMoban.Items.AddRange(Tools.获取模板.获取所有模板(Application.StartupPath + "\\labels").ToArray());

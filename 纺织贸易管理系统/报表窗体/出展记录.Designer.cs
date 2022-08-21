@@ -56,6 +56,8 @@ namespace 纺织贸易管理系统.报表窗体
             this.配置列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
@@ -64,6 +66,8 @@ namespace 纺织贸易管理系统.报表窗体
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -71,6 +75,8 @@ namespace 纺织贸易管理系统.报表窗体
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.dateEdit2);
+            this.groupPanel1.Controls.Add(this.labelX2);
             this.groupPanel1.Controls.Add(this.txtGuige);
             this.groupPanel1.Controls.Add(this.labelX9);
             this.groupPanel1.Controls.Add(this.txtpingming);
@@ -121,16 +127,17 @@ namespace 纺织贸易管理系统.报表窗体
             this.txtGuige.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGuige.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtGuige.ForeColor = System.Drawing.Color.Black;
-            this.txtGuige.Location = new System.Drawing.Point(640, 19);
+            this.txtGuige.Location = new System.Drawing.Point(813, 19);
             this.txtGuige.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGuige.Maximum = 2147483647D;
-            this.txtGuige.Minimum = -2147483648D;
             this.txtGuige.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtGuige.Name = "txtGuige";
+            this.txtGuige.ShowText = false;
             this.txtGuige.Size = new System.Drawing.Size(121, 23);
             this.txtGuige.Style = Sunny.UI.UIStyle.Custom;
             this.txtGuige.TabIndex = 48;
             this.txtGuige.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtGuige.Watermark = "";
+            this.txtGuige.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtGuige.KeyDown += new System.Windows.Forms.KeyEventHandler(this.出展记录_KeyDown);
             // 
             // labelX9
@@ -139,7 +146,7 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(577, 19);
+            this.labelX9.Location = new System.Drawing.Point(750, 19);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(61, 23);
             this.labelX9.TabIndex = 47;
@@ -152,16 +159,17 @@ namespace 纺织贸易管理系统.报表窗体
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtpingming.ForeColor = System.Drawing.Color.Black;
-            this.txtpingming.Location = new System.Drawing.Point(452, 19);
+            this.txtpingming.Location = new System.Drawing.Point(625, 19);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtpingming.Maximum = 2147483647D;
-            this.txtpingming.Minimum = -2147483648D;
             this.txtpingming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpingming.Name = "txtpingming";
+            this.txtpingming.ShowText = false;
             this.txtpingming.Size = new System.Drawing.Size(121, 23);
             this.txtpingming.Style = Sunny.UI.UIStyle.Custom;
             this.txtpingming.TabIndex = 40;
             this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtpingming.Watermark = "";
+            this.txtpingming.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.出展记录_KeyDown);
             // 
             // labelX5
@@ -170,7 +178,7 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(391, 19);
+            this.labelX5.Location = new System.Drawing.Point(564, 19);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(55, 23);
             this.labelX5.TabIndex = 39;
@@ -183,16 +191,17 @@ namespace 纺织贸易管理系统.报表窗体
             this.txtbianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtbianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtbianhao.Location = new System.Drawing.Point(263, 19);
+            this.txtbianhao.Location = new System.Drawing.Point(436, 19);
             this.txtbianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtbianhao.Maximum = 2147483647D;
-            this.txtbianhao.Minimum = -2147483648D;
             this.txtbianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbianhao.Name = "txtbianhao";
+            this.txtbianhao.ShowText = false;
             this.txtbianhao.Size = new System.Drawing.Size(121, 23);
             this.txtbianhao.Style = Sunny.UI.UIStyle.Custom;
             this.txtbianhao.TabIndex = 38;
             this.txtbianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbianhao.Watermark = "";
+            this.txtbianhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtbianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.出展记录_KeyDown);
             // 
             // labelX4
@@ -201,7 +210,7 @@ namespace 纺织贸易管理系统.报表窗体
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(202, 19);
+            this.labelX4.Location = new System.Drawing.Point(375, 19);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(55, 23);
             this.labelX4.TabIndex = 37;
@@ -431,6 +440,30 @@ namespace 纺织贸易管理系统.报表窗体
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.DoubleClick += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(248, 20);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(121, 20);
+            this.dateEdit2.TabIndex = 50;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(187, 19);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(55, 23);
+            this.labelX2.TabIndex = 49;
+            this.labelX2.Text = "日期到：";
+            // 
             // 出展记录
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -451,6 +484,8 @@ namespace 纺织贸易管理系统.报表窗体
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,5 +525,7 @@ namespace 纺织贸易管理系统.报表窗体
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
         private DevComponents.DotNetBar.LabelX labelX1;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevComponents.DotNetBar.LabelX labelX2;
     }
 }

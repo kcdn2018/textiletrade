@@ -23,6 +23,7 @@ namespace 纺织贸易管理系统.新增窗体
         private LXR Kehu = new LXR();
         private BindingList <ShengchandanSeLaodu > ColorTables = new BindingList<ShengchandanSeLaodu> ();
         private int rowindex;
+        private string DoneDate = string.Empty;
         public DanjuTable danju { get; set; }
 
         public int Useful { get; set; }
@@ -85,6 +86,7 @@ namespace 纺织贸易管理系统.新增窗体
                         {
                             y.shengchandanhao = txtdanhao.Text;
                         }
+                        DoneDate = string.Empty;
                         Useful = FormUseful.新增;
                     }
                     else
@@ -123,6 +125,7 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void Edit()
         {
+            DoneDate = danju.remarker;
             txtdanhao.Text = danju.dh;
             dateEdit1.DateTime = danju.rq;
             jiagongchang.BH = danju.ksbh;
@@ -199,6 +202,7 @@ namespace 纺织贸易管理系统.新增窗体
             var yaoqius = ShengChanDanHouZhengLiYaoQiuService.GetShengChanDanHouZhengLiYaoQiulst(x => x.ShengChanDanHao == danju.dh);
             txtguangyue.Text = yaoqius.Where(x => x.HouZhengLiYaoQiu == "光学要求").ToList()[0].YaoQiu;
             txtcicun.Text = yaoqius.Where(x => x.HouZhengLiYaoQiu == "尺寸要求").ToList()[0].YaoQiu;
+            txtkuanhao.Text = danjumingxitableService.GetOnedanjumingxitable(x => x.danhao == danju.dh).kuanhao;
         }
 
         private void txtkehu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -320,16 +324,14 @@ namespace 纺织贸易管理系统.新增窗体
         {
             CopyRow.Copy<ShengchandanSeLaodu>(ColorTables , rowindex, gridView1, gridView1.FocusedRowHandle);
         }
-
-        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 创建一个单据信息并赋值
+        /// </summary>
+        /// <returns></returns>
+        private DanjuTable  CreatDanju()
         {
-            gridView1.CloseEditor();
-            if (comleixing.Text =="")
+            return new DanjuTable()
             {
-                MessageBox.Show("请填写工艺类型！", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            var danju = new DanjuTable() {
                 dh = txtdanhao.Text,
                 rq = dateEdit1.DateTime,
                 ksbh = jiagongchang.BH,
@@ -338,7 +340,7 @@ namespace 纺织贸易管理系统.新增窗体
                 lianxiren = txtlianxiren.Text,
                 djlx = DanjuLeiXing.打样工艺单,
                 own = User.user.YHBH,
-                Gengdanyuan = txtGengdan.Text ,
+                Gengdanyuan = txtGengdan.Text,
                 ordernum = txtorder.Text,
                 //客户名称
                 SaleMan = Kehu.MC,
@@ -366,9 +368,21 @@ namespace 纺织贸易管理系统.新增窗体
                 Weight = txtkezhong.Text,
                 //布料来源
                 fromDanhao = txtBuliaoSource.Text,
-                LiuzhuanCard =txtGongchandanhao.Text ,
+                LiuzhuanCard = txtGongchandanhao.Text,
+                remarker=DoneDate ,
             };
-            var listhouzhenli = new List<ShengchandanHouzhengli>();
+        }
+
+        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gridView1.CloseEditor();
+            if (comleixing.Text =="")
+            {
+                MessageBox.Show("请填写工艺类型！", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var danju = CreatDanju();
+            var listhouzhenli = new List<ShengchandanHouzhengli>();            
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "A", Value = checkBoxX1.Checked });
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "B", Value = checkBoxX2.Checked });
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "C", Value = checkBoxX3.Checked });
@@ -380,10 +394,12 @@ namespace 纺织贸易管理系统.新增窗体
             if (Useful==FormUseful.新增 )
             {
                 打样单BLL.保存(ColorTables.Where(x=>x.Yaoqiu !=null).ToList  (), danju,listhouzhenli,yaoqius  );
+                danjumingxitableService.Insertdanjumingxitable(new danjumingxitable() { kuanhao = txtkuanhao.Text, danhao = txtdanhao.Text });
             }
             else
             {
                 打样单BLL.修改(ColorTables.Where(x => x.Yaoqiu  != null).ToList(), danju, listhouzhenli, yaoqius);
+                danjumingxitableService.Updatedanjumingxitable(x => x.kuanhao == txtkuanhao.Text, x => x.danhao == txtdanhao.Text);
             }
             AlterDlg.Show("保存成功！");
             Init();
@@ -402,40 +418,8 @@ namespace 纺织贸易管理系统.新增窗体
         }
         private void Print(int c)
         {
-            var danju = new DanjuTable()
-            {
-                dh = txtdanhao.Text,
-                rq = dateEdit1.DateTime,
-                ksbh = jiagongchang.BH,
-                ksmc = jiagongchang.MC,
-                lianxidianhua = txtlianxidianhua.Text,
-                lianxiren = txtlianxiren.Text,
-                djlx = DanjuLeiXing.打样工艺单,
-                own = User.user.YHBH,
-                ordernum = txtorder.Text,
-                Gengdanyuan =txtGengdan.Text ,
-                //客户名称
-                SaleMan = Kehu.MC,
-                //客户编号
-                wuliuBianhao = Kehu.BH,
-                //合同号
-                HetongHao  = txthetonghao.Text,
-                //布料编号
-                StockName = txtbianhao.Text,
-                //品名
-                CarLeixing = txtpingming.Text,
-                //规格
-                CarNum = txtguige.Text,
-                //成分
-                ckmc = txtchengfeng.Text,
-                yaoqiu  =cmbgongyimingcheng.Text ,
-                bz=txtbeizhu.Text ,
-                zhuangtai = "未审核",
-                Weight = txtkezhong.Text,
-                  //布料来源
-                fromDanhao = txtBuliaoSource.Text,
-                LiuzhuanCard =txtGongchandanhao.Text 
-            };
+            gridView1.CloseEditor();
+            var danju = CreatDanju();
             var listhouzhenli = new List<ShengchandanHouzhengli>();
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "A", Value = checkBoxX1.Checked });
             listhouzhenli.Add(new ShengchandanHouzhengli() { shengchandanhao = txtdanhao.Text, HouzhengliGongyi = "B", Value = checkBoxX2.Checked });
@@ -445,7 +429,19 @@ namespace 纺织贸易管理系统.新增窗体
             yaoqius.Add(new ShengChanDanHouZhengLiYaoQiu() { ShengChanDanHao = txtdanhao.Text, HouZhengLiYaoQiu = "光学要求", YaoQiu = txtguangyue.Text });
             yaoqius.Add(new ShengChanDanHouZhengLiYaoQiu() { ShengChanDanHao = txtdanhao.Text, HouZhengLiYaoQiu = "尺寸要求", YaoQiu = txtcicun.Text });
             danju.TotalMishu = ColorTables.Where(x => x.Yaoqiu  != null).ToList().Count();
-            var result = new Tools.打印打样单() {  colorTables = ColorTables.Where(x => x.Yaoqiu  != null).ToList() ,formInfo= new FormInfo() {  FormName ="打样工艺单查询" , GridviewName="gridView1" }, DanjuTable=danju ,  houzhenglis=listhouzhenli ,yaoqius=yaoqius};
+            var result = new Tools.打印打样单()
+            {
+                DocDetail = new danjumingxitable() { kuanhao = txtkuanhao.Text },
+                colorTables = ColorTables.Where(x => x.Yaoqiu != null).ToList(),
+                formInfo = new FormInfo()
+                {
+                    FormName = "打样工艺单查询",
+                    GridviewName = "gridView1"
+                },
+                DanjuTable = danju,
+                houzhenglis = listhouzhenli,
+                yaoqius = yaoqius
+            };
             result.打印(cmbMoban.SelectedIndex ==0? PrintPath.报表模板+"打样工艺单.frx":PrintPath.报表模板 +"打样客户单.frx",c );
         }
 

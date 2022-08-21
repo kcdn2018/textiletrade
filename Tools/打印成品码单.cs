@@ -51,6 +51,10 @@ namespace Tools
                 {
                     fs.Design();
                 }
+                finally
+                {
+                    ds.Dispose();
+                }
             }
         }
         //表格增加17行

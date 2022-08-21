@@ -155,7 +155,6 @@
             this.单据审核ToolStripMenuItem.Name = "单据审核ToolStripMenuItem";
             this.单据审核ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
             this.单据审核ToolStripMenuItem.Text = "单据审核";
-            this.单据审核ToolStripMenuItem.Click += new System.EventHandler(this.单据审核ToolStripMenuItem_Click);
             // 
             // 审核通过ToolStripMenuItem
             // 

@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Model;
 namespace 纺织贸易管理系统
 {
-    public class ZhanhuiDetail
+    public class ZhanhuiDetail:FabricPriceInfo 
      {
         public string YangbuBianhao { get; set; }
         public string Yanse { get; set; }

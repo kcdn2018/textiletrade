@@ -1,6 +1,10 @@
-﻿using System;
+﻿using FastReport.Export.Image;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -69,7 +73,7 @@ namespace Tools
             DataTable dt = new DataTable(dtname );
             var clist = Connect.GetColumntable(formInfo.FormName ,formInfo.GridviewName  , "10001");
             var pros = danjuTable.GetType().GetProperties();
-            foreach(var c in clist  )
+            foreach(var c in clist)
             {
                 try
                 {
@@ -114,6 +118,17 @@ namespace Tools
                 dt.Columns.Add("开户银行");
                 dt.Columns.Add("银行账号");
                 dt.Columns.Add("电子邮箱");
+
+                dt.Columns.Add("客户公司税号");
+                dt.Columns.Add("客户公司地址");
+                dt.Columns.Add("客户开户银行");
+                dt.Columns.Add("客户银行账号");
+                dt.Columns.Add("客户电子邮箱");
+                dt.Columns.Add("客户公司电话");
+                dt.Columns.Add("客户公司全称");
+
+                dt.Columns.Add("唛头模板", typeof(byte[]));
+                dt.Columns.Add("结算方式");
                 info gsinfo = new info();
                 if (string.IsNullOrEmpty(gsmc))
                 {
@@ -123,7 +138,6 @@ namespace Tools
                 {
                     gsinfo = infoService.GetOneinfo(x => x.gsmc == gsmc);
                 }
-
                 dt.Rows[0]["用户公司名称"] = gsinfo.gsmc;
                 dt.Rows[0]["用户公司电话"] = gsinfo.GHSMC;
                 dt.Rows[0]["公司税号"] = gsinfo.TaxNum;
@@ -131,7 +145,47 @@ namespace Tools
                 dt.Rows[0]["开户银行"] = gsinfo.BankName;
                 dt.Rows[0]["银行账号"] = gsinfo.BankNum;
                 dt.Rows[0]["电子邮箱"] = gsinfo.Email;
-            }catch(Exception ex)
+                if (danjuTable.GetType() == typeof(DanjuTable))
+                {
+                    var doc = danjuTable as DanjuTable;
+                    var customer = LXRService.GetOneLXR(x => x.MC == doc.ksmc);
+                    dt.Rows[0]["客户公司税号"] = customer.TexCode;
+                    dt.Rows[0]["客户公司地址"] = customer.dz;
+                    dt.Rows[0]["客户开户银行"] = customer.Kaihuyinghang ;
+                    dt.Rows[0]["客户银行账号"] = customer.Yinghangzhanghao ;
+                    dt.Rows[0]["客户电子邮箱"] = customer.YX;
+                    dt.Rows[0]["客户公司电话"] = customer.DH;
+                    dt.Rows[0]["客户公司全称"] = customer.FullName ;
+                    dt.Rows[0]["结算方式"] = doc .Payment ;
+                    if (!string.IsNullOrWhiteSpace(doc.ShippingMark))
+                    {
+                        if (!Directory.Exists(Application.StartupPath + "\\Temp\\"))
+                        {
+                            Directory.CreateDirectory(Application.StartupPath + "\\Temp\\");
+                        }
+                        if (!File.Exists(Application.StartupPath + "\\Temp\\" + doc.ShippingMark + ".jpg"))
+                        {
+                            var shinppingmarkdt = ShippingMark.CreateShippingDatatable(new JuanHaoTable(), 1);
+                            DataSet ds = new DataSet();
+                            ds.Tables.Add(shinppingmarkdt);
+                            var fs = new FastReport.Report();
+                            fs.RegisterData(ds);
+                            fs.Load(Application.StartupPath + "\\唛头模板\\" + doc.ShippingMark);
+                            fs.Prepare();
+                            ImageExport image = new ImageExport();
+
+                            //Directory.Delete(Application.StartupPath + "\\Temp\\", true);
+                            fs.Export(image, Application.StartupPath + "\\Temp\\" + doc.ShippingMark + ".jpg");
+                            fs.Dispose();
+                        }
+                        using (var btm = new Bitmap(Application.StartupPath + "\\Temp\\" + doc.ShippingMark + ".jpg"))
+                        {
+                            dt.Rows[0]["唛头模板"] = ImgHelp.ImageToBytes(btm);
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show("获取公司信息的时候发送错误" + ex.Message);
             }
@@ -147,7 +201,13 @@ namespace Tools
         public static DataTable CreateTable<T>(List<T> mx, FormInfo formInfo) where T:new ()
         {
             DataTable dt = new DataTable("单据明细");
-            var clist = Connect.GetColumntable(formInfo.FormName, formInfo.GridviewName, "10001");
+            if (mx.GetType() == typeof(List<danjumingxitable>))
+            {
+                dt.Columns.Add("订单数", typeof(decimal));
+                dt.Columns.Add("剩余数", typeof(decimal));
+                dt.Columns.Add("相差百分百", typeof(int));
+            }
+                var clist = Connect.GetColumntable(formInfo.FormName, formInfo.GridviewName, "10001");
             T t=new T();
             var pros = t.GetType().GetProperties();
             foreach (var c in clist)
@@ -163,6 +223,19 @@ namespace Tools
                     dt.Rows[row][c.ColumnText] = pros.Where(x => x.Name == c.DataProperty).ToList()[0].GetValue(m, null);
                 }
                 row++;
+            }
+            if(mx.GetType ()==typeof (List<danjumingxitable >))
+            {
+                var mingxis = mx as List<danjumingxitable>;
+               for(int r=0;r<mingxis.Count;r++)
+                {
+                    dt.Rows[r]["订单数"] = OrderDetailTableService.GetOneOrderDetailTable(x => x.OrderNum == mingxis[r].OrderNum && x.Kuanhao == mingxis[r].kuanhao && x.color == mingxis[r].yanse).Num;
+                    dt.Rows[r]["剩余数"] = mingxis[r].chengpingmishu - dt.Rows[r]["订单数"].TryToDecmial();
+                    if (dt.Rows[r]["订单数"].TryToDecmial() != 0)
+                    {
+                        dt.Rows[r]["相差百分百"] = ( mingxis[r].chengpingmishu-dt.Rows[r]["订单数"].TryToDecmial() ) / dt.Rows[r]["订单数"].TryToDecmial() * 100;
+                    }
+                }
             }
             return dt;
         }

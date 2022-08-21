@@ -12,7 +12,7 @@ namespace Update
     {
         public static void UpdateToV1027()
         {
-            var verinfo = infoService.Getinfolst()[0];
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
             if (Version.Parse(verinfo.Version ) == Version.Parse("1.0.2.6"))
             {
                 var sqliteconn = Connect.CreatSqlite();

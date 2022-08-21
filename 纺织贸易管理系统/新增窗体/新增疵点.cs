@@ -60,6 +60,7 @@ namespace 纺织贸易管理系统.新增窗体
             txtpingming.Text = infoTable.CiDianName.Trim(' ')  ;
             cmbWenti .Text = infoTable.Guisuo ;
             txtdaihao.Text = infoTable.Daihao;
+            txtEnglishname.Text = infoTable.EnglishName;
         }
         private void InitPingzhong()
         {      
@@ -68,6 +69,7 @@ namespace 纺织贸易管理系统.新增窗体
             infoTable.KouFen    = txtkoufeng .Text.ToInt ();
             infoTable.Guisuo  = cmbWenti .Text;
             infoTable.Daihao = txtdaihao.Text;
+            infoTable.EnglishName = txtEnglishname.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {

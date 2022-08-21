@@ -7,6 +7,10 @@ namespace 纺织贸易管理系统
 {
     public static class LXRService
     {
+        public static List<LXR> GetLXRlst()
+        {
+            return Connect.CreatConnect().Query<LXR>();
+        }
         public static List<LXR> GetLXRlst(Expression<Func<LXR, bool>> func)
          {
             return  Connect.CreatConnect().Query<LXR>(func);

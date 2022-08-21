@@ -114,7 +114,7 @@ namespace BLL
             //return "审核成功";
             danju.ksmc = danju.ckmc;
             danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
-            danju.je -= danju.Profit;
+            danju.je -= danjumingxitables.Sum(x=>x.TotalBuy );
             danju.Hanshui = danju.CaiGouHanshui;
             来往明细BLL.增加来往记录(danju);
             财务BLL.增加应付款(danju);
@@ -140,7 +140,7 @@ namespace BLL
             ///
             danju.ksmc = danju.ckmc;
             danju.ksbh = LXRService.GetOneLXR(x => x.MC == danju.ckmc).BH;
-            danju.je -= danju.Profit;
+            danju.je -= danjumingxitables.Sum(x=>x.TotalBuy );
             danju.Hanshui = danju.CaiGouHanshui;
             来往明细BLL.删除来往记录 (danju);
             财务BLL.减少应付款 (danju);

@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tools;
 using 纺织贸易管理系统.新增窗体;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
@@ -97,7 +98,7 @@ namespace 纺织贸易管理系统.基本资料
             fm.ShowDialog();
             if (fm.内容 != "")
             {
-                Tools.获取模板.新增模板(PrintPath.标签模板, fm.内容 , fm.参考模板);
+                Tools.获取模板.新增模板(PrintPath.标签模板, fm.内容 , fm.参考模板,ReportService.标签 );
             }
         }
 

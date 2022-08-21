@@ -31,6 +31,7 @@ namespace 纺织贸易管理系统.自定义类
                 danjumingxitables[i].danwei = "米";
                 danjumingxitables[i].EnglishName = pingzhong.EnglishName;
                 danjumingxitables[i].PibuName  = pingzhong.PibuName ;
+                danjumingxitables[i].IsHanshui  = IsHanshuiModel.含税 ;
                 i++;
                 if (i == danjumingxitables.Count - 1)
                     for (int j = 0; j < 30; j++)

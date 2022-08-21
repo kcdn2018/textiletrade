@@ -13,7 +13,7 @@ namespace Update
     {
         public static void UpdateToV10212()
         {
-            var verinfo = infoService.Getinfolst()[0];
+            var verinfo = versionService.GetOneversion(x => x.own == "2.20");
             if (Version.Parse(verinfo.Version ) == Version.Parse("1.0.2.11"))
             {
                 创建对账();

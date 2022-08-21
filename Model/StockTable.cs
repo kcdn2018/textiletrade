@@ -5,7 +5,7 @@ using System.Text;
 using SqlSugar;
 namespace 纺织贸易管理系统
 {
-    public class StockTable
+    public class StockTable:MingxiCommon 
      {
         /// <summary>
         /// 行号
@@ -88,8 +88,13 @@ namespace 纺织贸易管理系统
         /// </summary>
         public string FrabicWidth { get; set; }
         /// <summary>
-        /// 英文名
+        /// 唛头模板
         /// </summary>
-        public string EnglishName { get; set; }
+        public string Shippingmark { get; set; }
+        /// <summary>
+        /// 唛头单位
+        /// </summary>
+        public string ShippingmarkUnite { get; set; }
+
     }
 }

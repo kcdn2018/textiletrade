@@ -78,6 +78,7 @@
             this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.txtcicun = new DevComponents.DotNetBar.Controls.RichTextBoxEx();
+            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtkehu.Properties)).BeginInit();
@@ -101,6 +102,8 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -256,18 +259,18 @@
             // 
             this.txtgongyimingcheng.ButtonSymbol = 61761;
             this.txtgongyimingcheng.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtgongyimingcheng.FillColor = System.Drawing.Color.White;
             this.txtgongyimingcheng.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtgongyimingcheng.Location = new System.Drawing.Point(454, 60);
             this.txtgongyimingcheng.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtgongyimingcheng.Maximum = 2147483647D;
-            this.txtgongyimingcheng.Minimum = -2147483648D;
             this.txtgongyimingcheng.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtgongyimingcheng.Name = "txtgongyimingcheng";
             this.txtgongyimingcheng.Padding = new System.Windows.Forms.Padding(5);
+            this.txtgongyimingcheng.ShowText = false;
             this.txtgongyimingcheng.Size = new System.Drawing.Size(120, 23);
             this.txtgongyimingcheng.TabIndex = 31;
             this.txtgongyimingcheng.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtgongyimingcheng.Watermark = "";
+            this.txtgongyimingcheng.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtgongyimingcheng.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
             // 
             // labelX9
@@ -286,18 +289,18 @@
             // 
             this.txtpingming.ButtonSymbol = 61761;
             this.txtpingming.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtpingming.FillColor = System.Drawing.Color.White;
             this.txtpingming.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtpingming.Location = new System.Drawing.Point(259, 60);
             this.txtpingming.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtpingming.Maximum = 2147483647D;
-            this.txtpingming.Minimum = -2147483648D;
             this.txtpingming.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.Padding = new System.Windows.Forms.Padding(5);
+            this.txtpingming.ShowText = false;
             this.txtpingming.Size = new System.Drawing.Size(120, 23);
             this.txtpingming.TabIndex = 25;
             this.txtpingming.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtpingming.Watermark = "";
+            this.txtpingming.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtpingming.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
             // 
             // labelX6
@@ -316,18 +319,18 @@
             // 
             this.txtbuliaobianhao.ButtonSymbol = 61761;
             this.txtbuliaobianhao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbuliaobianhao.FillColor = System.Drawing.Color.White;
             this.txtbuliaobianhao.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbuliaobianhao.Location = new System.Drawing.Point(71, 60);
             this.txtbuliaobianhao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtbuliaobianhao.Maximum = 2147483647D;
-            this.txtbuliaobianhao.Minimum = -2147483648D;
             this.txtbuliaobianhao.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtbuliaobianhao.Name = "txtbuliaobianhao";
             this.txtbuliaobianhao.Padding = new System.Windows.Forms.Padding(5);
+            this.txtbuliaobianhao.ShowText = false;
             this.txtbuliaobianhao.Size = new System.Drawing.Size(120, 23);
             this.txtbuliaobianhao.TabIndex = 23;
             this.txtbuliaobianhao.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtbuliaobianhao.Watermark = "";
+            this.txtbuliaobianhao.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtbuliaobianhao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtgongyimingcheng_KeyDown);
             // 
             // labelX5
@@ -480,7 +483,8 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.EndDateEdit});
+            this.EndDateEdit,
+            this.repositoryItemDateEdit1});
             this.gridControl1.Size = new System.Drawing.Size(1213, 259);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -766,6 +770,15 @@
             this.txtcicun.Size = new System.Drawing.Size(597, 67);
             this.txtcicun.TabIndex = 2;
             // 
+            // repositoryItemDateEdit1
+            // 
+            this.repositoryItemDateEdit1.AutoHeight = false;
+            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
+            // 
             // 打样管理
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -801,6 +814,8 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -862,5 +877,6 @@
 #pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UITextBox”(是否缺少程序集引用?)
         private DevComponents.DotNetBar.LabelX labelX9;
         private System.Windows.Forms.ToolStripMenuItem 清楚结束日期ToolStripMenuItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
     }
 }

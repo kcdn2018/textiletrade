@@ -1,4 +1,6 @@
-﻿namespace 纺织贸易管理系统.设置窗体
+﻿using System.Windows.Forms;
+
+namespace 纺织贸易管理系统.设置窗体
 {
     partial class 配置列
     {
@@ -67,7 +69,7 @@
             this.cmbUser = new Sunny.UI.UIComboBox();
             this.uiCheckBox1 = new Sunny.UI.UICheckBox();
             this.uiLabel2 = new Sunny.UI.UILabel();
-            this.调用窗体ToolStripMenuItem = new Sunny.UI.UIComboBox();
+            this.调用窗体ToolStripMenuItem = new System.Windows.Forms.ComboBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -152,12 +154,14 @@
             // 
             // uiContextMenuStrip1
             // 
+            this.uiContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.uiContextMenuStrip1.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.uiContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.显示绑定数据ToolStripMenuItem,
             this.过滤ToolStripMenuItem});
             this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
             this.uiContextMenuStrip1.Size = new System.Drawing.Size(149, 48);
+            this.uiContextMenuStrip1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // 显示绑定数据ToolStripMenuItem
             // 
@@ -229,6 +233,7 @@
             this.uiButton3.TabIndex = 9;
             this.uiButton3.Text = "删除未显示";
             this.uiButton3.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiButton3.Click += new System.EventHandler(this.uiButton3_Click);
             // 
             // uiButton2
@@ -242,6 +247,7 @@
             this.uiButton2.TabIndex = 8;
             this.uiButton2.Text = "过滤重复";
             this.uiButton2.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiButton2.Click += new System.EventHandler(this.过滤ToolStripMenuItem_Click);
             // 
             // uiButton1
@@ -255,6 +261,7 @@
             this.uiButton1.TabIndex = 0;
             this.uiButton1.Text = "调用窗体";
             this.uiButton1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiButton1.Click += new System.EventHandler(this.调用窗体ToolStripMenuItem_Click);
             // 
             // gridControl1
@@ -408,14 +415,21 @@
             // cmbGridName
             // 
             this.cmbGridName.BackColor = System.Drawing.Color.White;
+            this.cmbGridName.DataSource = null;
             this.cmbGridName.DisplayMember = "GridName";
+            this.cmbGridName.FillColor = System.Drawing.Color.White;
             this.cmbGridName.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.cmbGridName.FormattingEnabled = true;
-            this.cmbGridName.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.cmbGridName.Location = new System.Drawing.Point(369, 20);
+            this.cmbGridName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbGridName.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbGridName.Name = "cmbGridName";
+            this.cmbGridName.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
             this.cmbGridName.Size = new System.Drawing.Size(104, 24);
             this.cmbGridName.TabIndex = 7;
+            this.cmbGridName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbGridName.Watermark = "";
+            this.cmbGridName.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiLabel3
             // 
@@ -426,18 +440,26 @@
             this.uiLabel3.TabIndex = 6;
             this.uiLabel3.Text = "表格名称";
             this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // cmbUser
             // 
             this.cmbUser.BackColor = System.Drawing.Color.White;
+            this.cmbUser.DataSource = null;
             this.cmbUser.DisplayMember = "YHBH";
+            this.cmbUser.FillColor = System.Drawing.Color.White;
             this.cmbUser.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.cmbUser.FormattingEnabled = true;
-            this.cmbUser.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.cmbUser.Location = new System.Drawing.Point(68, 20);
+            this.cmbUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbUser.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbUser.Name = "cmbUser";
-            this.cmbUser.Size = new System.Drawing.Size(60, 24);
+            this.cmbUser.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cmbUser.Size = new System.Drawing.Size(63, 24);
             this.cmbUser.TabIndex = 1;
+            this.cmbUser.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbUser.Watermark = "";
+            this.cmbUser.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiCheckBox1
             // 
@@ -450,6 +472,7 @@
             this.uiCheckBox1.Size = new System.Drawing.Size(85, 29);
             this.uiCheckBox1.TabIndex = 5;
             this.uiCheckBox1.Text = "显示所有";
+            this.uiCheckBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.uiCheckBox1.CheckedChanged += new System.EventHandler(this.uiCheckBox1_CheckedChanged);
             // 
             // uiLabel2
@@ -461,9 +484,12 @@
             this.uiLabel2.TabIndex = 4;
             this.uiLabel2.Text = "用户编号";
             this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // 调用窗体ToolStripMenuItem
             // 
+            this.调用窗体ToolStripMenuItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.调用窗体ToolStripMenuItem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.调用窗体ToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.调用窗体ToolStripMenuItem.DisplayMember = "FormName";
             this.调用窗体ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F);
@@ -476,10 +502,9 @@
             "色卡采购单",
             "销售发货单",
             "色卡盘盈入库"});
-            this.调用窗体ToolStripMenuItem.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.调用窗体ToolStripMenuItem.Location = new System.Drawing.Point(189, 20);
             this.调用窗体ToolStripMenuItem.Name = "调用窗体ToolStripMenuItem";
-            this.调用窗体ToolStripMenuItem.Size = new System.Drawing.Size(118, 24);
+            this.调用窗体ToolStripMenuItem.Size = new System.Drawing.Size(118, 25);
             this.调用窗体ToolStripMenuItem.TabIndex = 3;
             this.调用窗体ToolStripMenuItem.Text = "销售发货列表";
             this.调用窗体ToolStripMenuItem.SelectedValueChanged += new System.EventHandler(this.调用窗体ToolStripMenuItem_SelectedValueChanged);
@@ -493,6 +518,7 @@
             this.uiLabel1.TabIndex = 2;
             this.uiLabel1.Text = "窗体名称";
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // label1
             // 
@@ -506,8 +532,7 @@
             // 
             // 配置列
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(700, 549);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -520,6 +545,7 @@
             this.Name = "配置列";
             this.Text = "配置列";
             this.TitleFont = new System.Drawing.Font("微软雅黑", 9F);
+            this.ZoomScaleRect = new System.Drawing.Rectangle(15, 15, 700, 549);
             this.Load += new System.EventHandler(this.配置列_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -551,16 +577,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem 全部不合并ToolStripMenuItem;
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIContextMenuStrip”(是否缺少程序集引用?)
         private Sunny.UI.UIContextMenuStrip uiContextMenuStrip1;
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIContextMenuStrip”(是否缺少程序集引用?)
         private System.Windows.Forms.ToolStripMenuItem 显示绑定数据ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 过滤ToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private Sunny.UI.UIComboBox cmbUser;
         private Sunny.UI.UIButton uiButton1;
-        private Sunny.UI.UIComboBox 调用窗体ToolStripMenuItem;
+        private System.Windows.Forms.ComboBox  调用窗体ToolStripMenuItem;
         private Sunny.UI.UILabel uiLabel1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

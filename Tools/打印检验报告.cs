@@ -25,11 +25,12 @@ namespace Tools
                 ///生成疵点对照字符串
                 var cidiandt = new DataTable("疵点名称");
                 cidiandt.Columns.Add("疵点名称", typeof(string));
+                cidiandt.Columns.Add("疵点英文", typeof(string));
                 cidiandt.Rows.Add();
                 var cidianlist = string.Empty;
                 foreach (var cidian in Connect .DbHelper() .Queryable<CiDianNameTable>().ToList())
                 {
-                    cidianlist += cidian.Daihao + cidian.CiDianName + ",";
+                    cidianlist += cidian.Daihao + cidian.CiDianName +cidian.EnglishName + ",";
                 }
                 cidianlist.Remove(cidianlist.Length - 1, 1);
                 cidiandt.Rows[0][0] = cidianlist;
@@ -78,6 +79,7 @@ namespace Tools
         {
             DataTable dt = new DataTable("检验报告");
             dt.Columns.Add("缸号", typeof(string));
+            dt.Columns.Add("客户缸号", typeof(string));
             dt.Columns.Add("品名", typeof(string));
             dt.Columns.Add("物料编号", typeof(string));
             dt.Columns.Add("卷号", typeof(string));
@@ -94,6 +96,9 @@ namespace Tools
             dt.Columns.Add("单位", typeof(string));
             dt.Columns.Add("客户名称", typeof(string));
             dt.Columns.Add("款号", typeof(string));
+            dt.Columns.Add("英文名", typeof(string));
+            dt.Columns.Add("英文单位", typeof(string));
+            dt.Columns.Add("染厂长度", typeof(decimal ));
             for (int col = 0; col < 18; col++)
             {
                 dt.Columns.Add("代码" + col.ToString(), typeof(string));
@@ -126,7 +131,7 @@ namespace Tools
                     {
                         juandt.Rows[index]["代码" + col.ToString()] = chidiannames.FirstOrDefault(x => x.CiDianName == cidian.ChiDianName).Daihao;
                         juandt.Rows[index]["位置" + col.ToString()] = cidian.WeiZhi;
-                        juandt.Rows[index]["扣分" + col.ToString()] = cidian.KouFeng;
+                        juandt.Rows[index]["扣分" + col.ToString()] = cidian.ShuLiang ;
                     }
                     else
                     {
@@ -169,6 +174,10 @@ namespace Tools
             juandt.Rows[index]["合同号"] = juan.Hetonghao ;
             juandt.Rows[index]["客户名称"] = juan.CustomerName;
             juandt.Rows[index]["款号"] = juan.kuanhao ;
+            juandt.Rows[index]["客户缸号"] = juan.CustomerLotNo ;
+            juandt.Rows[index]["英文名"] = juan.EnglishName ;
+            juandt.Rows[index]["英文单位"] = juan.Danwei =="米"?"M":"Y";
+            juandt.Rows[index]["染厂长度"] =string.IsNullOrEmpty ( juan.DyerLength)?0:juan.DyerLength.TryToDecmial () ;
         }
     }
 }

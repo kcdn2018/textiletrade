@@ -29,7 +29,7 @@ namespace 纺织贸易管理系统.其他窗体
         }
         private void Query()
         {
-            var danjulist = Connect.DbHelper().Queryable<DanjuTable>().Where(x => x.rq >= dateEdit1.DateTime.Date && x.rq <= dateEdit2.DateTime && x.ShoukuanFangshi == Shoukuanfangshi).OrderBy(x => x.id).OrderBy (x=>x.rq ).ToList();// Connect.CreatConnect().Query <DanjuTable >( $"select * from danjutable where rq between '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date }' and shoukuanfangshi='{Shoukuanfangshi}'");
+            var danjulist = Connect.DbHelper().Queryable<DanjuTable>().Where(x =>x.zhuangtai != "未审核"&& x.rq >= dateEdit1.DateTime.Date && x.rq <= dateEdit2.DateTime && x.ShoukuanFangshi == Shoukuanfangshi).OrderBy(x => x.id).OrderBy (x=>x.rq ).ToList();// Connect.CreatConnect().Query <DanjuTable >( $"select * from danjutable where rq between '{dateEdit1.DateTime.Date }' and '{dateEdit2.DateTime.Date }' and shoukuanfangshi='{Shoukuanfangshi}'");
             foreach (var danju in danjulist)
             {
                 if(danju.djlx==DanjuLeiXing.收款单  )
@@ -52,7 +52,6 @@ namespace 纺织贸易管理系统.其他窗体
                     {
                         if (danju.djlx == DanjuLeiXing.费用单)
                         {
-
                         }
                         else
                         {

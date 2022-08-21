@@ -21,6 +21,8 @@ namespace 纺织贸易管理系统.报表窗体
             var conMenu = new ContexMenuEX() { formName = this.Name, dataGridView  = uiDataGridView1 , menuStrip = contextMenuStrip1,obj=new RukuTable () };
             conMenu.Init();
             CreateGrid.CreateDatagridview(this.Name, uiDataGridView1);
+            this.CXuanzhe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            uiDataGridView1.Columns.Add(CXuanzhe);
             刷新数据();
         }
 
@@ -39,8 +41,7 @@ namespace 纺织贸易管理系统.报表窗体
         {            
             rukuTables = RukuTableService.GetRukuTablelst(x=>x.GH.Contains (txtganghao.Text )&&x.BH .Contains (txtCustomer.Text )&&x.PM.Contains (txtpingming.Text )).OrderByDescending(x=>x.ID).ToList ();
             uiDataGridView1.DataSource = rukuTables;
-            this.CXuanzhe = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            uiDataGridView1.Columns .Add (CXuanzhe);
+          
             uiDataGridViewFooter1.Clear();
             uiDataGridViewFooter1["BH"] = "合计";
             uiDataGridViewFooter1["MS"] = rukuTables.Sum(x => x.MS).ToString();
@@ -62,6 +63,7 @@ namespace 纺织贸易管理系统.报表窗体
 
         private void 还原库存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uiDataGridView1.EndEdit();
             var selectstock = new List<RukuTable>();
             for(int row=0;row<uiDataGridView1.Rows.Count;row++)
             {
@@ -73,13 +75,22 @@ namespace 纺织贸易管理系统.报表窗体
                     }
                 }
             }
-            BackToStock(selectstock);
+            try
+            {
+                BackToStock(selectstock);
+                MessageBox.Show("还原成功");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("还原失败" + ex.Message);
+            }
+            刷新数据();
         }
         private void BackToStock(List<RukuTable > rukus )
         {
             foreach(var r in rukus )
             {
-                StockTableService.InsertStockTable(new StockTable()
+                var stock = new StockTable()
                 {
                     AvgPrice = 0,
                     BH = r.BH,
@@ -120,7 +131,10 @@ namespace 纺织贸易管理系统.报表窗体
                     yijianjuanshu = 0,
                     yijianmishu = 0,
                     YS = r.YS
-                });
+                };
+                stock = SQLHelper.MapperHelper.Mapper(r, stock);
+                StockTableService.InsertStockTable(stock);
+                RukuTableService.DeleteRukuTable(x => x.ID == r.ID);
             }
         }
     }

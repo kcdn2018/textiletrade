@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 纺织贸易管理系统.其他窗体;
+using 纺织贸易管理系统.自定义类;
 using 纺织贸易管理系统.设置窗体;
 using 纺织贸易管理系统.选择窗体;
 
@@ -434,54 +435,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void gridView2_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
-            foreach (var d in danjumingxitables)
-            {
-                d.chengpingmishu = 0;
-                d.chengpingjuanshu = 0;
-            }
-            foreach (var i in gridView2.GetSelectedRows())
-            {
-                var juan = new JuanHaoTable();
-                juan = juanList.First(x => x.JuanHao == gridView2.GetRowCellValue(i, "JuanHao").ToString());
-
-                var d = danjumingxitables.Where(x => x.OrderNum == juan.OrderNum && x.Bianhao == juan.SampleNum && x.ganghao == juan.GangHao && x.kuanhao == juan.kuanhao
-                 && x.houzhengli == juan.Houzhengli && x.yanse == juan.yanse && x.Huahao == juan.Huahao && x.ColorNum == juan.ColorNum).ToList();
-                if (d.Count > 0)
-                {
-                    if (d[0].danwei == "米" && juan.Danwei == "米")
-                    {
-                        d[0].chengpingmishu += juan.biaoqianmishu;
-                        d[0].toupimishu = juan.MaShu != 0 ? d[0].chengpingmishu / (100 + (100 - juan.MaShu) / 100) : d[0].chengpingmishu;
-                    }
-                    else
-                    {
-                        if (d[0].danwei == "米" && juan.Danwei == "码")
-                        {
-                            d[0].chengpingmishu += juan.biaoqianmishu * (decimal)0.9144;
-                            d[0].toupimishu = juan.MaShu != 0 ? d[0].chengpingmishu / (100 + (100 - juan.MaShu) / 100) : d[0].chengpingmishu;
-                        }
-                        else
-                        {
-                            if (d[0].danwei == "码" && juan.Danwei == "码")
-                            {
-                                d[0].chengpingmishu += juan.biaoqianmishu;
-                                d[0].toupimishu = juan.MaShu != 0 ? d[0].chengpingmishu / (100 + (100 - juan.MaShu) / 100) : d[0].chengpingmishu;
-                            }
-                            else
-                            {
-                                d[0].chengpingmishu += juan.biaoqianmishu / (decimal)0.9144;
-                                d[0].toupimishu = juan.MaShu != 0 ? d[0].chengpingmishu / (100 + (100 - juan.MaShu) / 100) : d[0].chengpingmishu;
-                            }
-                        }
-                    }
-                    d[0].chengpingjuanshu++;
-                }
-            }
-            foreach (var d in danjumingxitables)
-            {
-                d.hanshuiheji = d.hanshuidanjia * d.chengpingmishu;
-            }
-            gridControl1.RefreshDataSource();
+            SelectJuanHelper.SelectJuan(gridControl1, gridView2, juanList, danjumingxitables);
         }
     }
 }

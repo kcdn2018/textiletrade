@@ -45,12 +45,14 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtgsmc = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtlxdh = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.txtBankNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.pnlBtm.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBtm
             // 
-            this.pnlBtm.Location = new System.Drawing.Point(1, 249);
+            this.pnlBtm.Location = new System.Drawing.Point(1, 357);
             this.pnlBtm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlBtm.Size = new System.Drawing.Size(605, 45);
             // 
@@ -69,7 +71,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX9.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.labelX9.Location = new System.Drawing.Point(19, 207);
+            this.labelX9.Location = new System.Drawing.Point(19, 261);
             this.labelX9.Margin = new System.Windows.Forms.Padding(2);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(66, 19);
@@ -87,7 +89,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtBankNum.DisabledBackColor = System.Drawing.Color.White;
             this.txtBankNum.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtBankNum.ForeColor = System.Drawing.Color.Black;
-            this.txtBankNum.Location = new System.Drawing.Point(89, 207);
+            this.txtBankNum.Location = new System.Drawing.Point(89, 261);
             this.txtBankNum.Margin = new System.Windows.Forms.Padding(2);
             this.txtBankNum.Name = "txtBankNum";
             this.txtBankNum.PreventEnterBeep = true;
@@ -101,7 +103,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX8.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.labelX8.Location = new System.Drawing.Point(19, 180);
+            this.labelX8.Location = new System.Drawing.Point(19, 234);
             this.labelX8.Margin = new System.Windows.Forms.Padding(2);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(66, 19);
@@ -119,7 +121,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtbankname.DisabledBackColor = System.Drawing.Color.White;
             this.txtbankname.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txtbankname.ForeColor = System.Drawing.Color.Black;
-            this.txtbankname.Location = new System.Drawing.Point(89, 180);
+            this.txtbankname.Location = new System.Drawing.Point(89, 234);
             this.txtbankname.Margin = new System.Windows.Forms.Padding(2);
             this.txtbankname.Name = "txtbankname";
             this.txtbankname.PreventEnterBeep = true;
@@ -133,7 +135,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.labelX4.Location = new System.Drawing.Point(19, 153);
+            this.labelX4.Location = new System.Drawing.Point(19, 207);
             this.labelX4.Margin = new System.Windows.Forms.Padding(2);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(66, 19);
@@ -151,7 +153,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.txttaxNum.DisabledBackColor = System.Drawing.Color.White;
             this.txttaxNum.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.txttaxNum.ForeColor = System.Drawing.Color.Black;
-            this.txttaxNum.Location = new System.Drawing.Point(89, 153);
+            this.txttaxNum.Location = new System.Drawing.Point(89, 207);
             this.txttaxNum.Margin = new System.Windows.Forms.Padding(2);
             this.txttaxNum.Name = "txttaxNum";
             this.txttaxNum.PreventEnterBeep = true;
@@ -185,9 +187,10 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtaddress.ForeColor = System.Drawing.Color.Black;
             this.txtaddress.Location = new System.Drawing.Point(89, 126);
             this.txtaddress.Margin = new System.Windows.Forms.Padding(2);
+            this.txtaddress.Multiline = true;
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.PreventEnterBeep = true;
-            this.txtaddress.Size = new System.Drawing.Size(502, 23);
+            this.txtaddress.Size = new System.Drawing.Size(502, 77);
             this.txtaddress.TabIndex = 31;
             // 
             // labelX6
@@ -286,10 +289,44 @@ namespace 纺织贸易管理系统.新增窗体
             this.txtlxdh.Size = new System.Drawing.Size(502, 23);
             this.txtlxdh.TabIndex = 27;
             // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.labelX3.Location = new System.Drawing.Point(19, 288);
+            this.labelX3.Margin = new System.Windows.Forms.Padding(2);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(66, 19);
+            this.labelX3.TabIndex = 38;
+            this.labelX3.Text = "银行行号";
+            // 
+            // txtBankNo
+            // 
+            this.txtBankNo.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtBankNo.Border.Class = "TextBoxBorder";
+            this.txtBankNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtBankNo.DisabledBackColor = System.Drawing.Color.White;
+            this.txtBankNo.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.txtBankNo.ForeColor = System.Drawing.Color.Black;
+            this.txtBankNo.Location = new System.Drawing.Point(89, 288);
+            this.txtBankNo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBankNo.Name = "txtBankNo";
+            this.txtBankNo.PreventEnterBeep = true;
+            this.txtBankNo.Size = new System.Drawing.Size(502, 23);
+            this.txtBankNo.TabIndex = 39;
+            // 
             // 新增公司
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(607, 296);
+            this.ClientSize = new System.Drawing.Size(607, 404);
+            this.Controls.Add(this.labelX3);
+            this.Controls.Add(this.txtBankNo);
             this.Controls.Add(this.labelX9);
             this.Controls.Add(this.txtBankNum);
             this.Controls.Add(this.labelX8);
@@ -329,6 +366,8 @@ namespace 纺织贸易管理系统.新增窗体
             this.Controls.SetChildIndex(this.labelX8, 0);
             this.Controls.SetChildIndex(this.txtBankNum, 0);
             this.Controls.SetChildIndex(this.labelX9, 0);
+            this.Controls.SetChildIndex(this.txtBankNo, 0);
+            this.Controls.SetChildIndex(this.labelX3, 0);
             this.pnlBtm.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -350,5 +389,7 @@ namespace 纺织贸易管理系统.新增窗体
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.TextBoxX txtgsmc;
         private DevComponents.DotNetBar.Controls.TextBoxX txtlxdh;
+        private DevComponents.DotNetBar.LabelX labelX3;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtBankNo;
     }
 }

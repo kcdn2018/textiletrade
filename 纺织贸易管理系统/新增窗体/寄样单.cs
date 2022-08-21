@@ -77,9 +77,14 @@ namespace 纺织贸易管理系统.新增窗体
         private void 加载联系人()
         {
             cmblianxiren.Items.Clear();
-            foreach (var lxr in JiYangBaoJiaService.GetJiYangBaoJialst(x=>x.KHMC==txtkehu.Text ).Select (x=>x.Lianxiren ).Distinct ().ToList ())
+            //foreach (var lxr in Connect.DbHelper().Queryable<JiYangBaoJia >().Where (x=>x.KHMC==txtkehu.Text ).Select (x=>x.Lianxiren ).Distinct ().ToList ())
+            //{
+            //    cmblianxiren.Items.Add(lxr);
+            //}
+            var lxrdt = Connect.CreatConnect().Query("select distinct lianxiren from jiyangbaojia where khmc='" + txtkehu.Text + "'");
+            for(var row=0;row<lxrdt.Rows.Count;row++ )
             {
-                cmblianxiren.Items.Add(lxr);
+                cmblianxiren.Items.Add((string)lxrdt.Rows[row][0]);
             }
         }
         private void buttonEdit3_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -390,49 +395,94 @@ namespace 纺织贸易管理系统.新增窗体
             gridView1.CloseEditor();
             try
             {
+                List<LabelExtend> labels = new List<LabelExtend>();
                 string printer = string.Empty;
                 decimal num = 1;
+                Boolean IsContinuation = false;
+                PrintSetting printset = new PrintSetting();
                 if (userfule == PrintModel.Print)
                 {
                     var fm = new 打印设置窗体();
                     fm.ShowDialog();
                     printer = fm.printer;
                     num = fm.copyies;
+                    IsContinuation = fm.Continuation;
                 }
-                foreach (var i in gridView1.GetSelectedRows())
+                if (IsContinuation == false)
                 {
-                    jiYangBaoJia = listjiyang[i];
-                    if (string.IsNullOrWhiteSpace ( jiYangBaoJia.SPMC ) &&string.IsNullOrWhiteSpace ( jiYangBaoJia.EnglishName)  &&string.IsNullOrWhiteSpace ( jiYangBaoJia.cf ) &&string.IsNullOrWhiteSpace ( jiYangBaoJia.gg ))
+                    foreach (var i in gridView1.GetSelectedRows())
                     {
-                        break;
+                        jiYangBaoJia = listjiyang[i];
+                        if (string.IsNullOrWhiteSpace(jiYangBaoJia.SPMC) && string.IsNullOrWhiteSpace(jiYangBaoJia.EnglishName) && string.IsNullOrWhiteSpace(jiYangBaoJia.cf) && string.IsNullOrWhiteSpace(jiYangBaoJia.gg))
+                        {
+                            break;
+                        }
+                        db pingzhong = new db();
+                        if (jiYangBaoJia.SPBH != null)
+                        {
+                            pingzhong = dbService.GetOnedb(x => x.bh == jiYangBaoJia.SPBH);
+                        }
+                        pingzhong.bh = jiYangBaoJia.SPBH;
+                        pingzhong.pm = jiYangBaoJia.SPMC;
+                        pingzhong.gg = jiYangBaoJia.gg;
+                        pingzhong.cf = jiYangBaoJia.cf;
+                        pingzhong.kz = jiYangBaoJia.kz;
+                        pingzhong.mf = jiYangBaoJia.mf;
+                        pingzhong.md = jiYangBaoJia.md;
+                        pingzhong.zb = jiYangBaoJia.zb;
+                        pingzhong.jg = jiYangBaoJia.JG.ToString();
+                        pingzhong.ys = jiYangBaoJia.ys;
+                        pingzhong.lxr = jiYangBaoJia.Lianxiren;
+                        pingzhong.EnglishName = jiYangBaoJia.EnglishName;
+                        pingzhong.HH = jiYangBaoJia.Kuanhao;
+                        pingzhong.rq = dateEdit1.DateTime;
+                        pingzhong.hzl = jiYangBaoJia.Houzhengli;
+                        pingzhong.hzljg = jiYangBaoJia.HouzhengliPrice.ToString();
+                        var label = new LabelExtend();
+                        label = SQLHelper.MapperHelper.Mapper<db, LabelExtend>(pingzhong, label);
+                        label.单位 = jiYangBaoJia.Danwei;
+                        label.数量 = jiYangBaoJia.sl;
+                        label.合同号 = jiYangBaoJia.Hetonghao;
+                        label.款号 = jiYangBaoJia.Kuanhao;
+                        label.特点说明 = pingzhong.Characteristic;
+                        label.rq = dateEdit1.DateTime;
+                        labels.Add(label);
                     }
-                    db pingzhong = new db();
-                    if (jiYangBaoJia.SPBH != null)
-                    {
-                        pingzhong = dbService.GetOnedb(x => x.bh == jiYangBaoJia.SPBH);
-                    }
-                    pingzhong.bh = jiYangBaoJia.SPBH;
-                    pingzhong.pm = jiYangBaoJia.SPMC;
-                    pingzhong.gg = jiYangBaoJia.gg;
-                    pingzhong.cf = jiYangBaoJia.cf;
-                    pingzhong.kz = jiYangBaoJia.kz;
-                    pingzhong.mf = jiYangBaoJia.mf;
-                    pingzhong.md = jiYangBaoJia.md;
-                    pingzhong.zb = jiYangBaoJia.zb;
-                    pingzhong.jg = jiYangBaoJia.JG.ToString();
-                    pingzhong.ys = jiYangBaoJia.ys;
-                    pingzhong.lxr = jiYangBaoJia.Lianxiren;
-                    pingzhong.EnglishName = jiYangBaoJia.EnglishName;
-                    pingzhong.HH = jiYangBaoJia.Kuanhao;
-                    pingzhong.rq = dateEdit1.DateTime ;
-                    pingzhong.hzl = jiYangBaoJia.Houzhengli;
-                    pingzhong.hzljg = jiYangBaoJia.HouzhengliPrice.ToString ();
-                    AlterDlg.Show($"正在打印第{i+1}行信息的标签");
-                    Tools.打印标签.打印(jiYangBaoJia.sl, pingzhong, new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = userfule, PrintName = printer, PrintNum = (int)num }, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "SPBH").ToString()),jiYangBaoJia );
-                    if (userfule != PrintModel.Print)
-                    { return; }
+                    Tools.打印标签.打印寄样票签(labels, new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = userfule, PrintName = printer, PrintNum = (int)num });
                 }
-                AlterDlg.Show("所有标签打印完毕！");
+                else
+                {
+                    foreach (var i in gridView1.GetSelectedRows())
+                    {
+                        jiYangBaoJia = listjiyang[i];
+                        if (jiYangBaoJia.SPMC == null && jiYangBaoJia.EnglishName == null && jiYangBaoJia.cf == null && jiYangBaoJia.gg == null)
+                        {
+                            break;
+                        }
+                        db pingzhong = new db();
+                        if (jiYangBaoJia.SPBH != null)
+                        {
+                            pingzhong = dbService.GetOnedb(x => x.bh == jiYangBaoJia.SPBH);
+                        }
+                        pingzhong.bh = jiYangBaoJia.SPBH;
+                        pingzhong.pm = jiYangBaoJia.SPMC;
+                        pingzhong.gg = jiYangBaoJia.gg;
+                        pingzhong.cf = jiYangBaoJia.cf;
+                        pingzhong.kz = jiYangBaoJia.kz;
+                        pingzhong.mf = jiYangBaoJia.mf;
+                        pingzhong.md = jiYangBaoJia.md;
+                        pingzhong.zb = jiYangBaoJia.zb;
+                        pingzhong.jg = jiYangBaoJia.JG.ToString();
+                        pingzhong.ys = jiYangBaoJia.ys;
+                        pingzhong.lxr = jiYangBaoJia.Lianxiren;
+                        pingzhong.EnglishName = jiYangBaoJia.EnglishName;
+                        pingzhong.HH = jiYangBaoJia.Kuanhao;
+                        pingzhong.rq = jiYangBaoJia.RQ;
+                        Tools.打印标签.打印(jiYangBaoJia.sl, pingzhong, new PrintSetting() { Path = PrintPath.标签模板 + cmbMoban.Text, Printmodel = userfule, PrintName = printer, PrintNum = (int)num }, ShengChengGongYiService.GetShengChengGongYilst(x => x.SPBH == gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "SPBH").ToString()), jiYangBaoJia);
+                        if (userfule != PrintModel.Print)
+                        { return; }
+                    }
+                }
             }
                catch(Exception ex)
             {
@@ -484,7 +534,6 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     Edit();
                 }
-
             }
         }
        private void Edit()

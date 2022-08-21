@@ -50,5 +50,8 @@ namespace Model
         public const string 委外通知单 = " 委外通知单";
         public const string 白坯直销单 = "白坯直销单";
         public const string 报关单 = "报关单";
+        public const string 外检直销单 = "外检直销单";
+        public const string 外检入库单 = "外检入库单";
+        public const string 来样登记单 = "来样登记单";
     }
 }

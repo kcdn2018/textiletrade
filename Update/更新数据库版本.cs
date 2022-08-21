@@ -9,9 +9,9 @@ namespace Update
 {
   public   class 更新数据库版本
     {
-        public static void UpdateInfo (info info )
+        public static void UpdateInfo (version info )
         {
-            infoService.Updateinfo(info, x => x.gsmc == x.gsmc);
+            Connect.CreatConnect ().Update<version > (x=>x.Version ==info.Version , x => x.own  == info.own );
         }
     }
 }

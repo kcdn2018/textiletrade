@@ -228,7 +228,7 @@ namespace 纺织贸易管理系统.新增窗体
             { ////检查库存。没有不能发货
                 /// if (useful == FormUseful.新增)
 
-                var d = 库存BLL.检查库存(danjumingxitables, danju);
+                var d = 库存BLL.检查库存(danjumingxitables, txtckmc.Text );
                 if (d.Bianhao != null)
                 {
                     var mes = $"该发货单中\n 布料编号:{d.Bianhao }\n 订单号:{d.OrderNum } \n 色号:{d.ColorNum } \n 缸号:{d.ganghao } \n 颜色:{d.yanse }在该仓库中没有！保存失败";
@@ -296,44 +296,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void gridView2_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
-            foreach (var d in danjumingxitables )
-            {
-                d.chengpingmishu = 0;
-                d.chengpingjuanshu = 0;
-            }
-            foreach (var i in gridView2.GetSelectedRows())
-            {
-                var juan = new JuanHaoTable();
-                juan = juanList.First(x => x.ID ==(int) gridView2.GetRowCellValue(i, "ID"));
-                var d= danjumingxitables.Where(x => x.OrderNum == juan.OrderNum && x.Bianhao==juan.SampleNum &&x.ganghao==juan.GangHao &&x.kuanhao ==juan.kuanhao &&x.houzhengli==juan.Houzhengli &&x.yanse==juan.yanse && x.Huahao == juan.Huahao && x.ColorNum == juan.ColorNum).ToList ();
-                if(d.Count>0)
-                {
-                    if (d[0].danwei == "米" && juan.Danwei == "米")
-                    {
-                        d[0].chengpingmishu += juan.biaoqianmishu;
-                    }
-                    else
-                    {
-                        if (d[0].danwei == "米" && juan.Danwei == "码")
-                        {
-                            d[0].chengpingmishu += juan.biaoqianmishu*(decimal)0.9144;
-                        }
-                        else
-                        {
-                            if (d[0].danwei == "码" && juan.Danwei == "码")
-                            {
-                                d[0].chengpingmishu += juan.biaoqianmishu ;
-                            }
-                            else
-                            {
-                                d[0].chengpingmishu += juan.biaoqianmishu / (decimal)0.9144;
-                            }
-                        }
-                    }
-                    d[0].chengpingjuanshu++;
-                }
-            }
-            gridControl1.RefreshDataSource();
+            SelectJuanHelper.SelectJuan(gridControl1, gridView2, juanList, danjumingxitables);
         }
 
         private void 委外加工单_Load(object sender, EventArgs e)

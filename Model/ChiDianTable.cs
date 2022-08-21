@@ -12,5 +12,7 @@ namespace 纺织贸易管理系统
         public decimal KouFeng { get; set; }
         public string BeiZhu { get; set; }
         public string JuanHao { get; set; }
-     }
+        public string IsALL { get; set; }
+        public decimal EdgeDistance { get; set; }
+    }
 }

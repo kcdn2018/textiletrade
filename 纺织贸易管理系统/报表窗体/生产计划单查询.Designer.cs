@@ -106,6 +106,8 @@
             this.repositoryItemButtonEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
+            this.cmbzhidanren = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtjiagongchang.Properties)).BeginInit();
@@ -274,6 +276,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.cmbzhidanren);
+            this.groupPanel1.Controls.Add(this.labelX11);
             this.groupPanel1.Controls.Add(this.txtjiagongchang);
             this.groupPanel1.Controls.Add(this.labelX10);
             this.groupPanel1.Controls.Add(this.txtksmc);
@@ -327,7 +331,7 @@
             // 
             this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.groupPanel1.TabIndex = 4;
-            this.groupPanel1.Text = "查询条件";
+            this.groupPanel1.Text = "制单人";
             this.groupPanel1.Click += new System.EventHandler(this.groupPanel1_Click);
             // 
             // txtjiagongchang
@@ -681,13 +685,13 @@
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsView.AllowCellMerge = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             this.gridView1.DoubleClick += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // uiTabControl1
@@ -1059,6 +1063,26 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
             // 
+            // labelX11
+            // 
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Location = new System.Drawing.Point(571, 33);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(55, 23);
+            this.labelX11.TabIndex = 65;
+            this.labelX11.Text = "制单人";
+            // 
+            // cmbzhidanren
+            // 
+            this.cmbzhidanren.FormattingEnabled = true;
+            this.cmbzhidanren.Location = new System.Drawing.Point(629, 34);
+            this.cmbzhidanren.Name = "cmbzhidanren";
+            this.cmbzhidanren.Size = new System.Drawing.Size(121, 20);
+            this.cmbzhidanren.TabIndex = 66;
+            // 
             // 生产计划单查询
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1206,5 +1230,7 @@
         private System.Windows.Forms.ToolStripMenuItem 重启生产单ToolStripMenuItem;
         private DevExpress.XtraEditors.ButtonEdit txtjiagongchang;
         private DevComponents.DotNetBar.LabelX labelX10;
+        private System.Windows.Forms.ComboBox cmbzhidanren;
+        private DevComponents.DotNetBar.LabelX labelX11;
     }
 }

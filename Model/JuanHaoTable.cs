@@ -5,7 +5,7 @@ using System.Text;
 using SqlSugar;
 namespace 纺织贸易管理系统
 {
-    public class JuanHaoTable
+    public class JuanHaoTable:MingxiCommon 
      {
         /// <summary>
         /// 自增列
@@ -63,5 +63,25 @@ namespace 纺织贸易管理系统
         /// 合同号
         /// </summary>
         public string Hetonghao { get; set; }
+        /// <summary>
+        /// 手感
+        /// </summary>
+        public string HandFeel { get; set; }
+        /// <summary>
+        /// 色边差
+        /// </summary>
+        public string SideToSideShading { get; set; }
+        /// <summary>
+        ///头尾差
+        /// </summary>
+        public string EndToEndShading { get; set; }
+        /// <summary>
+        ///纬斜
+        /// </summary>
+        public string BiasBowing { get; set; }
+        /// <summary>
+        ///染厂数量
+        /// </summary>
+        public string DyerLength { get; set; }
     }
 }

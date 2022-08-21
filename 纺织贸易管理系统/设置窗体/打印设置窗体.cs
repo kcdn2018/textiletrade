@@ -19,6 +19,10 @@ namespace 纺织贸易管理系统.设置窗体
         public string printer { get; set; }
         public decimal copyies { get; set; }
         public PrintSetting  printerSettings { get; set; } = new PrintSetting ();
+        /// <summary>
+        /// 连续模式
+        /// </summary>
+        public Boolean Continuation { get; set; }
         public 打印设置窗体()
         {
             InitializeComponent();
@@ -70,6 +74,7 @@ namespace 纺织贸易管理系统.设置窗体
             printerSettings.PrintNum  =(short ) txtNum.Value;
             printerSettings.Printmodel = PrintModel.Print;
             printerSettings.IsCancelPrint = false;
+            Continuation = checkBox1.Checked;
             this.Close();
         }
 

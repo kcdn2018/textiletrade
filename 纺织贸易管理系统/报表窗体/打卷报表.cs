@@ -79,10 +79,10 @@ namespace 纺织贸易管理系统.报表窗体
         {
             UIWaitFormService.ShowWaitForm("正在查询，请等待.............");
             juanlist = JuanHaoTableService.GetJuanHaoTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime.Date.AddDays(1) && x.SampleName.Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text) && x.kuanhao.Contains(txthuohao.Text)
-             && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text)&&x.Huahao.Contains (txthuahao.Text ));
+             && x.yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text)&&x.Huahao.Contains (txthuahao.Text )&&x.Hetonghao.Contains (txtHetonghao.Text ));
             gridControl2.DataSource = juanlist;
-            gridControl1.DataSource = KaijianTableService.GetKaijianTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime.Date.AddDays(1) && x.SampleName.Contains(txtpingming.Text) && x.Guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text)
-            && x.Yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
+            gridControl1.DataSource = KaijianTableService.GetKaijianTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime.Date.AddDays(1) && x.SampleName.Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text)
+            && x.yanse .Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
             gridControl3.DataSource = DeleteLogService.GetDeleteLoglst(x => x.date >= dateEdit1.DateTime && x.date <= dateEdit2.DateTime.Date.AddDays(1) && x.Log.Contains(txtganghao.Text));
             UIWaitFormService.HideWaitForm();
         }
@@ -160,8 +160,8 @@ namespace 纺织贸易管理系统.报表窗体
                     decimal kaijianmishu = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "BiaoqianMishu").TryToDecmial();
                     StockTableService.UpdateStockTable($"kaijianmishu=kaijianmishu-{kaijianmishu }", x => x.ID == stockid);
                     KaijianTableService.DeleteKaijianTable(x => x.ID == id);
-                    gridControl1.DataSource = KaijianTableService.GetKaijianTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime && x.SampleName.Contains(txtpingming.Text) && x.Guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text)
-               && x.Yanse.Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
+                    gridControl1.DataSource = KaijianTableService.GetKaijianTablelst(x => x.rq >= dateEdit1.DateTime && x.rq <= dateEdit2.DateTime && x.SampleName.Contains(txtpingming.Text) && x.guige.Contains(txtguige.Text) && x.GangHao.Contains(txtganghao.Text)
+               && x.yanse .Contains(txtsehao.Text) && x.CustomerName.Contains(txtkehu.Text) && x.SampleNum.Contains(txtBianhao.Text) && x.OrderNum.Contains(txtOrderNum.Text));
                     Sunny.UI.UIMessageBox.ShowSuccess("删除开剪完毕！");
                 }
                 catch (Exception ex)
@@ -170,6 +170,36 @@ namespace 纺织贸易管理系统.报表窗体
                 }
             }
         }
+        private List<JuanHaoTable> CreatJuanhao()
+        {
+            var juan = new List<JuanHaoTable>();
+            foreach (var j in gridView2.GetSelectedRows())
+            {
+                juan.Add(juanlist[j]);
+            }
+            return juan;
+        }
+        private void 编辑报告ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tools.打印检验报告.PrintReport(PrintModel.Design, CreatJuanhao());
+        }
 
+        private void 预览报告ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tools.打印检验报告.PrintReport(PrintModel.Privew , CreatJuanhao());
+        }
+
+        private void 打印报告ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tools.打印检验报告.PrintReport(PrintModel.Print , CreatJuanhao());
+        }
+
+        private void gridView2_Click(object sender, EventArgs e)
+        {
+            if(gridView2.FocusedRowHandle>=0)
+            {
+                gridControl4.DataSource = ChiDianTableService.GetChiDianTablelst(x => x.JuanHao == juanlist[gridView2.FocusedRowHandle].JuanHao);
+            }
+        }
     }
 }

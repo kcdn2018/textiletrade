@@ -78,19 +78,28 @@ namespace 纺织贸易管理系统.其他窗体
             juanHaoTables = new BindingList<JuanHaoTable>(JuanHaoTableService.GetJuanHaoTablelst(x => x.OrderNum == d.orderNum && x.yanse == d.YS && x.kuanhao == d.kuanhao && x.Houzhengli == d.houzhengli
                && x.GangHao == d.GH && x.SampleNum == d.BH && x.Huahao == d.Huahao && x.ColorNum == d.ColorNum && x.state == 0 && x.Ckmc == d.CKMC));
         gridControl1.DataSource = juanHaoTables;
-            var lxr = LXRService.GetOneLXR(x => x.MC == stock.CustomName);
-            var maitou = MaitouService.GetOneMaitou(x => x.khbh == lxr.BH).path;
-            if (string.IsNullOrWhiteSpace (maitou ))
+            if (string.IsNullOrWhiteSpace(stock.Shippingmark))
             {
-                cmbmaitou.Text = cmbmaitou.Items[0].ToString();
+                var lxr = LXRService.GetOneLXR(x => x.MC == stock.CustomName);
+                var maitou = MaitouService.GetOneMaitou(x => x.khbh == lxr.BH).path;
+                if (string.IsNullOrWhiteSpace(maitou))
+                {
+                    cmbmaitou.Text = cmbmaitou.Items[0].ToString();
+                }
+                else
+                {
+                    cmbmaitou.Text = maitou;
+                }
             }
             else
             {
-                cmbmaitou.Text = maitou;
+                cmbmaitou.Text = stock.Shippingmark;
+                comdanwei.Text = stock.ShippingmarkUnite;
             }
             //= !=string.Empty ? : MaitouService.GetOneMaitou(x => x.khbh == stock.CustomName).path;
             txtheji.Text = juanHaoTables.Sum(x => x.biaoqianmishu).ToString();
             txthejijuanshu.Text=(juanHaoTables.Count).ToString ();
+
         }
 
         private void 确定ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -198,6 +207,7 @@ namespace 纺织贸易管理系统.其他窗体
                     j.CustomerName = stock.CustomName;
                     j.GangHao = stock.GH;
                     j.guige = stock.GG;
+                    j.CustomerLotNo = stock.CustomerLotNo;
                     j.Houzhengli = stock.houzhengli;
                     j.kuanhao = stock.kuanhao;
                     j.OrderNum = stock.orderNum;
@@ -215,6 +225,7 @@ namespace 纺织贸易管理系统.其他窗体
                     j.Menfu = txtmenfu.Text;
                     j.Kezhong = txtkezhong.Text;
                     j.Hetonghao = txthetonghao.Text;
+                    j.EnglishName = stock.EnglishName;
                 }
                 else
                 {

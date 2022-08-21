@@ -22,14 +22,26 @@ namespace 纺织贸易管理系统
         public DateTime  rq { get; set; }
         public string bz { get; set; }
         public string ys { get; set; }
+        /// <summary>
+        /// 价格
+        /// </summary>
         public string jg { get; set; }
         public string zb { get; set; }
+        /// <summary>
+        /// 坯布价格
+        /// </summary>
         public string PBPrice { get; set; }
         public string GHSBH { get; set; }
+        /// <summary>
+        /// 坯布厂
+        /// </summary>
         public string GHSMC { get; set; }
         public string md { get; set; }
         public string own { get; set; }
         public string hzl { get; set; }
+        /// <summary>
+        /// 后整理价格
+        /// </summary>
         public string hzljg { get; set; }
         public string lxr { get; set; }
         public string lxdh { get; set; }
@@ -41,6 +53,9 @@ namespace 纺织贸易管理系统
         public string gz { get; set; }
         public string zzjg { get; set; }
         public string EnglishName { get; set; }
+        /// <summary>
+        /// 坯布厂布料编号
+        /// </summary>
         public string GonghuoShangBianHao { get; set; }
         public bool caiyang { get; set; }
         public string YongTu { get; set; }

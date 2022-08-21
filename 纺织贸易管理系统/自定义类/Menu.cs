@@ -19,9 +19,8 @@ namespace 纺织贸易管理系统.自定义类
         public ToolStripMenuItem 保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         public DevExpress .XtraGrid.GridControl gridControl { get; set; }
         public DevExpress.XtraGrid.Views.Grid.GridView gridView { get; set; }
-#pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIDataGridView”(是否缺少程序集引用?)
         public Sunny.UI.UIDataGridView dataGridView { get; set; }
-#pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UIDataGridView”(是否缺少程序集引用?)
+
         public string formName { get; set; }
         public int  rowindex { get; set; }
         public object obj { get; set; }
@@ -131,8 +130,16 @@ namespace 纺织贸易管理系统.自定义类
                 }
                 else
                 {
-                    var fm = new 配置列(gridView) { formname = formName, dt = gridControl.DataSource as DataTable };
-                    fm.ShowDialog();
+                    if (obj != null)
+                    {
+                        var fm = new 配置列(gridView) { formname = formName, Obj = obj };
+                        fm.ShowDialog();
+                    }
+                    else
+                    {
+                        var fm = new 配置列(gridView) { formname = formName, dt = gridControl.DataSource as DataTable };
+                        fm.ShowDialog();
+                    }  
                 }
             }
             catch

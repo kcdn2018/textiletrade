@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.检查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刷新打印模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtlxdh = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -94,7 +95,8 @@
             this.cmbxianshi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorPickerDropDown1 = new DevComponents.DotNetBar.ColorPickerDropDown();
-            this.刷新打印模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.txtBankNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -113,7 +115,7 @@
             this.刷新打印模板ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(570, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1053, 40);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,6 +136,15 @@
             this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
             this.检查更新ToolStripMenuItem.Text = "检查更新";
             this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
+            // 
+            // 刷新打印模板ToolStripMenuItem
+            // 
+            this.刷新打印模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Refresh_32x32;
+            this.刷新打印模板ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.刷新打印模板ToolStripMenuItem.Name = "刷新打印模板ToolStripMenuItem";
+            this.刷新打印模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.刷新打印模板ToolStripMenuItem.Text = "刷新打印模板";
+            this.刷新打印模板ToolStripMenuItem.Click += new System.EventHandler(this.刷新打印模板ToolStripMenuItem_Click);
             // 
             // labelX1
             // 
@@ -172,7 +183,8 @@
             this.txtlxdh.Location = new System.Drawing.Point(125, 67);
             this.txtlxdh.Name = "txtlxdh";
             this.txtlxdh.PreventEnterBeep = true;
-            this.txtlxdh.Size = new System.Drawing.Size(250, 21);
+            this.txtlxdh.ReadOnly = true;
+            this.txtlxdh.Size = new System.Drawing.Size(421, 21);
             this.txtlxdh.TabIndex = 7;
             // 
             // labelX3
@@ -181,7 +193,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(26, 419);
+            this.labelX3.Location = new System.Drawing.Point(26, 472);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(93, 23);
             this.labelX3.TabIndex = 8;
@@ -198,7 +210,7 @@
             this.comboBoxEx1.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
-            this.comboBoxEx1.Location = new System.Drawing.Point(125, 421);
+            this.comboBoxEx1.Location = new System.Drawing.Point(125, 474);
             this.comboBoxEx1.Name = "comboBoxEx1";
             this.comboBoxEx1.Size = new System.Drawing.Size(121, 22);
             this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -223,7 +235,7 @@
             this.txtVer.DisabledBackColor = System.Drawing.Color.White;
             this.txtVer.Enabled = false;
             this.txtVer.ForeColor = System.Drawing.Color.Black;
-            this.txtVer.Location = new System.Drawing.Point(125, 481);
+            this.txtVer.Location = new System.Drawing.Point(125, 534);
             this.txtVer.Name = "txtVer";
             this.txtVer.PreventEnterBeep = true;
             this.txtVer.ReadOnly = true;
@@ -236,7 +248,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(26, 478);
+            this.labelX5.Location = new System.Drawing.Point(26, 531);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(75, 23);
             this.labelX5.TabIndex = 11;
@@ -248,7 +260,7 @@
             // 
             // 
             this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX1.Location = new System.Drawing.Point(285, 478);
+            this.checkBoxX1.Location = new System.Drawing.Point(285, 531);
             this.checkBoxX1.Name = "checkBoxX1";
             this.checkBoxX1.Size = new System.Drawing.Size(100, 23);
             this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -264,11 +276,13 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(570, 584);
+            this.tabControl1.Size = new System.Drawing.Size(1053, 673);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.labelX10);
+            this.tabPage1.Controls.Add(this.txtBankNo);
             this.tabPage1.Controls.Add(this.uiSymbolButton3);
             this.tabPage1.Controls.Add(this.cmbgongshimingcheng);
             this.tabPage1.Controls.Add(this.uiSymbolButton2);
@@ -294,7 +308,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(562, 558);
+            this.tabPage1.Size = new System.Drawing.Size(1045, 647);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "公司信息";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -303,7 +317,7 @@
             // 
             this.uiSymbolButton3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton3.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiSymbolButton3.Location = new System.Drawing.Point(517, 6);
+            this.uiSymbolButton3.Location = new System.Drawing.Point(693, 6);
             this.uiSymbolButton3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton3.Name = "uiSymbolButton3";
             this.uiSymbolButton3.Size = new System.Drawing.Size(62, 26);
@@ -325,9 +339,10 @@
             this.cmbgongshimingcheng.MinimumSize = new System.Drawing.Size(63, 0);
             this.cmbgongshimingcheng.Name = "cmbgongshimingcheng";
             this.cmbgongshimingcheng.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cmbgongshimingcheng.Size = new System.Drawing.Size(254, 23);
+            this.cmbgongshimingcheng.Size = new System.Drawing.Size(425, 23);
             this.cmbgongshimingcheng.TabIndex = 64;
             this.cmbgongshimingcheng.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbgongshimingcheng.Watermark = "";
             this.cmbgongshimingcheng.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.cmbgongshimingcheng.SelectedIndexChanged += new System.EventHandler(this.cmbgongshimingcheng_SelectedIndexChanged);
             // 
@@ -335,7 +350,7 @@
             // 
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiSymbolButton2.Location = new System.Drawing.Point(449, 6);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(625, 6);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.Size = new System.Drawing.Size(62, 26);
@@ -350,7 +365,7 @@
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(381, 6);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(557, 6);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Size = new System.Drawing.Size(62, 26);
@@ -386,7 +401,8 @@
             this.txtBankNum.Location = new System.Drawing.Point(125, 362);
             this.txtBankNum.Name = "txtBankNum";
             this.txtBankNum.PreventEnterBeep = true;
-            this.txtBankNum.Size = new System.Drawing.Size(250, 21);
+            this.txtBankNum.ReadOnly = true;
+            this.txtBankNum.Size = new System.Drawing.Size(421, 21);
             this.txtBankNum.TabIndex = 23;
             // 
             // labelX8
@@ -395,7 +411,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(26, 301);
+            this.labelX8.Location = new System.Drawing.Point(26, 307);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(75, 23);
             this.labelX8.TabIndex = 20;
@@ -411,10 +427,11 @@
             this.txtbankname.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbankname.DisabledBackColor = System.Drawing.Color.White;
             this.txtbankname.ForeColor = System.Drawing.Color.Black;
-            this.txtbankname.Location = new System.Drawing.Point(125, 303);
+            this.txtbankname.Location = new System.Drawing.Point(125, 309);
             this.txtbankname.Name = "txtbankname";
             this.txtbankname.PreventEnterBeep = true;
-            this.txtbankname.Size = new System.Drawing.Size(250, 21);
+            this.txtbankname.ReadOnly = true;
+            this.txtbankname.Size = new System.Drawing.Size(421, 21);
             this.txtbankname.TabIndex = 21;
             // 
             // labelX4
@@ -423,7 +440,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(26, 242);
+            this.labelX4.Location = new System.Drawing.Point(26, 249);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(75, 23);
             this.labelX4.TabIndex = 18;
@@ -439,10 +456,11 @@
             this.txttaxNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txttaxNum.DisabledBackColor = System.Drawing.Color.White;
             this.txttaxNum.ForeColor = System.Drawing.Color.Black;
-            this.txttaxNum.Location = new System.Drawing.Point(125, 244);
+            this.txttaxNum.Location = new System.Drawing.Point(125, 251);
             this.txttaxNum.Name = "txttaxNum";
             this.txttaxNum.PreventEnterBeep = true;
-            this.txttaxNum.Size = new System.Drawing.Size(250, 21);
+            this.txttaxNum.ReadOnly = true;
+            this.txttaxNum.Size = new System.Drawing.Size(421, 21);
             this.txttaxNum.TabIndex = 19;
             // 
             // labelX7
@@ -467,10 +485,12 @@
             this.txtaddress.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtaddress.DisabledBackColor = System.Drawing.Color.White;
             this.txtaddress.ForeColor = System.Drawing.Color.Black;
-            this.txtaddress.Location = new System.Drawing.Point(125, 185);
+            this.txtaddress.Location = new System.Drawing.Point(125, 168);
+            this.txtaddress.Multiline = true;
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.PreventEnterBeep = true;
-            this.txtaddress.Size = new System.Drawing.Size(250, 21);
+            this.txtaddress.ReadOnly = true;
+            this.txtaddress.Size = new System.Drawing.Size(421, 53);
             this.txtaddress.TabIndex = 17;
             // 
             // labelX6
@@ -498,7 +518,8 @@
             this.txtEmail.Location = new System.Drawing.Point(125, 126);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PreventEnterBeep = true;
-            this.txtEmail.Size = new System.Drawing.Size(250, 21);
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(421, 21);
             this.txtEmail.TabIndex = 15;
             // 
             // tabPage2
@@ -912,20 +933,40 @@
             this.colorPickerDropDown1.Tooltip = "Custom color scheme is created based on currently selected color table. Try selec" +
     "ting Silver or Blue color table and then creating custom color scheme.";
             // 
-            // 刷新打印模板ToolStripMenuItem
+            // labelX10
             // 
-            this.刷新打印模板ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Refresh_32x32;
-            this.刷新打印模板ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.刷新打印模板ToolStripMenuItem.Name = "刷新打印模板ToolStripMenuItem";
-            this.刷新打印模板ToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
-            this.刷新打印模板ToolStripMenuItem.Text = "刷新打印模板";
-            this.刷新打印模板ToolStripMenuItem.Click += new System.EventHandler(this.刷新打印模板ToolStripMenuItem_Click);
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(26, 415);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(75, 23);
+            this.labelX10.TabIndex = 66;
+            this.labelX10.Text = "银行行号";
+            // 
+            // txtBankNo
+            // 
+            this.txtBankNo.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtBankNo.Border.Class = "TextBoxBorder";
+            this.txtBankNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtBankNo.DisabledBackColor = System.Drawing.Color.White;
+            this.txtBankNo.ForeColor = System.Drawing.Color.Black;
+            this.txtBankNo.Location = new System.Drawing.Point(125, 417);
+            this.txtBankNo.Name = "txtBankNo";
+            this.txtBankNo.PreventEnterBeep = true;
+            this.txtBankNo.ReadOnly = true;
+            this.txtBankNo.Size = new System.Drawing.Size(421, 21);
+            this.txtBankNo.TabIndex = 67;
             // 
             // 公司信息
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 624);
+            this.ClientSize = new System.Drawing.Size(1053, 713);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1024,5 +1065,7 @@
         private System.Windows.Forms.ComboBox cmbMoban;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ToolStripMenuItem 刷新打印模板ToolStripMenuItem;
+        private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtBankNo;
     }
 }

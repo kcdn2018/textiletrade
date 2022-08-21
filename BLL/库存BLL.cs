@@ -530,11 +530,11 @@ namespace BLL
         /// <param name="danjumingxitables">单据</param>
         /// <param name="danjuTable"></param>
         /// <returns></returns>
-        public static danjumingxitable 检查库存(List<danjumingxitable> danjumingxitables, DanjuTable danjuTable)
+        public static danjumingxitable 检查库存(List<danjumingxitable> danjumingxitables, string StockName)
         {
             foreach (var mingxi in danjumingxitables.Where(x => x.Bianhao != null).ToList())
             {
-                var stock = Connect.DbHelper().Queryable<StockTable>().First(x => x.CKMC == danjuTable.ckmc && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
+                var stock = Connect.DbHelper().Queryable<StockTable>().First(x => x.CKMC == StockName && x.orderNum == mingxi.OrderNum && x.BH == mingxi.Bianhao && x.YS == mingxi.yanse &&
             x.kuanhao == mingxi.kuanhao && x.houzhengli == mingxi.houzhengli && x.GH == mingxi.ganghao && x.Kuwei == mingxi.Kuwei && x.Huahao == mingxi.Huahao && x.ColorNum == mingxi.ColorNum);
                 //库存没有这个布  当编号为空的时候
                 if (stock == null)

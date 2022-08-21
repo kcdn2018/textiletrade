@@ -238,6 +238,12 @@
       <DependentUpon>查看开剪.cs</DependentUpon>
     </Compile>
     <Compile Include="其他窗体\检测状态.cs" />
+    <Compile Include="其他窗体\检验要求.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他窗体\检验要求.Designer.cs">
+      <DependentUpon>检验要求.cs</DependentUpon>
+    </Compile>
     <Compile Include="其他窗体\登陆窗体.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,24 @@
     <Compile Include="其他窗体\账户转账.Designer.cs">
       <DependentUpon>账户转账.cs</DependentUpon>
     </Compile>
+    <Compile Include="报表窗体\外检直销列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\外检直销列表.Designer.cs">
+      <DependentUpon>外检直销列表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\外检入库单列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\外检入库单列表.Designer.cs">
+      <DependentUpon>外检入库单列表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表窗体\来样登记查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表窗体\来样登记查询.Designer.cs">
+      <DependentUpon>来样登记查询.cs</DependentUpon>
+    </Compile>
     <Compile Include="报表窗体\白坯直销列表.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,11 +316,29 @@
     <Compile Include="报表窗体\报关单列表.Designer.cs">
       <DependentUpon>报关单列表.cs</DependentUpon>
     </Compile>
+    <Compile Include="新增窗体\外检入库单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\外检入库单.Designer.cs">
+      <DependentUpon>外检入库单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\提成领用.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\提成领用.Designer.cs">
+      <DependentUpon>提成领用.cs</DependentUpon>
+    </Compile>
     <Compile Include="新增窗体\新增价格.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="新增窗体\新增价格.Designer.cs">
       <DependentUpon>新增价格.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\来样登记单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\来样登记单.Designer.cs">
+      <DependentUpon>来样登记单.cs</DependentUpon>
     </Compile>
     <Compile Include="新增窗体\白坯直销单.cs">
       <SubType>Form</SubType>
@@ -309,6 +351,12 @@
     </Compile>
     <Compile Include="新增窗体\新增报关单.Designer.cs">
       <DependentUpon>新增报关单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="新增窗体\外检直销单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="新增窗体\外检直销单.Designer.cs">
+      <DependentUpon>外检直销单.cs</DependentUpon>
     </Compile>
     <Compile Include="汇总窗体\销售汇总.cs">
       <SubType>Form</SubType>
@@ -922,8 +970,15 @@
     <Compile Include="汇总窗体\销售统计.Designer.cs">
       <DependentUpon>销售统计.cs</DependentUpon>
     </Compile>
+    <Compile Include="自定义类\SelectJuanHelper.cs" />
     <Compile Include="自定义类\SelectProductHelper.cs" />
     <Compile Include="自定义类\SelectStockHelper.cs" />
+    <Compile Include="选择窗体\加工厂选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="选择窗体\加工厂选择.Designer.cs">
+      <DependentUpon>加工厂选择.cs</DependentUpon>
+    </Compile>
     <Compile Include="选择窗体\销售单选择.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1373,6 +1428,9 @@
     <EmbeddedResource Include="其他窗体\查看开剪.resx">
       <DependentUpon>查看开剪.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="其他窗体\检验要求.resx">
+      <DependentUpon>检验要求.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="其他窗体\登陆窗体.resx">
       <DependentUpon>登陆窗体.cs</DependentUpon>
     </EmbeddedResource>
@@ -1394,20 +1452,41 @@
     <EmbeddedResource Include="其他窗体\账户转账.resx">
       <DependentUpon>账户转账.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\外检直销列表.resx">
+      <DependentUpon>外检直销列表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\外检入库单列表.resx">
+      <DependentUpon>外检入库单列表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表窗体\来样登记查询.resx">
+      <DependentUpon>来样登记查询.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="报表窗体\白坯直销列表.resx">
       <DependentUpon>白坯直销列表.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="报表窗体\报关单列表.resx">
       <DependentUpon>报关单列表.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\外检入库单.resx">
+      <DependentUpon>外检入库单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\提成领用.resx">
+      <DependentUpon>提成领用.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="新增窗体\新增价格.resx">
       <DependentUpon>新增价格.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\来样登记单.resx">
+      <DependentUpon>来样登记单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="新增窗体\白坯直销单.resx">
       <DependentUpon>白坯直销单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="新增窗体\新增报关单.resx">
       <DependentUpon>新增报关单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="新增窗体\外检直销单.resx">
+      <DependentUpon>外检直销单.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="汇总窗体\销售汇总.resx">
       <DependentUpon>销售汇总.cs</DependentUpon>
@@ -1715,6 +1794,9 @@
     <EmbeddedResource Include="汇总窗体\销售统计.resx">
       <DependentUpon>销售统计.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="选择窗体\加工厂选择.resx">
+      <DependentUpon>加工厂选择.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="选择窗体\销售单选择.resx">
       <DependentUpon>销售单选择.cs</DependentUpon>
     </EmbeddedResource>
@@ -1918,6 +2000,7 @@
       <DependentUpon>销售单明细选择.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ChiDianTable.datasource" />
     <None Include="Properties\DataSources\danjumingxitable.datasource" />
     <None Include="Properties\DataSources\GongYiYaoqiu.datasource" />
     <None Include="Properties\DataSources\KaijianTable.datasource" />

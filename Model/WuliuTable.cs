@@ -28,5 +28,25 @@ namespace 纺织贸易管理系统
         /// 联系人
         /// </summary>
         public string LinkMan { get; set; }
+        /// <summary>
+        /// 联系电话
+        /// </summary>
+        public string Tel { get; set; }
+        /// <summary>
+        /// 拼音码
+        /// </summary>
+        public string Pingyingma { get; set; }
+        /// <summary>
+        /// 开户人
+        /// </summary>
+        public string AccountHolder { get; set; }
+        /// <summary>
+        /// 全称
+        /// </summary>
+        public string FullName { get; set; }
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public string Style { get; set; }
     }
 }

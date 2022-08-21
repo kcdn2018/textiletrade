@@ -160,7 +160,6 @@ namespace 纺织贸易管理系统.新增窗体
             danju.shouhuodizhi = txtckmc.Text;
             danju.lianxiren = txtlianxiren.Text;
             danju.Qiankuan = cmbqiankuan.Text;
-            danju.Hanshui = comhanshui.Text;
             danju.je = danjumingxitables.Sum(x => x.hanshuiheji);
             danju.totaljuanshu= danjumingxitables.Sum(x => x.chengpingjuanshu );
             danju.TotalMishu = danjumingxitables.Sum(x => x.chengpingmishu );
@@ -185,14 +184,15 @@ namespace 纺织贸易管理系统.新增窗体
                 {
                     if ((int)(MessageBox.Show("是否直接审核过账？", this.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == 6)
                     {
-                        销售退货单BLL .单据审核(danju.dh);
+                        销售退货单BLL.单据审核(danju.dh);
                     }
                 }
+                else
+                {
+                    销售退货单BLL.单据审核(danju.dh);
+                }
             }
-            else
-            {
-                销售退货单BLL .单据审核(danju.dh);
-            }
+
             AlterDlg.Show("保存成功！");
             //清空所有控件
             Init();
@@ -207,7 +207,6 @@ namespace 纺织贸易管理系统.新增窗体
                 }
             }
             dateEdit1.DateTime = DateTime.Now;
-            comhanshui.Text = QueryTime.IsTax;
             txtdanhao.Text = BianhaoBLL.CreatDanhao(FirstLetter.销售退货单 , dateEdit1.DateTime, DanjuLeiXing.销售退货单);
             txtChachefei.Text = "0";
             txtyunfei.Text = "0";
@@ -254,7 +253,6 @@ namespace 纺织贸易管理系统.新增窗体
             txtwuliu.Text = danju.wuliugongsi;
             txtyunfei.Text = danju.yunfei.ToString();
             cmbqiankuan.Text = danju.Qiankuan;
-            comhanshui.Text = danju.Hanshui;
             txtzhuangxiefei.Text = danju.ZhuangXieFei.ToString();
             txtChachefei.Text = danju.ChaCheFei.ToString();
            dateEdit1.DateTime=danju.rq;
@@ -302,11 +300,6 @@ namespace 纺织贸易管理系统.新增窗体
             CreateGrid.SaveGridview(this.Name, gridView1);
         }
 
-        private void 销售退货单_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         private void dateEdit1_DateTimeChanged(object sender, EventArgs e)
         {
             if (useful == FormUseful.新增)
@@ -335,7 +328,6 @@ namespace 纺织贸易管理系统.新增窗体
             danju.shouhuodizhi = txtckmc.Text;
             danju.lianxiren = txtlianxiren.Text;
             danju.Qiankuan = cmbqiankuan.Text;
-            danju.Hanshui = comhanshui.Text;
             danju.je = danjumingxitables.Sum(x => x.hanshuiheji);
             danju.totaljuanshu = danjumingxitables.Sum(x => x.chengpingjuanshu);
             danju.TotalMishu = danjumingxitables.Sum(x => x.hanshuiheji);

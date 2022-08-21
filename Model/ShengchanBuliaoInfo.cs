@@ -1,3 +1,4 @@
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,11 @@ namespace 纺织贸易管理系统
 {
     public class ShengchanBuliaoInfo
      {
+        /// <summary>
+        /// 行号
+        /// </summary>
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
+        public int ID { get; set; }
         public string BuliaoPingming { get; set; }
         public string Yanse { get; set; }
         public string Kuanhao { get; set; }
@@ -56,5 +62,21 @@ namespace 纺织贸易管理系统
         /// 坯布单位
         /// </summary>
         public string FriceUnit { get; set; }
+        /// <summary>
+        /// 船样日期
+        /// </summary>
+        public string ShippingDate { get; set; }
+        /// <summary>
+        /// 预计出货日
+        /// </summary>
+        public string SellDate { get; set; }
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        public string OrderState { get; set; }
+        /// <summary>
+        /// 生产状态
+        /// </summary>
+        public string ProduceSate { get; set; }
     }
 }

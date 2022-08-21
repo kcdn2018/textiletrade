@@ -34,11 +34,17 @@
             this.刷新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除卷ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除开剪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成检验报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.编辑报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.预览报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印报告ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印唛头ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.唛头模板ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbmaitou = new System.Windows.Forms.ToolStripComboBox();
             this.生成质检单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txthuahao = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtkehu = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
@@ -59,25 +65,12 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.保存样式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.uiTabControl1 = new Sunny.UI.UITabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemButtonEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -86,35 +79,72 @@
             this.repositoryItemButtonEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.txthuahao = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemButtonEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.chiDianTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemButtonEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemComboBox4 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.uiTabControl1 = new Sunny.UI.UITabControl();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
+            this.txtHetonghao = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.menuStrip1.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
-            this.uiTabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chiDianTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox4)).BeginInit();
+            this.uiTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -124,13 +154,14 @@
             this.刷新ToolStripMenuItem,
             this.删除卷ToolStripMenuItem,
             this.删除开剪ToolStripMenuItem,
+            this.生成检验报告ToolStripMenuItem,
             this.打印唛头ToolStripMenuItem,
             this.唛头模板ToolStripMenuItem,
             this.cmbmaitou,
             this.生成质检单ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1004, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1253, 40);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -170,6 +201,39 @@
             this.删除开剪ToolStripMenuItem.Text = "删除开剪";
             this.删除开剪ToolStripMenuItem.Click += new System.EventHandler(this.删除开剪ToolStripMenuItem_Click);
             // 
+            // 生成检验报告ToolStripMenuItem
+            // 
+            this.生成检验报告ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.编辑报告ToolStripMenuItem,
+            this.预览报告ToolStripMenuItem,
+            this.打印报告ToolStripMenuItem});
+            this.生成检验报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.ReportLayoutPivotTable_32x32;
+            this.生成检验报告ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.生成检验报告ToolStripMenuItem.Name = "生成检验报告ToolStripMenuItem";
+            this.生成检验报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 36);
+            this.生成检验报告ToolStripMenuItem.Text = "生成检验报告";
+            // 
+            // 编辑报告ToolStripMenuItem
+            // 
+            this.编辑报告ToolStripMenuItem.Name = "编辑报告ToolStripMenuItem";
+            this.编辑报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.编辑报告ToolStripMenuItem.Text = "编辑报告";
+            this.编辑报告ToolStripMenuItem.Click += new System.EventHandler(this.编辑报告ToolStripMenuItem_Click);
+            // 
+            // 预览报告ToolStripMenuItem
+            // 
+            this.预览报告ToolStripMenuItem.Name = "预览报告ToolStripMenuItem";
+            this.预览报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.预览报告ToolStripMenuItem.Text = "预览报告";
+            this.预览报告ToolStripMenuItem.Click += new System.EventHandler(this.预览报告ToolStripMenuItem_Click);
+            // 
+            // 打印报告ToolStripMenuItem
+            // 
+            this.打印报告ToolStripMenuItem.Name = "打印报告ToolStripMenuItem";
+            this.打印报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印报告ToolStripMenuItem.Text = "打印报告";
+            this.打印报告ToolStripMenuItem.Click += new System.EventHandler(this.打印报告ToolStripMenuItem_Click);
+            // 
             // 打印唛头ToolStripMenuItem
             // 
             this.打印唛头ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
@@ -205,6 +269,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.White;
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+            this.groupPanel1.Controls.Add(this.labelX12);
+            this.groupPanel1.Controls.Add(this.txtHetonghao);
             this.groupPanel1.Controls.Add(this.txthuahao);
             this.groupPanel1.Controls.Add(this.labelX3);
             this.groupPanel1.Controls.Add(this.txtkehu);
@@ -231,7 +297,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupPanel1.Location = new System.Drawing.Point(0, 40);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(1004, 130);
+            this.groupPanel1.Size = new System.Drawing.Size(1253, 130);
             // 
             // 
             // 
@@ -262,6 +328,35 @@
             this.groupPanel1.TabIndex = 4;
             this.groupPanel1.Text = "查询条件";
             // 
+            // txthuahao
+            // 
+            this.txthuahao.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txthuahao.Border.Class = "TextBoxBorder";
+            this.txthuahao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txthuahao.DisabledBackColor = System.Drawing.Color.White;
+            this.txthuahao.ForeColor = System.Drawing.Color.Black;
+            this.txthuahao.Location = new System.Drawing.Point(410, 17);
+            this.txthuahao.Name = "txthuahao";
+            this.txthuahao.PreventEnterBeep = true;
+            this.txthuahao.Size = new System.Drawing.Size(100, 21);
+            this.txthuahao.TabIndex = 38;
+            this.txthuahao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpingming_KeyDown);
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(345, 16);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(59, 23);
+            this.labelX3.TabIndex = 37;
+            this.labelX3.Text = "花号：";
+            // 
             // txtkehu
             // 
             this.txtkehu.BackColor = System.Drawing.Color.White;
@@ -272,7 +367,7 @@
             this.txtkehu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtkehu.DisabledBackColor = System.Drawing.Color.White;
             this.txtkehu.ForeColor = System.Drawing.Color.Black;
-            this.txtkehu.Location = new System.Drawing.Point(581, 73);
+            this.txtkehu.Location = new System.Drawing.Point(581, 45);
             this.txtkehu.Name = "txtkehu";
             this.txtkehu.PreventEnterBeep = true;
             this.txtkehu.Size = new System.Drawing.Size(100, 21);
@@ -285,7 +380,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(516, 72);
+            this.labelX7.Location = new System.Drawing.Point(516, 44);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(59, 23);
             this.labelX7.TabIndex = 35;
@@ -297,7 +392,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(345, 72);
+            this.labelX8.Location = new System.Drawing.Point(516, 71);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(59, 23);
             this.labelX8.TabIndex = 34;
@@ -309,7 +404,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(174, 72);
+            this.labelX9.Location = new System.Drawing.Point(345, 71);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(59, 23);
             this.labelX9.TabIndex = 33;
@@ -325,7 +420,7 @@
             this.txtsehao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtsehao.DisabledBackColor = System.Drawing.Color.White;
             this.txtsehao.ForeColor = System.Drawing.Color.Black;
-            this.txtsehao.Location = new System.Drawing.Point(410, 73);
+            this.txtsehao.Location = new System.Drawing.Point(581, 72);
             this.txtsehao.Name = "txtsehao";
             this.txtsehao.PreventEnterBeep = true;
             this.txtsehao.Size = new System.Drawing.Size(100, 21);
@@ -342,7 +437,7 @@
             this.txtBianhao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtBianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtBianhao.Location = new System.Drawing.Point(239, 73);
+            this.txtBianhao.Location = new System.Drawing.Point(410, 72);
             this.txtBianhao.Name = "txtBianhao";
             this.txtBianhao.PreventEnterBeep = true;
             this.txtBianhao.Size = new System.Drawing.Size(100, 21);
@@ -359,7 +454,7 @@
             this.txtOrderNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtOrderNum.DisabledBackColor = System.Drawing.Color.White;
             this.txtOrderNum.ForeColor = System.Drawing.Color.Black;
-            this.txtOrderNum.Location = new System.Drawing.Point(73, 73);
+            this.txtOrderNum.Location = new System.Drawing.Point(73, 72);
             this.txtOrderNum.Name = "txtOrderNum";
             this.txtOrderNum.PreventEnterBeep = true;
             this.txtOrderNum.Size = new System.Drawing.Size(95, 21);
@@ -372,7 +467,7 @@
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(8, 72);
+            this.labelX10.Location = new System.Drawing.Point(8, 71);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(59, 23);
             this.labelX10.TabIndex = 29;
@@ -388,7 +483,7 @@
             this.txthuohao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txthuohao.DisabledBackColor = System.Drawing.Color.White;
             this.txthuohao.ForeColor = System.Drawing.Color.Black;
-            this.txthuohao.Location = new System.Drawing.Point(581, 46);
+            this.txthuohao.Location = new System.Drawing.Point(581, 18);
             this.txthuohao.Name = "txthuohao";
             this.txthuohao.PreventEnterBeep = true;
             this.txthuohao.Size = new System.Drawing.Size(100, 21);
@@ -401,7 +496,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(516, 45);
+            this.labelX5.Location = new System.Drawing.Point(516, 17);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(59, 23);
             this.labelX5.TabIndex = 27;
@@ -454,7 +549,7 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(7, 45);
+            this.labelX11.Location = new System.Drawing.Point(8, 45);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(59, 23);
             this.labelX11.TabIndex = 23;
@@ -487,7 +582,7 @@
             this.txtpingming.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtpingming.DisabledBackColor = System.Drawing.Color.White;
             this.txtpingming.ForeColor = System.Drawing.Color.Black;
-            this.txtpingming.Location = new System.Drawing.Point(72, 46);
+            this.txtpingming.Location = new System.Drawing.Point(73, 46);
             this.txtpingming.Name = "txtpingming";
             this.txtpingming.PreventEnterBeep = true;
             this.txtpingming.Size = new System.Drawing.Size(96, 21);
@@ -512,16 +607,16 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(178, 17);
+            this.labelX2.Location = new System.Drawing.Point(174, 17);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(55, 23);
+            this.labelX2.Size = new System.Drawing.Size(59, 23);
             this.labelX2.TabIndex = 15;
             this.labelX2.Text = "日期到：";
             // 
             // dateEdit1
             // 
             this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(70, 18);
+            this.dateEdit1.Location = new System.Drawing.Point(73, 18);
             this.dateEdit1.Name = "dateEdit1";
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -536,27 +631,11 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(9, 17);
+            this.labelX1.Location = new System.Drawing.Point(8, 17);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(55, 23);
+            this.labelX1.Size = new System.Drawing.Size(59, 23);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "日期从：";
-            // 
-            // gridControl2
-            // 
-            this.gridControl2.ContextMenuStrip = this.contextMenuStrip2;
-            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(0, 0);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1,
-            this.repositoryItemButtonEdit2,
-            this.repositoryItemComboBox1});
-            this.gridControl2.Size = new System.Drawing.Size(1004, 240);
-            this.gridControl2.TabIndex = 12;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
             // 
             // contextMenuStrip2
             // 
@@ -582,105 +661,6 @@
             this.保存样式ToolStripMenuItem.Text = "保存样式";
             this.保存样式ToolStripMenuItem.Click += new System.EventHandler(this.保存样式ToolStripMenuItem_Click);
             // 
-            // gridView2
-            // 
-            this.gridView2.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView2.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView2.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView2.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.gridView2.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView2.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsSelection.MultiSelect = true;
-            this.gridView2.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.gridView2.OptionsView.ColumnAutoWidth = false;
-            this.gridView2.OptionsView.ShowFooter = true;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
-            // repositoryItemButtonEdit2
-            // 
-            this.repositoryItemButtonEdit2.AutoHeight = false;
-            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
-            // 
-            // repositoryItemComboBox1
-            // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Items.AddRange(new object[] {
-            "米",
-            "码",
-            "公斤数"});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            this.repositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            // 
-            // uiTabControl1
-            // 
-            this.uiTabControl1.Controls.Add(this.tabPage1);
-            this.uiTabControl1.Controls.Add(this.tabPage2);
-            this.uiTabControl1.Controls.Add(this.tabPage3);
-            this.uiTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 40);
-            this.uiTabControl1.Location = new System.Drawing.Point(0, 170);
-            this.uiTabControl1.MainPage = "";
-            this.uiTabControl1.Name = "uiTabControl1";
-            this.uiTabControl1.SelectedIndex = 0;
-            this.uiTabControl1.Size = new System.Drawing.Size(1004, 280);
-            this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.uiTabControl1.TabIndex = 13;
-            this.uiTabControl1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTabControl1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.gridControl2);
-            this.tabPage1.Location = new System.Drawing.Point(0, 40);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1004, 240);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "正品报表";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.gridControl1);
-            this.tabPage2.Location = new System.Drawing.Point(0, 40);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1004, 240);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "开剪报表";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit3,
-            this.repositoryItemButtonEdit4,
-            this.repositoryItemComboBox2});
-            this.gridControl1.Size = new System.Drawing.Size(1004, 240);
-            this.gridControl1.TabIndex = 13;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -705,56 +685,12 @@
             this.toolStripMenuItem2.Text = "保存样式";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
-            // gridView1
-            // 
-            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView1.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.gridView1.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridView1.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsSelection.MultiSelect = true;
-            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.gridView1.OptionsView.ColumnAutoWidth = false;
-            this.gridView1.OptionsView.ShowFooter = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // repositoryItemButtonEdit3
-            // 
-            this.repositoryItemButtonEdit3.AutoHeight = false;
-            this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
-            // 
-            // repositoryItemButtonEdit4
-            // 
-            this.repositoryItemButtonEdit4.AutoHeight = false;
-            this.repositoryItemButtonEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit4.Name = "repositoryItemButtonEdit4";
-            // 
-            // repositoryItemComboBox2
-            // 
-            this.repositoryItemComboBox2.AutoHeight = false;
-            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox2.Items.AddRange(new object[] {
-            "米",
-            "码",
-            "公斤数"});
-            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
-            this.repositoryItemComboBox2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.gridControl3);
             this.tabPage3.Location = new System.Drawing.Point(0, 40);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1004, 240);
+            this.tabPage3.Size = new System.Drawing.Size(1253, 512);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "删除日志";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -770,7 +706,7 @@
             this.repositoryItemButtonEdit5,
             this.repositoryItemButtonEdit6,
             this.repositoryItemComboBox3});
-            this.gridControl3.Size = new System.Drawing.Size(1004, 240);
+            this.gridControl3.Size = new System.Drawing.Size(1253, 512);
             this.gridControl3.TabIndex = 14;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -840,40 +776,340 @@
             this.repositoryItemComboBox3.Name = "repositoryItemComboBox3";
             this.repositoryItemComboBox3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
-            // txthuahao
+            // gridView1
             // 
-            this.txthuahao.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit3,
+            this.repositoryItemButtonEdit4,
+            this.repositoryItemComboBox2});
+            this.gridControl1.Size = new System.Drawing.Size(1253, 512);
+            this.gridControl1.TabIndex = 13;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // repositoryItemButtonEdit3
+            // 
+            this.repositoryItemButtonEdit3.AutoHeight = false;
+            this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
+            // 
+            // repositoryItemButtonEdit4
+            // 
+            this.repositoryItemButtonEdit4.AutoHeight = false;
+            this.repositoryItemButtonEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit4.Name = "repositoryItemButtonEdit4";
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Items.AddRange(new object[] {
+            "米",
+            "码",
+            "公斤数"});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
+            this.repositoryItemComboBox2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.gridControl1);
+            this.tabPage2.Location = new System.Drawing.Point(0, 40);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1253, 512);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "开剪报表";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView2.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView2.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView2.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView2.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView2.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsSelection.MultiSelect = true;
+            this.gridView2.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.ShowFooter = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.Click += new System.EventHandler(this.gridView2_Click);
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.ContextMenuStrip = this.contextMenuStrip2;
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1,
+            this.repositoryItemButtonEdit2,
+            this.repositoryItemComboBox1});
+            this.gridControl2.Size = new System.Drawing.Size(901, 512);
+            this.gridControl2.TabIndex = 12;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2,
+            this.gridView5});
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            // 
+            // repositoryItemButtonEdit2
+            // 
+            this.repositoryItemButtonEdit2.AutoHeight = false;
+            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Items.AddRange(new object[] {
+            "米",
+            "码",
+            "公斤数"});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            this.repositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // gridView5
+            // 
+            this.gridView5.GridControl = this.gridControl2;
+            this.gridView5.Name = "gridView5";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.splitContainer1);
+            this.tabPage1.Location = new System.Drawing.Point(0, 40);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1253, 512);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "正品报表";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.gridControl2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.gridControl4);
+            this.splitContainer1.Size = new System.Drawing.Size(1253, 512);
+            this.splitContainer1.SplitterDistance = 901;
+            this.splitContainer1.TabIndex = 13;
+            // 
+            // gridControl4
+            // 
+            this.gridControl4.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl4.DataSource = this.chiDianTableBindingSource;
+            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl4.Location = new System.Drawing.Point(0, 0);
+            this.gridControl4.MainView = this.gridView4;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit7,
+            this.repositoryItemButtonEdit8,
+            this.repositoryItemComboBox4});
+            this.gridControl4.Size = new System.Drawing.Size(348, 512);
+            this.gridControl4.TabIndex = 15;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+            // 
+            // chiDianTableBindingSource
+            // 
+            this.chiDianTableBindingSource.DataSource = typeof(纺织贸易管理系统.ChiDianTable);
+            // 
+            // gridView4
+            // 
+            this.gridView4.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView4.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView4.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView4.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView4.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gridView4.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn7});
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsBehavior.Editable = false;
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView4.OptionsView.ColumnAutoWidth = false;
+            this.gridView4.OptionsView.ShowFooter = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "疵点名称";
+            this.gridColumn3.FieldName = "ChiDianName";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            this.gridColumn3.Width = 87;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "位置";
+            this.gridColumn4.FieldName = "WeiZhi";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 53;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "是否通坯";
+            this.gridColumn5.FieldName = "IsALL";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 59;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "扣分(米)";
+            this.gridColumn6.FieldName = "ShuLiang";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 3;
+            this.gridColumn6.Width = 61;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "边距";
+            this.gridColumn7.FieldName = "EdgeDistance";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 4;
+            // 
+            // repositoryItemButtonEdit7
+            // 
+            this.repositoryItemButtonEdit7.AutoHeight = false;
+            this.repositoryItemButtonEdit7.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit7.Name = "repositoryItemButtonEdit7";
+            // 
+            // repositoryItemButtonEdit8
+            // 
+            this.repositoryItemButtonEdit8.AutoHeight = false;
+            this.repositoryItemButtonEdit8.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEdit8.Name = "repositoryItemButtonEdit8";
+            // 
+            // repositoryItemComboBox4
+            // 
+            this.repositoryItemComboBox4.AutoHeight = false;
+            this.repositoryItemComboBox4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox4.Items.AddRange(new object[] {
+            "米",
+            "码",
+            "公斤数"});
+            this.repositoryItemComboBox4.Name = "repositoryItemComboBox4";
+            this.repositoryItemComboBox4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // uiTabControl1
+            // 
+            this.uiTabControl1.Controls.Add(this.tabPage1);
+            this.uiTabControl1.Controls.Add(this.tabPage2);
+            this.uiTabControl1.Controls.Add(this.tabPage3);
+            this.uiTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiTabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.uiTabControl1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.uiTabControl1.Frame = null;
+            this.uiTabControl1.ItemSize = new System.Drawing.Size(150, 40);
+            this.uiTabControl1.Location = new System.Drawing.Point(0, 170);
+            this.uiTabControl1.MainPage = "";
+            this.uiTabControl1.Name = "uiTabControl1";
+            this.uiTabControl1.SelectedIndex = 0;
+            this.uiTabControl1.Size = new System.Drawing.Size(1253, 552);
+            this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.uiTabControl1.TabIndex = 13;
+            this.uiTabControl1.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiTabControl1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // labelX12
             // 
             // 
             // 
-            this.txthuahao.Border.Class = "TextBoxBorder";
-            this.txthuahao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txthuahao.DisabledBackColor = System.Drawing.Color.White;
-            this.txthuahao.ForeColor = System.Drawing.Color.Black;
-            this.txthuahao.Location = new System.Drawing.Point(410, 17);
-            this.txthuahao.Name = "txthuahao";
-            this.txthuahao.PreventEnterBeep = true;
-            this.txthuahao.Size = new System.Drawing.Size(100, 21);
-            this.txthuahao.TabIndex = 38;
-            this.txthuahao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpingming_KeyDown);
             // 
-            // labelX3
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Location = new System.Drawing.Point(174, 71);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(59, 23);
+            this.labelX12.TabIndex = 40;
+            this.labelX12.Text = "合同号：";
             // 
+            // txtHetonghao
+            // 
+            this.txtHetonghao.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(345, 16);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(59, 23);
-            this.labelX3.TabIndex = 37;
-            this.labelX3.Text = "花号：";
+            this.txtHetonghao.Border.Class = "TextBoxBorder";
+            this.txtHetonghao.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtHetonghao.DisabledBackColor = System.Drawing.Color.White;
+            this.txtHetonghao.ForeColor = System.Drawing.Color.Black;
+            this.txtHetonghao.Location = new System.Drawing.Point(239, 72);
+            this.txtHetonghao.Name = "txtHetonghao";
+            this.txtHetonghao.PreventEnterBeep = true;
+            this.txtHetonghao.Size = new System.Drawing.Size(100, 21);
+            this.txtHetonghao.TabIndex = 39;
+            this.txtHetonghao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtpingming_KeyDown);
             // 
             // 打卷报表
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 450);
+            this.ClientSize = new System.Drawing.Size(1253, 722);
             this.Controls.Add(this.uiTabControl1);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.menuStrip1);
@@ -886,27 +1122,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
-            this.uiTabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chiDianTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox4)).EndInit();
+            this.uiTabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -922,11 +1169,6 @@
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem 保存样式ToolStripMenuItem;
@@ -952,19 +1194,17 @@
         private System.Windows.Forms.ToolStripComboBox cmbmaitou;
         private System.Windows.Forms.ToolStripMenuItem 生成质检单ToolStripMenuItem;
 #pragma warning disable CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UITabControl”(是否缺少程序集引用?)
-        private Sunny.UI.UITabControl uiTabControl1;
 #pragma warning restore CS0234 // 命名空间“Sunny.UI”中不存在类型或命名空间名“UITabControl”(是否缺少程序集引用?)
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit4;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
         private System.Windows.Forms.ToolStripMenuItem 删除开剪ToolStripMenuItem;
+        private DevComponents.DotNetBar.Controls.TextBoxX txthuahao;
+        private DevComponents.DotNetBar.LabelX labelX3;
+        private System.Windows.Forms.ToolStripMenuItem 生成检验报告ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 编辑报告ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 预览报告ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打印报告ToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage3;
         private DevExpress.XtraGrid.GridControl gridControl3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
@@ -973,7 +1213,33 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit5;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit6;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox3;
-        private DevComponents.DotNetBar.Controls.TextBoxX txthuahao;
-        private DevComponents.DotNetBar.LabelX labelX3;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private DevExpress.XtraGrid.GridControl gridControl4;
+        private System.Windows.Forms.BindingSource chiDianTableBindingSource;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit7;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private Sunny.UI.UITabControl uiTabControl1;
+        private DevComponents.DotNetBar.LabelX labelX12;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtHetonghao;
     }
 }

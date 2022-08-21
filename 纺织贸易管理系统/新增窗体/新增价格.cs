@@ -73,5 +73,10 @@ namespace 纺织贸易管理系统.新增窗体
                 dateTimePicker1.Value = price.rq;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+        }
     }
 }

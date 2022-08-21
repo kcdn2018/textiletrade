@@ -83,6 +83,7 @@ namespace 纺织贸易管理系统
             stock.Remarkers = mingxi.beizhu;
             stock.FrabicWidth = mingxi.FrabicWidth;
             stock.EnglishName = mingxi.EnglishName;
+            stock.CustomerLotNo = mingxi.CustomerLotNo;
             return stock;
         }
     }

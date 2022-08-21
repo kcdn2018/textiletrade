@@ -71,7 +71,7 @@ namespace 纺织贸易管理系统.选择窗体
         /// </summary>
         /// <param name="grid"></param>
         /// <param name="danjumingxitables"></param>
-        public static void SelectDetail(GridView grid,List<danjumingxitable > danjumingxitables )
+        public static void SelectDetail(GridView grid,List<danjumingxitable > danjumingxitables ,Boolean IsShowColor)
         {
             var fm = new 订单号选择() { UseFul = 1 };
             fm.ShowDialog();
@@ -91,11 +91,11 @@ namespace 纺织贸易管理系统.选择窗体
                 danjumingxitables[row].FrabicWidth = d.orderDetail.width;
                 danjumingxitables[row].danwei = "米";
                 danjumingxitables[row].OrderNum = d.orderDetail.OrderNum;
-                danjumingxitables[row].kuanhao = d.orderDetail.Kuanhao;
-                danjumingxitables[row].yanse = d.orderDetail.color;
+                danjumingxitables[row].kuanhao = d.orderDetail.Kuanhao;            
+                danjumingxitables[row].yanse =IsShowColor ? d.orderDetail.color:string.Empty ;
                 danjumingxitables[row].chengpingmishu = d.orderDetail.Num - d.orderDetail.consignmentNum;
                 danjumingxitables[row].Huahao = d.orderDetail.Huahao;
-                danjumingxitables[row].ColorNum = d.orderDetail.ColorNum;
+                danjumingxitables[row].ColorNum = IsShowColor ? d.orderDetail.ColorNum:string.Empty ;
                 danjumingxitables[row].CustomerColorNum = d.orderDetail.CustomerColorNum;
                 danjumingxitables[row].CustomerPingMing = d.orderDetail.CustomerPingMing;
                 danjumingxitables[row].EnglishName = d.orderDetail.EnglishName;

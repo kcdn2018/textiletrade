@@ -24,6 +24,7 @@ namespace 纺织贸易管理系统.其他窗体
             Version localVer = Version.Parse(ver.Value);
             User.version = localVer;
             Version ServerVer = GetServerVer(updater .Element("UpdateUrl").Value );
+            User.version = localVer;
             if(ServerVer >localVer )
             { return true; }
             else

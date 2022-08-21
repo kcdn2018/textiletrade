@@ -20,16 +20,22 @@ namespace 纺织贸易管理系统.报表窗体
     {
         public 费用报销列表()
         {
-            InitializeComponent();         
+            InitializeComponent();
             dateEdit2.DateTime = DateTime.Now;
             dateEdit1.DateTime = dateEdit2.DateTime.AddDays(-QueryTime.间隔);
-            CreateGrid.Create(this.Name , gridView1);
+            CreateGrid.Create(this.Name, gridView1);
             gridView1.OptionsCustomization.AllowSort = true;
-            Query();
-             if (SysInfo.GetInfo.own != "审核制")
+            try
             {
-                单据审核ToolStripMenuItem.Enabled = false;
+                gridView1.Columns["Deliverytime"].DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";//设置时间显示格式
             }
+            catch
+            {
+                gridView1.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn() { FieldName= "Deliverytime",Name = "Deliverytime",Caption="审核日期" ,Visible=true ,Width=300});
+                gridView1.Columns["Deliverytime"].DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";//设置时间显示格式
+            }
+            cmbjinshouren.Items.AddRange(YuanGongTableService.GetYuanGongTablelst(x => x.Xingming.Contains("")).Select(x => x.Xingming).ToArray());
+            Query();
         }
         public virtual  void Query()
         {
@@ -37,6 +43,8 @@ namespace 纺织贸易管理系统.报表窗体
                     $" and bz like '%{txtzhaiyao.Text }%' " +
                      $" and shoukuanfangshi like '%{cmbfukuanfangshi.Text }%' " +
                     $" and jiagongleixing like '%{cmbleixing.Text }%' " +
+                    $" and zhuangtai like '%{cmbzhuangtai .Text }%' " +
+                    $" and saleman like '%{cmbjinshouren.Text }%' " +
                     $" and djlx='{DanjuLeiXing.费用单}' ";
             if (User.user.access == "自己")
             {
@@ -114,16 +122,25 @@ namespace 纺织贸易管理系统.报表窗体
         {
             if (AccessBLL.CheckAccess("审核费用申请单"))
             {
-                if (单据BLL.检查是否已经审核(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()) == false)
+                List<string> Danhaos = new List<string>();
+                foreach (var row in gridView1.GetSelectedRows())
                 {
-                    费用BLL.单据审核(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
-                    AlterDlg.Show("审核成功！");
-                    Query();
+                    if (gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "zhuangtai").ToString() == "已审核")
+                    {
+                        MessageBox.Show("单号" + gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString() + "状态为已审核！操作失败", "错误",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    else
+                    {
+                        Danhaos.Add(gridView1.GetRowCellValue(row, "dh").ToString());
+                    }
                 }
-                else
+                foreach (var danhao in Danhaos.Distinct().OrderBy(x => x).ToList())
                 {
-                    MessageBox.Show("该单据已经审核过了！无需再次审核", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    费用BLL.单据审核(danhao);
                 }
+                AlterDlg.Show("审核成功！");
+                Query();
             }
             else
             {
@@ -135,16 +152,25 @@ namespace 纺织贸易管理系统.报表窗体
         {
             if (AccessBLL.CheckAccess("反审核费用申请单"))
             {
-                if (单据BLL.检查是否已经审核(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString()))
+                List<string> Danhaos = new List<string>();
+                foreach (var row in gridView1.GetSelectedRows())
                 {
-                    费用BLL.反审核单据 (gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString());
-                    AlterDlg.Show("反审核成功！");
-                    Query();
+                    if (gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "zhuangtai").ToString() == "未报销")
+                    {
+                        MessageBox.Show("单号" + gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "dh").ToString() + "状态为未报销！操作失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    else
+                    {
+                        Danhaos.Add(gridView1.GetRowCellValue(row, "dh").ToString());
+                    }
                 }
-                else
+                foreach (var danhao in Danhaos.Distinct().OrderBy (x=>x).ToList())
                 {
-                    MessageBox.Show("该单据还未审核通过！不能反审核", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    费用BLL.反审核单据 (danhao);
                 }
+                AlterDlg.Show("反审核成功！");
+                Query();
             }
         }
 
@@ -178,5 +204,6 @@ namespace 纺织贸易管理系统.报表窗体
         {
             修改ToolStripMenuItem_Click(gridView1, null);
         }
+
     }
 }

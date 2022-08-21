@@ -120,6 +120,12 @@
             this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemButtonEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.cmbMoban = new Sunny.UI.UIComboBox();
+            this.labelX23 = new DevComponents.DotNetBar.LabelX();
+            this.txtPort = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX22 = new DevComponents.DotNetBar.LabelX();
+            this.txtpayment = new Sunny.UI.UITextBox();
+            this.labelX24 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -227,7 +233,7 @@
             // 
             this.码单编辑ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.码单编辑ToolStripMenuItem.Name = "码单编辑ToolStripMenuItem";
-            this.码单编辑ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.码单编辑ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.码单编辑ToolStripMenuItem.Text = "码单编辑";
             this.码单编辑ToolStripMenuItem.Click += new System.EventHandler(this.码单编辑ToolStripMenuItem_Click);
             // 
@@ -235,7 +241,7 @@
             // 
             this.码单预览ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.码单预览ToolStripMenuItem.Name = "码单预览ToolStripMenuItem";
-            this.码单预览ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.码单预览ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.码单预览ToolStripMenuItem.Text = "码单预览";
             this.码单预览ToolStripMenuItem.Click += new System.EventHandler(this.码单预览ToolStripMenuItem_Click);
             // 
@@ -243,7 +249,7 @@
             // 
             this.直接打印ToolStripMenuItem1.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
             this.直接打印ToolStripMenuItem1.Name = "直接打印ToolStripMenuItem1";
-            this.直接打印ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.直接打印ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.直接打印ToolStripMenuItem1.Text = "直接打印";
             this.直接打印ToolStripMenuItem1.Click += new System.EventHandler(this.直接打印ToolStripMenuItem1_Click);
             // 
@@ -263,7 +269,7 @@
             // 
             this.编辑报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x32;
             this.编辑报告ToolStripMenuItem.Name = "编辑报告ToolStripMenuItem";
-            this.编辑报告ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.编辑报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.编辑报告ToolStripMenuItem.Text = "编辑报告";
             this.编辑报告ToolStripMenuItem.Click += new System.EventHandler(this.编辑报告ToolStripMenuItem_Click);
             // 
@@ -271,7 +277,7 @@
             // 
             this.预览报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.PrintPreview_32x32;
             this.预览报告ToolStripMenuItem.Name = "预览报告ToolStripMenuItem";
-            this.预览报告ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.预览报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.预览报告ToolStripMenuItem.Text = "预览报告";
             this.预览报告ToolStripMenuItem.Click += new System.EventHandler(this.预览报告ToolStripMenuItem_Click);
             // 
@@ -279,7 +285,7 @@
             // 
             this.打印报告ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Print_32x321;
             this.打印报告ToolStripMenuItem.Name = "打印报告ToolStripMenuItem";
-            this.打印报告ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.打印报告ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.打印报告ToolStripMenuItem.Text = "打印报告";
             this.打印报告ToolStripMenuItem.Click += new System.EventHandler(this.打印报告ToolStripMenuItem_Click);
             // 
@@ -310,6 +316,12 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtpayment);
+            this.groupControl1.Controls.Add(this.labelX24);
+            this.groupControl1.Controls.Add(this.cmbMoban);
+            this.groupControl1.Controls.Add(this.labelX23);
+            this.groupControl1.Controls.Add(this.txtPort);
+            this.groupControl1.Controls.Add(this.labelX22);
             this.groupControl1.Controls.Add(this.txtyunfei);
             this.groupControl1.Controls.Add(this.txtzhuangxiefei);
             this.groupControl1.Controls.Add(this.labelX20);
@@ -354,7 +366,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 40);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1486, 219);
+            this.groupControl1.Size = new System.Drawing.Size(1486, 272);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "单据信息";
             // 
@@ -377,6 +389,7 @@
             this.txtyunfei.Text = "0";
             this.txtyunfei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtyunfei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtyunfei.Watermark = "";
             this.txtyunfei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtzhuangxiefei
@@ -398,6 +411,7 @@
             this.txtzhuangxiefei.Text = "0";
             this.txtzhuangxiefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtzhuangxiefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtzhuangxiefei.Watermark = "";
             this.txtzhuangxiefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX20
@@ -431,6 +445,7 @@
             this.txtChachefei.Text = "0";
             this.txtChachefei.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtChachefei.Type = Sunny.UI.UITextBox.UIEditType.Integer;
+            this.txtChachefei.Watermark = "";
             this.txtChachefei.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX19
@@ -488,6 +503,7 @@
             this.cmbFahuogongsi.StyleCustomMode = true;
             this.cmbFahuogongsi.TabIndex = 63;
             this.cmbFahuogongsi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbFahuogongsi.Watermark = "";
             this.cmbFahuogongsi.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // labelX17
@@ -507,7 +523,7 @@
             this.ckshifa.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.ckshifa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ckshifa.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.ckshifa.Location = new System.Drawing.Point(816, 184);
+            this.ckshifa.Location = new System.Drawing.Point(946, 220);
             this.ckshifa.MinimumSize = new System.Drawing.Size(1, 1);
             this.ckshifa.Name = "ckshifa";
             this.ckshifa.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
@@ -844,10 +860,10 @@
             this.txtbeizhu.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtbeizhu.DisabledBackColor = System.Drawing.Color.White;
             this.txtbeizhu.ForeColor = System.Drawing.Color.Black;
-            this.txtbeizhu.Location = new System.Drawing.Point(80, 184);
+            this.txtbeizhu.Location = new System.Drawing.Point(80, 221);
             this.txtbeizhu.Name = "txtbeizhu";
             this.txtbeizhu.PreventEnterBeep = true;
-            this.txtbeizhu.Size = new System.Drawing.Size(720, 22);
+            this.txtbeizhu.Size = new System.Drawing.Size(855, 22);
             this.txtbeizhu.TabIndex = 27;
             // 
             // labelX4
@@ -856,7 +872,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(13, 184);
+            this.labelX4.Location = new System.Drawing.Point(13, 221);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(47, 23);
             this.labelX4.TabIndex = 26;
@@ -976,7 +992,7 @@
             this.ButtonEdit2,
             this.cmddanwei,
             this.cmbHanshui});
-            this.gridControl1.Size = new System.Drawing.Size(1486, 136);
+            this.gridControl1.Size = new System.Drawing.Size(1486, 114);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1093,7 +1109,7 @@
             this.cmddanwei.Items.AddRange(new object[] {
             "米",
             "码",
-            "公斤数"});
+            "公斤"});
             this.cmddanwei.Name = "cmddanwei";
             this.cmddanwei.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
@@ -1110,7 +1126,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 259);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 312);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1121,8 +1137,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupControl3);
-            this.splitContainer1.Size = new System.Drawing.Size(1486, 339);
-            this.splitContainer1.SplitterDistance = 136;
+            this.splitContainer1.Size = new System.Drawing.Size(1486, 286);
+            this.splitContainer1.SplitterDistance = 114;
             this.splitContainer1.TabIndex = 11;
             // 
             // groupControl3
@@ -1131,7 +1147,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1486, 199);
+            this.groupControl3.Size = new System.Drawing.Size(1486, 168);
             this.groupControl3.TabIndex = 2;
             this.groupControl3.Text = "卷明细";
             // 
@@ -1146,7 +1162,7 @@
             this.repositoryItemButtonEdit3,
             this.repositoryItemButtonEdit4,
             this.repositoryItemComboBox2});
-            this.gridControl2.Size = new System.Drawing.Size(1482, 174);
+            this.gridControl2.Size = new System.Drawing.Size(1482, 143);
             this.gridControl2.TabIndex = 11;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1238,6 +1254,103 @@
             "公斤数"});
             this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
             this.repositoryItemComboBox2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // cmbMoban
+            // 
+            this.cmbMoban.DataSource = null;
+            this.cmbMoban.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
+            this.cmbMoban.FillColor = System.Drawing.Color.White;
+            this.cmbMoban.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cmbMoban.FilterMaxCount = 50;
+            this.cmbMoban.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.cmbMoban.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.cmbMoban.ItemSelectBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.cmbMoban.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.cmbMoban.Location = new System.Drawing.Point(545, 183);
+            this.cmbMoban.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbMoban.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cmbMoban.Name = "cmbMoban";
+            this.cmbMoban.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cmbMoban.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.cmbMoban.Size = new System.Drawing.Size(390, 23);
+            this.cmbMoban.Style = Sunny.UI.UIStyle.Gray;
+            this.cmbMoban.StyleCustomMode = true;
+            this.cmbMoban.TabIndex = 88;
+            this.cmbMoban.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbMoban.Watermark = "";
+            this.cmbMoban.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // labelX23
+            // 
+            // 
+            // 
+            // 
+            this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX23.Location = new System.Drawing.Point(477, 183);
+            this.labelX23.Name = "labelX23";
+            this.labelX23.Size = new System.Drawing.Size(72, 23);
+            this.labelX23.TabIndex = 87;
+            this.labelX23.Text = "唛头模板";
+            // 
+            // txtPort
+            // 
+            this.txtPort.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtPort.Border.Class = "TextBoxBorder";
+            this.txtPort.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPort.DisabledBackColor = System.Drawing.Color.White;
+            this.txtPort.ForeColor = System.Drawing.Color.Black;
+            this.txtPort.Location = new System.Drawing.Point(80, 184);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.PreventEnterBeep = true;
+            this.txtPort.Size = new System.Drawing.Size(156, 22);
+            this.txtPort.TabIndex = 86;
+            // 
+            // labelX22
+            // 
+            // 
+            // 
+            // 
+            this.labelX22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX22.Location = new System.Drawing.Point(13, 184);
+            this.labelX22.Name = "labelX22";
+            this.labelX22.Size = new System.Drawing.Size(60, 23);
+            this.labelX22.TabIndex = 85;
+            this.labelX22.Text = "货运港口";
+            // 
+            // txtpayment
+            // 
+            this.txtpayment.ButtonSymbol = 61761;
+            this.txtpayment.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtpayment.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(228)))), ((int)(((byte)(233)))));
+            this.txtpayment.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtpayment.Location = new System.Drawing.Point(316, 183);
+            this.txtpayment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtpayment.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtpayment.Name = "txtpayment";
+            this.txtpayment.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(144)))), ((int)(((byte)(151)))));
+            this.txtpayment.ShowText = false;
+            this.txtpayment.Size = new System.Drawing.Size(154, 23);
+            this.txtpayment.Style = Sunny.UI.UIStyle.Custom;
+            this.txtpayment.StyleCustomMode = true;
+            this.txtpayment.TabIndex = 90;
+            this.txtpayment.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtpayment.Watermark = "";
+            this.txtpayment.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // labelX24
+            // 
+            // 
+            // 
+            // 
+            this.labelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX24.Location = new System.Drawing.Point(247, 183);
+            this.labelX24.Name = "labelX24";
+            this.labelX24.Size = new System.Drawing.Size(63, 23);
+            this.labelX24.TabIndex = 89;
+            this.labelX24.Text = "结算方式";
             // 
             // 销售发货单
             // 
@@ -1382,5 +1495,11 @@
         private DevComponents.DotNetBar.LabelX labelX19;
         private Sunny.UI.UITextBox txtyunfei;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private Sunny.UI.UIComboBox cmbMoban;
+        private DevComponents.DotNetBar.LabelX labelX23;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtPort;
+        private DevComponents.DotNetBar.LabelX labelX22;
+        private Sunny.UI.UITextBox txtpayment;
+        private DevComponents.DotNetBar.LabelX labelX24;
     }
 }

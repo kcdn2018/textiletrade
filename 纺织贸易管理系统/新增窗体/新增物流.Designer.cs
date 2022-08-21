@@ -47,13 +47,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtkaihuyinghang = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtlianxiren = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtlianxidianhua = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtpingyingma = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtquancheng = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(10, 85);
+            this.label1.Location = new System.Drawing.Point(10, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 17);
             this.label1.TabIndex = 9;
@@ -63,7 +73,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(245, 87);
+            this.label2.Location = new System.Drawing.Point(248, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 17);
             this.label2.TabIndex = 10;
@@ -73,7 +83,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label29.Location = new System.Drawing.Point(245, 141);
+            this.label29.Location = new System.Drawing.Point(248, 109);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(56, 17);
             this.label29.TabIndex = 37;
@@ -83,7 +93,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(10, 144);
+            this.label30.Location = new System.Drawing.Point(10, 112);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(56, 17);
             this.label30.TabIndex = 36;
@@ -100,7 +110,7 @@
             this.txtBianhao.DisabledBackColor = System.Drawing.Color.White;
             this.txtBianhao.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtBianhao.ForeColor = System.Drawing.Color.Black;
-            this.txtBianhao.Location = new System.Drawing.Point(83, 85);
+            this.txtBianhao.Location = new System.Drawing.Point(81, 63);
             this.txtBianhao.Name = "txtBianhao";
             this.txtBianhao.PreventEnterBeep = true;
             this.txtBianhao.ReadOnly = true;
@@ -119,12 +129,13 @@
             this.txtname.DisabledBackColor = System.Drawing.Color.White;
             this.txtname.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtname.ForeColor = System.Drawing.Color.Black;
-            this.txtname.Location = new System.Drawing.Point(321, 85);
+            this.txtname.Location = new System.Drawing.Point(319, 63);
             this.txtname.Name = "txtname";
             this.txtname.PreventEnterBeep = true;
             this.txtname.Size = new System.Drawing.Size(145, 23);
             this.txtname.TabIndex = 1;
             this.txtname.WatermarkText = "物流公司名称";
+            this.txtname.TextChanged += new System.EventHandler(this.txtname_TextChanged);
             // 
             // txtcheliangleixing
             // 
@@ -137,7 +148,7 @@
             this.txtcheliangleixing.DisabledBackColor = System.Drawing.Color.White;
             this.txtcheliangleixing.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtcheliangleixing.ForeColor = System.Drawing.Color.Black;
-            this.txtcheliangleixing.Location = new System.Drawing.Point(321, 139);
+            this.txtcheliangleixing.Location = new System.Drawing.Point(319, 107);
             this.txtcheliangleixing.Name = "txtcheliangleixing";
             this.txtcheliangleixing.PreventEnterBeep = true;
             this.txtcheliangleixing.Size = new System.Drawing.Size(145, 23);
@@ -154,7 +165,7 @@
             this.txtchepai.DisabledBackColor = System.Drawing.Color.White;
             this.txtchepai.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtchepai.ForeColor = System.Drawing.Color.Black;
-            this.txtchepai.Location = new System.Drawing.Point(81, 139);
+            this.txtchepai.Location = new System.Drawing.Point(81, 107);
             this.txtchepai.Name = "txtchepai";
             this.txtchepai.PreventEnterBeep = true;
             this.txtchepai.Size = new System.Drawing.Size(145, 23);
@@ -169,7 +180,7 @@
             this.uiSymbolButton2.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiSymbolButton2.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton2.Location = new System.Drawing.Point(265, 307);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(259, 413);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -190,7 +201,7 @@
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(142, 307);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(136, 413);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Size = new System.Drawing.Size(100, 35);
@@ -212,7 +223,7 @@
             this.txtyinghangzhanghao.DisabledBackColor = System.Drawing.Color.White;
             this.txtyinghangzhanghao.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtyinghangzhanghao.ForeColor = System.Drawing.Color.Black;
-            this.txtyinghangzhanghao.Location = new System.Drawing.Point(81, 198);
+            this.txtyinghangzhanghao.Location = new System.Drawing.Point(81, 155);
             this.txtyinghangzhanghao.Name = "txtyinghangzhanghao";
             this.txtyinghangzhanghao.PreventEnterBeep = true;
             this.txtyinghangzhanghao.Size = new System.Drawing.Size(145, 23);
@@ -222,7 +233,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(10, 201);
+            this.label3.Location = new System.Drawing.Point(10, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 17);
             this.label3.TabIndex = 104;
@@ -239,7 +250,7 @@
             this.txtLinkMan.DisabledBackColor = System.Drawing.Color.White;
             this.txtLinkMan.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtLinkMan.ForeColor = System.Drawing.Color.Black;
-            this.txtLinkMan.Location = new System.Drawing.Point(321, 195);
+            this.txtLinkMan.Location = new System.Drawing.Point(319, 152);
             this.txtLinkMan.Name = "txtLinkMan";
             this.txtLinkMan.PreventEnterBeep = true;
             this.txtLinkMan.Size = new System.Drawing.Size(145, 23);
@@ -249,7 +260,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(250, 198);
+            this.label4.Location = new System.Drawing.Point(248, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 17);
             this.label4.TabIndex = 106;
@@ -266,7 +277,7 @@
             this.txtkaihuyinghang.DisabledBackColor = System.Drawing.Color.White;
             this.txtkaihuyinghang.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtkaihuyinghang.ForeColor = System.Drawing.Color.Black;
-            this.txtkaihuyinghang.Location = new System.Drawing.Point(81, 252);
+            this.txtkaihuyinghang.Location = new System.Drawing.Point(81, 200);
             this.txtkaihuyinghang.Name = "txtkaihuyinghang";
             this.txtkaihuyinghang.PreventEnterBeep = true;
             this.txtkaihuyinghang.Size = new System.Drawing.Size(385, 23);
@@ -276,16 +287,157 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(10, 255);
+            this.label5.Location = new System.Drawing.Point(10, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 108;
             this.label5.Text = "开户银行：";
             // 
+            // txtlianxiren
+            // 
+            this.txtlianxiren.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtlianxiren.Border.Class = "TextBoxBorder";
+            this.txtlianxiren.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtlianxiren.DisabledBackColor = System.Drawing.Color.White;
+            this.txtlianxiren.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtlianxiren.ForeColor = System.Drawing.Color.Black;
+            this.txtlianxiren.Location = new System.Drawing.Point(79, 249);
+            this.txtlianxiren.Name = "txtlianxiren";
+            this.txtlianxiren.PreventEnterBeep = true;
+            this.txtlianxiren.Size = new System.Drawing.Size(145, 23);
+            this.txtlianxiren.TabIndex = 111;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(8, 252);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.TabIndex = 110;
+            this.label6.Text = "联系人：";
+            // 
+            // txtlianxidianhua
+            // 
+            this.txtlianxidianhua.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtlianxidianhua.Border.Class = "TextBoxBorder";
+            this.txtlianxidianhua.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtlianxidianhua.DisabledBackColor = System.Drawing.Color.White;
+            this.txtlianxidianhua.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtlianxidianhua.ForeColor = System.Drawing.Color.Black;
+            this.txtlianxidianhua.Location = new System.Drawing.Point(319, 249);
+            this.txtlianxidianhua.Name = "txtlianxidianhua";
+            this.txtlianxidianhua.PreventEnterBeep = true;
+            this.txtlianxidianhua.Size = new System.Drawing.Size(145, 23);
+            this.txtlianxidianhua.TabIndex = 113;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(248, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 17);
+            this.label7.TabIndex = 112;
+            this.label7.Text = "联系电话：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(10, 298);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.TabIndex = 114;
+            this.label8.Text = "类型：";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "货代",
+            "快递",
+            "货运"});
+            this.comboBox1.Location = new System.Drawing.Point(79, 295);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(145, 25);
+            this.comboBox1.TabIndex = 115;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(250, 301);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 17);
+            this.label9.TabIndex = 116;
+            this.label9.Text = "拼音码：";
+            // 
+            // txtpingyingma
+            // 
+            this.txtpingyingma.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtpingyingma.Border.Class = "TextBoxBorder";
+            this.txtpingyingma.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtpingyingma.DisabledBackColor = System.Drawing.Color.White;
+            this.txtpingyingma.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtpingyingma.ForeColor = System.Drawing.Color.Black;
+            this.txtpingyingma.Location = new System.Drawing.Point(319, 297);
+            this.txtpingyingma.Name = "txtpingyingma";
+            this.txtpingyingma.PreventEnterBeep = true;
+            this.txtpingyingma.Size = new System.Drawing.Size(145, 23);
+            this.txtpingyingma.TabIndex = 117;
+            // 
+            // txtquancheng
+            // 
+            this.txtquancheng.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtquancheng.Border.Class = "TextBoxBorder";
+            this.txtquancheng.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtquancheng.DisabledBackColor = System.Drawing.Color.White;
+            this.txtquancheng.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtquancheng.ForeColor = System.Drawing.Color.Black;
+            this.txtquancheng.Location = new System.Drawing.Point(79, 350);
+            this.txtquancheng.Name = "txtquancheng";
+            this.txtquancheng.PreventEnterBeep = true;
+            this.txtquancheng.Size = new System.Drawing.Size(385, 23);
+            this.txtquancheng.TabIndex = 119;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(8, 353);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 17);
+            this.label10.TabIndex = 118;
+            this.label10.Text = "全称：";
+            // 
             // 新增物流
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(502, 358);
+            this.ClientSize = new System.Drawing.Size(502, 469);
+            this.Controls.Add(this.txtquancheng);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtpingyingma);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtlianxidianhua);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtlianxiren);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtkaihuyinghang);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtLinkMan);
@@ -332,5 +484,15 @@
         private System.Windows.Forms.Label label4;
         private DevComponents.DotNetBar.Controls.TextBoxX txtkaihuyinghang;
         private System.Windows.Forms.Label label5;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtlianxiren;
+        private System.Windows.Forms.Label label6;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtlianxidianhua;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label9;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtpingyingma;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtquancheng;
+        private System.Windows.Forms.Label label10;
     }
 }

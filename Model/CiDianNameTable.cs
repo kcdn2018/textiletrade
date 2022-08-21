@@ -11,5 +11,6 @@ namespace 纺织贸易管理系统
         public decimal  KouMi { get; set; }
         public string Guisuo { get; set; }
         public string Daihao { get; set; } = string.Empty;
+        public string EnglishName { get; set; } = string.Empty;
      }
 }

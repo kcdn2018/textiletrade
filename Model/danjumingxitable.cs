@@ -5,7 +5,7 @@ using System.Text;
 using SqlSugar;
 namespace 纺织贸易管理系统
 {
-    public class danjumingxitable
+    public class danjumingxitable:MingxiCommon 
      {
         /// <summary>
         /// 自增列
@@ -113,12 +113,17 @@ namespace 纺织贸易管理系统
         /// </summary>
         public decimal Rate { get; set; }
         /// <summary>
-        /// 英文名
-        /// </summary>
-        public string EnglishName { get; set; }
-        /// <summary>
         /// 坯布名称
         /// </summary>
         public string PibuName { get; set; }
+        /// <summary>
+        /// 采购或者加工单价
+        /// </summary>
+        public decimal BuyPrice { get; set; }
+        /// <summary>
+        /// 采购或者加工合计
+        /// </summary>
+        public decimal TotalBuy { get; set; }
+
     }
 }

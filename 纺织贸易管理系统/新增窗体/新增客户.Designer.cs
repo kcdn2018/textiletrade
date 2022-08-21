@@ -32,6 +32,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(新增客户));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.新增唛头ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.建档者ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbOwn = new System.Windows.Forms.ToolStripComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,12 +90,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.txtHAIPHONGPORT = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label24 = new System.Windows.Forms.Label();
-            this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新增唛头ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.重命名ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtzhangqi)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +107,60 @@
             this.menuStrip1.Size = new System.Drawing.Size(754, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 保存ToolStripMenuItem
+            // 
+            this.保存ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
+            this.保存ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(73, 36);
+            this.保存ToolStripMenuItem.Text = "保存";
+            this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
+            // 
+            // 新增唛头ToolStripMenuItem
+            // 
+            this.新增唛头ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.新增ToolStripMenuItem,
+            this.修改ToolStripMenuItem,
+            this.删除ToolStripMenuItem,
+            this.重命名ToolStripMenuItem});
+            this.新增唛头ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
+            this.新增唛头ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.新增唛头ToolStripMenuItem.Name = "新增唛头ToolStripMenuItem";
+            this.新增唛头ToolStripMenuItem.Size = new System.Drawing.Size(97, 36);
+            this.新增唛头ToolStripMenuItem.Text = "唛头管理";
+            // 
+            // 新增ToolStripMenuItem
+            // 
+            this.新增ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
+            this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
+            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.新增ToolStripMenuItem.Text = "新增";
+            this.新增ToolStripMenuItem.Click += new System.EventHandler(this.新增ToolStripMenuItem_Click);
+            // 
+            // 修改ToolStripMenuItem
+            // 
+            this.修改ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
+            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.修改ToolStripMenuItem.Text = "修改";
+            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
+            // 重命名ToolStripMenuItem
+            // 
+            this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.BO_Document;
+            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
+            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.重命名ToolStripMenuItem.Text = "重命名";
+            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
             // 
             // 建档者ToolStripMenuItem
             // 
@@ -280,7 +334,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(510, 268);
+            this.label3.Location = new System.Drawing.Point(512, 268);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 74;
@@ -489,7 +543,7 @@
             this.txtqichu.DisabledBackColor = System.Drawing.Color.White;
             this.txtqichu.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtqichu.ForeColor = System.Drawing.Color.Black;
-            this.txtqichu.Location = new System.Drawing.Point(85, 444);
+            this.txtqichu.Location = new System.Drawing.Point(85, 442);
             this.txtqichu.Name = "txtqichu";
             this.txtqichu.PreventEnterBeep = true;
             this.txtqichu.Size = new System.Drawing.Size(101, 21);
@@ -500,7 +554,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(13, 449);
+            this.label13.Location = new System.Drawing.Point(13, 446);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 12);
             this.label13.TabIndex = 93;
@@ -517,7 +571,7 @@
             this.txtyingkaifapiao.DisabledBackColor = System.Drawing.Color.White;
             this.txtyingkaifapiao.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtyingkaifapiao.ForeColor = System.Drawing.Color.Black;
-            this.txtyingkaifapiao.Location = new System.Drawing.Point(319, 444);
+            this.txtyingkaifapiao.Location = new System.Drawing.Point(319, 442);
             this.txtyingkaifapiao.Name = "txtyingkaifapiao";
             this.txtyingkaifapiao.PreventEnterBeep = true;
             this.txtyingkaifapiao.Size = new System.Drawing.Size(145, 21);
@@ -528,7 +582,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(249, 448);
+            this.label14.Location = new System.Drawing.Point(249, 446);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 12);
             this.label14.TabIndex = 95;
@@ -555,7 +609,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(13, 500);
+            this.label15.Location = new System.Drawing.Point(13, 494);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 98;
@@ -571,7 +625,7 @@
             this.cmbMaitou.ItemHeight = 16;
             this.cmbMaitou.Location = new System.Drawing.Point(85, 489);
             this.cmbMaitou.Name = "cmbMaitou";
-            this.cmbMaitou.Size = new System.Drawing.Size(385, 22);
+            this.cmbMaitou.Size = new System.Drawing.Size(379, 22);
             this.cmbMaitou.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbMaitou.TabIndex = 99;
             // 
@@ -595,7 +649,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label16.Location = new System.Drawing.Point(189, 446);
+            this.label16.Location = new System.Drawing.Point(189, 444);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 17);
             this.label16.TabIndex = 101;
@@ -623,7 +677,7 @@
             this.txtusd.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtusd.ForeColor = System.Drawing.Color.Black;
             this.txtusd.IsEnterInputKey = true;
-            this.txtusd.Location = new System.Drawing.Point(580, 444);
+            this.txtusd.Location = new System.Drawing.Point(580, 442);
             this.txtusd.Name = "txtusd";
             this.txtusd.PreventEnterBeep = true;
             this.txtusd.Size = new System.Drawing.Size(101, 21);
@@ -634,7 +688,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(512, 448);
+            this.label18.Location = new System.Drawing.Point(512, 446);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(65, 12);
             this.label18.TabIndex = 102;
@@ -656,6 +710,7 @@
             this.txtedu.TabIndex = 105;
             this.txtedu.Text = "100000";
             this.txtedu.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtedu.Watermark = "";
             this.txtedu.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // txtFullName
@@ -793,60 +848,6 @@
             this.label24.Size = new System.Drawing.Size(65, 12);
             this.label24.TabIndex = 114;
             this.label24.Text = "海防港港口";
-            // 
-            // 保存ToolStripMenuItem
-            // 
-            this.保存ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.SaveAll_32x32;
-            this.保存ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(73, 36);
-            this.保存ToolStripMenuItem.Text = "保存";
-            this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
-            // 
-            // 新增唛头ToolStripMenuItem
-            // 
-            this.新增唛头ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新增ToolStripMenuItem,
-            this.修改ToolStripMenuItem,
-            this.删除ToolStripMenuItem,
-            this.重命名ToolStripMenuItem});
-            this.新增唛头ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
-            this.新增唛头ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.新增唛头ToolStripMenuItem.Name = "新增唛头ToolStripMenuItem";
-            this.新增唛头ToolStripMenuItem.Size = new System.Drawing.Size(97, 36);
-            this.新增唛头ToolStripMenuItem.Text = "唛头管理";
-            // 
-            // 新增ToolStripMenuItem
-            // 
-            this.新增ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Add_32x32;
-            this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
-            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.新增ToolStripMenuItem.Text = "新增";
-            this.新增ToolStripMenuItem.Click += new System.EventHandler(this.新增ToolStripMenuItem_Click);
-            // 
-            // 修改ToolStripMenuItem
-            // 
-            this.修改ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.Edit_32x32;
-            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.修改ToolStripMenuItem.Text = "修改";
-            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
-            // 
-            // 删除ToolStripMenuItem
-            // 
-            this.删除ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.DeleteList_32x32;
-            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.删除ToolStripMenuItem.Text = "删除";
-            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
-            // 
-            // 重命名ToolStripMenuItem
-            // 
-            this.重命名ToolStripMenuItem.Image = global::纺织贸易管理系统.Properties.Resources.BO_Document;
-            this.重命名ToolStripMenuItem.Name = "重命名ToolStripMenuItem";
-            this.重命名ToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.重命名ToolStripMenuItem.Text = "重命名";
-            this.重命名ToolStripMenuItem.Click += new System.EventHandler(this.重命名ToolStripMenuItem_Click);
             // 
             // 新增客户
             // 

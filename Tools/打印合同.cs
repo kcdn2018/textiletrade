@@ -15,7 +15,21 @@ namespace Tools
         public void Print(string path,int model,string CompanyName)
         {
 			DataSet ds = new DataSet();
-			ds.Tables.Add(CreateDanjuDatatable.CreateTable(orderTable , new FormInfo() { FormName ="销售计划单查询", GridviewName="gridView1"}, "单据信息", CompanyName));
+			var dt = CreateDanjuDatatable.CreateTable(orderTable, new FormInfo() { FormName = "销售计划单查询", GridviewName = "gridView1" }, "单据信息", CompanyName);
+			dt.Columns.Add("客户电话");
+			dt.Columns.Add("客户税号");
+			dt.Columns.Add("客户公司地址");
+			dt.Columns.Add("客户开户银行");
+			dt.Columns.Add("客户银行账号");
+			dt.Columns.Add("客户电子邮箱");
+			var customer = LXRService.GetOneLXR(x => x.MC == orderTable.CustomerName);
+			dt.Rows[0]["客户电话"] = customer.DH;
+			dt.Rows[0]["客户税号"] = customer.Shuihao ;
+			dt.Rows[0]["客户公司地址"] = customer.dz ;
+			dt.Rows[0]["客户开户银行"] = customer.Kaihuyinghang  ;
+			dt.Rows[0]["客户银行账号"] = customer.Yinghangzhanghao ;
+			dt.Rows[0]["客户电子邮箱"] =customer.YX ;
+			ds.Tables.Add(dt);
 			ds.Tables.Add(CreateDanjuDatatable.CreateTable(orderDetailTables, new FormInfo() { FormName = "销售计划单", GridviewName = "gridView1" }, "单据明细"));
 			var fs = new FastReport.Report();
 			fs.RegisterData(ds);

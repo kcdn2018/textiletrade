@@ -34,6 +34,7 @@ namespace 纺织贸易管理系统
         public static StockTable ToStockTable(RangShequpiTable mingxi,DanjuTable danjuTable )
         {
             StockTable stock = new StockTable();
+            SQLHelper.MapperHelper.Mapper(mingxi, stock);
             stock.AvgPrice = 0;
             stock.BH = mingxi.SampleNum;
             stock.biaoqianmishu = 0;
@@ -68,6 +69,7 @@ namespace 纺织贸易管理系统
             stock.Remarkers = mingxi.Remarkers;
             stock.FrabicWidth = mingxi.FrabicWidth;
             stock.EnglishName = mingxi.EnglishName;
+           
             return stock;
         }
     }

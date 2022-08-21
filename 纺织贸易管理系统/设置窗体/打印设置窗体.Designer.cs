@@ -34,6 +34,7 @@
             this.cmbprinters = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtNum = new System.Windows.Forms.NumericUpDown();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             // 
             this.txtNum.Location = new System.Drawing.Point(127, 95);
             this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(120, 21);
+            this.txtNum.Size = new System.Drawing.Size(87, 21);
             this.txtNum.TabIndex = 3;
             this.txtNum.Value = new decimal(new int[] {
             1,
@@ -98,11 +99,22 @@
             this.buttonX1.Text = "确定";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(220, 98);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 16);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "单份连续";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // 打印设置窗体
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 204);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.txtNum);
             this.Controls.Add(this.cmbprinters);
@@ -117,6 +129,7 @@
             this.Text = "打印设置";
             ((System.ComponentModel.ISupportInitialize)(this.txtNum)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,5 +140,6 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cmbprinters;
         private System.Windows.Forms.NumericUpDown txtNum;
         private DevComponents.DotNetBar.ButtonX buttonX1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -210,7 +210,7 @@ namespace 纺织贸易管理系统.新增窗体
                     MessageBox.Show("该客户存在超期单据！保存失败", this.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                var d = 库存BLL.检查库存(danjumingxitables, danju);
+                var d = 库存BLL.检查库存(danjumingxitables, txtckmc.Text );
                 if (d.Bianhao != null)
                 {
                     var mes = $"该发货单中\n 布料编号:{d.Bianhao }\n 订单号:{d.OrderNum } \n 色号:{d.ColorNum } \n 缸号:{d.ganghao } \n 颜色:{d.yanse }在该仓库中没有！保存失败";

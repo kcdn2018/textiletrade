@@ -69,6 +69,8 @@ namespace 纺织贸易管理系统.新增窗体
             this.combizhong = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.comboItem4 = new DevComponents.Editors.ComboItem();
+            this.comboItem5 = new DevComponents.Editors.ComboItem();
+            this.comboItem6 = new DevComponents.Editors.ComboItem();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.comhanshui = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItem1 = new DevComponents.Editors.ComboItem();
@@ -106,8 +108,8 @@ namespace 纺织贸易管理系统.新增窗体
             this.cmbdanwei = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colorbtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.comboItem5 = new DevComponents.Editors.ComboItem();
-            this.comboItem6 = new DevComponents.Editors.ComboItem();
+            this.txtqianyuedidian = new System.Windows.Forms.TextBox();
+            this.labelX24 = new DevComponents.DotNetBar.LabelX();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -164,14 +166,14 @@ namespace 纺织贸易管理系统.新增窗体
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.toolStripMenuItem1.Text = "修改合同";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
             this.toolStripMenuItem2.Text = "打印预览";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -186,6 +188,8 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtqianyuedidian);
+            this.groupControl1.Controls.Add(this.labelX24);
             this.groupControl1.Controls.Add(this.txtFOB);
             this.groupControl1.Controls.Add(this.labelX23);
             this.groupControl1.Controls.Add(this.txtfullname);
@@ -256,9 +260,9 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX23.Location = new System.Drawing.Point(5, 341);
             this.labelX23.Name = "labelX23";
-            this.labelX23.Size = new System.Drawing.Size(47, 23);
+            this.labelX23.Size = new System.Drawing.Size(85, 23);
             this.labelX23.TabIndex = 68;
-            this.labelX23.Text = "FOB";
+            this.labelX23.Text = "价格条款FOB";
             // 
             // txtfullname
             // 
@@ -274,7 +278,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX22.Location = new System.Drawing.Point(468, 65);
+            this.labelX22.Location = new System.Drawing.Point(470, 65);
             this.labelX22.Name = "labelX22";
             this.labelX22.Size = new System.Drawing.Size(63, 23);
             this.labelX22.TabIndex = 66;
@@ -335,7 +339,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(468, 309);
+            this.labelX13.Location = new System.Drawing.Point(470, 309);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(65, 23);
             this.labelX13.TabIndex = 50;
@@ -429,7 +433,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(468, 202);
+            this.labelX8.Location = new System.Drawing.Point(470, 202);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(63, 23);
             this.labelX8.TabIndex = 42;
@@ -457,7 +461,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX19.Location = new System.Drawing.Point(468, 169);
+            this.labelX19.Location = new System.Drawing.Point(470, 169);
             this.labelX19.Name = "labelX19";
             this.labelX19.Size = new System.Drawing.Size(106, 23);
             this.labelX19.TabIndex = 40;
@@ -541,7 +545,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX16.Location = new System.Drawing.Point(468, 134);
+            this.labelX16.Location = new System.Drawing.Point(470, 134);
             this.labelX16.Name = "labelX16";
             this.labelX16.Size = new System.Drawing.Size(75, 23);
             this.labelX16.TabIndex = 34;
@@ -573,7 +577,7 @@ namespace 纺织贸易管理系统.新增窗体
             this.labelX15.Name = "labelX15";
             this.labelX15.Size = new System.Drawing.Size(75, 23);
             this.labelX15.TabIndex = 32;
-            this.labelX15.Text = "交货地点";
+            this.labelX15.Text = "收货地点";
             // 
             // combizhong
             // 
@@ -601,6 +605,14 @@ namespace 纺织贸易管理系统.新增窗体
             // comboItem4
             // 
             this.comboItem4.Text = "美元";
+            // 
+            // comboItem5
+            // 
+            this.comboItem5.Text = "RMB￥";
+            // 
+            // comboItem6
+            // 
+            this.comboItem6.Text = "US$";
             // 
             // labelX14
             // 
@@ -672,7 +684,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(468, 100);
+            this.labelX11.Location = new System.Drawing.Point(470, 100);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(63, 23);
             this.labelX11.TabIndex = 24;
@@ -700,7 +712,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(468, 271);
+            this.labelX10.Location = new System.Drawing.Point(470, 271);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(63, 23);
             this.labelX10.TabIndex = 22;
@@ -827,7 +839,7 @@ namespace 纺织贸易管理系统.新增窗体
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(468, 34);
+            this.labelX2.Location = new System.Drawing.Point(470, 34);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(63, 23);
             this.labelX2.TabIndex = 2;
@@ -1040,13 +1052,24 @@ namespace 纺织贸易管理系统.新增窗体
             this.checkBoxX1.Text = "自动生成订单号";
             this.checkBoxX1.CheckedChanged += new System.EventHandler(this.checkBoxX1_CheckedChanged);
             // 
-            // comboItem5
+            // txtqianyuedidian
             // 
-            this.comboItem5.Text = "￥";
+            this.txtqianyuedidian.Location = new System.Drawing.Point(558, 343);
+            this.txtqianyuedidian.Name = "txtqianyuedidian";
+            this.txtqianyuedidian.Size = new System.Drawing.Size(360, 22);
+            this.txtqianyuedidian.TabIndex = 71;
             // 
-            // comboItem6
+            // labelX24
             // 
-            this.comboItem6.Text = "$";
+            // 
+            // 
+            // 
+            this.labelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX24.Location = new System.Drawing.Point(470, 343);
+            this.labelX24.Name = "labelX24";
+            this.labelX24.Size = new System.Drawing.Size(65, 23);
+            this.labelX24.TabIndex = 70;
+            this.labelX24.Text = "签约地点";
             // 
             // 销售计划单
             // 
@@ -1166,5 +1189,7 @@ namespace 纺织贸易管理系统.新增窗体
         private DevComponents.DotNetBar.LabelX labelX23;
         private DevComponents.Editors.ComboItem comboItem5;
         private DevComponents.Editors.ComboItem comboItem6;
+        private TextBox txtqianyuedidian;
+        private DevComponents.DotNetBar.LabelX labelX24;
     }
 }

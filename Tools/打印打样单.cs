@@ -16,16 +16,23 @@ namespace Tools
         public List<ShengchandanHouzhengli> houzhenglis { get; set; } = new List<ShengchandanHouzhengli>();
         public List<ShengChanDanHouZhengLiYaoQiu> yaoqius { get; set; } = new List<ShengChanDanHouZhengLiYaoQiu>();
         public FormInfo formInfo { get; set; } = new FormInfo();
+        /// <summary>
+        /// 单据明细
+        /// </summary>
+        public danjumingxitable DocDetail { get; set; }
         public  void 打印(string path,int useful)
         {
             var fs = new FastReport.Report();
             DataSet ds = new DataSet();
             var danjudt = CreateDanjuDatatable.CreateTable(DanjuTable, formInfo, "单据信息", "");
             danjudt.Columns.Add("客户助记词");
+            danjudt.Columns.Add("款号");
+            danjudt.Rows[0]["款号"] = DocDetail.kuanhao;
             danjudt.Rows[0]["客户助记词"] =DanjuTable.SaleMan !=null ? LXRService.GetOneLXR(x => x.MC == DanjuTable.SaleMan).ZJC:string.Empty ;
             ds.Tables.Add(danjudt );
             ds.Tables.Add(getColorTable());
             ds.Tables.Add(GetYaoqiu());
+            ds.Tables.Add(CreateDanjuDatatable.CreateTable<db>(dbService.GetOnedb(x => x.bh == DanjuTable.StockName), new FormInfo() { FormName = "品种资料", GridviewName = "gridview1" }, "布料信息",string.Empty) );
             try
             {
                 fs.RegisterData(ds);
@@ -55,10 +62,12 @@ namespace Tools
         {
             DataTable dt = new DataTable("颜色信息");
             dt.Columns.Add("颜色");
+            dt.Columns.Add("颜色要求");
             foreach (var y in colorTables )
             {
                 dt.Rows.Add();
                 dt.Rows[dt.Rows.Count - 1]["颜色"] = y.Yaoqiu ;
+                dt.Rows[dt.Rows.Count - 1]["颜色要求"] = y.Selaodu ;
             }
             return dt;
         }

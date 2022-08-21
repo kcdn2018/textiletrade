@@ -126,6 +126,7 @@ namespace 纺织贸易管理系统.新增窗体
                 ToupiList[i].Pihao = pingzhong.Pihao;
                 ToupiList[i].PibuChang = pingzhong.PibuChang;
                 ToupiList[i].FrabicWidth = pingzhong.FrabicWidth ;
+                ToupiList[i].CustomerLotNo = pingzhong.CustomerLotNo;
                 i++;
             }
             gridControl1.RefreshDataSource();
@@ -134,11 +135,7 @@ namespace 纺织贸易管理系统.新增窗体
 
         private void ButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var fm = new 订单号选择 ();
-            fm.ShowDialog();
-            danjumingxitables[gridView1.FocusedRowHandle].OrderNum = fm.Order.OrderNum;
-            danjumingxitables[gridView1.FocusedRowHandle].CustomName  = fm.Order.CustomerName ;
-            danjumingxitables[gridView1.FocusedRowHandle].ContractNum  = fm.Order.ContractNum ;
+            OrderDetailSelect.SelectDetail(gridView1, danjumingxitables, true);
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
         }

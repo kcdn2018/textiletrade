@@ -34,7 +34,7 @@ namespace BLL
                     TotalMishu = listjiyang.Sum(x => x.sl),
                     wuliuBianhao = jiyang.ydh,
                     wuliugongsi = jiyang.kdgs,
-                    djlx = DanjuLeiXing.报价单,
+                    djlx = DanjuLeiXing.来样登记单,
                     yunfei = jiyang.yf,
                     bz = jiyang.bz,
                 };
@@ -46,7 +46,7 @@ namespace BLL
                     rq = DateTime.Now.Date ,
                     je = listjiyang.Sum(x => x.HejiJinE),
                     TotalMishu = listjiyang.Sum(x => x.sl),
-                    djlx = DanjuLeiXing.报价单,
+                    djlx = DanjuLeiXing.来样登记单 ,
                 };
             }
         }

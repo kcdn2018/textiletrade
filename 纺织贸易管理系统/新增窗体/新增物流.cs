@@ -34,7 +34,8 @@ namespace 纺织贸易管理系统.新增窗体
                         c.Text = "";
                     }
                 }    
-                txtBianhao.Text    = BianhaoBLL.CreatWuliuBianhao();                                        
+                txtBianhao.Text    = BianhaoBLL.CreatWuliuBianhao();
+            comboBox1.Text = "货运";
         }
 
         private void 新增品种_Load(object sender, EventArgs e)
@@ -54,9 +55,13 @@ namespace 纺织贸易管理系统.新增窗体
             txtcheliangleixing.Text = infoTable.CarLeixing  ;
             txtchepai.Text = infoTable.CarNum ;           
             txtname.Text = infoTable.name   ;
-            txtLinkMan.Text = infoTable.LinkMan;
+            txtLinkMan.Text = infoTable.AccountHolder ;
             txtyinghangzhanghao.Text = infoTable.Yinghangzhanghao;
             txtkaihuyinghang.Text = infoTable.Kaihuyinghang;
+            txtlianxiren.Text = infoTable.LinkMan;
+            txtlianxidianhua.Text = infoTable.Tel;
+            txtquancheng.Text = infoTable.FullName;
+            comboBox1.Text = infoTable.Style;
         }
         private void InitPingzhong()
         {
@@ -66,7 +71,12 @@ namespace 纺织贸易管理系统.新增窗体
             infoTable.name    = txtname.Text;
             infoTable.Yinghangzhanghao = txtyinghangzhanghao.Text;
             infoTable.Kaihuyinghang = txtkaihuyinghang.Text;
-            infoTable.LinkMan = txtLinkMan.Text;
+            infoTable.LinkMan = txtlianxiren.Text;
+            infoTable.FullName = txtquancheng.Text;
+            infoTable.Pingyingma = txtpingyingma.Text;
+            infoTable.Tel = txtlianxidianhua.Text;
+            infoTable.AccountHolder = txtLinkMan.Text;
+            infoTable.Style = comboBox1.Text;
         }
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -75,7 +85,11 @@ namespace 纺织贸易管理系统.新增窗体
                 Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请输入物流名称！物流名称不能为空");
                 return;
             }
-           
+            if (string.IsNullOrWhiteSpace(comboBox1 .Text))
+            {
+                Sunny.UI.UIMessageDialog.ShowErrorDialog(this, "请输入物流类型！物流类型不能为空");
+                return;
+            }
             InitPingzhong();
             if (Useful == FormUseful.新增)
             { 
@@ -100,6 +114,14 @@ namespace 纺织贸易管理系统.新增窗体
         private void uiSymbolButton2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtname_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrWhiteSpace (txtname.Text ))
+            {
+                txtpingyingma.Text = Tools.GetPy.GetPingYingFirstLetter(txtname.Text);
+            }
         }
     }
 }

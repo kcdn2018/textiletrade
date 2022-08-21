@@ -85,11 +85,12 @@ namespace 纺织贸易管理系统.新增窗体
         {
             SelectProductHelper.Select(gridView1, danjumingxitables);
             gridControl1.RefreshDataSource();
+            gridView1.CloseEditor();
         }
 
         private void ButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            OrderDetailSelect.SelectDetail(gridView1, danjumingxitables);
+            OrderDetailSelect.SelectDetail(gridView1, danjumingxitables,true );
             gridControl1.RefreshDataSource();
             gridView1.CloseEditor();
         }

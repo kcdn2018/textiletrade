@@ -76,7 +76,6 @@ namespace BLL
                     单据反审核(danhao);
                 }
             }
-            Thread.Sleep(200);
             ///删除信息
             danjumingxitableService.Deletedanjumingxitable(x => x.danhao == danju.dh);
             FahuoDanService.DeleteFahuoDan(x => x.dh == danju.dh);
@@ -116,6 +115,11 @@ namespace BLL
                     单据审核(danhao);
                 }
             }
+            else
+            {
+                var danhao = danju.dh;
+                单据审核(danhao);
+            }
             FahuoDanService.InsertFahuoDanlst(fahuoDans);
         }
         public static void 删除单据(string deldanhao)
@@ -143,7 +147,6 @@ namespace BLL
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
                 订单BLL.增加已发货数量(danjumingxitables);
-                var juanhaos = JuanHaoTableService.GetJuanHaoTablelst(x => x.Danhao == danhao);
                 DanjuTableService.UpdateDanjuTable("zhuangtai='已审核'", x => x.dh == danhao);
                 来往明细BLL.增加来往记录(danju);
                 财务BLL.增加应收款(danju);
@@ -163,14 +166,13 @@ namespace BLL
         {
                 var danju = DanjuTableService.GetOneDanjuTable(x => x.dh == danhao);
                 var danjumingxitables = danjumingxitableService.Getdanjumingxitablelst(x => x.danhao == danhao);
-                var juanhaos = JuanHaoTableService.GetJuanHaoTablelst(x => x.Danhao == danhao);
                 DanjuTableService.UpdateDanjuTable("zhuangtai='未审核'", x => x.dh == danhao);
                 可发卷BLL.卷入库(danhao);
                 来往明细BLL.删除来往记录(danju);
                 财务BLL.减少应收款(danju);
                 财务BLL.减少应开发票(danju, danjumingxitables);
                 订单BLL.减少费用(danjumingxitables, danju);
-                库存BLL.增加库存(danjumingxitables, danju);
+                //库存BLL.增加库存(danjumingxitables, danju);
                 单据BLL.未审核(danhao);
                 订单进度BLL.删除进度(danju.dh);
                 订单BLL.减少已发货数量(danjumingxitables);

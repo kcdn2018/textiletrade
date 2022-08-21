@@ -63,6 +63,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,6 +94,7 @@
     <Compile Include="db.cs" />
     <Compile Include="DeleteLog.cs" />
     <Compile Include="DengJiNameTable.cs" />
+    <Compile Include="FabricInfo.cs" />
     <Compile Include="FabricMadan.cs" />
     <Compile Include="FahuoDan.cs" />
     <Compile Include="FatherMenuTable.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="MadanPicture.cs" />
     <Compile Include="Maitou.cs" />
     <Compile Include="MenuTable.cs" />
+    <Compile Include="MingxiCommon.cs" />
     <Compile Include="OrderDetailTable.cs" />
     <Compile Include="OrderTable.cs" />
     <Compile Include="PriceTable.cs" />
@@ -150,6 +153,7 @@
     <Compile Include="ShengChanFuHeMingxi.cs" />
     <Compile Include="ShengchanHouzhengli.cs" />
     <Compile Include="ShengChengGongYi.cs" />
+    <Compile Include="ShippingMark.cs" />
     <Compile Include="ShouzhiStyle.cs" />
     <Compile Include="SKFS.cs" />
     <Compile Include="skmx.cs" />

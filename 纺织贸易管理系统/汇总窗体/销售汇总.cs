@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tools;
+using 纺织贸易管理系统.新增窗体;
 
 namespace 纺织贸易管理系统.其他窗体
 {
@@ -73,6 +74,12 @@ namespace 纺织贸易管理系统.其他窗体
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void 提成领用ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fm = new 提成领用();
+            fm.ShowDialog();
         }
     }
 }
